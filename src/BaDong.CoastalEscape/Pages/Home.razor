@@ -6,13 +6,7 @@
     <meta name="description" content="Một guidebook kỹ thuật số về biển Ba Động: địa điểm, ẩm thực, gallery và lịch trình tham khảo." />
 </HeadContent>
 
-@if (loading)
-{
-    <div class="loading-shell"><span class="loading-dot"></span>Đang mở nhật ký ven biển…</div>
-}
-else
-{
-    <section class="hero">
+<section class="hero">
         <img class="hero__image" src="images/locations/ba-dong-beach-1600.jpg" srcset="images/locations/ba-dong-beach-800.jpg 960w, images/locations/ba-dong-beach-1600.jpg 1920w" sizes="100vw" alt="Biển Ba Động với bãi cát, bờ kè và dãy tua-bin điện gió ngoài khơi" fetchpriority="high" decoding="async" width="1600" height="900" />
         <div class="hero__veil"></div>
         <div class="hero__content container-wide">
@@ -55,7 +49,22 @@ else
     <section class="page-section surface-sand">
         <div class="container-wide">
             <div class="section-heading section-heading--inline"><div><p class="eyebrow">Điểm đến nổi bật</p><h2>Chạm vào đường bờ.</h2></div><p>Những lát cắt được chọn để bắt đầu khám phá, không phải bảng xếp hạng.</p></div>
-            <div class="card-grid">@foreach (var destination in destinations.Take(3)) { <DestinationCard Destination="destination" /> }</div>
+            <div class="card-grid" aria-busy="@(contentLoading ? "true" : "false")">
+                @if (contentLoading)
+                {
+                    @for (var index = 0; index < 3; index++)
+                    {
+                        <div class="destination-card home-card-placeholder" aria-hidden="true">
+                            <div class="destination-card__image"></div>
+                            <div class="destination-card__body"><span class="home-placeholder-line home-placeholder-line--tag"></span><span class="home-placeholder-line home-placeholder-line--title"></span><span class="home-placeholder-line"></span><span class="home-placeholder-line home-placeholder-line--short"></span></div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    @foreach (var destination in destinations.Take(3)) { <DestinationCard Destination="destination" /> }
+                }
+            </div>
             <div style="margin-top:28px"><NavLink class="text-link" href="kham-pha">Xem toàn bộ điểm đến</NavLink></div>
         </div>
     </section>
@@ -68,17 +77,42 @@ else
     <section class="page-section surface-sand">
         <div class="container-wide">
             <div class="section-heading section-heading--inline"><div><p class="eyebrow">Ăn gì bên biển</p><h2>Một bữa cơm có vị của nơi chốn.</h2></div><NavLink class="text-link" href="am-thuc">Khám phá ẩm thực</NavLink></div>
-            <div class="card-grid">@foreach (var food in foods.Take(4)) { <FoodCard Food="food" /> }</div>
+            <div class="card-grid" aria-busy="@(contentLoading ? "true" : "false")">
+                @if (contentLoading)
+                {
+                    @for (var index = 0; index < 4; index++)
+                    {
+                        <div class="food-card home-card-placeholder" aria-hidden="true">
+                            <div class="food-card__image"></div>
+                            <div class="food-card__body"><span class="home-placeholder-line home-placeholder-line--tag"></span><span class="home-placeholder-line home-placeholder-line--title"></span><span class="home-placeholder-line"></span><span class="home-placeholder-line home-placeholder-line--short"></span></div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    @foreach (var food in foods.Take(4)) { <FoodCard Food="food" /> }
+                }
+            </div>
         </div>
     </section>
 
     <section class="page-section surface-ocean">
         <div class="container-wide">
             <div class="section-heading section-heading--inline"><div><p class="eyebrow">Lịch trình gợi ý</p><h2>Để một ngày trôi chậm.</h2></div><NavLink class="text-link" style="color:var(--sand-200)" href="lich-trinh">Xem hai nhịp đi</NavLink></div>
-            <div class="feature-grid">
-                @foreach (var itinerary in itineraries)
+            <div class="feature-grid" aria-busy="@(contentLoading ? "true" : "false")">
+                @if (contentLoading)
                 {
-                    <article class="feature-card" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)"><span class="feature-card__number">@itinerary.DurationLabel</span><h3>@itinerary.Title</h3><p>@itinerary.Summary</p></article>
+                    @for (var index = 0; index < 2; index++)
+                    {
+                        <article class="feature-card home-feature-placeholder" aria-hidden="true"></article>
+                    }
+                }
+                else
+                {
+                    @foreach (var itinerary in itineraries)
+                    {
+                        <article class="feature-card" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)"><span class="feature-card__number">@itinerary.DurationLabel</span><h3>@itinerary.Title</h3><p>@itinerary.Summary</p></article>
+                    }
                 }
             </div>
         </div>
@@ -87,24 +121,42 @@ else
     <section class="page-section surface-sand">
         <div class="container-wide">
             <div class="section-heading section-heading--inline"><div><p class="eyebrow">Gallery</p><h2>Một vài khung hình để mang theo.</h2></div><NavLink class="text-link" href="thu-vien">Mở thư viện</NavLink></div>
-            <div class="gallery-teaser">
-                @if (gallery.Count > 0) { <NavLink class="gallery-teaser__large" href="thu-vien"><img src="@gallery[0].Thumbnail" alt="@gallery[0].Alt" loading="lazy" decoding="async" width="@gallery[0].ThumbnailWidth" height="@gallery[0].ThumbnailHeight" /></NavLink> }
-                <div class="gallery-teaser__stack">@foreach (var photo in gallery.Skip(1).Take(2)) { <NavLink href="thu-vien"><img src="@photo.Thumbnail" alt="@photo.Alt" loading="lazy" decoding="async" width="@photo.ThumbnailWidth" height="@photo.ThumbnailHeight" /></NavLink> }</div>
-            </div>
+            @if (contentLoading)
+            {
+                <div class="gallery-teaser" aria-busy="true" aria-hidden="true">
+                    <div class="gallery-teaser__large home-media-placeholder"></div>
+                    <div class="gallery-teaser__stack"><div class="home-media-placeholder"></div><div class="home-media-placeholder"></div></div>
+                </div>
+            }
+            else
+            {
+                <div class="gallery-teaser" aria-busy="false">
+                    @if (gallery.Count > 0) { <NavLink class="gallery-teaser__large" href="thu-vien"><img src="@gallery[0].Thumbnail" alt="@gallery[0].Alt" loading="lazy" decoding="async" width="@gallery[0].ThumbnailWidth" height="@gallery[0].ThumbnailHeight" /></NavLink> }
+                    <div class="gallery-teaser__stack">@foreach (var photo in gallery.Skip(1).Take(2)) { <NavLink href="thu-vien"><img src="@photo.Thumbnail" alt="@photo.Alt" loading="lazy" decoding="async" width="@photo.ThumbnailWidth" height="@photo.ThumbnailHeight" /></NavLink> }</div>
+                </div>
+            }
         </div>
     </section>
 
     <section class="page-section surface-foam">
-        <div class="container-wide"><div class="section-heading"><p class="eyebrow">Câu hỏi thường gặp</p><h2>Trước khi lên đường.</h2><p>Thông tin tham khảo, có ngày cập nhật và nguồn ở từng câu trả lời.</p></div><FaqAccordion Items="faq.Take(4).ToList()" /><div style="margin-top:28px"><NavLink class="text-link" href="cam-nang">Đọc cẩm nang đầy đủ</NavLink></div></div>
+        <div class="container-wide"><div class="section-heading"><p class="eyebrow">Câu hỏi thường gặp</p><h2>Trước khi lên đường.</h2><p>Thông tin tham khảo, có ngày cập nhật và nguồn ở từng câu trả lời.</p></div>
+            @if (contentLoading)
+            {
+                <div class="faq-list" aria-busy="true" aria-hidden="true">@for (var index = 0; index < 4; index++) { <div class="faq-item home-faq-placeholder"><span class="home-placeholder-line"></span></div> }</div>
+            }
+            else
+            {
+                <FaqAccordion Items="faq.Take(4).ToList()" />
+            }
+            <div style="margin-top:28px"><NavLink class="text-link" href="cam-nang">Đọc cẩm nang đầy đủ</NavLink></div></div>
     </section>
 
     <section class="page-section surface-ocean">
         <div class="container-wide" style="text-align:center"><p class="eyebrow">Bắt đầu từ sự tò mò</p><h2 style="max-width:760px;margin:12px auto 24px;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.5rem,5vw,5rem);font-weight:400;line-height:1.02">Một chuyến đi đáng nhớ bắt đầu từ một câu hỏi nhỏ.</h2><NavLink class="button button--primary" href="cam-nang">Mở cẩm nang du lịch <span aria-hidden="true">↗</span></NavLink></div>
     </section>
-}
 
 @code {
-    private bool loading = true;
+    private bool contentLoading = true;
     private IReadOnlyList<Destination> destinations = [];
     private IReadOnlyList<Food> foods = [];
     private IReadOnlyList<GalleryPhoto> gallery = [];
@@ -113,11 +165,24 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        destinations = await Content.GetDestinationsAsync();
-        foods = await Content.GetFoodsAsync();
-        gallery = await Content.GetGalleryAsync();
-        itineraries = await Content.GetItinerariesAsync();
-        faq = await Content.GetFaqAsync();
-        loading = false;
+        var destinationsTask = Content.GetDestinationsAsync();
+        var foodsTask = Content.GetFoodsAsync();
+        var galleryTask = Content.GetGalleryAsync();
+        var itinerariesTask = Content.GetItinerariesAsync();
+        var faqTask = Content.GetFaqAsync();
+
+        try
+        {
+            await Task.WhenAll(destinationsTask, foodsTask, galleryTask, itinerariesTask, faqTask);
+            destinations = await destinationsTask;
+            foods = await foodsTask;
+            gallery = await galleryTask;
+            itineraries = await itinerariesTask;
+            faq = await faqTask;
+        }
+        finally
+        {
+            contentLoading = false;
+        }
     }
 }

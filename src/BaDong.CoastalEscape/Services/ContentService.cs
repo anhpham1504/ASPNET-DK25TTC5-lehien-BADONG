@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Text.Json;
 using System.Net.Http.Json;
 using BaDong.CoastalEscape.Models;
@@ -7,7 +8,7 @@ namespace BaDong.CoastalEscape.Services;
 public sealed class ContentService(HttpClient httpClient)
 {
     private readonly JsonSerializerOptions _jsonOptions = new(JsonSerializerDefaults.Web);
-    private readonly Dictionary<string, object> _cache = [];
+    private readonly ConcurrentDictionary<string, object> _cache = [];
 
     public Task<IReadOnlyList<Destination>> GetDestinationsAsync() => LoadAsync<Destination>("data/destinations.json");
     public Task<IReadOnlyList<Food>> GetFoodsAsync() => LoadAsync<Food>("data/foods.json");
@@ -37,6 +38,14 @@ public sealed class ContentService(HttpClient httpClient)
         {
             return [];
         }
+        catch (NotSupportedException)
+        {
+            return [];
+        }
+        catch (TaskCanceledException)
+        {
+            return [];
+        }
     }
 
     private async Task<SiteInfo> LoadObjectAsync(string path)
@@ -57,6 +66,14 @@ public sealed class ContentService(HttpClient httpClient)
             return new SiteInfo();
         }
         catch (JsonException)
+        {
+            return new SiteInfo();
+        }
+        catch (NotSupportedException)
+        {
+            return new SiteInfo();
+        }
+        catch (TaskCanceledException)
         {
             return new SiteInfo();
         }
