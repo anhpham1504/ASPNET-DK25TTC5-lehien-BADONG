@@ -1,0 +1,73 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Validate repository name
+        shell: bash
+        run: |
+          set -euo pipefail
+          repository_name="${GITHUB_REPOSITORY#*/}"
+          test "$repository_name" = "ba-dong-coastal-escape" || {
+            echo "Expected repository name 'ba-dong-coastal-escape' but found '$repository_name'."
+            exit 1
+          }
+      - name: Restore
+        run: dotnet restore src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj
+      - name: Build
+        run: dotnet build src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release --no-restore
+      - name: Publish
+        run: dotnet publish src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release --no-restore -o publish
+      - name: Configure repository base path and SPA fallback
+        shell: bash
+        env:
+          SITE_BASE: /ba-dong-coastal-escape/
+          SITE_URL: https://${{ github.repository_owner }}.github.io/ba-dong-coastal-escape
+        run: |
+          set -euo pipefail
+          grep -q '<base href="/" />' publish/wwwroot/index.html
+          sed -i "s#<base href=\"/\" />#<base href=\"${SITE_BASE}\" />#" publish/wwwroot/index.html
+          sed -i "s#__SITE_URL__#${SITE_URL}#g" publish/wwwroot/sitemap.xml publish/wwwroot/robots.txt
+          sed -i "s#__SITE_BASE__#${SITE_BASE}#g" publish/wwwroot/404.html
+          touch publish/wwwroot/.nojekyll
+          grep -q "<base href=\"${SITE_BASE}\" />" publish/wwwroot/index.html
+          grep -q "window.location.replace(basePath)" publish/wwwroot/404.html
+          test -f publish/wwwroot/.nojekyll
+          ! grep -R -E '__SITE_URL__|__SITE_BASE__|#\[\.\{fingerprint\}\]' publish/wwwroot/index.html publish/wwwroot/404.html publish/wwwroot/sitemap.xml publish/wwwroot/robots.txt
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: publish/wwwroot
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

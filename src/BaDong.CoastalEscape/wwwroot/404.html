@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <title>Đang mở BA ĐỘNG — Coastal Escape</title>
+  <script>
+    (function redirectToSpaShell() {
+      var basePath = '__SITE_BASE__';
+      var requestedPath = window.location.pathname + window.location.search + window.location.hash;
+      try {
+        window.sessionStorage.setItem('ba-dong-spa-path', requestedPath);
+      } catch (_) {
+        // The redirect still opens the homepage if session storage is unavailable.
+      }
+      window.location.replace(basePath);
+    })();
+  </script>
+</head>
+<body>
+  <p>Đang mở trang được yêu cầu…</p>
+  <p><a href="__SITE_BASE__">Về trang chủ</a></p>
+</body>
+</html>

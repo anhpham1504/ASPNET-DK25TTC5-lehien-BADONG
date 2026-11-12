@@ -1,0 +1,26 @@
+[
+  {
+    "id": "cua-bien", "slug": "cua-bien", "name": "Cua biển", "category": "hai-san", "description": "Vị mặn mòi của vùng cửa biển, ngon nhất khi được thưởng thức thật đơn giản và theo mùa.",
+    "image": "images/food/vietnamese-crab-dish-1600.jpg", "thumbnail": "images/food/vietnamese-crab-dish-800.jpg", "thumbnailWidth": 960, "imageWidth": 1920, "alt": "Món cua Việt Nam đã luộc chín, ảnh chụp tại Cà Mau và dùng để nhận diện món ăn",
+    "imageLocation": "Cà Mau, Việt Nam — không phải ảnh chụp tại Ba Động", "imageAttribution": "Phương Huy / Wikimedia Commons", "imageLicense": "CC BY-SA 4.0", "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:M%C3%B3n_cua_C%C3%A0_Mau_%E1%BB%9F_nh%C3%A0_ng30th7n2023_(2).jpg", "imageVerificationStatus": "VERIFIED_SUBJECT",
+    "bestEnjoyed": "Một bữa cơm ven biển", "note": "Ảnh xác minh đúng món cua Việt Nam nhưng không phải ảnh chụp ở Ba Động. Hỏi người bán về nguồn gốc và dị ứng hải sản trước khi dùng.", "sourceUrls": ["https://commons.wikimedia.org/wiki/File:M%C3%B3n_cua_C%C3%A0_Mau_%E1%BB%9F_nh%C3%A0_ng30th7n2023_(2).jpg", "https://travinh.gov.vn/"]
+  },
+  {
+    "id": "ca-khoai", "slug": "ca-khoai", "name": "Cá khoai", "category": "dac-san", "description": "Một gợi ý đặc sản thường được nhắc đến khi nói về ẩm thực vùng biển Trà Vinh.",
+    "image": "images/food/ca-khoai-1600.jpg", "thumbnail": "images/food/ca-khoai-800.jpg", "thumbnailWidth": 960, "imageWidth": 1920, "alt": "Cá khoai tươi Harpadon nehereus được bày bán tại chợ ở Hậu Lộc, Thanh Hóa",
+    "imageLocation": "Hậu Lộc, Thanh Hóa — ảnh nhận diện loài, không phải ảnh chụp tại Ba Động", "imageAttribution": "Gió Đông / Wikimedia Commons", "imageLicense": "Public domain", "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Ca_Khoai01.JPG", "imageVerificationStatus": "VERIFIED_SUBJECT",
+    "bestEnjoyed": "Bữa trưa cùng rau và canh nóng", "note": "Ảnh nhận diện đúng cá khoai nhưng được chụp ở Thanh Hóa. Món ăn và cách chế biến có thể khác nhau theo mùa, gia đình và địa phương.", "sourceUrls": ["https://commons.wikimedia.org/wiki/File:Ca_Khoai01.JPG", "https://vietnamtourism.gov.vn/"]
+  },
+  {
+    "id": "banh-xeo", "slug": "banh-xeo-mien-tay", "name": "Bánh xèo miền Tây", "category": "an-nhe", "description": "Lớp vỏ giòn, rau sống tươi và cách cuốn ăn tại bàn tạo nên một trải nghiệm rất miền Tây.",
+    "image": "images/food/banh-xeo-800.jpg", "thumbnail": "images/food/banh-xeo-800.jpg", "thumbnailWidth": 960, "imageWidth": 960, "alt": "Những chiếc bánh xèo vàng được xếp trên mâm có lót lá chuối",
+    "imageLocation": "Việt Nam; trang nguồn không ghi địa điểm cụ thể", "imageAttribution": "Baoothersks / Wikimedia Commons", "imageLicense": "CC BY-SA 4.0", "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:B%C3%A1nh_x%C3%A8o_(20-8-2020).jpg", "imageVerificationStatus": "VERIFIED_SUBJECT",
+    "bestEnjoyed": "Một buổi chiều không vội", "note": "Ảnh xác minh đúng món bánh xèo nhưng không được gắn là ảnh Ba Động. Nếu có dị ứng, hãy hỏi thành phần nhân trước khi gọi món.", "sourceUrls": ["https://commons.wikimedia.org/wiki/File:B%C3%A1nh_x%C3%A8o_(20-8-2020).jpg", "https://vietnamtourism.gov.vn/"]
+  },
+  {
+    "id": "dua-sap", "slug": "dua-sap", "name": "Dừa sáp", "category": "dac-san", "description": "Đặc sản gắn với vùng Trà Vinh, thường được thưởng thức như một món quà mát lành.",
+    "image": "images/food/dua-sap-cau-ke-1600.jpg", "thumbnail": "images/food/dua-sap-cau-ke-800.jpg", "thumbnailWidth": 960, "imageWidth": 1024, "alt": "Quả dừa sáp Cầu Kè được bổ đôi, để lộ lớp cơm dừa dày",
+    "imageLocation": "Cầu Kè, Trà Vinh (nay thuộc tỉnh Vĩnh Long)", "imageAttribution": "Dongson.vmvn / Wikimedia Commons", "imageLicense": "CC BY-SA 3.0", "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:D%E1%BB%ABa_s%C3%A1p_C%E1%BA%A7u_K%C3%A8,_Tr%C3%A0_Vinh..jpg", "imageVerificationStatus": "VERIFIED",
+    "bestEnjoyed": "Món tráng miệng hoặc quà mang về", "note": "Ảnh có mô tả nguồn xác nhận dừa sáp Cầu Kè, Trà Vinh. Tìm hiểu cách bảo quản và nguồn gốc khi mua làm quà.", "sourceUrls": ["https://commons.wikimedia.org/wiki/File:D%E1%BB%ABa_s%C3%A1p_C%E1%BA%A7u_K%C3%A8,_Tr%C3%A0_Vinh..jpg", "https://travinh.gov.vn/"]
+  }
+]

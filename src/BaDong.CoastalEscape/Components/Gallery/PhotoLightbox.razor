@@ -1,0 +1,69 @@
+@implements IAsyncDisposable
+
+@if (Selected is not null)
+{
+    <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-labelledby="lightbox-title" @onclick="CloseAsync" @onkeydown="HandleKeydown" tabindex="-1">
+        <div class="lightbox__panel" @onclick:stopPropagation>
+            <button class="lightbox__close" type="button" aria-label="Đóng ảnh" @onclick="CloseAsync">×</button>
+            <div class="lightbox__media">
+                <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Ảnh trước" @onclick="Previous">‹</button>
+                <img class="lightbox__image" src="@Selected.Image" alt="@Selected.Alt" width="@Selected.ImageWidth" height="@Selected.ImageHeight" />
+                <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Ảnh tiếp theo" @onclick="Next">›</button>
+            </div>
+            <div class="lightbox__copy">
+                <p class="eyebrow">@Selected.Category · @Selected.VerificationStatus</p>
+                <h2 id="lightbox-title">@Selected.Caption</h2>
+                <p>@Selected.Alt</p>
+                <p class="source-note"><strong>Vị trí ảnh:</strong> @Selected.ActualLocation</p>
+                <p class="source-note">@Selected.Author · @Selected.License · <a href="@Selected.SourceUrl" target="_blank" rel="noreferrer">Nguồn ảnh ↗</a></p>
+            </div>
+        </div>
+    </div>
+}
+@code {
+    [Inject] private IJSRuntime JS { get; set; } = default!;
+    [Parameter] public IReadOnlyList<GalleryPhoto> Photos { get; set; } = [];
+    private GalleryPhoto? Selected;
+    private int selectedIndex;
+    private bool activationPending;
+
+    public async Task OpenAsync(int index)
+    {
+        if (Photos.Count == 0) return;
+        await JS.InvokeVoidAsync("siteUi.rememberDialogFocus", "lightbox");
+        selectedIndex = Math.Clamp(index, 0, Photos.Count - 1);
+        Selected = Photos[selectedIndex];
+        activationPending = true;
+        StateHasChanged();
+    }
+
+    private async Task CloseAsync()
+    {
+        if (Selected is null) return;
+        await JS.InvokeVoidAsync("siteUi.deactivateDialog", "lightbox", true);
+        Selected = null;
+    }
+
+    private void Next() { if (Photos.Count > 0) { selectedIndex = (selectedIndex + 1) % Photos.Count; Selected = Photos[selectedIndex]; } }
+    private void Previous() { if (Photos.Count > 0) { selectedIndex = (selectedIndex - 1 + Photos.Count) % Photos.Count; Selected = Photos[selectedIndex]; } }
+
+    private async Task HandleKeydown(KeyboardEventArgs args)
+    {
+        if (args.Key == "Escape") await CloseAsync();
+        else if (args.Key == "ArrowRight") Next();
+        else if (args.Key == "ArrowLeft") Previous();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!activationPending) return;
+        activationPending = false;
+        await JS.InvokeVoidAsync("siteUi.activateDialog", "lightbox", ".lightbox__close");
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        try { await JS.InvokeVoidAsync("siteUi.deactivateDialog", "lightbox", false); }
+        catch (JSDisconnectedException) { }
+    }
+}

@@ -1,0 +1,45 @@
+@page "/kham-pha/{Slug}"
+@inject ContentService Content
+@inject NavigationManager Navigation
+@if (destination is null && loaded)
+{
+    <section class="page-section surface-sand"><div class="container-wide empty-state"><p class="eyebrow">404 · Không tìm thấy</p><h1>Trang này đã trôi khỏi đường bờ.</h1><p>Slug không tồn tại hoặc nội dung chưa được thêm vào dữ liệu tĩnh.</p><NavLink class="button button--dark" href="kham-pha">Quay lại khám phá</NavLink></div></section>
+}
+else if (!loaded)
+{
+    <div class="loading-shell"><span class="loading-dot"></span>Đang mở địa điểm…</div>
+}
+else
+{
+    <HeadContent><title>@destination!.Name · BA ĐỘNG — Coastal Escape</title><meta name="description" content="@destination!.ShortDescription" /></HeadContent>
+    <section class="detail-hero"><div class="container-wide detail-hero__grid"><div class="detail-hero__copy"><Breadcrumbs Items="breadcrumbs" /><p class="eyebrow">@CategoryLabel(destination!.Category)</p><h1>@destination!.Name</h1><p>@destination!.Subtitle</p><div class="button-row"><a class="button button--primary" href="@destination!.MapUrl" target="_blank" rel="noreferrer">Mở trong Maps <span aria-hidden="true">↗</span></a><button class="button button--ghost" @onclick="CopyLink">@(copied ? "Đã sao chép" : "Chia sẻ liên kết")</button></div></div><div class="detail-hero__image"><img src="@destination!.HeroImage" srcset="@DestinationSourceSet" sizes="(max-width: 820px) 100vw, 55vw" alt="@destination!.ImageAlt" decoding="async" width="1800" height="1200" />@if (!string.IsNullOrWhiteSpace(destination!.ImageSourceUrl)) { <a class="image-credit" href="@destination!.ImageSourceUrl" target="_blank" rel="noreferrer">@destination!.ImageAttribution · @destination!.ImageLicense ↗</a> } else { <span class="image-credit">PENDING · chờ ảnh địa điểm đã xác minh</span> }</div></div></section>
+    <section class="page-section surface-sand"><div class="container-wide detail-body"><article class="prose"><h2>Một lát cắt của đường bờ.</h2>@foreach (var paragraph in destination!.Description) { <p>@paragraph</p> }<SourceNote Urls="destination!.SourceUrls" /></article><aside class="detail-aside"><div class="aside-block"><p class="aside-label">Chủ đề</p><div class="tag-list">@foreach (var tag in destination!.Tags) { <span>@tag</span> }</div></div><div class="aside-block"><p class="aside-label">Cập nhật</p><p class="source-note">@destination!.UpdatedAt · thông tin tham khảo</p></div></aside></div></section>
+    @if (related.Count > 0)
+    {
+        <section class="page-section surface-foam"><div class="container-wide"><div class="section-heading"><p class="eyebrow">Đi tiếp</p><h2>Có thể bạn sẽ thích.</h2></div><div class="card-grid">@foreach (var item in related) { <DestinationCard Destination="item" /> }</div></div></section>
+    }
+}
+
+@code {
+    [Parameter] public string? Slug { get; set; }
+    private Destination? destination;
+    private IReadOnlyList<Destination> allDestinations = [];
+    private IReadOnlyList<Destination> related = [];
+    private bool loaded;
+    private bool copied;
+    private string DestinationSourceSet => destination?.ImageVerificationStatus == "PENDING" ? string.Empty : $"{destination!.Thumbnail} {destination.ThumbnailWidth}w, {destination.HeroImage} {destination.HeroWidth}w";
+    private IReadOnlyList<Breadcrumbs.BreadcrumbItem> breadcrumbs => destination is null ? [new("Khám phá", "kham-pha")] : [new("Khám phá", "kham-pha"), new(destination.Name)];
+
+    protected override async Task OnParametersSetAsync()
+    {
+        loaded = false;
+        allDestinations = await Content.GetDestinationsAsync();
+        destination = allDestinations.FirstOrDefault(item => string.Equals(item.Slug, Slug, StringComparison.OrdinalIgnoreCase));
+        related = destination is null ? [] : allDestinations.Where(item => item.Id != destination.Id && item.Tags.Intersect(destination.Tags, StringComparer.OrdinalIgnoreCase).Any()).Take(3).ToList();
+        loaded = true;
+    }
+
+    private async Task CopyLink() { copied = await JS.InvokeAsync<bool>("siteUi.copyText", Navigation.Uri); }
+    [Inject] private IJSRuntime JS { get; set; } = default!;
+    private static string CategoryLabel(string category) => category switch { "thien-nhien" => "Thiên nhiên", "trai-nghiem" => "Trải nghiệm", "van-hoa" => "Văn hóa", "check-in" => "Check-in", _ => category };
+}

@@ -1,0 +1,13 @@
+[
+  { "id": "one-day", "title": "Một ngày thảnh thơi", "durationLabel": "Đi trong ngày", "summary": "Một vòng vừa đủ để chạm vào biển, ăn một bữa ngon và còn thời gian ngồi yên.", "stops": [
+    { "timeLabel": "Sáng", "title": "Đón gió ở Biển Ba Động", "description": "Bắt đầu bằng một đoạn đi bộ ngắn, quan sát ánh sáng và nhịp bờ biển.", "slug": "bien-ba-dong", "image": "images/locations/ba-dong-beach-800.jpg", "imageAlt": "Biển Ba Động với bãi cát và điện gió ngoài khơi" },
+    { "timeLabel": "Trưa", "title": "Bữa cơm vị biển", "description": "Chọn món theo mùa và hỏi kỹ thành phần nếu có dị ứng.", "slug": "", "image": "images/food/vietnamese-crab-dish-800.jpg", "imageAlt": "Món cua Việt Nam đã luộc chín, ảnh tham chiếu chụp tại Cà Mau" },
+    { "timeLabel": "Chiều", "title": "Điện gió Duyên Hải", "description": "Quan sát đường chân trời công nghiệp từ khu vực công cộng và tuân thủ biển báo tại chỗ.", "slug": "dien-gio-duyen-hai", "image": "images/locations/duyen-hai-wind-power-800.jpg", "imageAlt": "Dãy tua-bin điện gió Duyên Hải trên mặt biển" }
+  ] },
+  { "id": "two-days", "title": "Hai ngày một nhịp chậm", "durationLabel": "2 ngày 1 đêm", "summary": "Dành thêm một buổi cho đường bờ, ẩm thực và những khoảng không có lịch.", "stops": [
+    { "timeLabel": "Ngày 1 · Sáng", "title": "Chạm biển khi trời dịu", "description": "Khởi động với tuyến đi bộ ven biển và ghi lại những chi tiết nhỏ.", "slug": "bien-ba-dong", "image": "images/locations/ba-dong-beach-800.jpg", "imageAlt": "Toàn cảnh thực tế Biển Ba Động" },
+    { "timeLabel": "Ngày 1 · Chiều", "title": "Bữa ăn & câu chuyện nguyên liệu", "description": "Ăn chậm, hỏi nguồn gốc món và ưu tiên trải nghiệm tôn trọng.", "slug": "", "image": "images/food/banh-xeo-800.jpg", "imageAlt": "Mâm bánh xèo Việt Nam" },
+    { "timeLabel": "Ngày 2 · Sáng", "title": "Đường bờ và điện gió", "description": "Quan sát công trình từ khoảng cách an toàn, không tự ý đi vào khu vực hạn chế.", "slug": "dien-gio-duyen-hai", "image": "images/locations/duyen-hai-wind-power-800.jpg", "imageAlt": "Điện gió Duyên Hải nhìn từ mặt nước" },
+    { "timeLabel": "Ngày 2 · Chiều", "title": "Một khoảng trống để thở", "description": "Kết thúc bằng đường bờ Ba Động và một lần kiểm tra lại rác mang theo.", "slug": "bien-ba-dong", "image": "images/locations/ba-dong-beach-800.jpg", "imageAlt": "Bãi cát và đường ven Biển Ba Động" }
+  ] }
+]

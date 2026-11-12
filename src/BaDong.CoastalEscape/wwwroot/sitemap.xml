@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>__SITE_URL__/</loc></url>
+  <url><loc>__SITE_URL__/gioi-thieu</loc></url>
+  <url><loc>__SITE_URL__/kham-pha</loc></url>
+  <url><loc>__SITE_URL__/kham-pha/bien-ba-dong</loc></url>
+  <url><loc>__SITE_URL__/kham-pha/dien-gio-duyen-hai</loc></url>
+  <url><loc>__SITE_URL__/kham-pha/hang-duong-ven-bien</loc></url>
+  <url><loc>__SITE_URL__/kham-pha/nhip-song-lang-bien</loc></url>
+  <url><loc>__SITE_URL__/kham-pha/goc-ngam-hoang-hon</loc></url>
+  <url><loc>__SITE_URL__/kham-pha/rung-ngap-man-lan-can</loc></url>
+  <url><loc>__SITE_URL__/kham-pha/bai-bo-yen-tinh</loc></url>
+  <url><loc>__SITE_URL__/am-thuc</loc></url>
+  <url><loc>__SITE_URL__/am-thuc/cua-bien</loc></url>
+  <url><loc>__SITE_URL__/am-thuc/ca-khoai</loc></url>
+  <url><loc>__SITE_URL__/am-thuc/banh-xeo-mien-tay</loc></url>
+  <url><loc>__SITE_URL__/am-thuc/dua-sap</loc></url>
+  <url><loc>__SITE_URL__/thu-vien</loc></url>
+  <url><loc>__SITE_URL__/cam-nang</loc></url>
+  <url><loc>__SITE_URL__/lich-trinh</loc></url>
+  <url><loc>__SITE_URL__/lien-he</loc></url>
+</urlset>

@@ -1,0 +1,44 @@
+@page "/am-thuc"
+@page "/am-thuc/{Slug}"
+@inject ContentService Content
+@if (!loaded)
+{
+    <div class="loading-shell"><span class="loading-dot"></span>Đang dọn bàn…</div>
+}
+else if (!string.IsNullOrWhiteSpace(Slug))
+{
+    <HeadContent><title>@(food?.Name ?? "Không tìm thấy") · Ẩm thực Ba Động</title></HeadContent>
+    @if (food is null)
+    {
+        <section class="page-section surface-sand"><div class="container-wide empty-state"><p class="eyebrow">404 · Không tìm thấy</p><h1>Món này chưa có trong thực đơn.</h1><NavLink class="button button--dark" href="am-thuc">Về trang ẩm thực</NavLink></div></section>
+    }
+    else
+    {
+        <section class="detail-hero"><div class="container-wide detail-hero__grid"><div class="detail-hero__copy"><Breadcrumbs Items="detailBreadcrumbs" /><p class="eyebrow">@CategoryLabel(food.Category)</p><h1>@food.Name</h1><p>@food.Description</p><div class="button-row"><NavLink class="button button--ghost" href="am-thuc">← Về ẩm thực</NavLink></div></div><div class="detail-hero__image"><img src="@food.Image" srcset="@FoodSourceSet" sizes="(max-width: 820px) 100vw, 55vw" alt="@food.Alt" decoding="async" width="1200" height="900" /><a class="image-credit" href="@food.ImageSourceUrl" target="_blank" rel="noreferrer">@food.ImageAttribution · @food.ImageLicense · @food.ImageLocation ↗</a></div></div></section>
+        <section class="page-section surface-sand"><div class="container-wide detail-body"><article class="prose"><h2>Ăn như một cách lắng nghe.</h2><p>@food.Description</p><h3>Dịp thưởng thức</h3><p>@food.BestEnjoyed</p><div class="note-panel"><strong>Lưu ý:</strong> @food.Note</div><SourceNote Urls="food.SourceUrls" /></article><aside class="detail-aside"><div class="aside-block"><p class="aside-label">Danh mục</p><p class="source-note">@CategoryLabel(food.Category)</p></div><div class="aside-block"><p class="aside-label">Tinh thần</p><p class="source-note">Không có giá bán, địa chỉ quán hay giờ phục vụ được khẳng định trên trang này.</p></div></aside></div></section>
+    }
+}
+else
+{
+    <HeadContent><title>Ẩm thực · BA ĐỘNG — Coastal Escape</title><meta name="description" content="Những gợi ý hương vị ven biển Trà Vinh, được trình bày trung thực và có nguồn." /></HeadContent>
+    <section class="page-hero"><div class="container-wide"><Breadcrumbs Items="breadcrumbs" /><p class="eyebrow">Ẩm thực</p><h1>Vị biển trên bàn ăn.</h1><p>Những gợi ý có thể bắt đầu một cuộc trò chuyện về mùa vụ, nguyên liệu và cách thưởng thức.</p></div></section>
+    <section class="page-section surface-sand"><div class="container-wide"><div class="toolbar"><div class="filters" role="group" aria-label="Lọc món ăn"><button class="filter-chip @(activeCategory == "all" ? "is-active" : string.Empty)" @onclick="ResetCategory">Tất cả</button>@foreach (var category in categories) { <button class="filter-chip @(activeCategory == category.Key ? "is-active" : string.Empty)" @onclick="() => SetCategory(category.Key)">@category.Value</button> }</div><span class="result-count">@filteredFoods.Count() món</span></div><div class="card-grid">@foreach (var item in filteredFoods) { <FoodCard Food="item" /> }</div></div></section>
+    <section class="page-section surface-foam"><div class="container-wide"><div class="section-heading"><p class="eyebrow">Một nguyên tắc nhỏ</p><h2>Không thêm những gì chưa được kiểm chứng.</h2><p>Không giá bán giả, không địa chỉ quán bịa, không nút đặt món. Chỉ những gợi ý có thể tiếp tục kiểm tra trước khi lên đường.</p></div></div></section>
+}
+
+@code {
+    [Parameter] public string? Slug { get; set; }
+    private bool loaded;
+    private IReadOnlyList<Food> foods = [];
+    private Food? food;
+    private string activeCategory = "all";
+    private string FoodSourceSet => food is null ? string.Empty : food.ImageWidth > food.ThumbnailWidth ? $"{food.Thumbnail} {food.ThumbnailWidth}w, {food.Image} {food.ImageWidth}w" : $"{food.Thumbnail} {food.ThumbnailWidth}w";
+    private readonly Dictionary<string, string> categories = new() { ["dac-san"] = "Đặc sản", ["hai-san"] = "Hải sản", ["an-nhe"] = "Ăn nhẹ" };
+    private IEnumerable<Food> filteredFoods => foods.Where(item => activeCategory == "all" || item.Category == activeCategory);
+    private readonly IReadOnlyList<Breadcrumbs.BreadcrumbItem> breadcrumbs = [new("Ẩm thực")];
+    private IReadOnlyList<Breadcrumbs.BreadcrumbItem> detailBreadcrumbs => [new("Ẩm thực", "am-thuc"), new(food?.Name ?? "Chi tiết")];
+    protected override async Task OnParametersSetAsync() { loaded = false; foods = await Content.GetFoodsAsync(); food = string.IsNullOrWhiteSpace(Slug) ? null : foods.FirstOrDefault(item => item.Slug.Equals(Slug, StringComparison.OrdinalIgnoreCase)); loaded = true; }
+    private void SetCategory(string category) => activeCategory = category;
+    private void ResetCategory() => activeCategory = "all";
+    private static string CategoryLabel(string category) => category switch { "hai-san" => "Hải sản", "dac-san" => "Đặc sản", "an-nhe" => "Ăn nhẹ", _ => category };
+}

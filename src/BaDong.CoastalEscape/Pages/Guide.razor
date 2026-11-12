@@ -1,0 +1,12 @@
+@page "/cam-nang"
+@inject ContentService Content
+<HeadContent><title>Cẩm nang · BA ĐỘNG — Coastal Escape</title><meta name="description" content="Cẩm nang chuẩn bị chuyến đi Ba Động: thời tiết, đồ dùng, ứng xử và gia đình." /></HeadContent>
+<section class="page-hero"><div class="container-wide"><Breadcrumbs Items="breadcrumbs" /><p class="eyebrow">Cẩm nang</p><h1>Đi nhẹ, chuẩn bị kỹ.</h1><p>Một vài điều thực tế để chuyến đi ven biển thoải mái hơn — và tử tế hơn với nơi chốn.</p></div></section>
+<section class="page-section surface-sand"><div class="container-wide toc-layout"><nav class="toc" aria-label="Mục lục cẩm nang"><a href="#thoi-diem">Thời điểm</a><a href="#chuan-bi">Chuẩn bị</a><a href="#cong-dong">Cộng đồng</a><a href="#gia-dinh">Đi cùng gia đình</a><a href="#faq">FAQ</a></nav><article class="guide-article"><section id="thoi-diem"><h2>Thời điểm & nhịp thời tiết</h2><p>Hãy kiểm tra dự báo và điều kiện địa phương gần ngày đi. Gió, mưa và thủy triều có thể làm thay đổi trải nghiệm ven biển; nội dung trên trang này không phải thông báo an toàn theo thời gian thực.</p><div class="note-panel"><strong>Gợi ý:</strong> Buổi sáng sớm hoặc cuối chiều thường dễ chịu hơn cho việc đi bộ, nhưng thời gian cụ thể cần được kiểm tra lại.</div></section><section id="chuan-bi"><h2>Chuẩn bị một túi đồ gọn</h2><ul><li>Nước uống cá nhân, mũ, kem chống nắng và áo khoác mỏng.</li><li>Túi đựng rác nhỏ để mang rác của mình rời khỏi bờ.</li><li>Giày có độ bám tốt nếu đi gần nền cát ướt hoặc lối cây.</li><li>Thuốc cá nhân và thông tin liên hệ khẩn cấp do bạn tự chuẩn bị.</li></ul></section><section id="cong-dong"><h2>Đi qua cộng đồng với sự tôn trọng</h2><p>Xin phép trước khi chụp ảnh con người. Không tự ý bước vào sân, bến, khu vực sản xuất hoặc vùng có biển cảnh báo. Một câu hỏi lịch sự thường mở ra một câu chuyện hay hơn một bức ảnh vội.</p></section><section id="gia-dinh"><h2>Nếu đi cùng gia đình</h2><p>Chọn điểm dừng có bóng râm, chia nhỏ quãng đi bộ và luôn quan sát trẻ ở khu vực gần nước. Đừng xem một bãi biển đẹp là dấu hiệu an toàn để bơi.</p></section><section id="faq"><h2>FAQ</h2><FaqAccordion Items="faq" /></section><SourceNote Urls="sourceUrls" /></article></div></section>
+
+@code {
+    private readonly IReadOnlyList<Breadcrumbs.BreadcrumbItem> breadcrumbs = [new("Cẩm nang")];
+    private IReadOnlyList<FaqItem> faq = [];
+    private readonly IReadOnlyList<string> sourceUrls = ["https://vietnamtourism.gov.vn/", "https://travinh.gov.vn/"];
+    protected override async Task OnInitializedAsync() => faq = await Content.GetFaqAsync();
+}

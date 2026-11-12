@@ -1,0 +1,14 @@
+@page "/lien-he"
+@inject ContentService Content
+<HeadContent><title>Liên hệ & vị trí · BA ĐỘNG — Coastal Escape</title><meta name="description" content="Vị trí tham khảo, nguồn nội dung và ghi chú học thuật của BA ĐỘNG — Coastal Escape." /></HeadContent>
+<section class="page-hero"><div class="container-wide"><Breadcrumbs Items="breadcrumbs" /><p class="eyebrow">Liên hệ · vị trí · nguồn</p><h1>Đến gần hơn, bằng những nguồn rõ ràng.</h1><p>Website này là dự án học thuật giới thiệu du lịch, không phải đơn vị cung cấp dịch vụ và không nhận đặt chỗ.</p></div></section>
+<section class="page-section surface-sand"><div class="container-wide"><div class="location-card"><div class="location-card__map" role="img" aria-label="Minh họa vị trí biển Ba Động"></div><div><p class="eyebrow">Vị trí tham khảo</p><h2>Biển Ba Động</h2><p>@siteInfo.AdministrativeLocation</p><p>Vị trí và tuyến đường cần được kiểm tra lại trên bản đồ trước ngày khởi hành.</p><a class="button button--dark" href="@siteInfo.MapUrl" target="_blank" rel="noreferrer">Mở Google Maps <span aria-hidden="true">↗</span></a></div></div></div></section>
+<section class="page-section surface-foam"><div class="container-wide"><div class="section-heading"><p class="eyebrow">Nguồn nội dung</p><h2>Đọc thêm từ nơi đáng tin.</h2><p>Danh sách dưới đây là các điểm bắt đầu để kiểm tra thông tin địa danh và du lịch. Nguồn ảnh minh họa được ghi tại gallery và dữ liệu JSON.</p></div><div class="card-grid">@foreach (var source in siteInfo.SourceLinks) { <a class="feature-card" href="@source.Url" target="_blank" rel="noreferrer"><span class="feature-card__number">SOURCE</span><h3>@source.Label</h3><p>@source.Url</p><span class="card-link" style="color:inherit">Mở nguồn ↗</span></a> }</div></div></section>
+<section class="page-section surface-sand"><div class="container-wide"><div class="section-heading"><p class="eyebrow">Minh bạch học thuật</p><h2>Một bản dựng có giới hạn rõ ràng.</h2><p>@siteInfo.AcademicDisclaimer</p><p>Nội dung được cập nhật: <strong>@siteInfo.UpdatedAt</strong>. Không có form gửi liên hệ giả, không lưu dữ liệu cá nhân, không có backend hay cơ sở dữ liệu.</p></div><SourceNote Urls="sourceUrls" /></div></section>
+
+@code {
+    private readonly IReadOnlyList<Breadcrumbs.BreadcrumbItem> breadcrumbs = [new("Liên hệ & vị trí")];
+    private SiteInfo siteInfo = new();
+    private readonly IReadOnlyList<string> sourceUrls = ["https://travinh.gov.vn/", "https://vietnamtourism.gov.vn/"];
+    protected override async Task OnInitializedAsync() => siteInfo = await Content.GetSiteInfoAsync();
+}

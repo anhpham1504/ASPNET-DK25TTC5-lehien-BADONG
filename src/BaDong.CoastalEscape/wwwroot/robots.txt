@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap: __SITE_URL__/sitemap.xml
+
+# __SITE_URL__ is replaced with the absolute GitHub Pages project URL during deployment.

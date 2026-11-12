@@ -1,0 +1,5 @@
+@if (Urls.Count > 0)
+{
+    <p class="source-note">Nguồn tham khảo: @foreach (var url in Urls.Select((value, index) => (value, index))) { <a href="@url.value" target="_blank" rel="noreferrer">@(url.index + 1)</a>@if (url.index < Urls.Count - 1) { <span>, </span> } }</p>
+}
+@code { [Parameter] public IReadOnlyList<string> Urls { get; set; } = []; }

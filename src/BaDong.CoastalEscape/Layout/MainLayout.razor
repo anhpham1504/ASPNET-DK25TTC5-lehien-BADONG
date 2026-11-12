@@ -1,0 +1,113 @@
+@inherits LayoutComponentBase
+@implements IAsyncDisposable
+@inject IJSRuntime JS
+
+<div class="site-shell" @onkeydown:window="HandleWindowKeydown">
+    <a class="skip-link" href="#main-content">Bỏ qua đến nội dung</a>
+    <header class="site-header @(menuOpen ? "menu-is-open" : string.Empty)" aria-label="Điều hướng chính">
+        <div class="site-header__inner">
+            <NavLink class="brand-mark" href="" Match="NavLinkMatch.All" @onclick="CloseMenu">
+                <span class="brand-mark__word">BA ĐỘNG</span>
+                <span class="brand-mark__descriptor">COASTAL ESCAPE</span>
+            </NavLink>
+            <nav class="desktop-nav" aria-label="Điều hướng website">
+                <NavLink href="" Match="NavLinkMatch.All">Trang chủ</NavLink>
+                <NavLink href="gioi-thieu">Giới thiệu</NavLink>
+                <NavLink href="kham-pha">Khám phá</NavLink>
+                <NavLink href="am-thuc">Ẩm thực</NavLink>
+                <NavLink href="thu-vien">Thư viện</NavLink>
+                <NavLink href="cam-nang">Cẩm nang</NavLink>
+            </nav>
+            <NavLink class="header-cta" href="lich-trinh" @onclick="CloseMenu">Lên lịch trình <span aria-hidden="true">↗</span></NavLink>
+            <button class="menu-toggle" type="button" aria-label="@(menuOpen ? "Đóng menu" : "Mở menu")" aria-expanded="@(menuOpen ? "true" : "false")" aria-controls="mobile-menu" @onclick="ToggleMenu">
+                <span></span><span></span>
+            </button>
+        </div>
+        @if (menuOpen)
+        {
+            <div class="mobile-menu-backdrop" data-dialog-allow="mobile-menu" @onclick="CloseMenu"></div>
+            <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" tabindex="-1" @onclick:stopPropagation @onkeydown="HandleWindowKeydown">
+                <button class="mobile-menu__close" type="button" aria-label="Đóng menu" @onclick="CloseMenu">×</button>
+                <div id="mobile-menu-title" class="mobile-menu__eyebrow">THE COASTAL EDIT</div>
+                <nav aria-label="Điều hướng di động">
+                    <NavLink href="" Match="NavLinkMatch.All" @onclick="CloseMenu">Trang chủ</NavLink>
+                    <NavLink href="gioi-thieu" @onclick="CloseMenu">Giới thiệu</NavLink>
+                    <NavLink href="kham-pha" @onclick="CloseMenu">Khám phá</NavLink>
+                    <NavLink href="am-thuc" @onclick="CloseMenu">Ẩm thực</NavLink>
+                    <NavLink href="thu-vien" @onclick="CloseMenu">Thư viện</NavLink>
+                    <NavLink href="cam-nang" @onclick="CloseMenu">Cẩm nang</NavLink>
+                    <NavLink href="lich-trinh" @onclick="CloseMenu">Lên lịch trình <span aria-hidden="true">↗</span></NavLink>
+                </nav>
+                <p class="mobile-menu__note">Một điểm đến số để bắt đầu chuyến đi thật chậm.</p>
+            </div>
+        }
+    </header>
+    <main id="main-content" tabindex="-1">@Body</main>
+    <footer class="site-footer">
+        <div class="site-footer__top container-wide">
+            <div>
+                <p class="footer-kicker">BA ĐỘNG · TRÀ VINH COAST</p>
+                <p class="footer-title">Nơi biển chạm vào<br /><em>nhịp sống miền Tây.</em></p>
+            </div>
+            <div class="footer-intro">Một guidebook kỹ thuật số giàu cảm xúc, dùng dữ liệu tĩnh để kể câu chuyện về biển, bờ cây và cộng đồng ven biển.</div>
+            <div class="footer-links">
+                <p class="footer-kicker">ĐI NHANH</p>
+                <NavLink href="kham-pha">Khám phá địa điểm</NavLink>
+                <NavLink href="am-thuc">Ăn gì</NavLink>
+                <NavLink href="cam-nang">Cẩm nang</NavLink>
+                <NavLink href="lien-he">Nguồn & vị trí</NavLink>
+            </div>
+        </div>
+        <div class="site-footer__bottom container-wide">
+            <span>© 2026 Ba Động — Coastal Escape</span>
+            <span>Dự án học thuật · không phải website cơ quan du lịch chính thức</span>
+            <NavLink href="lien-he">Nguồn nội dung ↗</NavLink>
+        </div>
+    </footer>
+</div>
+
+@code {
+    private bool menuOpen;
+    private bool menuActivationPending;
+
+    private async Task ToggleMenu()
+    {
+        if (menuOpen)
+        {
+            await CloseMenu();
+            return;
+        }
+
+        await JS.InvokeVoidAsync("siteUi.rememberDialogFocus", "mobile-menu");
+        menuOpen = true;
+        menuActivationPending = true;
+    }
+
+    private async Task CloseMenu()
+    {
+        if (!menuOpen) return;
+        await JS.InvokeVoidAsync("siteUi.deactivateDialog", "mobile-menu", true);
+        menuOpen = false;
+    }
+
+    private async Task HandleWindowKeydown(KeyboardEventArgs args)
+    {
+        if (args.Key == "Escape" && menuOpen) await CloseMenu();
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender) await JS.InvokeVoidAsync("siteUi.init");
+        if (menuActivationPending)
+        {
+            menuActivationPending = false;
+            await JS.InvokeVoidAsync("siteUi.activateDialog", "mobile-menu", ".mobile-menu__close");
+        }
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        try { await JS.InvokeVoidAsync("siteUi.deactivateDialog", "mobile-menu", false); }
+        catch (JSDisconnectedException) { }
+    }
+}

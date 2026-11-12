@@ -1,0 +1,13 @@
+{
+  "name": "BA ĐỘNG — Coastal Escape",
+  "tagline": "Nơi biển chạm vào nhịp sống miền Tây.",
+  "region": "Trà Vinh coast · Mekong Delta",
+  "administrativeLocation": "Phường Trường Long Hòa, tỉnh Vĩnh Long (khu vực Trà Vinh trước sáp nhập)",
+  "academicDisclaimer": "Dự án học thuật giới thiệu điểm đến; không phải website chính thức của cơ quan du lịch hay đơn vị cung cấp dịch vụ.",
+  "updatedAt": "06/11/2026",
+  "mapUrl": "https://www.google.com/maps/search/?api=1&query=Bi%E1%BB%83n+Ba+%C4%90%E1%BB%99ng+Tr%C3%A0+Vinh",
+  "sourceLinks": [
+    { "label": "Cổng thông tin du lịch Trà Vinh", "url": "https://travinh.gov.vn/" },
+    { "label": "Cục Du lịch Quốc gia Việt Nam", "url": "https://vietnamtourism.gov.vn/" }
+  ]
+}

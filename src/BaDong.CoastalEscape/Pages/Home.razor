@@ -1,0 +1,123 @@
+@page "/"
+@inject ContentService Content
+@inject NavigationManager Navigation
+<HeadContent>
+    <title>BA ĐỘNG — Coastal Escape · Nơi biển chạm vào nhịp sống miền Tây</title>
+    <meta name="description" content="Một guidebook kỹ thuật số về biển Ba Động: địa điểm, ẩm thực, gallery và lịch trình tham khảo." />
+</HeadContent>
+
+@if (loading)
+{
+    <div class="loading-shell"><span class="loading-dot"></span>Đang mở nhật ký ven biển…</div>
+}
+else
+{
+    <section class="hero">
+        <img class="hero__image" src="images/locations/ba-dong-beach-1600.jpg" srcset="images/locations/ba-dong-beach-800.jpg 960w, images/locations/ba-dong-beach-1600.jpg 1920w" sizes="100vw" alt="Biển Ba Động với bãi cát, bờ kè và dãy tua-bin điện gió ngoài khơi" fetchpriority="high" decoding="async" width="1600" height="900" />
+        <div class="hero__veil"></div>
+        <div class="hero__content container-wide">
+            <div class="hero__meta"><span>Trà Vinh coast</span><span>·</span><span>Mekong Delta</span></div>
+            <p class="eyebrow">Một coastal editorial</p>
+            <h1>Ba Động —<br /><em>Nơi biển chạm vào nhịp sống miền Tây.</em></h1>
+            <p>Một điểm đến số để bắt đầu chuyến đi thật chậm: biết đi đâu, ăn gì, và để ý những câu chuyện ở phía sau đường bờ.</p>
+            <div class="button-row">
+                <NavLink class="button button--primary" href="kham-pha">Khám phá Ba Động <span aria-hidden="true">↗</span></NavLink>
+                <NavLink class="button button--ghost" href="lich-trinh">Xem hành trình</NavLink>
+            </div>
+        </div>
+        <div class="hero__scroll">Cuộn để đi tiếp</div>
+        <a class="hero__credit" href="https://commons.wikimedia.org/wiki/File:Bi%E1%BB%83n_Ba_%C4%90%E1%BB%99ng,_Tr%C3%A0_Vinh.jpg" target="_blank" rel="noreferrer">Ảnh: Baoothersks · CC BY 4.0 ↗</a>
+    </section>
+
+    <section class="page-section surface-sand">
+        <div class="container-wide editorial-split">
+            <div class="editorial-split__copy">
+                <p class="eyebrow">Về một vùng biển</p>
+                <h2>Không cần vội để thấy biển.</h2>
+                <p>Ba Động được kể ở đây như một trang tạp chí mở: có gió mặn, hàng dương, bữa cơm và những khoảng im lặng. Nội dung là dữ liệu tĩnh, được tổ chức để bạn xem nhanh rồi tự kiểm tra lại trước chuyến đi.</p>
+                <NavLink class="text-link" href="gioi-thieu">Đọc câu chuyện địa danh</NavLink>
+            </div>
+            <div class="editorial-split__image"><img src="images/locations/duyen-hai-wind-power-1600.jpg" srcset="images/locations/duyen-hai-wind-power-800.jpg 960w, images/locations/duyen-hai-wind-power-1600.jpg 1280w" sizes="(max-width: 820px) 88vw, 45vw" alt="Dãy tua-bin điện gió Duyên Hải trên biển dưới trời nhiều mây" loading="lazy" decoding="async" width="1280" height="960" /><a class="image-credit" href="https://commons.wikimedia.org/wiki/File:Th%E1%BB%8B_x%C3%A3_Duy%C3%AAn_H%E1%BA%A3i.jpg" target="_blank" rel="noreferrer">Dangkhoadora · CC BY-SA 4.0 ↗</a></div>
+        </div>
+    </section>
+
+    <section class="page-section surface-foam">
+        <div class="container-wide">
+            <div class="section-heading"><p class="eyebrow">Một chuyến đi có nhiều lớp</p><h2>Ba cách để bước vào Ba Động.</h2><p>Chọn một nhịp phù hợp với bạn — hoặc để những lớp trải nghiệm này đan vào nhau.</p></div>
+            <div class="feature-grid">
+                <article class="feature-card"><span class="feature-card__number">01</span><h3>Biển & hàng dương</h3><p>Đi bộ khi nắng dịu, lắng nghe mặt nước và tán cây kể cùng một câu chuyện.</p></article>
+                <article class="feature-card"><span class="feature-card__number">02</span><h3>Nhịp sống ven bờ</h3><p>Quan sát chợ nhỏ, bến nước và những cuộc gặp không cần lên lịch.</p></article>
+                <article class="feature-card"><span class="feature-card__number">03</span><h3>Vị biển trên bàn ăn</h3><p>Ăn theo mùa, hỏi về nguyên liệu và để một bữa cơm trở thành ký ức.</p></article>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section surface-sand">
+        <div class="container-wide">
+            <div class="section-heading section-heading--inline"><div><p class="eyebrow">Điểm đến nổi bật</p><h2>Chạm vào đường bờ.</h2></div><p>Những lát cắt được chọn để bắt đầu khám phá, không phải bảng xếp hạng.</p></div>
+            <div class="card-grid">@foreach (var destination in destinations.Take(3)) { <DestinationCard Destination="destination" /> }</div>
+            <div style="margin-top:28px"><NavLink class="text-link" href="kham-pha">Xem toàn bộ điểm đến</NavLink></div>
+        </div>
+    </section>
+
+    <section class="quote-band">
+        <img src="images/locations/ba-dong-beach-1600.jpg" srcset="images/locations/ba-dong-beach-800.jpg 960w, images/locations/ba-dong-beach-1600.jpg 1920w" sizes="100vw" alt="Bờ biển Ba Động và công trình điện gió nhìn từ đường ven biển" loading="lazy" decoding="async" width="1600" height="900" />
+        <blockquote>“Đôi khi, điều đáng nhớ nhất là khoảng thời gian không có gì cần phải vội.”<cite>Ba Động · Coastal notes</cite></blockquote>
+    </section>
+
+    <section class="page-section surface-sand">
+        <div class="container-wide">
+            <div class="section-heading section-heading--inline"><div><p class="eyebrow">Ăn gì bên biển</p><h2>Một bữa cơm có vị của nơi chốn.</h2></div><NavLink class="text-link" href="am-thuc">Khám phá ẩm thực</NavLink></div>
+            <div class="card-grid">@foreach (var food in foods.Take(4)) { <FoodCard Food="food" /> }</div>
+        </div>
+    </section>
+
+    <section class="page-section surface-ocean">
+        <div class="container-wide">
+            <div class="section-heading section-heading--inline"><div><p class="eyebrow">Lịch trình gợi ý</p><h2>Để một ngày trôi chậm.</h2></div><NavLink class="text-link" style="color:var(--sand-200)" href="lich-trinh">Xem hai nhịp đi</NavLink></div>
+            <div class="feature-grid">
+                @foreach (var itinerary in itineraries)
+                {
+                    <article class="feature-card" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16)"><span class="feature-card__number">@itinerary.DurationLabel</span><h3>@itinerary.Title</h3><p>@itinerary.Summary</p></article>
+                }
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section surface-sand">
+        <div class="container-wide">
+            <div class="section-heading section-heading--inline"><div><p class="eyebrow">Gallery</p><h2>Một vài khung hình để mang theo.</h2></div><NavLink class="text-link" href="thu-vien">Mở thư viện</NavLink></div>
+            <div class="gallery-teaser">
+                @if (gallery.Count > 0) { <NavLink class="gallery-teaser__large" href="thu-vien"><img src="@gallery[0].Thumbnail" alt="@gallery[0].Alt" loading="lazy" decoding="async" width="@gallery[0].ThumbnailWidth" height="@gallery[0].ThumbnailHeight" /></NavLink> }
+                <div class="gallery-teaser__stack">@foreach (var photo in gallery.Skip(1).Take(2)) { <NavLink href="thu-vien"><img src="@photo.Thumbnail" alt="@photo.Alt" loading="lazy" decoding="async" width="@photo.ThumbnailWidth" height="@photo.ThumbnailHeight" /></NavLink> }</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="page-section surface-foam">
+        <div class="container-wide"><div class="section-heading"><p class="eyebrow">Câu hỏi thường gặp</p><h2>Trước khi lên đường.</h2><p>Thông tin tham khảo, có ngày cập nhật và nguồn ở từng câu trả lời.</p></div><FaqAccordion Items="faq.Take(4).ToList()" /><div style="margin-top:28px"><NavLink class="text-link" href="cam-nang">Đọc cẩm nang đầy đủ</NavLink></div></div>
+    </section>
+
+    <section class="page-section surface-ocean">
+        <div class="container-wide" style="text-align:center"><p class="eyebrow">Bắt đầu từ sự tò mò</p><h2 style="max-width:760px;margin:12px auto 24px;font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.5rem,5vw,5rem);font-weight:400;line-height:1.02">Một chuyến đi đáng nhớ bắt đầu từ một câu hỏi nhỏ.</h2><NavLink class="button button--primary" href="cam-nang">Mở cẩm nang du lịch <span aria-hidden="true">↗</span></NavLink></div>
+    </section>
+}
+
+@code {
+    private bool loading = true;
+    private IReadOnlyList<Destination> destinations = [];
+    private IReadOnlyList<Food> foods = [];
+    private IReadOnlyList<GalleryPhoto> gallery = [];
+    private IReadOnlyList<Itinerary> itineraries = [];
+    private IReadOnlyList<FaqItem> faq = [];
+
+    protected override async Task OnInitializedAsync()
+    {
+        destinations = await Content.GetDestinationsAsync();
+        foods = await Content.GetFoodsAsync();
+        gallery = await Content.GetGalleryAsync();
+        itineraries = await Content.GetItinerariesAsync();
+        faq = await Content.GetFaqAsync();
+        loading = false;
+    }
+}

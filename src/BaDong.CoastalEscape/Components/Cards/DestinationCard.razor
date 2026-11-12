@@ -1,0 +1,5 @@
+<NavLink class="destination-card" href="@($"kham-pha/{Destination.Slug}")" aria-label="@($"Xem {Destination.Name}")">
+    <div class="destination-card__image"><img src="@Destination.Thumbnail" srcset="@SourceSet" sizes="(max-width: 560px) calc(100vw - 32px), (max-width: 820px) 50vw, 33vw" alt="@Destination.ImageAlt" loading="lazy" decoding="async" width="1000" height="690" /></div>
+    <div class="destination-card__body"><span class="card-tag">@CategoryLabel(Destination.Category)</span><h3>@Destination.Name</h3><p>@Destination.ShortDescription</p><span class="card-link">Xem câu chuyện <span aria-hidden="true">↗</span></span></div>
+</NavLink>
+@code { [Parameter, EditorRequired] public Destination Destination { get; set; } = new(); private string SourceSet => Destination.ImageVerificationStatus == "PENDING" ? string.Empty : $"{Destination.Thumbnail} {Destination.ThumbnailWidth}w, {Destination.HeroImage} {Destination.HeroWidth}w"; private static string CategoryLabel(string category) => category switch { "thien-nhien" => "Thiên nhiên", "trai-nghiem" => "Trải nghiệm", "van-hoa" => "Văn hóa", "check-in" => "Check-in", _ => category }; }

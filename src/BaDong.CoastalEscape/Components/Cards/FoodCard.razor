@@ -1,0 +1,5 @@
+<NavLink class="food-card" href="@($"am-thuc/{Food.Slug}")" aria-label="@($"Xem {Food.Name}")">
+    <div class="food-card__image"><img src="@Food.Thumbnail" srcset="@SourceSet" sizes="(max-width: 560px) calc(100vw - 32px), (max-width: 820px) 50vw, 33vw" alt="@Food.Alt" loading="lazy" decoding="async" width="1100" height="760" /></div>
+    <div class="food-card__body"><span class="card-tag">@CategoryLabel(Food.Category)</span><h3>@Food.Name</h3><p>@Food.Description</p><span class="card-link">Đọc thêm <span aria-hidden="true">↗</span></span></div>
+</NavLink>
+@code { [Parameter, EditorRequired] public Food Food { get; set; } = new(); private string SourceSet => Food.ImageWidth > Food.ThumbnailWidth ? $"{Food.Thumbnail} {Food.ThumbnailWidth}w, {Food.Image} {Food.ImageWidth}w" : $"{Food.Thumbnail} {Food.ThumbnailWidth}w"; private static string CategoryLabel(string category) => category switch { "hai-san" => "Hải sản", "dac-san" => "Đặc sản", "an-nhe" => "Ăn nhẹ", _ => category }; }

@@ -1,0 +1,83 @@
+[
+  {
+    "id": "ba-dong-beach",
+    "slug": "bien-ba-dong",
+    "name": "Biển Ba Động",
+    "subtitle": "Đường chân trời mở ra từ đồng bằng",
+    "category": "thien-nhien",
+    "shortDescription": "Một dải bờ biển mang nhịp điệu riêng: sóng nhỏ, bãi cát, đường ven biển và điện gió ngoài khơi.",
+    "description": ["Ba Động là một điểm hẹn ven biển miền Tây, nơi không gian của đồng bằng gặp đường chân trời. Trải nghiệm đáng nhớ thường nằm ở những điều giản dị: đi bộ khi nắng dịu, ngồi nghe gió và quan sát nhịp sống ven bờ.", "Hãy xem đây là một chuyến đi để quan sát và nghỉ ngơi. Các thông tin về dịch vụ, giờ mở cửa và điều kiện bãi biển nên được kiểm tra lại trước ngày khởi hành."],
+    "thumbnail": "images/locations/ba-dong-beach-800.jpg",
+    "heroImage": "images/locations/ba-dong-beach-1600.jpg",
+    "thumbnailWidth": 960,
+    "heroWidth": 1920,
+    "imageAlt": "Biển Ba Động với bãi cát, đường ven biển và dãy tua-bin điện gió ngoài khơi",
+    "imageLocation": "Biển Ba Động, Trà Vinh (nay thuộc tỉnh Vĩnh Long)",
+    "imageAttribution": "Baoothersks / Wikimedia Commons",
+    "imageLicense": "CC BY 4.0",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Bi%E1%BB%83n_Ba_%C4%90%E1%BB%99ng,_Tr%C3%A0_Vinh.jpg",
+    "imageVerificationStatus": "VERIFIED",
+    "tags": ["bien", "phong-canh", "di-bo", "dien-gio"],
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Bi%E1%BB%83n+Ba+%C4%90%E1%BB%99ng+Tr%C3%A0+Vinh",
+    "sourceUrls": ["https://commons.wikimedia.org/wiki/File:Bi%E1%BB%83n_Ba_%C4%90%E1%BB%99ng,_Tr%C3%A0_Vinh.jpg", "https://travinh.gov.vn/"],
+    "updatedAt": "10/11/2026"
+  },
+  {
+    "id": "duyen-hai-wind-power",
+    "slug": "dien-gio-duyen-hai",
+    "name": "Điện gió Duyên Hải",
+    "subtitle": "Một đường chân trời mới trên vùng biển Duyên Hải",
+    "category": "check-in",
+    "shortDescription": "Dãy tua-bin và cầu dẫn vươn ra mặt nước tạo nên một lát cắt đặc trưng của vùng biển Duyên Hải.",
+    "description": ["Công trình điện gió ngoài khơi là một dấu ấn dễ nhận ra khi nhìn từ bờ biển khu vực Duyên Hải. Ảnh trên trang được chụp tại Duyên Hải và có hồ sơ nguồn mở trên Wikimedia Commons.", "Chỉ quan sát từ khu vực công cộng và tuân thủ biển báo tại chỗ. Website không khẳng định quyền tiếp cận công trình hay giờ tham quan."],
+    "thumbnail": "images/locations/duyen-hai-wind-power-800.jpg",
+    "heroImage": "images/locations/duyen-hai-wind-power-1600.jpg",
+    "thumbnailWidth": 960,
+    "heroWidth": 1280,
+    "imageAlt": "Dãy tua-bin điện gió Duyên Hải và cầu dẫn trên mặt biển",
+    "imageLocation": "Duyên Hải, Trà Vinh (nay thuộc tỉnh Vĩnh Long)",
+    "imageAttribution": "Dangkhoadora / Wikimedia Commons",
+    "imageLicense": "CC BY-SA 4.0",
+    "imageSourceUrl": "https://commons.wikimedia.org/wiki/File:Th%E1%BB%8B_x%C3%A3_Duy%C3%AAn_H%E1%BA%A3i.jpg",
+    "imageVerificationStatus": "VERIFIED",
+    "tags": ["dien-gio", "phong-canh", "bien", "kien-truc"],
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=%C4%90i%E1%BB%87n+gi%C3%B3+Duy%C3%AAn+H%E1%BA%A3i+Tr%C3%A0+Vinh",
+    "sourceUrls": ["https://commons.wikimedia.org/wiki/File:Th%E1%BB%8B_x%C3%A3_Duy%C3%AAn_H%E1%BA%A3i.jpg"],
+    "updatedAt": "10/11/2026"
+  },
+  {
+    "id": "duong-dong-coastal-road", "slug": "hang-duong-ven-bien", "name": "Hàng dương ven biển", "subtitle": "Khoảng râm xanh cho một buổi đi bộ", "category": "trai-nghiem",
+    "shortDescription": "Một cung dạo nhẹ để cảm nhận gió, mùi cây và nhịp sống ven biển.",
+    "description": ["Những hàng cây ven biển tạo nên một lớp chuyển tiếp mềm giữa đường đi và mặt nước. Đây là điểm dừng phù hợp cho một buổi sáng thong thả, khi ánh sáng chưa quá gắt.", "Giữ lối đi sạch, không bẻ cành và ưu tiên quan sát đời sống địa phương từ khoảng cách tôn trọng."],
+    "thumbnail": "images/placeholders/pending-verification.svg", "heroImage": "images/placeholders/pending-verification.svg", "imageAlt": "Ảnh hàng dương Ba Động đang chờ nguồn và giấy phép được xác minh", "imageLocation": "PENDING", "imageAttribution": "Chưa có ảnh đủ điều kiện", "imageLicense": "PENDING", "imageSourceUrl": "", "imageVerificationStatus": "PENDING",
+    "tags": ["cay-xanh", "di-bo", "song-cham"], "mapUrl": "https://www.google.com/maps/search/?api=1&query=Ba+%C4%90%E1%BB%99ng+Tr%C3%A0+Vinh", "sourceUrls": ["https://travinh.gov.vn/"], "updatedAt": "10/11/2026"
+  },
+  {
+    "id": "coastal-life", "slug": "nhip-song-lang-bien", "name": "Nhịp sống làng biển", "subtitle": "Đi chậm để thấy nhiều hơn", "category": "van-hoa",
+    "shortDescription": "Câu chuyện của ghe thuyền, bữa cơm và những cuộc gặp bên đường.",
+    "description": ["Một chuyến đi đến biển không chỉ là đi tìm cảnh đẹp. Hãy dành thời gian quan sát chợ nhỏ, bến nước và cách người địa phương chuẩn bị cho một ngày mới.", "Khi chụp ảnh con người, hãy xin phép trước. Tôn trọng riêng tư là một phần của trải nghiệm có trách nhiệm."],
+    "thumbnail": "images/placeholders/pending-verification.svg", "heroImage": "images/placeholders/pending-verification.svg", "imageAlt": "Ảnh nhịp sống làng biển Ba Động đang chờ nguồn và sự đồng thuận phù hợp", "imageLocation": "PENDING", "imageAttribution": "Chưa có ảnh đủ điều kiện", "imageLicense": "PENDING", "imageSourceUrl": "", "imageVerificationStatus": "PENDING",
+    "tags": ["con-nguoi", "van-hoa", "quan-sat"], "mapUrl": "https://www.google.com/maps/search/?api=1&query=Tr%C6%B0%E1%BB%9Dng+Long+H%C3%B2a+Tr%C3%A0+Vinh", "sourceUrls": ["https://vietnamtourism.gov.vn/"], "updatedAt": "10/11/2026"
+  },
+  {
+    "id": "sunset-lookout", "slug": "goc-ngam-hoang-hon", "name": "Góc ngắm hoàng hôn", "subtitle": "Khi sắc trời đổi màu trên đường bờ", "category": "check-in",
+    "shortDescription": "Một khoảng lặng cuối ngày để nhìn sắc trời thay đổi trên đường chân trời.",
+    "description": ["Cuối ngày, bờ biển trở thành một sân khấu ánh sáng tự nhiên. Hãy đến sớm để tìm một vị trí không cản lối đi và rời đi cùng rác của mình.", "Thời điểm hoàng hôn thay đổi theo mùa. Phần mô tả này chỉ gợi ý trải nghiệm, không phải lịch mặt trời chính xác."],
+    "thumbnail": "images/placeholders/pending-verification.svg", "heroImage": "images/placeholders/pending-verification.svg", "imageAlt": "Ảnh hoàng hôn thực tế tại Ba Động đang chờ nguồn và giấy phép được xác minh", "imageLocation": "PENDING", "imageAttribution": "Chưa có ảnh đủ điều kiện", "imageLicense": "PENDING", "imageSourceUrl": "", "imageVerificationStatus": "PENDING",
+    "tags": ["hoang-hon", "anh-dep", "bien"], "mapUrl": "https://www.google.com/maps/search/?api=1&query=Bi%E1%BB%83n+Ba+%C4%90%E1%BB%99ng+Tr%C3%A0+Vinh", "sourceUrls": ["https://travinh.gov.vn/"], "updatedAt": "10/11/2026"
+  },
+  {
+    "id": "mangrove-edge", "slug": "rung-ngap-man-lan-can", "name": "Rìa rừng ngập mặn", "subtitle": "Hệ sinh thái ở phía sau đường bờ", "category": "thien-nhien",
+    "shortDescription": "Một lời nhắc rằng biển luôn đi cùng đất, cây và những vùng đệm mong manh.",
+    "description": ["Các vùng cây ven biển giữ vai trò quan trọng với hệ sinh thái và cộng đồng. Khi ghé thăm, chỉ nên đi trong khu vực được phép và tránh làm ảnh hưởng đến cây non, bùn lầy hay sinh vật.", "Nếu cần đi sâu hơn, hãy tìm hướng dẫn địa phương có trách nhiệm thay vì tự mở lối."],
+    "thumbnail": "images/placeholders/pending-verification.svg", "heroImage": "images/placeholders/pending-verification.svg", "imageAlt": "Ảnh rừng ngập mặn khu vực Ba Động đang chờ nguồn và giấy phép được xác minh", "imageLocation": "PENDING", "imageAttribution": "Chưa có ảnh đủ điều kiện", "imageLicense": "PENDING", "imageSourceUrl": "", "imageVerificationStatus": "PENDING",
+    "tags": ["sinh-thai", "cay-xanh", "quan-sat"], "mapUrl": "https://www.google.com/maps/search/?api=1&query=Tr%C6%B0%E1%BB%9Dng+Long+H%C3%B2a+Tr%C3%A0+Vinh", "sourceUrls": ["https://vietnamtourism.gov.vn/"], "updatedAt": "10/11/2026"
+  },
+  {
+    "id": "quiet-shoreline", "slug": "bai-bo-yen-tinh", "name": "Bãi bờ yên tĩnh", "subtitle": "Một khoảng trống để thở", "category": "trai-nghiem",
+    "shortDescription": "Không cần lịch trình dày: đôi khi điểm đến đẹp nhất là nơi bạn ngồi lâu hơn dự định.",
+    "description": ["Hãy để một phần chuyến đi không có mục tiêu. Ngồi nghe sóng, đọc vài trang sách hoặc chỉ nhìn những thay đổi rất nhỏ của mặt nước.", "Luôn kiểm tra điều kiện an toàn địa phương và không bơi ở khu vực không có hướng dẫn."],
+    "thumbnail": "images/placeholders/pending-verification.svg", "heroImage": "images/placeholders/pending-verification.svg", "imageAlt": "Ảnh bãi bờ yên tĩnh tại Ba Động đang chờ nguồn và giấy phép được xác minh", "imageLocation": "PENDING", "imageAttribution": "Chưa có ảnh đủ điều kiện", "imageLicense": "PENDING", "imageSourceUrl": "", "imageVerificationStatus": "PENDING",
+    "tags": ["song-cham", "bien", "nghi-ngoi"], "mapUrl": "https://www.google.com/maps/search/?api=1&query=Bi%E1%BB%83n+Ba+%C4%90%E1%BB%99ng+Tr%C3%A0+Vinh", "sourceUrls": ["https://travinh.gov.vn/"], "updatedAt": "10/11/2026"
+  }
+]

@@ -1,0 +1,7 @@
+* text=auto eol=lf
+*.br -text
+*.gz -text
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary

@@ -1,0 +1,22 @@
+@page "/thu-vien"
+@inject ContentService Content
+<HeadContent><title>Thư viện · BA ĐỘNG — Coastal Escape</title><meta name="description" content="Thư viện ảnh đã xác minh về biển Ba Động, Duyên Hải và ẩm thực Việt Nam." /></HeadContent>
+<section class="page-hero"><div class="container-wide"><Breadcrumbs Items="breadcrumbs" /><p class="eyebrow">Thư viện</p><h1>Những khung hình có hồ sơ nguồn.</h1><p>Chỉ ảnh có trang nguồn và giấy phép rõ ràng mới xuất hiện tại đây. Vị trí chụp thực tế được ghi trong lightbox; ảnh ở địa điểm khác luôn được phân biệt rõ với Biển Ba Động.</p></div></section>
+    <section class="page-section surface-sand"><div class="container-wide"><div class="toolbar"><div class="filters" role="group" aria-label="Lọc gallery"><button class="filter-chip @(activeCategory == "all" ? "is-active" : string.Empty)" @onclick="ResetCategory">Tất cả</button>@foreach (var category in categories) { <button class="filter-chip @(activeCategory == category.Key ? "is-active" : string.Empty)" @onclick="() => SetCategory(category.Key)">@category.Value</button> }</div><span class="result-count">@filteredPhotos.Count() ảnh</span></div><div class="gallery-grid">@foreach (var photo in filteredPhotos.Select((value, index) => (value, index))) { <figure class="gallery-item"><button type="button" aria-label="@($"Mở ảnh: {photo.value.Caption}")" @onclick="() => OpenPhoto(photo.index)"><img src="@photo.value.Thumbnail" alt="@photo.value.Alt" loading="lazy" decoding="async" width="@photo.value.ThumbnailWidth" height="@photo.value.ThumbnailHeight" /><figcaption>@photo.value.Caption</figcaption></button></figure> }</div></div></section>
+<PhotoLightbox @ref="lightbox" Photos="filteredPhotos.ToList()" />
+
+@code {
+    private readonly IReadOnlyList<Breadcrumbs.BreadcrumbItem> breadcrumbs = [new("Thư viện")];
+    private readonly Dictionary<string, string> categories = new() { ["bien"] = "Biển", ["doi-song"] = "Đời sống ven biển", ["am-thuc"] = "Ẩm thực", ["diem-den"] = "Điểm đến" };
+    private IReadOnlyList<GalleryPhoto> photos = [];
+    private string activeCategory = "all";
+    private PhotoLightbox? lightbox;
+    private IEnumerable<GalleryPhoto> filteredPhotos => photos.Where(item => activeCategory == "all" || item.Category == activeCategory);
+    protected override async Task OnInitializedAsync() => photos = await Content.GetGalleryAsync();
+    private void SetCategory(string category) => activeCategory = category;
+    private void ResetCategory() => activeCategory = "all";
+    private async Task OpenPhoto(int index)
+    {
+        if (lightbox is not null) await lightbox.OpenAsync(index);
+    }
+}
