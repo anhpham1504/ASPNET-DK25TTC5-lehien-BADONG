@@ -9,6 +9,30 @@
   <meta property="og:description" content="Nơi biển chạm vào nhịp sống miền Tây." />
   <meta property="og:type" content="website" />
   <base href="/" />
+  <script>
+    (function preloadHomeHero() {
+      const baseUrl = new URL(document.querySelector('base')?.getAttribute('href') || '/', window.location.origin);
+      let requestedUrl = new URL(window.location.href);
+
+      try {
+        const storedPath = window.sessionStorage.getItem('ba-dong-spa-path');
+        if (storedPath) requestedUrl = new URL(storedPath, window.location.origin);
+      } catch (_) {
+        // The current URL remains authoritative when session storage is unavailable.
+      }
+
+      const normalizePath = path => path.endsWith('/') ? path : `${path}/`;
+      if (requestedUrl.origin !== window.location.origin || normalizePath(requestedUrl.pathname) !== normalizePath(baseUrl.pathname)) return;
+
+      const preload = document.createElement('link');
+      preload.rel = 'preload';
+      preload.as = 'image';
+      preload.fetchPriority = 'high';
+      preload.setAttribute('imagesrcset', 'images/locations/ba-dong-beach-800.jpg 960w, images/locations/ba-dong-beach-1600.jpg 1920w');
+      preload.setAttribute('imagesizes', '100vw');
+      document.head.append(preload);
+    })();
+  </script>
   <link rel="preload" id="webassembly" />
   <script type="importmap"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
