@@ -41,6 +41,28 @@ function updateBodyLock() {
   document.body.classList.toggle('body-locked', hasActiveDialog);
 }
 
+function releaseDialog(state) {
+  if (state.dialog && state.keydown) state.dialog.removeEventListener('keydown', state.keydown);
+  (state.inerted || []).forEach(function (element) { element.inert = false; });
+
+  state.dialog = null;
+  state.keydown = null;
+  state.inerted = [];
+  state.active = false;
+  updateBodyLock();
+}
+
+function restoreDialogFocus(state, fallbackSelector) {
+  let target = state.returnFocus;
+  if (!(target instanceof HTMLElement) || !target.isConnected || target.inert || target.closest('[inert]')) {
+    target = fallbackSelector ? document.querySelector(fallbackSelector) : null;
+  }
+
+  if (target instanceof HTMLElement && target.isConnected && !target.inert && !target.closest('[inert]')) {
+    target.focus({ preventScroll: true });
+  }
+}
+
 window.siteUi = {
   init: function () {
     var header = document.querySelector('.site-header');
@@ -121,20 +143,29 @@ window.siteUi = {
       target.focus({ preventScroll: true });
     });
   },
-  deactivateDialog: function (id, restoreFocus) {
+  beginDialogClose: function (id) {
     const state = dialogStates.get(id);
     if (!state) return;
 
-    if (state.dialog && state.keydown) state.dialog.removeEventListener('keydown', state.keydown);
-    (state.inerted || []).forEach(function (element) { element.inert = false; });
+    releaseDialog(state);
+    dialogStates.set(id, state);
+  },
+  completeDialogClose: function (id, fallbackSelector) {
+    const state = dialogStates.get(id);
+    if (!state) return;
 
-    state.active = false;
     dialogStates.delete(id);
     updateBodyLock();
+    restoreDialogFocus(state, fallbackSelector);
+  },
+  deactivateDialog: function (id, restoreFocus, fallbackSelector) {
+    const state = dialogStates.get(id);
+    if (!state) return;
 
-    if (restoreFocus !== false && state.returnFocus instanceof HTMLElement && state.returnFocus.isConnected) {
-      window.requestAnimationFrame(function () { state.returnFocus.focus({ preventScroll: true }); });
-    }
+    releaseDialog(state);
+    dialogStates.delete(id);
+    updateBodyLock();
+    if (restoreFocus !== false) restoreDialogFocus(state, fallbackSelector);
   },
   copyText: async function (text) {
     try {

@@ -18,9 +18,46 @@ jobs:
         uses: actions/setup-dotnet@v6
         with:
           dotnet-version: 10.0.x
+      - name: Install WebAssembly build tools
+        run: dotnet workload install wasm-tools --skip-manifest-update
       - name: Restore
         run: dotnet restore src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj
       - name: Build release
         run: dotnet build src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release --no-restore
-      - name: Publish release
-        run: dotnet publish src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release --no-restore -o publish
+      - name: Verify WebAssembly build configuration
+        shell: bash
+        run: |
+          set -euo pipefail
+          project=src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj
+          [[ "$(dotnet --version)" == 10.* ]]
+          test "$(dotnet msbuild "$project" -nologo -getProperty:WasmBuildNative -p:Configuration=Release -p:WasmBuildNative=true -p:RunAOTCompilation=false)" = "true"
+          test "$(dotnet msbuild "$project" -nologo -getProperty:RunAOTCompilation -p:Configuration=Release -p:WasmBuildNative=true -p:RunAOTCompilation=false)" = "false"
+      - name: Publish release with native relinking
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet publish src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release --no-restore -o publish -p:WasmBuildNative=true -p:RunAOTCompilation=false -v:minimal 2>&1 | tee publish.log
+          grep -Fq "Compiling native assets" publish.log
+          grep -Fq "wasm-opt" publish.log
+      - name: Report WebAssembly artifact sizes
+        shell: bash
+        run: |
+          set -euo pipefail
+          framework_dir=publish/wwwroot/_framework
+          sum_bytes() {
+            find "$framework_dir" -maxdepth 1 -type f -name "$1" -printf '%s\n' | awk '{ total += $1 } END { print total + 0 }'
+          }
+          framework_brotli_bytes="$(sum_bytes '*.br')"
+          runtime_wasm_bytes="$(sum_bytes 'dotnet.native.*.wasm')"
+          runtime_brotli_bytes="$(sum_bytes 'dotnet.native.*.wasm.br')"
+          resource_count="$(find "$framework_dir" -maxdepth 1 -type f ! -name '*.br' ! -name '*.gz' | wc -l)"
+          {
+            echo "### WebAssembly artifact"
+            echo
+            echo "| Metric | Value |"
+            echo "| --- | ---: |"
+            echo "| Framework resources | ${resource_count} |"
+            echo "| Framework Brotli bytes | ${framework_brotli_bytes} |"
+            echo "| Native runtime WASM bytes | ${runtime_wasm_bytes} |"
+            echo "| Native runtime WASM Brotli bytes | ${runtime_brotli_bytes} |"
+          } | tee -a "$GITHUB_STEP_SUMMARY"

@@ -26,6 +26,7 @@
     private GalleryPhoto? Selected;
     private int selectedIndex;
     private bool activationPending;
+    private bool focusRestorePending;
 
     public async Task OpenAsync(int index)
     {
@@ -40,8 +41,9 @@
     private async Task CloseAsync()
     {
         if (Selected is null) return;
-        await JS.InvokeVoidAsync("siteUi.deactivateDialog", "lightbox", true);
+        await JS.InvokeVoidAsync("siteUi.beginDialogClose", "lightbox");
         Selected = null;
+        focusRestorePending = true;
     }
 
     private void Next() { if (Photos.Count > 0) { selectedIndex = (selectedIndex + 1) % Photos.Count; Selected = Photos[selectedIndex]; } }
@@ -56,14 +58,22 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if (!activationPending) return;
-        activationPending = false;
-        await JS.InvokeVoidAsync("siteUi.activateDialog", "lightbox", ".lightbox__close");
+        if (!activationPending && !focusRestorePending) return;
+        if (activationPending)
+        {
+            activationPending = false;
+            await JS.InvokeVoidAsync("siteUi.activateDialog", "lightbox", ".lightbox__close");
+        }
+        if (focusRestorePending)
+        {
+            focusRestorePending = false;
+            await JS.InvokeVoidAsync("siteUi.completeDialogClose", "lightbox", "#main-content");
+        }
     }
 
     public async ValueTask DisposeAsync()
     {
-        try { await JS.InvokeVoidAsync("siteUi.deactivateDialog", "lightbox", false); }
+        try { await JS.InvokeVoidAsync("siteUi.deactivateDialog", "lightbox", true, "#main-content"); }
         catch (JSDisconnectedException) { }
     }
 }
