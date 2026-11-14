@@ -24,6 +24,8 @@ jobs:
         uses: actions/setup-dotnet@v6
         with:
           dotnet-version: 10.0.x
+      - name: Install WebAssembly build tools
+        run: dotnet workload install wasm-tools --skip-manifest-update
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
       - name: Validate repository name
@@ -40,7 +42,7 @@ jobs:
       - name: Build
         run: dotnet build src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release --no-restore
       - name: Publish
-        run: dotnet publish src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release --no-restore -o publish
+        run: dotnet publish src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release --no-restore -o publish -p:WasmBuildNative=true -p:RunAOTCompilation=false
       - name: Configure repository base path and SPA fallback
         shell: bash
         env:
