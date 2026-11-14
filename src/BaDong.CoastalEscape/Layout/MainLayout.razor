@@ -69,6 +69,7 @@
 @code {
     private bool menuOpen;
     private bool menuActivationPending;
+    private bool menuFocusRestorePending;
 
     private async Task ToggleMenu()
     {
@@ -86,8 +87,9 @@
     private async Task CloseMenu()
     {
         if (!menuOpen) return;
-        await JS.InvokeVoidAsync("siteUi.deactivateDialog", "mobile-menu", true);
+        await JS.InvokeVoidAsync("siteUi.beginDialogClose", "mobile-menu");
         menuOpen = false;
+        menuFocusRestorePending = true;
     }
 
     private async Task HandleWindowKeydown(KeyboardEventArgs args)
@@ -103,11 +105,16 @@
             menuActivationPending = false;
             await JS.InvokeVoidAsync("siteUi.activateDialog", "mobile-menu", ".mobile-menu__close");
         }
+        if (menuFocusRestorePending)
+        {
+            menuFocusRestorePending = false;
+            await JS.InvokeVoidAsync("siteUi.completeDialogClose", "mobile-menu", "#main-content");
+        }
     }
 
     public async ValueTask DisposeAsync()
     {
-        try { await JS.InvokeVoidAsync("siteUi.deactivateDialog", "mobile-menu", false); }
+        try { await JS.InvokeVoidAsync("siteUi.deactivateDialog", "mobile-menu", true, "#main-content"); }
         catch (JSDisconnectedException) { }
     }
 }
