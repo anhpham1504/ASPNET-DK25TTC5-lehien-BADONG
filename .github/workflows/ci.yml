@@ -29,6 +29,7 @@ jobs:
         run: |
           set -euo pipefail
           project=src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj
+          [[ "$(dotnet --version)" == 10.* ]]
           test "$(dotnet msbuild "$project" -nologo -getProperty:WasmBuildNative -p:Configuration=Release -p:WasmBuildNative=true -p:RunAOTCompilation=false)" = "true"
           test "$(dotnet msbuild "$project" -nologo -getProperty:RunAOTCompilation -p:Configuration=Release -p:WasmBuildNative=true -p:RunAOTCompilation=false)" = "false"
       - name: Publish release with native relinking

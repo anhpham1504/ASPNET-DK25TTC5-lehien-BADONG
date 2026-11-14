@@ -24,6 +24,9 @@ jobs:
         uses: actions/setup-dotnet@v6
         with:
           dotnet-version: 10.0.x
+      - name: Verify .NET 10 SDK selection
+        shell: bash
+        run: '[[ "$(dotnet --version)" == 10.* ]]'
       - name: Install WebAssembly build tools
         run: dotnet workload install wasm-tools --skip-manifest-update
       - name: Configure GitHub Pages
