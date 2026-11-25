@@ -1,5 +1,5 @@
-# Thesis HTML export
+# Luận văn HTML
 
-Place the web-readable export of the approved thesis here. The HTML version must preserve the document hierarchy, captions, references, and readable Vietnamese text without replacing the authoritative editable or PDF versions.
+Mở [index.html](index.html) bằng trình duyệt. Tệp dùng stylesheet trong thư mục này và đường dẫn tương đối đến sơ đồ, ảnh chụp trong kho mã nguồn. Khi chuyển sang máy khác, giữ cấu trúc thư mục của kho để các ảnh vẫn mở ngoại tuyến. Mục lục, danh mục hình/bảng và số tài liệu tham khảo điều hướng đến mục tương ứng.
 
-Current status: structure only; no thesis HTML export has been created.
+Bản duyệt dùng chung nguồn nội dung với DOCX và PDF. Đã kiểm tra Chromium ngoại tuyến ở 320, 390, 768 và 1.440 px. Có CSS in A4. [Lệnh dựng lại](../source/README.md).

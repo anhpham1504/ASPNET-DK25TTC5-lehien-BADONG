@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Luận văn BA ĐỘNG — Coastal Escape</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#document">Đến nội dung luận văn</a>
+<header>
+  <a href="#top">BA ĐỘNG — Coastal Escape</a>
+  <a href="#00-front-4">Mục lục</a>
+</header>
+<main id="document" tabindex="-1">
+<article id="top">
+<section class="cover">
+    <p>[TÊN TRƯỜNG] · [TÊN KHOA]</p>
+    <p>BÌA CHÍNH · Đồ án Chuyên đề ASP.NET</p>
+    <h1>BA ĐỘNG — Coastal Escape</h1>
+    <p>Sinh viên thực hiện Lê Hiền<br>Mã số sinh viên 170125405<br>Lớp DK25TTC5</p>
+    <p>Giảng viên hướng dẫn [HỌ VÀ TÊN GVHD]<br>Email [EMAIL SINH VIÊN]<br>Điện thoại [SỐ ĐIỆN THOẠI SINH VIÊN]</p>
+    <p>[ĐỊA DANH] · 2026<br>Khung trình bày chờ mẫu được xác nhận.</p>
+    </section><section class="cover">
+    <p>[TÊN TRƯỜNG] · [TÊN KHOA]</p>
+    <p>BÌA PHỤ · Đồ án Chuyên đề ASP.NET</p>
+    <h2>BA ĐỘNG — Coastal Escape</h2>
+    <p>Sinh viên thực hiện Lê Hiền<br>Mã số sinh viên 170125405<br>Lớp DK25TTC5</p>
+    <p>Giảng viên hướng dẫn [HỌ VÀ TÊN GVHD]<br>Email [EMAIL SINH VIÊN]<br>Điện thoại [SỐ ĐIỆN THOẠI SINH VIÊN]</p>
+    <p>[ĐỊA DANH] · 2026<br>Khung trình bày chờ mẫu được xác nhận.</p>
+    </section><section class="review">
+    <h2>NHẬN XÉT CỦA GIẢNG VIÊN HƯỚNG DẪN</h2>
+    <p>Đề tài BA ĐỘNG — Coastal Escape<br>Sinh viên Lê Hiền · MSSV 170125405 · Lớp DK25TTC5</p>
+    <p>[MẪU NHẬN XÉT CHỜ XÁC NHẬN]<br>[NỘI DUNG DÀNH CHO NGƯỜI NHẬN XÉT]</p>
+    </section><section class="review">
+    <h2>NHẬN XÉT CỦA THÀNH VIÊN HỘI ĐỒNG</h2>
+    <p>Đề tài BA ĐỘNG — Coastal Escape<br>Sinh viên Lê Hiền · MSSV 170125405 · Lớp DK25TTC5</p>
+    <p>[MẪU NHẬN XÉT CHỜ XÁC NHẬN]<br>[NỘI DUNG DÀNH CHO NGƯỜI NHẬN XÉT]</p>
+    </section>
+<section class="front">
+<h2 id="00-front-1">LỜI CẢM ƠN</h2>
+<p>Em xin trân trọng cảm ơn quý thầy cô đã giảng dạy môn Chuyên đề ASP.NET. Đồ án là dịp để em vận dụng kiến thức về lập trình web, tổ chức dữ liệu và kiểm thử vào một sản phẩm có thể mở trên trình duyệt. Quá trình đối chiếu nguồn nội dung, mô tả quyết định thiết kế và kiểm tra lại sau triển khai giúp em hiểu rõ hơn trách nhiệm của người xây dựng phần mềm trước người đọc.</p>
+<p>Em trân trọng các tài liệu kỹ thuật và nguồn tư liệu công khai đã được trích dẫn trong báo cáo, trong đó có các tác giả cung cấp ảnh kèm thông tin sử dụng. Các nguồn đó giúp em phân biệt điều có thể trình bày có căn cứ với những thông tin về địa điểm và hình ảnh cần tiếp tục xác minh.</p>
+<h2 id="00-front-4">MỤC LỤC</h2>
+<nav aria-label="Mục lục"><ul><li><a href="#10-introduction-1">MỞ ĐẦU</a></li>
+<li><a href="#20-overview-1">CHƯƠNG 1. TỔNG QUAN</a></li>
+<li><a href="#30-theory-1">CHƯƠNG 2. NGHIÊN CỨU LÝ THUYẾT</a></li>
+<li><a href="#40-implementation-1">CHƯƠNG 3. HIỆN THỰC HÓA NGHIÊN CỨU</a></li>
+<li><a href="#50-results-1">CHƯƠNG 4. KẾT QUẢ NGHIÊN CỨU</a></li>
+<li><a href="#60-conclusion-1">CHƯƠNG 5. KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN</a></li>
+<li><a href="#70-references-1">DANH MỤC TÀI LIỆU THAM KHẢO</a></li>
+<li><a href="#80-appendices-1">PHỤ LỤC</a></li></ul></nav>
+<h2 id="00-front-6">DANH MỤC HÌNH</h2>
+<nav aria-label="Danh mục hình"><ul><li><a href="#figure-1">Hình 1. Trường hợp sử dụng của người truy cập</a></li>
+<li><a href="#figure-2">Hình 2. Kiến trúc dựng bản phát hành và thực thi trong trình duyệt</a></li>
+<li><a href="#figure-3">Hình 3. Thành phần giao diện và phụ thuộc chính</a></li>
+<li><a href="#figure-4">Hình 4. Điều hướng và xử lý URL không hợp lệ</a></li>
+<li><a href="#figure-5">Hình 5. Các lớp nội dung và dịch vụ đọc</a></li>
+<li><a href="#figure-6">Hình 6. Quan hệ logic giữa các tệp nội dung và ảnh</a></li>
+<li><a href="#figure-7">Hình 7. Trình tự tải nội dung khi có và chưa có bộ nhớ đệm</a></li>
+<li><a href="#figure-8">Hình 8. Hoạt động lọc và so khớp từ khóa địa điểm</a></li>
+<li><a href="#figure-9">Hình 9. Hai workflow từ commit đến kiểm thử và triển khai</a></li>
+<li><a href="#figure-10">Hình 10. Trang chủ ở vùng hiển thị 1440 × 900, bản Release tại máy</a></li>
+<li><a href="#figure-11">Hình 11. Trang chủ ở hai vùng hiển thị 768 × 900 và 390 × 844</a></li>
+<li><a href="#figure-12">Hình 12. Trạng thái không có kết quả và nút xóa bộ lọc</a></li>
+<li><a href="#figure-13">Hình 13. Danh sách và chi tiết ẩm thực trong bản trên máy phát triển</a></li>
+<li><a href="#figure-14">Hình 14. Hộp thoại ảnh lớn với mô tả và thông tin nguồn</a></li>
+<li><a href="#figure-15">Hình 15. FAQ đang mở và lịch trình thứ hai được chọn</a></li>
+<li><a href="#figure-16">Hình 16. Hai nhánh lỗi trên nội dung trang trên máy phát triển</a></li>
+<li><a href="#figure-17">Hình 17. Menu di động ở vùng hiển thị 390 × 844</a></li>
+<li><a href="#figure-18">Hình 18. Danh sách Khám phá và công cụ sàng lọc địa điểm</a></li>
+<li><a href="#figure-19">Hình 19. Kết quả từ khóa không dấu và trạng thái lọc Thiên nhiên</a></li>
+<li><a href="#figure-20">Hình 20. Chi tiết Biển Ba Động với lối mở bản đồ và ghi công ảnh</a></li>
+<li><a href="#figure-21">Hình 21. Danh sách ảnh trước khi mở lightbox</a></li>
+<li><a href="#figure-22">Hình 22. Thông tin vị trí và lối mở bản đồ</a></li></ul></nav>
+<h2 id="00-front-8">DANH MỤC BẢNG</h2>
+<nav aria-label="Danh mục bảng"><ul><li><a href="#table-1">Bảng 1. Đối chiếu cấu trúc ba nguồn thông tin công khai</a></li>
+<li><a href="#table-2">Bảng 2. Vai trò của các thành phần nền tảng đang sử dụng</a></li>
+<li><a href="#table-3">Bảng 3. Kiểm kê dữ liệu trong phiên bản cơ sở phát hành</a></li>
+<li><a href="#table-4">Bảng 4. Kết quả xác minh kỹ thuật theo môi trường</a></li>
+<li><a href="#table-5">Bảng 5. Phạm vi kiểm tra giao diện và khả năng tiếp cận</a></li>
+<li><a href="#table-6">Bảng 6. Tóm tắt kiểm tra trình duyệt theo môi trường</a></li>
+<li><a href="#table-7">Bảng 7. Hợp đồng trường dùng khi đối chiếu dữ liệu</a></li>
+<li><a href="#table-8">Bảng 8. Route và title quan sát được trên bản công khai</a></li>
+<li><a href="#table-9">Bảng 9. Truy vết rút gọn theo nhóm và bằng chứng</a></li>
+<li><a href="#table-10">Bảng 10. Cách đọc trạng thái xác minh ảnh</a></li></ul></nav>
+<h2 id="00-front-10">DANH MỤC CHỮ VIẾT TẮT</h2>
+<pre>API    Giao diện lập trình ứng dụng
+CI     Tích hợp liên tục
+CSS    Tập kiểu trình bày phân tầng
+DOM    Mô hình đối tượng tài liệu
+FAQ    Các câu hỏi thường gặp
+GVHD   Giảng viên hướng dẫn
+HTTP   Giao thức truyền siêu văn bản
+JSON   Dạng ký hiệu đối tượng JavaScript dùng trao đổi dữ liệu
+SDK    Bộ công cụ phát triển phần mềm
+SEO    Tối ưu hóa cho công cụ tìm kiếm
+SPA    Ứng dụng một trang
+TVHĐ   Thành viên hội đồng
+URL    Địa chỉ tài nguyên
+WASM   WebAssembly
+WCAG   Hướng dẫn khả năng tiếp cận nội dung web</pre>
+<h2 id="00-front-12">TÓM TẮT</h2>
+<p>Đồ án xây dựng BA ĐỘNG — Coastal Escape, một website giới thiệu điểm đến, ẩm thực và lịch trình tham khảo quanh Biển Ba Động. Đề tài tập trung vào việc tổ chức thông tin có nguồn, hỗ trợ tìm kiếm trên thiết bị cầm tay và tạo đường dẫn đi từ danh sách đến chi tiết. Giải pháp dùng Blazor WebAssembly độc lập trên .NET 10. Các thành phần Razor lấy dữ liệu JSON tĩnh qua dịch vụ nội dung có bộ nhớ đệm. Website được phát hành dưới dạng tài nguyên tĩnh trên GitHub Pages.</p>
+<p>Kết quả gồm website, mô hình dữ liệu, hồ sơ thiết kế và bằng chứng kiểm thử gắn với phiên bản mã nguồn. Bản phát hành có Release build 0 cảnh báo, 0 lỗi và 14 kiểm thử tự động đạt. Bảy đường dẫn trên bản triển khai có tiêu đề đúng sau khi Blazor khởi động. Tương tác và bố cục ở bốn chiều rộng được kiểm tra riêng trên máy phát triển. Đường dẫn sâu trên Pages vẫn có thể trả HTTP 404 trước khi ứng dụng khôi phục đúng trang, và một số địa điểm vẫn chờ ảnh đủ căn cứ. Các kết quả kiểm tra khả năng tiếp cận chỉ phản ánh phạm vi đã thực hiện.</p>
+<p>Từ khóa: Ba Động, Blazor WebAssembly, GitHub Pages, dữ liệu JSON, truy vết kiểm thử.</p>
+</section>
+<section class="chapter">
+<h2 id="10-introduction-1">MỞ ĐẦU</h2>
+<h3 id="10-introduction-2">Lý do chọn đề tài</h3>
+<h4 id="10-introduction-3">Bối cảnh tra cứu điểm đến</h4>
+<p>Một người chuẩn bị đi Biển Ba Động cần trả lời các câu hỏi khác nhau trong một lần tra cứu. Họ muốn biết địa danh nằm ở đâu, có thể xem gì, món nào gắn với vùng ven biển và nên tổ chức các điểm dừng thế nào. Nguồn giới thiệu của ngành du lịch ghi theo địa danh Trà Vinh, trong khi bài về biển Ba Động trên cổng tỉnh Vĩnh Long cập nhật tên phường Trường Long Hòa <a class="citation" href="#ref-national-tourism">[4]</a> <a class="citation" href="#ref-vinh-long">[3]</a>. Một website hướng dẫn chuyến đi cần xử lý cách gọi này ngay trên giao diện. Tên trong tiêu đề ảnh và địa danh lịch sử có thể được giữ theo nguồn, còn vị trí hiện hành cần được giải thích khi người đọc mở mục vị trí.</p>
+<p>Ảnh có sức thuyết phục cao hơn một câu mô tả, vì vậy nhầm lẫn giữa ảnh chụp tại điểm đến và ảnh minh họa có thể tạo kỳ vọng sai. Ví dụ, ảnh món cua ở Cà Mau có giá trị nhận diện món nhưng chưa mô tả một món cụ thể bán tại Ba Động. Đồ án chọn lưu nguồn và vị trí chụp cùng với bản ghi ảnh, hiển thị trạng thái chờ đối với cảnh chưa có ảnh xác minh. Cách tổ chức này làm rõ trách nhiệm của website là hỗ trợ tìm hiểu ban đầu và để người đọc lần lại căn cứ.</p>
+<h4 id="10-introduction-6">Bài toán kỹ thuật</h4>
+<p>Đề tài bắt đầu từ một câu hỏi triển khai cụ thể. Câu hỏi đặt ra là cách xây dựng luồng tra cứu bằng Razor và C# trên một máy chủ chỉ cung cấp tệp tĩnh. Blazor WebAssembly đáp ứng mô hình thực thi trong trình duyệt <a class="citation" href="#ref-wasm">[11]</a>. Khi triển khai, việc khởi động môi trường thực thi, phân giải liên kết tương đối và khôi phục route khi mở URL sâu đều trở thành điều kiện quan sát được. Vì vậy cần kiểm tra từ trang chủ đến chi tiết và kiểm tra lại sau khi xuất bản.</p>
+<h3 id="10-introduction-8">Mục đích và phạm vi</h3>
+<h4 id="10-introduction-9">Mục tiêu</h4>
+<p>Mục tiêu thứ nhất là xây một cẩm nang trình bày địa điểm, món ăn và lịch trình theo các luồng đọc ngắn. Người dùng có thể bắt đầu từ danh sách, thu hẹp kết quả bằng từ khóa hoặc danh mục, rồi mở chi tiết. Mục tiêu thứ hai là tạo dữ liệu có thể kiểm tra độc lập với giao diện. Mỗi điểm dừng có liên kết cần chỉ tới một địa điểm tồn tại, từng ảnh cục bộ có đường dẫn đúng và siêu dữ liệu phù hợp với trạng thái xác minh. Mục tiêu thứ ba là công bố phiên bản có thể đối chiếu giữa mã nguồn, quy trình build, kết quả kiểm thử và hành vi trên trình duyệt.</p>
+<h4 id="10-introduction-11">Đối tượng và ranh giới</h4>
+<p>Đối tượng nghiên cứu là cách tổ chức website hướng dẫn du lịch tĩnh và cách kiểm chứng các luồng thông tin của website đó. Hai nhóm sử dụng chính gồm người muốn tìm hiểu một chuyến đi ngắn và người đọc đánh giá đồ án. Nhóm đầu cần thông tin dễ tra cứu trên màn hình nhỏ. Nhóm sau cần cấu trúc kho mã, cách chạy lại và bằng chứng cho mỗi kết luận. Phạm vi nội dung tập trung vào Biển Ba Động và ngữ cảnh ven biển liên quan. Lịch trình mang tính tham khảo, bản đồ là liên kết ngoài và các điều kiện có thể thay đổi cần được kiểm tra tại thời điểm đi.</p>
+<p>Website không thực hiện đặt dịch vụ, thanh toán hay thu thông tin đặt chỗ. Sản phẩm cũng không cung cấp dự báo thời tiết hoặc xác nhận dịch vụ địa phương theo thời gian thực. Các giới hạn này tác động trực tiếp đến kiến trúc: dữ liệu editorial có thể được đưa vào bản phát hành tĩnh và bộ kiểm thử có thể đối chiếu chúng trong kho mã. Khi cần dữ liệu thay đổi liên tục hoặc trách nhiệm giao dịch, phạm vi thiết kế sẽ khác.</p>
+<h3 id="10-introduction-14">Phương pháp thực hiện và kết quả</h3>
+<h4 id="10-introduction-15">Phân tích nguồn và thiết kế</h4>
+<p>Đồ án phân tích nội dung cần thiết của từng đường dẫn, xem hai trang giới thiệu điểm đến và một trang hướng dẫn du lịch để đối chiếu cách tổ chức. Việc khảo sát thực hiện trên tài liệu công khai. Các nhu cầu được suy ra từ nhiệm vụ sử dụng, ví dụ từ danh sách chọn được một địa điểm và từ lịch trình đi được tới chi tiết. Các suy luận này dùng để đặt tiêu chí kiểm tra, không phải kết quả phỏng vấn hay thống kê hành vi.</p>
+<p>Từ các tiêu chí đó, bản thiết kế xác định mô hình dữ liệu và trách nhiệm cho từng thành phần. Các tệp JSON được giữ bên cạnh mã nguồn để thay đổi nội dung có thể xem dưới dạng diff. Ứng dụng lấy tệp qua HTTP rồi ánh xạ sang kiểu C#. Các trang hiển thị khác nhau chia sẻ dịch vụ đọc. Trước khi phát hành, test ở tầng kho mã nguồn kiểm tra các quy tắc dữ liệu và test dịch vụ thực hiện với HTTP giả lập. Tiếp theo, trình duyệt kiểm tra trạng thái người dùng thấy được, bao gồm các trường hợp mà chỉ đọc JSON sẽ không phát hiện.</p>
+<h4 id="10-introduction-18">Kiểm chứng theo phiên bản</h4>
+<p>Trường hợp title rỗng minh họa phương pháp này. Trên phiên bản cơ sở, slug sai dẫn đến nội dung lỗi đúng nhưng phần head rỗng vì title chỉ được khai báo ở nhánh chi tiết hợp lệ. Kết quả này được tái hiện trên trình duyệt trước khi sửa. Sau khi thay bằng thành phần title cấp trang, lượt trên máy phát triển kiểm tra riêng việc chờ dữ liệu, lỗi tải và nội dung hợp lệ. Phiên bản phát hành sau đó được kiểm tra lại trên bản công khai bằng đúng route đã tái hiện lỗi.</p>
+<p>Sản phẩm đạt bản dựng Release và 14 kiểm thử tự động trên máy phát triển và trong CI của lần phát hành. Hồ sơ kỹ thuật có chín sơ đồ, bằng chứng giao diện và định danh phiên bản triển khai. Bảy ca trên bản công khai xác nhận tiêu đề sau khi Blazor khởi động. Báo cáo giữ riêng quan sát trên máy phát triển và trên bản công khai để người đọc có thể tái kiểm tra, đặc biệt khi mã HTTP ban đầu của URL sâu vẫn là 404.</p>
+</section>
+<section class="chapter">
+<h2 id="20-overview-1">CHƯƠNG 1. TỔNG QUAN</h2>
+<h3 id="20-overview-2">1.1. Bối cảnh du lịch Biển Ba Động</h3>
+<h4 id="20-overview-3">1.1.1. Điểm đến và cách gọi địa danh</h4>
+<p>Biển Ba Động là một địa danh ven biển gắn với vùng Trường Long Hòa và Duyên Hải. Cổng thông tin điện tử tỉnh Vĩnh Long mô tả địa điểm giữa hai cửa biển Cung Hầu và Định An, thuộc khu vực từng được giới thiệu dưới tên Trà Vinh <a class="citation" href="#ref-vinh-long">[3]</a>. Danh mục của Cục Du lịch Quốc gia Việt Nam sử dụng địa chỉ theo địa bàn trước đây trong bài giới thiệu <a class="citation" href="#ref-national-tourism">[4]</a>. Hai nguồn hữu ích ở các thời điểm và nhiệm vụ khác nhau. Một nguồn giúp xác định cách gọi trong tài liệu du lịch đã phổ biến. Nguồn còn lại giúp ghi vị trí theo tên hành chính được cập nhật.</p>
+<p>Trong sản phẩm, phần vị trí hiển thị phường Trường Long Hòa, tỉnh Vĩnh Long cùng ngữ cảnh Trà Vinh trước sáp nhập. Tên địa danh cũ vẫn có thể xuất hiện trong tiêu đề hồ sơ ảnh hoặc truy vấn bản đồ. Tách hai ngữ cảnh này giúp đối chiếu lại nguồn gốc. Việc đổi toàn bộ chuỗi địa danh trong tiêu đề ảnh theo địa chỉ mới sẽ làm khó quá trình tìm lại nguồn cấp phép. Ngược lại, chỉ để địa chỉ cũ trong mục vị trí sẽ khiến người đọc khó nhận ra mối liên hệ với cách gọi hiện hành.</p>
+<p>Thông tin về cảnh quan và các điểm dừng được dùng với mức chi tiết vừa đủ cho việc tra cứu. Trang giới thiệu định vị câu chuyện chung, còn mục Khám phá đưa người đọc tới từng bản ghi địa điểm. Điện gió Duyên Hải được trình bày như một điểm liên quan đến vùng ven biển, có nguồn ảnh riêng. Các cảnh cần xác minh bổ sung vẫn có thể mang tên nội dung trong danh sách. Hình giữ chỗ ở những bản ghi này giúp người đọc nhận biết rõ phần tư liệu hình ảnh còn thiếu.</p>
+<h4 id="20-overview-7">1.1.2. Thông tin có thể thay đổi</h4>
+<p>Nội dung như tên điểm đến, lưu ý giữ gìn môi trường và đường dẫn bản đồ phù hợp với một website editorial. Dữ liệu về giờ mở cửa, giá, điều kiện biển hoặc khả năng sử dụng dịch vụ thay đổi theo thời điểm và đòi hỏi cơ chế xác minh riêng. Đồ án giới hạn phần cẩm nang ở gợi ý chuẩn bị, duy trì câu nhắc đối chiếu trước khi đi và chuyển người đọc ra nguồn gốc khi cần thêm thông tin. Dữ liệu site có tuyên bố phạm vi học thuật. Bố cục không đặt nút mua hoặc gửi thông tin ở vị trí có thể làm người đọc hiểu đây là cổng giao dịch.</p>
+<p>Một nguyên tắc tương tự áp dụng với ảnh. Hình chụp biển có thể dùng để giới thiệu cảnh tại điểm đến nếu hồ sơ đủ căn cứ. Hình ghi nhận tại cảng Định An hoặc ảnh món ăn ở địa phương khác cần ghi rõ phạm vi minh họa. Siêu dữ liệu dùng trong trang chi tiết cung cấp tác giả, giấy phép, địa điểm chụp và liên kết. Kết quả trình bày là một bản hướng dẫn có dấu vết kiểm chứng, phù hợp với việc đọc lại trong đồ án.</p>
+<h3 id="20-overview-10">1.2. Nhu cầu người sử dụng</h3>
+<h4 id="20-overview-11">1.2.1. Hành trình tìm hiểu trên trình duyệt</h4>
+<p>Người đọc mới thường cần nhận diện điểm đến trước khi sàng lọc nội dung. Trang chủ hỗ trợ việc này bằng tên địa danh, ảnh chủ đạo và các lối đi tới Khám phá hoặc Cẩm nang. Một người đã có chủ định, chẳng hạn muốn tìm góc ngắm hoàng hôn, có thể vào ngay Khám phá. Từ khóa đưa người đó tới tập thẻ nhỏ hơn, sau đó thẻ mở trang chi tiết bằng slug ổn định. Người lập lịch trình có thể bắt đầu từ một trình tự theo thời gian và đi ngược lại tới địa điểm liên quan qua điểm dừng đã liên kết.</p>
+<p>Các luồng trên tạo ra yêu cầu về tính liên tục. Người dùng phải biết danh mục hoặc tab nào đang chọn, thấy được thông báo khi bộ lọc cho kết quả rỗng và tìm được cách quay lại từ một URL sai. Người dùng di động cần truy cập các nhóm trang qua menu mà không phải cuộn xuống chân trang. Những yêu cầu này được kiểm bằng việc quan sát trạng thái giao diện chứ không chỉ bằng sự tồn tại của đường dẫn trong mã nguồn.</p>
+<p>Đối tượng xem đồ án có nhiệm vụ khác. Họ cần biết khi nào ảnh được chụp, cách kết quả build được tạo ra, bằng chứng nào thuộc bản công khai và đoạn mã nào hiện thực chức năng. Vì vậy website có hồ sơ dữ liệu và hồ sơ thiết kế kèm theo. Có thể lần từ một yêu cầu trong ma trận tới route, thành phần Razor, test hoặc ảnh. Khi một yêu cầu chưa có kiểm tra đầy đủ, ma trận để trạng thái riêng để tránh suy diễn từ nội dung đã có.</p>
+<h4 id="20-overview-15">1.2.2. Yêu cầu biên tập và đọc trên màn hình nhỏ</h4>
+<p>Tính dễ đọc ở màn hình nhỏ đòi hỏi xử lý cả bố cục và từng thao tác. Danh sách phải nhìn được ở chiều rộng hẹp. Khi mở menu hoặc xem ảnh, focus cần nằm trong vùng tương tác và có lối đóng rõ. Tiêu đề trang và heading chính cho biết người đọc đang ở danh sách, chi tiết hay trang lỗi. Cụm tác vụ này liên quan đến khả năng tiếp cận. Tiêu chí WCAG được dùng để chỉ ra phép kiểm cụ thể, ví dụ thao tác bàn phím và nhận biết focus <a class="citation" href="#ref-wcag">[17]</a>. Đồ án chưa thực hiện đánh giá theo toàn bộ tiêu chí của tiêu chuẩn.</p>
+<p>Nội dung biên tập cần ngắn và nhất quán giữa thẻ và trang chi tiết. Một thẻ dùng tên, ảnh đại diện và mô tả ngắn để hỗ trợ quyết định mở. Chi tiết cung cấp thêm nội dung, nguồn và hành động có liên quan, chẳng hạn mở bản đồ hoặc sao chép đường dẫn. Dữ liệu tên và slug tách nhau để có thể sửa cách viết tên mà không làm hỏng đường dẫn đang tồn tại.</p>
+<h3 id="20-overview-18">1.3. Khảo sát cách tổ chức thông tin</h3>
+<h4 id="20-overview-19">1.3.1. Phạm vi khảo sát</h4>
+<p>Khảo sát xem nội dung công khai của ba trang. Hai trang trực tiếp đề cập Biển Ba Động <a class="citation" href="#ref-vinh-long">[3]</a> <a class="citation" href="#ref-national-tourism">[4]</a>. Trang Phu Quoc của Vietnam Tourism cung cấp một ví dụ về cấu trúc giới thiệu điểm đến có phần hoạt động và việc chuẩn bị chuyến đi <a class="citation" href="#ref-phu-quoc">[16]</a>. Các trang được chọn để đối chiếu cách đưa thông tin lên màn hình, không nhằm so sánh số lượt truy cập hay xếp hạng chất lượng. Dữ liệu của Phú Quốc không chuyển sang bộ dữ liệu Ba Động.</p>
+<table id="table-1"><caption>Bảng 1. Đối chiếu cấu trúc ba nguồn thông tin công khai</caption>
+<colgroup>
+<col style="width:27%">
+<col style="width:37%">
+<col style="width:36%">
+</colgroup><thead>
+<tr><th scope="col">Nguồn</th><th scope="col">Tổ chức quan sát được</th><th scope="col">Áp dụng vào đề tài</th></tr></thead><tbody>
+<tr><td>Vĩnh Long <a class="citation" href="#ref-vinh-long">[3]</a></td><td>Bài viết về biển Ba Động trong tập địa danh. Có ngữ cảnh địa lý và tên hành chính hiện hành.</td><td>Hiển thị vị trí hiện hành ở mục Vị trí và dẫn nguồn.</td></tr>
+<tr><td>Cục Du lịch <a class="citation" href="#ref-national-tourism">[4]</a></td><td>Trang điểm đến riêng, chia thông tin vị trí và đặc điểm.</td><td>Tách nhận diện và đặc điểm khỏi các gợi ý nên kiểm tra trước chuyến đi.</td></tr>
+<tr><td>Vietnam Tourism <a class="citation" href="#ref-phu-quoc">[16]</a></td><td>Trang Phu Quoc có nhóm điểm nên xem, cách đến và thông tin du lịch.</td><td>Tách các tác vụ xem điểm, lên lịch và đọc cẩm nang theo route.</td></tr>
+</tbody></table>
+<h4 id="20-overview-22">1.3.2. Quyết định cấu trúc thông tin</h4>
+<p>Một bài dài phù hợp với người muốn đọc bối cảnh liên tục. Khi mục tiêu là chọn một điểm dừng, danh sách có lọc sẽ rút ngắn quãng đọc và hỗ trợ xem thêm bằng một hành động. Đồ án dùng cả hai dạng. Phần giới thiệu kể câu chuyện chung, còn dữ liệu địa điểm được chia thành các thẻ. Cẩm nang và lịch trình tiếp tục nhiệm vụ sau khi người đọc đã hiểu vùng. Nguồn và nhãn ảnh xuất hiện gần nội dung tương ứng để người đọc không phải tìm một trang chú thích riêng.</p>
+<p>Các trang tham khảo có độ bao quát khác nhau. Trang Phu Quoc có các khối thời tiết và di chuyển, nhưng việc đưa một dự báo vào Ba Động đòi hỏi nguồn và thời điểm cập nhật mà đồ án không vận hành. Thay vào đó, cẩm nang nêu điều cần kiểm tra và liên kết một số nguồn công khai. Một ảnh bãi biển cũng không được dùng để minh họa mặt nước luôn ở cùng trạng thái. Ngữ cảnh về vị trí chụp và lưu ý của trang giúp tránh diễn giải rộng hơn căn cứ hiện có.</p>
+<h3 id="20-overview-25">1.4. Yêu cầu và giới hạn sản phẩm</h3>
+<h4 id="20-overview-26">1.4.1. Nhóm chức năng</h4>
+<p>Trang chủ và giới thiệu cung cấp bối cảnh. Khám phá gồm danh sách, lọc, tìm kiếm, chi tiết và quay lại khi đường dẫn không phân giải. Ẩm thực có bộ lọc và trang chi tiết món, trong đó chú thích ảnh nêu nơi chụp. Thư viện cho xem ảnh và mở hộp thoại. Cẩm nang có câu hỏi thường gặp, lịch trình cho chọn gợi ý và vị trí cung cấp liên kết bản đồ. Những nhóm này tương ứng với các trạng thái và thao tác cụ thể trong hồ sơ truy vết. Với chức năng sao chép liên kết, mã hiện thực tồn tại, còn kết quả dùng clipboard trong đợt đánh giá chưa được thu thập.</p>
+<h4 id="20-overview-28">1.4.2. Nhóm yêu cầu chất lượng</h4>
+<p>Yêu cầu dữ liệu gồm ID và slug duy nhất theo tập, ảnh trên máy phát triển tồn tại, tham chiếu lịch trình hợp lệ và đầy đủ thành phần nguồn cho ảnh xác minh. Yêu cầu giao diện gồm đáp ứng bề rộng phổ biến, ngữ nghĩa heading và có lối thao tác bằng bàn phím. Yêu cầu triển khai gồm kết quả dựng có thể tái lập, URL chính xác theo thư mục dự án và khả năng đối chiếu phiên bản phát hành. Khi URL sâu gặp 404 từ máy chủ tĩnh, tiêu chí kiểm tra ghi cả trạng thái HTTP và kết quả người dùng nhìn thấy sau khi môi trường thực thi hoạt động.</p>
+</section>
+<section class="chapter">
+<h2 id="30-theory-1">CHƯƠNG 2. NGHIÊN CỨU LÝ THUYẾT</h2>
+<h3 id="30-theory-2">2.1. Nền tảng xây dựng ứng dụng web</h3>
+<h4 id="30-theory-3">2.1.1. .NET và ASP.NET Core</h4>
+<p>.NET cung cấp công cụ biên dịch, môi trường thực thi và thư viện cho chương trình C#. Trong đồ án, SDK thực hiện restore, build, test và publish. Khai báo phiên bản trong <code>global.json</code> và dự án <code>net10.0</code> giúp người dựng xác định môi trường tương thích. Restore chuẩn bị các gói cần thiết, build tạo đầu ra cho cấu hình đã chọn, còn publish chuẩn bị tập tài nguyên để phân phối. Các bước này cần được phân biệt vì một lần build thành công ở máy cá nhân chưa xác nhận nội dung đã được đóng gói và phân phối đúng base path.</p>
+<p>ASP.NET Core cung cấp các thành phần của hệ sinh thái web mà Blazor sử dụng. Trong mô hình Blazor WebAssembly của đồ án, C# chạy trong trình duyệt <a class="citation" href="#ref-wasm">[11]</a>. Máy chủ phát hành các tệp đầu ra qua HTTP. Có thể chạy trang tại máy để thử trong quá trình phát triển; điều đó không hàm ý bản công khai chạy một tiến trình ASP.NET Core xử lý nghiệp vụ. Sự phân biệt này quan trọng khi trình bày phụ thuộc, xác định nơi xảy ra lỗi và hướng dẫn cài đặt.</p>
+<h4 id="30-theory-6">2.1.2. Blazor WebAssembly độc lập</h4>
+<p>Ứng dụng độc lập bắt đầu từ tài liệu HTML chứa điểm gắn giao diện và cấu hình URL cơ sở. Trình duyệt tải mã khởi động, tài nguyên WebAssembly và các phần môi trường thực thi cần thiết. Sau khi host sẵn sàng, Blazor tạo các thành phần và áp dụng phần hiển thị vào DOM, tức mô hình đối tượng tài liệu của trình duyệt. Trạng thái tương tác, như danh mục đang chọn hay ảnh đang xem, nằm trong phiên ứng dụng. Đổi bộ lọc có thể được xử lý ở thiết bị đọc mà không cần gọi máy chủ để tìm bản ghi.</p>
+<p>Mô hình đó phù hợp với tập dữ liệu nhỏ được duy trì trong kho mã nguồn. Hệ thống có thể phát hành cùng dữ liệu trong một gói triển khai và xem lại chúng theo commit. Chi phí của cách làm là phần khởi động cần tải môi trường thực thi. Mở URL sâu còn phụ thuộc cấu hình của nơi phục vụ tài liệu. Bản kết xuất ban đầu của HTML không chứa nội dung chi tiết đã kết xuất, vì thế trang cần thông báo trong lúc khởi động và cần mô tả rõ giới hạn với tác nhân đọc HTML ban đầu. Đồ án kiểm tra bằng quan sát trình duyệt và phản hồi HTTP riêng biệt.</p>
+<h4 id="30-theory-9">2.1.3. Thành phần Razor và trạng thái</h4>
+<p>Razor dùng cú pháp khai báo HTML cùng biểu thức và sự kiện C#. Một thành phần trang xác định các trạng thái để hiển thị, chẳng hạn đang tải, có bản ghi hoặc không phân giải được slug. Thành phần thẻ nhận model và biểu diễn phần tóm tắt. Khi dữ liệu thay đổi, cơ chế kết xuất cập nhật các vùng cần thiết. Tổ chức theo trạng thái giúp người đánh giá kiểm cả phần chuyển tiếp, thay vì chỉ mở một đường dẫn hợp lệ sau khi dữ liệu đã có.</p>
+<p>Các sự kiện của trình duyệt như nhập từ khóa và nhấn nút có thể nối với phương thức C#. Trường hợp thao tác cần năng lực của trình duyệt, như ghi clipboard hoặc điều phối focus trong dialog, đi qua JavaScript interop. Đặt các thao tác đó ở một nhóm hàm nhỏ giúp phần Razor quản lý trạng thái hiển thị và phần JavaScript quản lý hiệu ứng cần DOM. Khi kiểm tra, có thể tách một lỗi xử lý dữ liệu khỏi lỗi focus sau khi thành phần hình ảnh xuất hiện.</p>
+<table id="table-2"><caption>Bảng 2. Vai trò của các thành phần nền tảng đang sử dụng</caption>
+<colgroup>
+<col style="width:30%">
+<col style="width:35%">
+<col style="width:35%">
+</colgroup><thead>
+<tr><th scope="col">Thành phần</th><th scope="col">Vai trò</th><th scope="col">Vị trí sử dụng</th></tr></thead><tbody>
+<tr><td>.NET SDK</td><td>Restore, biên dịch, test và publish</td><td>Trên máy phát triển và GitHub Actions</td></tr>
+<tr><td>Blazor WebAssembly</td><td>Thực thi giao diện C# trên trình duyệt</td><td>Tài nguyên môi trường thực thi và assembly đã publish</td></tr>
+<tr><td>Razor và CSS</td><td>Cấu trúc, sự kiện và bố cục</td><td>Các trang, thẻ, điều hướng, hộp thoại</td></tr>
+<tr><td>HTTP và JSON</td><td>Tra cứu nội dung đã đóng gói</td><td>Dịch vụ nội dung và các tệp dưới data</td></tr>
+<tr><td>JavaScript interop</td><td>Dùng khả năng DOM và trình duyệt</td><td>Focus, scroll, đường dẫn fallback và clipboard</td></tr>
+</tbody></table>
+<h3 id="30-theory-13">2.2. Điều hướng và cung cấp phụ thuộc</h3>
+<h4 id="30-theory-14">2.2.1. Mẫu URL và tham số tuyến</h4>
+<p>Định tuyến ghép URL với mẫu đã khai báo bằng Razor. Mẫu có tham số như <code>/kham-pha/{Slug}</code> chỉ xác định cấu trúc URL và truyền chuỗi vào trang. Sau bước ghép tuyến, trang mới tra dữ liệu để xem slug có tồn tại hay không. Vì vậy có hai trường hợp lỗi khác nhau: Router không tìm được trang nào phù hợp, hoặc Router đã tìm được trang nhưng nguồn dữ liệu không có bản ghi. Hai trường hợp có thể dùng nội dung và lối quay về khác nhau <a class="citation" href="#ref-routing">[12]</a>.</p>
+<p>Một liên kết trong phạm vi ứng dụng có thể chuyển route bằng Router khi môi trường thực thi đã chạy. Mở URL từ thanh địa chỉ hoặc tải lại gửi một yêu cầu tài liệu mới tới máy chủ. Trong lần truy cập đó, máy chủ tĩnh xử lý đường dẫn trước khi Router nhận được URL. Phân biệt hai cơ chế giải thích tại sao cùng route có nội dung và title đúng qua điều hướng nội bộ, nhưng trạng thái HTTP của lần mở trực tiếp khác với trang chủ.</p>
+<p>Layout chia sẻ header, điều hướng và vùng nội dung chính để các trang duy trì cách đọc nhất quán. Việc cập nhật title là một phần của ngữ nghĩa trang. Blazor cung cấp <code>PageTitle</code>, <code>HeadContent</code> và <code>HeadOutlet</code> để đưa title và siêu dữ liệu vào phần head <a class="citation" href="#ref-head">[13]</a>. Trang chi tiết có dữ liệu bất đồng bộ cần cung cấp title khi dữ liệu đang chờ. Title thông báo chưa có dữ liệu cũng hữu ích khi trang hoàn tất nhưng thiếu bản ghi cần hiển thị.</p>
+<h4 id="30-theory-18">2.2.2. Cung cấp phụ thuộc và vòng đời</h4>
+<p>Kỹ thuật cung cấp phụ thuộc cho phép thành phần nhận dịch vụ thông qua khai báo thay vì tự khởi tạo mọi đối tượng. Host Blazor cung cấp các đăng ký dịch vụ ngay khi dựng ứng dụng <a class="citation" href="#ref-di">[10]</a>. Đồ án đăng ký <code>HttpClient</code> có địa chỉ cơ sở theo môi trường và đăng ký <code>ContentService</code> cùng ở phạm vi dịch vụ của ứng dụng. Thành phần Razor yêu cầu <code>ContentService</code> để lấy danh sách hoặc thông tin chung.</p>
+<p>Tách cấu hình kết nối khỏi component có hai hệ quả. Trước hết, cùng cách đọc đường dẫn tương đối áp dụng khi chạy tại máy và khi mở trang dự án. Tiếp theo, kiểm thử có thể tạo <code>HttpClient</code> dùng trình xử lý HTTP giả, đặt ra phản hồi thành công hoặc lỗi để kiểm tra phương thức dịch vụ. Ca kiểm này không phụ thuộc tốc độ Internet hoặc việc Pages đang chạy. Tính tái lập ở đây thuộc tầng dịch vụ. Kiểm chứng giao diện và lỗi cấu hình base path vẫn cần một lớp kiểm tra chạy trên trình duyệt.</p>
+<h3 id="30-theory-21">2.3. Dữ liệu và giao tiếp</h3>
+<h4 id="30-theory-22">2.3.1. JSON làm định dạng trao đổi</h4>
+<p>JSON mô tả dữ liệu có cấu trúc theo object, array và các giá trị cơ bản <a class="citation" href="#ref-json">[2]</a>. Trong website, một tệp chứa một tập bản ghi của cùng mục đích. Một tập địa điểm là mảng object, mỗi object có ID, slug và nội dung. Tệp thông tin chung là một object vì có một cấu hình cho website. JSON được lưu ở UTF-8 để giữ tên và nội dung tiếng Việt. Mô hình C# giúp mã giao diện dùng tên trường rõ ràng và kiểm tra được mối quan hệ với dữ liệu quan sát.</p>
+<p>Một tài liệu JSON có thể đúng cú pháp nhưng chưa đáp ứng hợp đồng nội dung. Dữ liệu thiếu ảnh, có hai slug trùng nhau hoặc trỏ sai chi tiết vẫn có thể được phân tích cú pháp. Vì vậy bản thiết kế phân biệt yêu cầu đọc được với yêu cầu dùng được. Công cụ test trong repo kiểm tra cả khả năng deserialize và các bất biến của dữ liệu. Riêng các mối liên kết bằng slug và đường dẫn ảnh được xem như tham chiếu logic. Việc ghi một slug vào tệp không tự sinh khóa ngoại hoặc ràng buộc của hệ quản trị cơ sở dữ liệu.</p>
+<h4 id="30-theory-25">2.3.2. HTTP, ánh xạ dữ liệu và lỗi</h4>
+<p>HTTP mang trạng thái phản hồi độc lập với nội dung hiển thị <a class="citation" href="#ref-http">[5]</a>. Trong ứng dụng, một phản hồi JSON thành công có thể được deserialize thành model. Trạng thái như 503 làm thao tác đọc thất bại, còn nội dung sai cấu trúc hoặc cú pháp có thể sinh lỗi deserialize. Một yêu cầu tài liệu của route sâu có thể gặp 404 tại Pages và sau đó tải thành công <code>index.html</code> ở yêu cầu mới. Hai trường hợp có mã lỗi nhưng xảy ra ở hai ranh giới khác nhau. Kiểm thử ghi rõ request nào được mô phỏng lỗi.</p>
+<p>Dịch vụ lấy dữ liệu theo địa chỉ tương đối. Khi tệp được đọc thành công, ứng dụng dùng giá trị đã ánh xạ để kết xuất. Trong nhóm lỗi được xử lý, dịch vụ trả danh sách rỗng hoặc đối tượng mặc định để thành phần có thể hiện trạng thái phù hợp. Trong thiết kế hiện tại, trang nhận danh sách rỗng không biết bên dưới là tệp hợp lệ không có mục hay lỗi đọc. Bởi vậy thông điệp tổng quát về dữ liệu phản ánh điều ứng dụng biết tại thời điểm kết xuất.</p>
+<h4 id="30-theory-28">2.3.3. Bộ nhớ đệm và chuẩn hóa từ khóa</h4>
+<p>Bộ nhớ đệm (cache) của ứng dụng lưu đối tượng đã đọc từ JSON. Khi đối tượng có sẵn, dịch vụ dùng lại kết quả mà không phát sinh yêu cầu HTTP từ lần gọi đó. Bộ nhớ đệm HTTP của trình duyệt lưu phản hồi theo chính sách của tài nguyên. Hai cơ chế làm việc ở những lớp khác nhau. Việc khởi động lại ứng dụng tạo một phiên mới.</p>
+<p>Chuẩn Unicode chỉ ra nhiều cách biểu diễn cùng chữ, chẳng hạn chữ và dấu kết hợp tương ứng <a class="citation" href="#ref-unicode">[15]</a>. Ứng dụng chuẩn hóa chuỗi về dạng phân rã để xử lý dấu kết hợp, sau đó hợp nhất lại và đưa về chữ thường để so khớp. Việc bỏ dấu ở đây phục vụ một quy tắc tìm kiếm của sản phẩm, nằm ngoài ý nghĩa cân bằng chuỗi chuẩn hóa của Unicode. Ký tự <code>đ</code> có hành vi riêng trong triển khai hiện tại. Trường hợp này cần được ghi nhận khi mô tả phạm vi tìm kiếm tiếng Việt.</p>
+<h3 id="30-theory-31">2.4. Giao diện và khả năng tiếp cận</h3>
+<h4 id="30-theory-32">2.4.1. Thiết kế đáp ứng và tải ảnh</h4>
+<p>Thiết kế đáp ứng cho phép bố cục điều chỉnh theo bề rộng vùng hiển thị. CSS có thể chuyển cách bố trí lưới, thay kích thước không gian bao và chọn cách hiển thị điều hướng bằng media query <a class="citation" href="#ref-responsive">[9]</a>. Chiều rộng không đồng nhất với một thiết bị vật lý cụ thể. Điều kiện 390 pixel CSS có thể đại diện cho một màn hình hẹp khi test, nhưng còn phụ thuộc mật độ hiển thị, font trình duyệt và thiết lập thu phóng. Vì vậy đợt kiểm tra nêu rõ số đo và môi trường.</p>
+<p>Ảnh là thành phần quan trọng cả về giao diện và dung lượng tải. Một số cùng nguồn có nhiều tệp đã định kích thước để trình duyệt chọn theo vùng hiển thị. Thuộc tính <code>srcset</code> và <code>sizes</code> cung cấp thông tin để trình duyệt quyết định phù hợp với môi trường. Khi ảnh có kích thước khai báo, trình duyệt cũng có căn cứ bố trí không gian. Thuộc tính <code>alt</code> cần mô tả nội dung phù hợp. Địa điểm chưa có ảnh được thể hiện bằng hình giữ chỗ có ý nghĩa, thay vì cung cấp ảnh cảnh khác nhưng khiến người đọc tưởng là cùng nơi.</p>
+<h4 id="30-theory-35">2.4.2. Ngữ nghĩa, bàn phím và chuyển động</h4>
+<p>Khả năng tiếp cận là tập yêu cầu về cách người dùng nhận biết, thao tác và hiểu nội dung. WCAG 2.2 có các tiêu chí có thể kiểm cho bàn phím, focus và tiêu đề trang <a class="citation" href="#ref-wcag">[17]</a>. Trong một SPA, thay đổi route cần làm rõ tên trang mới. Vùng <code>main</code> nêu phần nội dung nổi bật, còn heading thể hiện trang hiện tại. Khi mở hộp thoại xem ảnh, thiết kế cần theo dõi focus từ nút mở đến hộp thoại và kiểm tra nó trở về sau khi đóng. Nếu focus ra vùng bị che, người dùng bàn phím có thể tiếp tục thao tác ở vị trí không nhận thấy.</p>
+<p>Focus nhìn thấy, thứ tự tab và việc có thể thoát hộp thoại là các kiểm tra khác nhau. Một nút có nhãn đúng vẫn cần nhìn thấy focus trong trạng thái sử dụng. Việc giảm chuyển động theo tùy chọn trình duyệt hỗ trợ người nhạy cảm với animation. Trong đồ án, kiểm tra tính năng được thực hiện ở một số luồng cụ thể. Kết quả của chúng chưa thay thế việc kiểm độ tương phản, zoom, trình đọc màn hình hoặc sự tương thích của mọi route với các công nghệ trợ năng.</p>
+<h3 id="30-theory-38">2.5. Quản lý phiên bản, triển khai và kiểm thử</h3>
+<h4 id="30-theory-39">2.5.1. Git và GitHub Actions</h4>
+<p>Git ghi những thay đổi theo commit. Việc lưu một thay đổi về mã title và một thay đổi về hồ sơ ở hai commit giúp người xem lần lại nguyên nhân thay đổi và kết quả. GitHub cung cấp nơi lưu bản sao remote, theo dõi thay đổi và chạy công việc tự động. Trong GitHub Actions, workflow được kích hoạt bởi event, có job chạy trên runner và có các step cho từng thao tác <a class="citation" href="#ref-actions">[6]</a>. Mỗi lần chạy có URL và SHA, để tránh dùng kết quả của phiên bản trước làm bằng chứng cho bản phát hành mới.</p>
+<p>Ở dự án này, một workflow thực hiện kiểm thử và kiểm tra publish. Workflow Pages đóng gói lại output tĩnh và triển khai. Logic phụ thuộc giữa các job nằm bên trong workflow Pages. Bởi hai workflow độc lập, quy trình xác minh xem xét kết luận của cả hai. Một workflow thành công chưa khẳng định workflow còn lại đã chạy thành công cho SHA yêu cầu. Trạng thái deployment và kiểm tra truy cập trình duyệt sau deploy tạo thêm bằng chứng về môi trường công bố.</p>
+<h4 id="30-theory-42">2.5.2. GitHub Pages và khả năng được lập chỉ mục</h4>
+<p>GitHub Pages phục vụ website tĩnh và project site thường được công bố dưới đường dẫn kho mã nguồn <a class="citation" href="#ref-pages">[7]</a>. Một base path chính xác giúp các tài nguyên tương đối và điều hướng cùng trỏ vào thư mục dự án. Trong website SPA hiện tại, route chi tiết không tương ứng với một tài liệu HTML riêng ở máy chủ. Cơ chế fallback có thể đưa người dùng trở lại ứng dụng để Router xử lý, nhưng tài liệu ban đầu vẫn có trạng thái HTTP của đường dẫn đã yêu cầu.</p>
+<p>Tiêu đề HTML, trạng thái HTTP và nội dung được kết xuất là ba tín hiệu liên quan đến công cụ tìm kiếm <a class="citation" href="#ref-seo">[8]</a>. Bản sửa <code>PageTitle</code> làm title có ý nghĩa sau khi Razor chạy. Nó không sửa khâu đáp ứng tài liệu từ máy chủ. Cần đo hai kết quả độc lập: phản hồi lúc mở đường dẫn và title hiện trên DOM. Giải pháp kết xuất trước có thể tạo tài liệu phù hợp hơn cho một số route, nhưng thay đổi cấu trúc xuất bản sẽ đi cùng kiểm tra lại toàn bộ link, dữ liệu và workflow. Đó là hướng phát triển chứ chưa phải phần đã thực hiện.</p>
+<h4 id="30-theory-45">2.5.3. Kiểm thử tự động và kiểm tra sau phát hành</h4>
+<p>Môi trường chạy test cung cấp phương thức thực thi và thống kê. Microsoft Testing Platform có thể chạy các dự án test trong nhiều ngữ cảnh, bao gồm dòng lệnh và CI <a class="citation" href="#ref-mtp">[14]</a>. Trong đồ án, dự án xUnit xác minh model, tham chiếu, asset và xử lý HTTP ở điều kiện kiểm soát. Các ca test xác nhận tiền đề của ứng dụng, chẳng hạn dữ liệu có thể đọc và các đường dẫn ảnh phân biệt đúng chữ hoa thường. Chúng không mở UI, do đó cần bổ sung lượt kiểm tra trình duyệt cho title, focus và hướng điều hướng khi có lỗi.</p>
+<p>Kiểm tra hồi quy cần giữ điều kiện đủ rõ để tái hiện. Với bản sửa title, kiểm tra trên máy phát triển thay đổi bề rộng và kiểm soát lỗi JSON. Kiểm tra bản công khai tập trung vào bảy URL sau khi công bố và kèm theo dấu vết commit. Trình duyệt kiểm tra title sau khi Blazor khởi động, thay vì đọc HTML phản hồi như thể đó là kết quả cuối. Bằng chứng này cho thấy lỗi đã được khắc phục trong phạm vi ca kiểm. Các phép đo thời gian tải hay tuyên bố mức tuân thủ WCAG đòi hỏi phương pháp kiểm thử riêng.</p>
+</section>
+<section class="chapter">
+<h2 id="40-implementation-1">CHƯƠNG 3. HIỆN THỰC HÓA NGHIÊN CỨU</h2>
+<h3 id="40-implementation-2">3.1. Phân tích tác vụ và kiến trúc</h3>
+<h4 id="40-implementation-3">3.1.1. Trường hợp sử dụng và ranh giới</h4>
+<p>Tác nhân trong hệ thống là người truy cập website. Trường hợp sử dụng bắt đầu bằng việc đọc giới thiệu hoặc đi thẳng tới một nhóm nội dung. Trong nhóm địa điểm, thao tác đọc danh sách dẫn tới tìm kiếm, lọc và mở chi tiết. Trong nhóm ẩm thực, người dùng có thể chọn danh mục, sau đó mở một món. Thư viện cung cấp xem ảnh lớn và cẩm nang cung cấp mục FAQ. Lịch trình và vị trí phục vụ giai đoạn chuẩn bị chuyến đi. Chức năng được gắn với thao tác hiện có của ứng dụng, gồm mở Google Maps hoặc sao chép liên kết ở chi tiết phù hợp.</p>
+<figure id="figure-1"><div class="figure-images"><img src="../../docs/diagrams/rendered/use-case.png" alt="Trường hợp sử dụng của người truy cập" loading="lazy"></div><figcaption>Hình 1. Trường hợp sử dụng của người truy cập</figcaption></figure>
+<p>Sơ đồ chức năng gom thao tác theo mục tiêu đọc. Mỗi nhóm có điểm vào khác nhau, nhưng dùng chung ngữ cảnh website và thành phần điều hướng. Người sửa nội dung hoạt động trong kho mã, chỉnh dữ liệu hoặc thẩm định ảnh trước khi phát hành. Người đó không phải là tác nhân quản trị bên trong sản phẩm đang chạy. Sự phân định này giúp loại khỏi kiến trúc các chức năng không tồn tại, như đăng nhập và duyệt đơn đặt dịch vụ.</p>
+<h4 id="40-implementation-7">3.1.2. Lớp dựng, triển khai và lưu lượng môi trường thực thi</h4>
+<p>Mã nguồn C#, Razor, dữ liệu JSON và ảnh là đầu vào của bước dựng. GitHub Actions chuẩn bị SDK và tạo gói triển khai. Gói cuối cùng chứa tài liệu HTML ban đầu, CSS, ảnh, mã JavaScript, môi trường thực thi và assembly có thể chạy trên trình duyệt. GitHub Pages phục vụ các tài nguyên đó dưới thư mục của dự án. Tải trang là quan hệ giữa trình duyệt và nơi phục vụ tệp. Khi hoạt động, Razor gọi dịch vụ đọc JSON thông qua HTTP để lấy nội dung.</p>
+<figure id="figure-2"><div class="figure-images"><img src="../../docs/diagrams/rendered/system-architecture.png" alt="Kiến trúc dựng bản phát hành và thực thi trong trình duyệt" loading="lazy"></div><figcaption>Hình 2. Kiến trúc dựng bản phát hành và thực thi trong trình duyệt</figcaption></figure>
+<p>Môi trường thực thi chạy tại thiết bị người dùng. Việc lọc danh sách, cập nhật tab và chuyển hình không gửi yêu cầu xử lý đến một API nghiệp vụ. Khối <code>HttpClient</code> đọc tệp tĩnh và trả dữ liệu để ứng dụng quản lý. Những yêu cầu đến bên ngoài như việc mở bản đồ đi theo liên kết rõ ràng. Cách bố trí này phù hợp với lượng dữ liệu và tốc độ thay đổi trong phạm vi đề tài. Nó cũng đưa lỗi startup, sai base path hoặc thiếu file ảnh thành các lỗi có thể tái hiện từ gói triển khai, thay vì lỗi ở lớp xử lý server.</p>
+<h4 id="40-implementation-11">3.1.3. Tổ chức kho mã</h4>
+<p>Thư mục <code>src/BaDong.CoastalEscape</code> chứa project Blazor và các phần tử xuất bản từ <code>wwwroot</code>. Các trang trong <code>Pages</code> theo nhóm chức năng. <code>Components</code> chứa thẻ và thành phần dùng chung. <code>Layout</code> chứa cấu trúc bao, còn <code>Services</code> và <code>Models</code> tạo hợp đồng đọc dữ liệu. Tests tham chiếu ứng dụng và sao dữ liệu cùng tài nguyên cần kiểm vào output của dự án test. Tệp <code>global.json</code> cung cấp cấu hình chọn SDK và runner test. Hai workflow trong <code>.github/workflows</code> phục vụ CI và GitHub Pages.</p>
+<p>Các hướng dẫn, dữ liệu kiểm thử, kết quả và sơ đồ được gắn với thư mục phù hợp để người chạy lại có thể phân biệt ba mục tiêu. Muốn chạy sản phẩm trên máy phát triển, bắt đầu từ <code>setup</code>. Muốn xem phạm vi release, theo mốc và commit trong <code>docs</code>. Muốn sửa báo cáo học thuật, dùng nguồn trong <code>thesis</code>. Đơn vị kiểm tra nội dung bằng phần mềm là commit, còn đơn vị tham chiếu ảnh là file có hồ sơ xuất xứ. Nhờ đó sửa một ảnh không làm mất dữ kiện về release trước.</p>
+<h3 id="40-implementation-14">3.2. Thành phần giao diện và điều hướng</h3>
+<h4 id="40-implementation-15">3.2.1. Thành phần trang và phần tử dùng chung</h4>
+<p><code>App</code> cấu hình Router, <code>RouteView</code> và điểm focus khi chuyển trang. <code>MainLayout</code> bao nội dung bằng điều hướng desktop, menu mobile và vùng <code>main</code>. <code>DestinationCard</code> và <code>FoodCard</code> nhận model làm tham số, dùng trong các trang có cùng kiểu dữ liệu. <code>Breadcrumbs</code> trình bày quan hệ danh sách và chi tiết. <code>SourceNote</code> hiển thị liên kết nguồn tại các vùng cần minh bạch. Các component được chia theo dữ liệu hoặc hành vi sử dụng lại, tránh sao chép nguyên cả trang.</p>
+<figure id="figure-3"><div class="figure-images"><img src="../../docs/diagrams/rendered/component.png" alt="Thành phần giao diện và phụ thuộc chính" loading="lazy"></div><figcaption>Hình 3. Thành phần giao diện và phụ thuộc chính</figcaption></figure>
+<p><code>Gallery</code> quản lý danh sách ảnh sau lọc và mở <code>PhotoLightbox</code> với tập ảnh hiện tại. Component này hiển thị ảnh, caption, siêu dữ liệu và các nút chuyển ảnh. <code>FaqAccordion</code> nhận danh sách câu hỏi để dùng ở trang chủ và cẩm nang. Sự phân tách giúp kiểm thử tương tác trên một ngữ cảnh cụ thể và vẫn xác định điểm sở hữu trạng thái. Chẳng hạn danh mục thư viện thuộc trang, trong khi ảnh đang chọn và hành vi đóng thuộc hộp thoại.</p>
+<h4 id="40-implementation-19">3.2.2. Điều hướng, slug và trang không tìm thấy</h4>
+<p>Một slug được xem là định danh đường dẫn đọc được, chẳng hạn <code>bien-ba-dong</code>. Thẻ và điểm dừng lịch trình dùng slug để tạo URL chi tiết. Trong trang chi tiết, ứng dụng so sánh slug với model. Nếu có bản ghi, nó kết xuất nội dung tương ứng. Nếu tập có dữ liệu nhưng slug vắng mặt, trang cung cấp thông báo và liên kết trở về danh sách. Router dùng <code>NotFound</code> khi mẫu URL không khớp.</p>
+<figure id="figure-4"><div class="figure-images"><img src="../../docs/diagrams/rendered/navigation.png" alt="Điều hướng và xử lý URL không hợp lệ" loading="lazy"></div><figcaption>Hình 4. Điều hướng và xử lý URL không hợp lệ</figcaption></figure>
+<p>Các liên kết liên quan được định tuyến tương đối tới base ứng dụng. Tên path trong sơ đồ là path bên trong ứng dụng, chưa gồm thư mục project site. Liên kết bản đồ thuộc dịch vụ bên ngoài và được xử lý bằng URL tuyệt đối. Điều này cũng giải thích vì sao kiểm thử <code>MapUrl</code> chỉ xác nhận định dạng hoặc đích liên kết, còn dịch vụ bên ngoài không nằm trong phạm vi bảo đảm của website.</p>
+<h4 id="40-implementation-23">3.2.3. Khởi tạo title theo trạng thái</h4>
+<p>Điểm lắp <code>HeadOutlet</code> được khai báo một lần. Title của hai trang chi tiết đi qua <code>PageTitle</code>. Trong <code>DestinationDetail</code>, điều kiện đang tải được xét trước. Khi đã tải, tên địa điểm hợp lệ được ưu tiên. Nếu không có đối tượng, title phân biệt danh sách rỗng với slug không khớp trên danh sách có dữ liệu. Trang món ăn giữ title tên món và title danh sách, đồng thời thêm chuỗi cụ thể cho trường hợp không tìm thấy món.</p>
+<pre>&lt;PageTitle&gt;@(TitleLabel) · BA ĐỘNG — Coastal Escape&lt;/PageTitle&gt;</pre>
+<p>Dòng trích trên đặt trước các nhánh giao diện trong <code>DestinationDetail.razor</code>. Cấu trúc này đủ để mỗi nhánh có title và không cần JavaScript ghi <code>document.title</code>. Thẻ mô tả vẫn ở nhánh có nội dung. Tài liệu <code>index.html</code> ban đầu là màn hình khởi động, chưa có title riêng. Phần kiểm chứng dùng mốc đã kết xuất của Razor để đánh giá thay đổi.</p>
+<h3 id="40-implementation-27">3.3. Mô hình và quy tắc dữ liệu</h3>
+<h4 id="40-implementation-28">3.3.1. Các lớp nội dung</h4>
+<p><code>Destination</code> và <code>Food</code> cùng có ID, slug, nhóm nội dung và trường ảnh. Chúng khác về nhiệm vụ trình bày. Địa điểm cần vị trí, mô tả, chủ đề và đường dẫn bản đồ. Món ăn cần mô tả món, gợi ý sử dụng và thông tin liên quan đến ảnh. <code>GalleryPhoto</code> tập trung vào nguồn và kích thước tệp, đáp ứng cả ảnh thu nhỏ và ảnh mở trong hộp thoại. <code>FaqItem</code> gồm câu hỏi, câu trả lời và nguồn.</p>
+<figure id="figure-5"><div class="figure-images"><img src="../../docs/diagrams/rendered/class-model.png" alt="Các lớp nội dung và dịch vụ đọc" loading="lazy"></div><figcaption>Hình 5. Các lớp nội dung và dịch vụ đọc</figcaption></figure>
+<p><code>Itinerary</code> chứa danh sách <code>ItineraryStop</code>. Điểm dừng có thể mang slug địa điểm; khi slug rỗng, giao diện có thể hiển thị gợi ý như nghỉ trưa mà không tạo link. <code>SiteInfo</code> chứa một số thông tin chung và tập liên kết nguồn. Mối quan hệ về tham chiếu chỉ có hiệu lực khi kiểm thử hoặc mã môi trường thực thi tìm thấy dữ liệu tương ứng. Model không thêm một chính sách lưu trữ hoặc truy vấn riêng.</p>
+<h4 id="40-implementation-32">3.3.2. Tập JSON và dữ liệu kiểm tra</h4>
+<p>Sáu tệp được dịch vụ nội dung đọc khi phục vụ website. Hai tệp còn lại theo dõi tài nguyên ảnh và yêu cầu ảnh thiếu. Khi xem một đối tượng model, dữ liệu bắt buộc cho hiển thị được kiểm khác với trường tùy chọn. Slug địa điểm và món phải duy nhất trong từng tập, nhưng không cần duy nhất xuyên hai nhóm vì tiền tố route khác nhau. Ảnh và biến thể phải có đường dẫn đúng chữ hoa/thường trong gói triển khai. Kiểm tra này hữu ích khi quy trình phát hành chạy trên Ubuntu và dùng hệ thống tệp với quy tắc tên khác máy phát triển.</p>
+<figure id="figure-6"><div class="figure-images"><img src="../../docs/diagrams/rendered/json-data-model.png" alt="Quan hệ logic giữa các tệp nội dung và ảnh" loading="lazy"></div><figcaption>Hình 6. Quan hệ logic giữa các tệp nội dung và ảnh</figcaption></figure>
+<table id="table-3"><caption>Bảng 3. Kiểm kê dữ liệu trong phiên bản cơ sở phát hành</caption>
+<colgroup>
+<col style="width:32%">
+<col style="width:18%">
+<col style="width:50%">
+</colgroup><thead>
+<tr><th scope="col">Nhóm</th><th scope="col">Số mục</th><th scope="col">Vai trò và phép kiểm</th></tr></thead><tbody>
+<tr><td>Địa điểm</td><td>7</td><td>ID, slug, category, nguồn và đường dẫn ảnh. Năm mục đang chờ ảnh xác minh.</td></tr>
+<tr><td>Món ăn</td><td>4</td><td>Slug, phân nhóm, biến thể và nhãn vị trí chụp.</td></tr>
+<tr><td>Thư viện</td><td>7</td><td>Caption, mô tả thay thế, tác giả, giấy phép và ảnh.</td></tr>
+<tr><td>Lịch trình</td><td>2</td><td>Danh sách điểm dừng. Slug có giá trị phải trỏ tới địa điểm hợp lệ.</td></tr>
+<tr><td>FAQ và thông tin chung</td><td>5 và 1</td><td>Câu hỏi, câu trả lời, thuộc tính website và nguồn.</td></tr>
+<tr><td>Hồ sơ ảnh và yêu cầu ảnh</td><td>8 và 5</td><td>Danh sách tài nguyên, biến thể, trạng thái xác minh và vị trí cần ảnh.</td></tr>
+</tbody></table>
+<h4 id="40-implementation-36">3.3.3. Hồ sơ ảnh và ảnh đáp ứng</h4>
+<p>Mỗi ảnh đã xác minh có một đường dẫn cục bộ và thông tin lấy từ hồ sơ nguồn. Tập trường xác minh gồm chủ thể, vị trí chụp, tác giả, giấy phép và URL. Địa điểm Biển Ba Động sử dụng ảnh có hồ sơ Wikimedia Commons của Baoothersks và giấy phép CC BY 4.0 <a class="citation" href="#ref-ba-dong-photo">[1]</a>. Dữ liệu lưu tên nguồn cùng vị trí như được đối chiếu. Khi ảnh chỉ được xác minh về chủ thể, mô tả vị trí không tự động coi ảnh là ảnh của Ba Động. Năm địa điểm đang chờ ảnh vẫn dùng dạng hình giữ chỗ nội bộ.</p>
+<p>Các biến thể có kích thước khác nhau giúp trình duyệt chọn tệp phù hợp. Khi có hai bản ảnh địa điểm, trang mô tả chúng bằng <code>srcset</code>; ảnh PENDING dùng tài nguyên ảnh giữ chỗ tương ứng. Mục thư viện giữ thumbnail để xem lướt và dùng tệp ảnh chi tiết khi mở. Việc có siêu dữ liệu đầy đủ và file tồn tại mới xác nhận cấu trúc và quy trình xuất bản. Chất lượng ảnh tại địa điểm và độ mới của tư liệu là vấn đề biên tập cần nguồn xác minh tiếp theo.</p>
+<h3 id="40-implementation-39">3.4. Dịch vụ và xử lý nội dung</h3>
+<h4 id="40-implementation-40">3.4.1. Tải qua HTTP và lưu kết quả</h4>
+<p><code>ContentService</code> nhận <code>HttpClient</code> từ host. Mỗi phương thức công khai chỉ định một đường dẫn cố định. Khi yêu cầu tiếp tục từ trang khác, phương thức có thể trả dữ liệu bộ nhớ đệm bằng đường dẫn và kiểu phù hợp. Nếu chưa có, dịch vụ gọi <code>GetFromJsonAsync</code> với cấu hình web của <code>System.Text.Json</code>. Kết quả thành công được đưa vào bộ nhớ đệm. Trường hợp JSON chứa <code>null</code> dùng giá trị rỗng hoặc mặc định và bộ nhớ đệm giá trị đó.</p>
+<figure id="figure-7"><div class="figure-images"><img src="../../docs/diagrams/rendered/content-loading-sequence.png" alt="Trình tự tải nội dung khi có và chưa có bộ nhớ đệm" loading="lazy"></div><figcaption>Hình 7. Trình tự tải nội dung khi có và chưa có bộ nhớ đệm</figcaption></figure>
+<p>Bộ nhớ đệm dùng <code>ConcurrentDictionary&lt;string, object&gt;</code> để đọc và ghi an toàn trên cấu trúc từ điển. Hai yêu cầu cùng lúc vẫn có thể tải cùng một tệp khi cả hai chưa tìm thấy dữ liệu. Kết quả được dùng lại giữa các trang trong vòng đời của dịch vụ. Khi chỉnh sửa JSON, cần phát hành lại tệp để người đọc nhận dữ liệu mới.</p>
+<h4 id="40-implementation-44">3.4.2. Trạng thái lỗi có thể xử lý</h4>
+<p>Dịch vụ xử lý bốn nhóm ngoại lệ gồm lỗi HTTP, lỗi đọc JSON, kiểu không được hỗ trợ và tác vụ bị hủy. Khi có ngoại lệ, dịch vụ trả danh sách rỗng hoặc một <code>SiteInfo</code> mặc định và không ghi vào bộ nhớ đệm. Các trang dùng kết quả đó để quyết định có đủ dữ liệu cho nhánh chi tiết hay không. Title báo chưa có dữ liệu được sử dụng ở trạng thái rỗng, gồm lỗi tải và tập rỗng hợp lệ. Hướng xử lý này tránh thông báo sự cố kết nối khi nguyên nhân chưa phân biệt được.</p>
+<p>Một quy tắc khác là không đẩy lỗi từ môi trường thử vào kết luận bản công khai. Ca 503 được định nghĩa bằng chặn request JSON trên máy phát triển có chủ đích. Người kiểm biết thời điểm request bị giữ, biết thời điểm HTTP 503 trả về và có thể đọc DOM ở hai trạng thái. Số liệu bản công khai ghi riêng theo môi trường. Cùng một mã 404 có thể xuất hiện ở log của bản công khai nhưng đó là 404 tài liệu ban đầu khi mở route sâu, khác với JSON 503 được dùng để kiểm nội dung rỗng.</p>
+<h4 id="40-implementation-47">3.4.3. Tìm kiếm có dấu và bộ lọc</h4>
+<p>Trang Khám phá nhận giá trị khi người dùng nhập. Đối với mỗi đối tượng, thuật toán kiểm tra danh mục trước. Danh mục mặc định cho đi qua tất cả điểm. Nếu cần so khớp từ khóa, chuỗi tìm kiếm và các trường tên, mô tả ngắn, đoạn đầu mô tả và tags được chuẩn hóa. Kết quả so chuỗi con được áp dụng theo thứ tự dữ liệu ban đầu. Khi không có phần tử phù hợp, ứng dụng hiện thông báo và nút xóa bộ lọc.</p>
+<figure id="figure-8"><div class="figure-images"><img src="../../thesis/source/diagrams/search-filter-activity.png" alt="Hoạt động lọc và so khớp từ khóa địa điểm" loading="lazy"></div><figcaption>Hình 8. Hoạt động lọc và so khớp từ khóa địa điểm</figcaption></figure>
+<p>Tách lọc nhóm và lọc từ khóa giúp người dùng giải thích được kết quả. Chọn lại Tất cả bỏ điều kiện danh mục. Nút xóa bộ lọc còn đặt từ khóa về rỗng. Dữ liệu hiện có ít phần tử nên mỗi thao tác lọc có thể đi qua danh sách đang ở bộ nhớ. Đồ án không dùng chỉ mục toàn văn, thứ hạng, sửa chính tả hay phân đoạn từ tiếng Việt. Việc bỏ dấu kết hợp giúp các ca như hoàng hôn và hoang hon. Cặp đ và d là trường hợp riêng vì ký tự đ không bị loại bởi thao tác xóa dấu kết hợp.</p>
+<h3 id="40-implementation-51">3.5. Hộp thoại, menu và triển khai</h3>
+<h4 id="40-implementation-52">3.5.1. Focus và tương tác</h4>
+<p>Menu di động và lightbox có cơ chế lưu vị trí focus ban đầu, điều phối focus khi mở, giới hạn vòng tab khi hộp thoại hoạt động và trả focus khi đóng. Khóa cuộn được áp dụng cho body trong thời gian hộp thoại mở. Khi kích hoạt Escape, ứng dụng điều phối việc đóng từ trạng thái UI. Lightbox còn phản hồi phím mũi tên để đổi ảnh. Mã Razor quyết định ảnh đang xem và việc mở/đóng; mã JavaScript áp dụng thao tác cần trạng thái DOM.</p>
+<p>Tương tác ở các nhóm nội dung khác dùng phần tử ngữ nghĩa và thuộc tính ARIA tương ứng. FAQ mở rộng nội dung khi người dùng kích hoạt nút. Lịch trình có trạng thái tab đang chọn để phân biệt trình tự được xem. Trang cung cấp chỉ dẫn focus cho điều hướng và CSS điều chỉnh animation khi người dùng yêu cầu giảm chuyển động. Những cơ chế cụ thể giúp kiểm tester xác định thuộc tính quan sát được, chẳng hạn trạng thái của tab thứ hai sau khi nhấn Enter.</p>
+<h4 id="40-implementation-55">3.5.2. Build, publish và đường dẫn triển khai</h4>
+<p>Workflow CI chạy restore app và project test, dựng bản Release, test và publish để kiểm tra cấu hình relinking của WebAssembly. Workflow Pages dùng SDK .NET 10 và workload wasm-tools, dựng output, áp dụng base path và các token triển khai. Job deploy nhận gói triển khai từ job build của cùng workflow. Hai workflow có thể chạy song song khi push <code>main</code>, nên kết luận của từng lần chạy được lưu riêng khi phát hành.</p>
+<figure id="figure-9"><div class="figure-images"><img src="../../docs/diagrams/rendered/deployment.png" alt="Hai workflow từ commit đến kiểm thử và triển khai" loading="lazy"></div><figcaption>Hình 9. Hai workflow từ commit đến kiểm thử và triển khai</figcaption></figure>
+<p>Trong bản publish, thẻ base trỏ vào thư mục của repo. <code>robots.txt</code> và sitemap dùng URL public đã thay token. <code>404.html</code> đặt mục tiêu điều hướng trong session storage và chuyển về base. Khi ứng dụng khởi động, đoạn JavaScript xử lý mục tiêu và cập nhật lịch sử để Router nhận path mong muốn. Cơ chế này duy trì trải nghiệm khi trình duyệt thực thi được các bước trên. Nó không biến lần phản hồi đầu thành HTTP 200. Điều kiện thành công thực tế gồm hai kết quả đồng thời: trạng thái ban đầu được ghi đúng và nội dung sau khi khởi động ứng với route ban đầu.</p>
+</section>
+<section class="chapter">
+<h2 id="50-results-1">CHƯƠNG 4. KẾT QUẢ NGHIÊN CỨU</h2>
+<h3 id="50-results-2">4.1. Môi trường và nguyên tắc đánh giá</h3>
+<h4 id="50-results-3">4.1.1. Phạm vi theo mốc phiên bản</h4>
+<p>Phiên bản cơ sở trước khi sửa tiêu đề là <code>955956b</code>. Bản sửa được dựng và kiểm tra trên máy phát triển trước khi phát hành. Các ảnh trong báo cáo ghi lại lần kiểm tra này. Sau khi phát hành, em đối chiếu hai lần chạy trên GitHub Actions với mã <code>463da37</code> và kiểm tra lại các đường dẫn trên website công khai.</p>
+<p>Ảnh giao diện trong chương và phụ lục chụp từ bản Release trên máy phát triển ngày 25/11/2026. Chúng cho thấy trạng thái hiển thị và tương tác đã quan sát trên môi trường đó. Các mục nói về bản công khai dựa vào kiểm tra sau deployment. Đợt đó đọc phản hồi HTTP, trạng thái DOM và yêu cầu tài nguyên; không dùng ảnh trên máy phát triển để suy ra kết quả ở bản công khai. Cách ghi này cũng giữ được ý nghĩa của ảnh được chụp trong lúc giao diện có active tab hoặc đang ở trạng thái lỗi.</p>
+<h4 id="50-results-6">4.1.2. Kiểm tra dữ liệu và dịch vụ</h4>
+<p>Hai project restore thành công với SDK 10.0.100 trong kiểm tra trước phát hành. Bản app Release có 0 cảnh báo và 0 lỗi. Kết quả 14 test đạt được xác minh trong máy phát triển và log CI đúng SHA phát hành. Kiểm tra JSON độc lập đọc tám tệp hợp lệ. Các test bao gồm xác minh model, file ảnh, siêu dữ liệu trạng thái, tham chiếu điểm dừng và hành vi tải HTTP. Kết quả test dùng đúng phạm vi từng ca.</p>
+<table id="table-4"><caption>Bảng 4. Kết quả xác minh kỹ thuật theo môi trường</caption>
+<colgroup>
+<col style="width:38%">
+<col style="width:31%">
+<col style="width:31%">
+</colgroup><thead>
+<tr><th scope="col">Phép kiểm</th><th scope="col">Kết quả trên máy phát triển</th><th scope="col">Kết quả CI đúng SHA</th></tr></thead><tbody>
+<tr><td>Restore</td><td>App và project test đạt</td><td>Bước restore đạt</td></tr>
+<tr><td>Release build</td><td>0 cảnh báo, 0 lỗi</td><td>0 cảnh báo, 0 lỗi</td></tr>
+<tr><td>Kiểm thử tự động</td><td>14 đạt, 0 lỗi, 0 bỏ qua</td><td>14 đạt, 0 lỗi, 0 bỏ qua</td></tr>
+<tr><td>JSON và nguồn ảnh</td><td>8 tệp đọc được; kiểm tra siêu dữ liệu bằng suite</td><td>Suite dữ liệu đạt</td></tr>
+</tbody></table>
+<p>Tài liệu kiểm thử giúp nhận diện ranh giới mà test bao phủ. Ví dụ test duy nhất của slug hữu ích vì Router tra phần tử bằng chuỗi; dữ liệu trùng có thể khiến lựa chọn bản ghi phụ thuộc thứ tự. Test đối chiếu ảnh trên máy phát triển hữu ích vì một tên không khớp chữ hoa/thường có thể chỉ phát hiện khi ra môi trường khác. Ca HTTP có chủ định với trình xử lý giả xác nhận dịch vụ trả giá trị rỗng. Mỗi ca kiểm có một đối tượng quan sát, thay cho kết luận chung rằng tất cả lỗi nội dung đã được loại bỏ.</p>
+<h3 id="50-results-10">4.2. Kết quả giao diện và chức năng</h3>
+<h4 id="50-results-11">4.2.1. Trang chủ ở các kích thước</h4>
+<p>Ở desktop, vùng chính của trang chủ đặt ảnh và thông điệp nhận diện cùng các lối đi nổi bật. Người đọc có thể chuyển mục bằng điều hướng phía trên. Trong các ảnh tablet và mobile, kích thước cột và cách đưa menu thay đổi để sử dụng được chiều rộng hẹp. Hai chế độ vẫn giữ mục tiêu nhận diện trang và đi tiếp sang nội dung chính. Ảnh chủ đạo dùng tài nguyên đã xác minh của Biển Ba Động <a class="citation" href="#ref-ba-dong-photo">[1]</a>. Hình minh họa bố cục trên thiết bị giả lập, không đại diện cho số liệu khả dụng của tập người dùng.</p>
+<figure id="figure-10"><div class="figure-images"><img src="../../docs/evidence/screenshots/01-home-desktop.png" alt="Trang chủ ở vùng hiển thị 1440 × 900, bản Release tại máy" loading="lazy"></div><figcaption>Hình 10. Trang chủ ở vùng hiển thị 1440 × 900, bản Release tại máy</figcaption></figure>
+<figure id="figure-11"><div class="figure-images"><img src="../../docs/evidence/screenshots/02-home-tablet.png" alt="Trang chủ ở hai vùng hiển thị 768 × 900 và 390 × 844, ảnh 1" loading="lazy"><img src="../../docs/evidence/screenshots/03-home-mobile.png" alt="Trang chủ ở hai vùng hiển thị 768 × 900 và 390 × 844, ảnh 2" loading="lazy"></div><figcaption>Hình 11. Trang chủ ở hai vùng hiển thị 768 × 900 và 390 × 844</figcaption></figure>
+<p>Menu mobile được kiểm bằng thao tác phím. Trong đợt trên máy phát triển, Enter mở menu, nhìn thấy focus vào nút đóng, và Tab cùng Shift+Tab chuyển vòng trong dialog. Escape đóng menu và trở về nút ban đầu. Body khóa cuộn khi hộp thoại mở. Khi giả lập giảm chuyển động, thời lượng animation hero quan sát còn 0,01 ms. Ảnh menu ở Phụ lục E giúp đối chiếu bố cục, còn kết quả focus dựa trên kiểm tra DOM và thao tác, vì một ảnh tĩnh không chứng minh thứ tự tác vụ.</p>
+<h4 id="50-results-16">4.2.2. Danh sách địa điểm và tìm kiếm</h4>
+<p>Người đọc mở Khám phá để thấy các thẻ địa điểm và các điều khiển. Khi nhập hoàng hôn và hoang hon, kiểm tra ghi nhận cùng một thẻ <code>goc-ngam-hoang-hon</code>. Khi lọc Thiên nhiên, tập kết quả thu hẹp và vẫn còn mục. Khi dùng một chuỗi không khớp, vùng kết quả rỗng đưa ra cách xóa bộ lọc. Sau khi xóa, bảy thẻ xuất hiện. Phép kiểm giữ ba giai đoạn tách nhau: xác nhận lọc đúng, nhận thấy trạng thái rỗng, rồi xác nhận có thể khôi phục danh sách.</p>
+<figure id="figure-12"><div class="figure-images"><img src="../../docs/evidence/screenshots/08-explore-empty.png" alt="Trạng thái không có kết quả và nút xóa bộ lọc" loading="lazy"></div><figcaption>Hình 12. Trạng thái không có kết quả và nút xóa bộ lọc</figcaption></figure>
+<p>Kiểm tra hỗ trợ bỏ dấu vẫn có giới hạn. Kết quả cho hai truy vấn đã nêu khớp, còn thuật toán không ánh xạ riêng đ/d. Một test dùng từ có đ và một test dùng dấu kết hợp sẽ đánh giá hai khía cạnh khác nhau. Mục truy vết của tìm kiếm vì vậy ở trạng thái một phần. Ảnh danh sách, kết quả tìm kiếm, danh mục đã chọn và chi tiết địa điểm nằm ở Phụ lục E.</p>
+<p>Chi tiết địa điểm giữ lối mở bản đồ và nguồn ảnh. Khi đi từ thẻ trong danh sách, slug được giữ trong URL và title. Trong kiểm tra bản công khai, đường dẫn từ trang lỗi về danh sách cho phép mở lại Biển Ba Động và tải lại trang chi tiết. Giao diện có chức năng sao chép liên kết, nhưng việc đọc lại giá trị thật từ clipboard chưa có ca xác minh trong đợt này.</p>
+<h4 id="50-results-21">4.2.3. Ẩm thực và thư viện</h4>
+<p>Mục Ẩm thực có bốn món ở trạng thái ban đầu. Ở trên máy phát triển, bộ lọc Hải sản giảm từ bốn xuống một món, và nút Tất cả khôi phục bốn mục. Chi tiết Cua biển có tên món trong title và nhãn xuất xứ trong phần ảnh. Nội dung không dùng ảnh tham chiếu làm bằng chứng về món được bán tại Ba Động. Hai trạng thái danh sách và chi tiết được chụp riêng để có thể xem lại ngữ cảnh.</p>
+<figure id="figure-13"><div class="figure-images"><img src="../../docs/evidence/screenshots/10-cuisine.png" alt="Danh sách và chi tiết ẩm thực trong bản trên máy phát triển, ảnh 1" loading="lazy"><img src="../../docs/evidence/screenshots/11-food-detail.png" alt="Danh sách và chi tiết ẩm thực trong bản trên máy phát triển, ảnh 2" loading="lazy"></div><figcaption>Hình 13. Danh sách và chi tiết ẩm thực trong bản trên máy phát triển</figcaption></figure>
+<p>Thư viện cho phép mở ảnh lớn và đọc chú thích. Ở ca kiểm tra bàn phím trên máy phát triển, Enter từ thẻ mở hộp thoại. Mũi tên phải đổi ảnh và mũi tên trái khôi phục ảnh ban đầu. Escape đóng và trả focus về thẻ. Điều này xác nhận thao tác đã kiểm và lối trở về tương tác sau khi xem ảnh. Nguồn và giấy phép vẫn xuất hiện trong vùng caption của hộp thoại.</p>
+<figure id="figure-14"><div class="figure-images"><img src="../../docs/evidence/screenshots/13-gallery-lightbox.png" alt="Hộp thoại ảnh lớn với mô tả và thông tin nguồn" loading="lazy"></div><figcaption>Hình 14. Hộp thoại ảnh lớn với mô tả và thông tin nguồn</figcaption></figure>
+<h4 id="50-results-26">4.2.4. Cẩm nang, lịch trình và vị trí</h4>
+<p>Cẩm nang để người đọc mở câu hỏi thường gặp và xem câu trả lời trong trang. Lượt trên máy phát triển kích hoạt FAQ bằng Enter và đọc đáp án hiển thị. Với lịch trình, lựa chọn tab thứ hai đưa bố cục sang gợi ý hai ngày và thuộc tính <code>aria-selected</code> trở thành true. Tham chiếu slug từ điểm dừng được luồng test dữ liệu kiểm tra. Kết hợp hai lớp kiểm tra giúp xác nhận cả thao tác chọn và tiền đề của đường dẫn.</p>
+<figure id="figure-15"><div class="figure-images"><img src="../../docs/evidence/screenshots/14-guide-faq.png" alt="FAQ đang mở và lịch trình thứ hai được chọn, ảnh 1" loading="lazy"><img src="../../docs/evidence/screenshots/15-itinerary.png" alt="FAQ đang mở và lịch trình thứ hai được chọn, ảnh 2" loading="lazy"></div><figcaption>Hình 15. FAQ đang mở và lịch trình thứ hai được chọn</figcaption></figure>
+<p>Mục Vị trí đặt thông tin hành chính và liên kết Google Maps cùng phần dẫn nguồn. URL bản đồ đi ra dịch vụ ngoài và được đối chiếu ở mốc kiểm tra đường dẫn. Lịch trình không ước lượng giờ di chuyển theo lưu lượng thực tế. Người dùng có thể dùng lối mở bản đồ như điểm bắt đầu và tự kiểm tra lại đường đi khi lên kế hoạch. Ảnh trang Vị trí ở Phụ lục E.</p>
+<h3 id="50-results-30">4.3. Hồi quy title, điều hướng và khả năng tiếp cận</h3>
+<h4 id="50-results-31">4.3.1. Phát hiện và sửa lỗi</h4>
+<p>Mở slug địa điểm sai ở phiên bản trước cho thấy heading lỗi đúng nhưng không có <code>head title</code>. Tái hiện trên máy phát triển cho kết quả tương tự. Kiểm tra mã cho thấy title nằm trong nhánh chỉ chạy khi có địa điểm. Sau khi sửa, title đứng ở cấp component. Ca chi tiết hợp lệ dùng tên thật, ca slug sai có thông báo cụ thể, và trong lúc tải trang cho biết đang tải nội dung.</p>
+<p>Kiểm tra trên máy phát triển gồm bảy đường dẫn ở bốn chiều rộng 320, 390, 768 và 1440 pixel CSS, tổng cộng 28 lượt. Các URL gồm chi tiết địa điểm hợp lệ, chi tiết địa điểm sai, danh sách món, chi tiết món hợp lệ, chi tiết món sai, trang lỗi có route rõ và URL không khớp mẫu. Mỗi lượt kiểm title, một thẻ title, một heading chính và một vùng main. Đợt trên máy phát triển còn có hai lần giữ request JSON rồi trả 503 để kiểm quá trình từ đang tải sang chưa có dữ liệu. Heading lỗi được quan sát sau phản hồi mô phỏng.</p>
+<figure id="figure-16"><div class="figure-images"><img src="../../docs/evidence/screenshots/17-invalid-destination.png" alt="Hai nhánh lỗi trên nội dung trang trên máy phát triển, ảnh 1" loading="lazy"><img src="../../docs/evidence/screenshots/18-not-found.png" alt="Hai nhánh lỗi trên nội dung trang trên máy phát triển, ảnh 2" loading="lazy"></div><figcaption>Hình 16. Hai nhánh lỗi trên nội dung trang trên máy phát triển</figcaption></figure>
+<p>Ảnh thân trang giúp thấy lối đi khi gặp lỗi. Giá trị title đến từ kiểm tra DOM chứ không đọc từ ảnh. Sau khi sửa, ca chuyển từ trang lỗi về danh sách và mở lại trang hợp lệ giúp phát hiện title cũ còn sót lại khi đổi route. Phép kiểm tải lại là một trường hợp khác vì trình duyệt phải nhận phản hồi mới từ nơi phục vụ site. Các ca thực tế cùng title quan sát được ghi theo môi trường trong Phụ lục C.</p>
+<h4 id="50-results-36">4.3.2. Khả năng tiếp cận và đáp ứng</h4>
+<p>Các lượt trên máy phát triển ghi nhận có heading, <code>main</code>, ngôn ngữ vi và không tràn ngang ở các route đã kiểm. Phạm vi thao tác bàn phím bao gồm quay về từ trang lỗi với focus nhìn thấy, mở và đóng menu mobile, đổi ảnh và đóng lightbox, mở FAQ và kích hoạt tab lịch trình. Các kiểm tra đã chạy có tiêu chí quan sát được. Ví dụ khi hộp thoại đóng, focus phải thuộc phần tử mở trước đó. Một tiêu chí như vậy cho kết luận rõ hơn việc chỉ nói rằng giao diện có hỗ trợ bàn phím.</p>
+<table id="table-5"><caption>Bảng 5. Phạm vi kiểm tra giao diện và khả năng tiếp cận</caption>
+<colgroup>
+<col style="width:39%">
+<col style="width:61%">
+</colgroup><thead>
+<tr><th scope="col">Phần đã kiểm</th><th scope="col">Phạm vi và kết quả</th></tr></thead><tbody>
+<tr><td>Tiêu đề, heading và landmark</td><td>Đạt ở 28 lượt trên máy phát triển của nhóm route hồi quy.</td></tr>
+<tr><td>Vùng hiển thị</td><td>Bốn chiều rộng đã nêu. Không quan sát tràn ngang ở các lượt được kiểm.</td></tr>
+<tr><td>Bàn phím và focus</td><td>Một số luồng menu, ảnh, FAQ, lịch trình và quay lại từ lỗi đạt.</td></tr>
+<tr><td>Giảm chuyển động</td><td>Quan sát media query và thời lượng animation hero khi giả lập.</td></tr>
+<tr><td>Tương phản, trình đọc màn hình, zoom 200%</td><td>Chưa có bài kiểm đầy đủ trong đợt này.</td></tr>
+</tbody></table>
+<p>Mức đánh giá là một phần so với mục tiêu khả năng tiếp cận. Máy kiểm dùng trình duyệt desktop giả lập bề rộng, do đó không đại diện cho toàn bộ phần cứng và công nghệ hỗ trợ. Chương 5 đề xuất bổ sung tổ hợp test có thể tái lập, trong đó ghi công cụ, môi trường và tình huống đo cụ thể. Không quy đổi trực tiếp số ca đạt thành mức tuân thủ WCAG.</p>
+<h3 id="50-results-40">4.4. Phát hành và giới hạn quan sát</h3>
+<h4 id="50-results-41">4.4.1. Kết quả CI và Pages đúng phiên bản</h4>
+<p>Mốc phát hành đầy đủ là <code>463da372613648411ef9d6002c4d895cb03cbb4d</code>. <a href="https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45546387181">CI 45546387181</a> và <a href="https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45546387162">Pages 45546387162</a> đều có kết luận thành công cho SHA này. Deployment 8048326076 có trạng thái thành công ngày 25/11/2026. Việc xác nhận SHA link workflow độc lập với kiểm tra đường dẫn công khai. Thành công ở runner xác nhận quy trình tạo và triển khai gói triển khai; trình duyệt xác nhận bản công khai kết xuất đúng các ca đã chọn.</p>
+<table id="table-6"><caption>Bảng 6. Tóm tắt kiểm tra trình duyệt theo môi trường</caption>
+<colgroup>
+<col style="width:30%">
+<col style="width:36%">
+<col style="width:34%">
+</colgroup><thead>
+<tr><th scope="col">Môi trường</th><th scope="col">Đối tượng kiểm</th><th scope="col">Kết quả</th></tr></thead><tbody>
+<tr><td>Phiên bản cơ sở</td><td>48 lượt trình duyệt, 12 URL × 4 chiều rộng</td><td>Đợt hồi quy trước thay đổi tiêu đề. Khi tái hiện lỗi, slug địa điểm sai có heading nhưng tiêu đề thẻ trình duyệt rỗng.</td></tr>
+<tr><td>Bản sửa trên máy phát triển</td><td>28 lượt, 7 URL × 4 chiều rộng. Hai ca HTTP 503 mô phỏng được kiểm riêng.</td><td>Tiêu đề và các phần tử DOM đạt trong 28 lượt. Hai ca 503 hiển thị trạng thái chưa có dữ liệu.</td></tr>
+<tr><td>Bản công khai phát hành</td><td>7 route ở 1440 × 900 và điều hướng, tải lại</td><td>7 title đạt; trang chủ HTTP 200; direct deep link HTTP 404 rồi khôi phục đúng route.</td></tr>
+</tbody></table>
+<p>Lượt kiểm tra nhanh trên bản công khai dùng Chrome Headless 158. Tại mỗi URL, phép kiểm đợi title và heading đúng sau môi trường thực thi, xác nhận thẻ title duy nhất và theo dõi yêu cầu tài nguyên. CSS, JavaScript, WebAssembly, JSON và ảnh có phản hồi thành công ở lượt hoàn tất. Không ghi nhận lỗi JavaScript, lỗi yêu cầu asset/JSON hoặc lỗi console ngoài 404 của tài liệu được dự kiến. Chromium có hủy một số yêu cầu khi điều hướng. Các lượt ghi nhận được trình bày riêng trong hồ sơ phát hành. Phạm vi đánh giá giới hạn ở các đường dẫn và tài nguyên quan sát trong từng lượt.</p>
+<p>Một URL ở lớp ứng dụng có thể hoạt động với người đọc dù lần đáp ứng trực tiếp từ nơi lưu trữ tĩnh là 404. Kết quả này là bằng chứng cho giới hạn fallback và SEO. Nó cũng giúp phân biệt route lỗi theo nghĩa nội dung với mã phản hồi máy chủ. Trang chi tiết địa điểm hợp lệ và route slug không tồn tại đều có thể bắt đầu bằng HTTP 404 trong môi trường Pages, rồi cho hai kết quả UI khác nhau khi ứng dụng đã đọc dữ liệu.</p>
+<h4 id="50-results-46">4.4.2. Số liệu gói triển khai và giới hạn hiệu năng</h4>
+<p>CI của mốc phát hành báo tổng dung lượng các tệp Brotli trong thư mục framework là 2.824.213 byte. Tệp môi trường thực thi native WASM chưa nén có kích thước 2.900.443 byte. Hai đại lượng này mô tả các tệp trong gói triển khai theo phương pháp của workflow. Chúng không phải số byte thực tải của một phiên truy cập và không dùng để cộng thành tổng. Một phiên có bộ nhớ đệm, lựa chọn tài nguyên khác nhau và điều kiện mạng khác nhau.</p>
+<p>Đợt phát hành chưa đo Lighthouse, Web Vitals hoặc thời gian khởi động chuẩn hóa. Không có kết quả để so sánh tốc độ theo device hoặc mức mạng. Các kiểm tra tải asset và JSON nhằm xác nhận đường dẫn đang phục vụ được. Phép đo hiệu năng, nếu bổ sung, cần chọn trình duyệt, vùng hiển thị, mức mô phỏng mạng, trạng thái bộ nhớ đệm và số lần lặp, sau đó lưu kết quả cùng SHA.</p>
+<h3 id="50-results-49">4.5. Đánh giá kết quả</h3>
+<p>Khi đánh giá mỗi URL, em ghi cả mã HTTP ban đầu, tiêu đề và trang cuối cùng. Nhờ vậy có thể kiểm tra bản sửa tiêu đề mà vẫn nhìn thấy giới hạn triển khai tĩnh. Ảnh giao diện minh họa trạng thái đã quan sát trong lần chạy tương ứng.</p>
+<p>Giới hạn chính là HTTP ban đầu của URL sâu, năm địa điểm dùng ảnh giữ chỗ và phạm vi kiểm tra khả năng tiếp cận còn hẹp. Kiểm tra bổ sung trên bản phát hành còn thấy chỉ dẫn cuộn bị cắt ở chiều rộng 1.024 và 1.280 px. Trên vùng hiển thị 320 × 568 px, người đọc cần cuộn để thấy hai nút đầu trang. Các quan sát này có phạm vi riêng với đợt hồi quy tiêu đề.</p>
+</section>
+<section class="chapter">
+<h2 id="60-conclusion-1">CHƯƠNG 5. KẾT LUẬN VÀ HƯỚNG PHÁT TRIỂN</h2>
+<h3 id="60-conclusion-2">5.1. Kết luận và đóng góp</h3>
+<h4 id="60-conclusion-3">5.1.1. Sản phẩm và hồ sơ</h4>
+<p>Đồ án hoàn thành cẩm nang BA ĐỘNG — Coastal Escape với các luồng tra cứu địa điểm, ẩm thực, ảnh và lịch trình tham khảo. Việc giữ nội dung trong JSON và triển khai bằng Blazor WebAssembly cho phép dựng lại sản phẩm từ một phiên bản của kho mã nguồn. Chương 4 trình bày kết quả kiểm thử của phiên bản đó.</p>
+<p>Kết quả của đề tài gồm một cách tổ chức cẩm nang tĩnh có thể tái kiểm tra. Tên, slug, ảnh và nguồn được mô hình hóa để tìm lại từ dữ liệu. Ma trận truy vết nối yêu cầu với nơi hiện thực và bằng chứng, gồm các dòng chưa có kiểm tra. Nhờ ma trận, người đánh giá có thể tra lại điều kiện kiểm tra cho từng chức năng và nhận ra những tiêu chí còn mở.</p>
+<h4 id="60-conclusion-6">5.1.2. Hạn chế của bản phát hành</h4>
+<p>Một số ảnh vẫn cần hồ sơ phù hợp với địa điểm. Website hiển thị ảnh giữ chỗ và trạng thái trong thời gian chưa có tư liệu. Router có thể khôi phục đường dẫn sâu sau khi máy chủ trả 404. Bản động của title cập nhật khi Razor hoạt động, còn HTML ban đầu chưa có title riêng. Các yếu tố này làm giảm khả năng diễn giải nội dung nếu trình duyệt hoặc tác nhân không chạy đủ ứng dụng.</p>
+<p>Kiểm tra trình duyệt được chọn theo thay đổi và các tác vụ chính. Kết quả về focus, bố cục và tương tác có giá trị đối với môi trường đã đo. Cần thêm các bài kiểm tương phản, zoom và công nghệ hỗ trợ. Dữ liệu hiện tại phù hợp với mục đích tham khảo, còn việc đánh giá độ đầy đủ thông tin của người đi thực tế đòi hỏi khảo sát riêng và kiểm soát cách thu thập dữ liệu.</p>
+<h3 id="60-conclusion-9">5.2. Hướng phát triển</h3>
+<h4 id="60-conclusion-10">5.2.1. Kết xuất và đường dẫn có thể kiểm chứng</h4>
+<p>Hướng ưu tiên là giảm vai trò của fallback HTTP 404 trên các route hợp lệ. Có thể thử kết xuất trước cho tập route hữu hạn và so sánh với cách phục vụ tĩnh hiện tại. Tiêu chí nghiệm thu gồm HTTP 200 trực tiếp cho slug hợp lệ, 404 thực đối với URL không tồn tại và title đúng từ tài liệu đầu tiên. Cần kiểm tra thêm sitemap, canonical, đường dẫn tài nguyên và điều hướng sau khi Blazor khởi động. Khi có phương án chạy ở cùng quy mô, có thể đo chênh lệch payload và thời gian hiển thị với điều kiện mạng đã ghi lại.</p>
+<p>Công việc này nên bắt đầu với một nhánh thử nghiệm nhỏ và một số route thường dùng. Nếu xây tài liệu riêng cho mỗi slug, cần tránh sinh ra route rỗng hoặc để nội dung tồn tại ở hai URL khác nhau mà không có quy tắc canonical. Nếu đổi sang môi trường có máy chủ, cần đánh giá lại phương pháp triển khai, chi phí vận hành và khả năng tái hiện khi chấm đồ án. Các lựa chọn này là đề xuất, đặt ngoài mốc đóng băng hiện nay.</p>
+<h4 id="60-conclusion-13">5.2.2. Dữ liệu và nguồn gốc hình ảnh</h4>
+<p>Năm yêu cầu ảnh PENDING nên được xử lý riêng theo hồ sơ đã ghi. Mỗi ảnh bổ sung cần xác minh nơi chụp, chủ thể, tác giả, giấy phép và quyền công bố phù hợp nếu người có thể nhận diện xuất hiện. Sau đó mới tạo biến thể, đổi đường dẫn, cập nhật caption và chạy lại bộ kiểm thử file cùng siêu dữ liệu. Quá trình có thể được thực hiện từng ảnh để người rà soát đối chiếu nguồn và xem vùng giao diện chịu ảnh hưởng.</p>
+<p>Cuối cùng, nếu số lần thay đổi nội dung tăng, có thể khảo sát công cụ quản lý nội dung để hỗ trợ quy trình rà soát. Cần duy trì siêu dữ liệu nguồn, version và trạng thái chờ ở bất kỳ cách lưu nào. Một API chỉ có ích khi có nhu cầu thật về cập nhật và quản trị nội dung. Bản đồ tương tác hoặc giao diện đa ngôn ngữ cũng cần nhu cầu rõ ràng cùng kế hoạch kiểm tra, ví dụ cách ghi đúng nguồn và tên địa danh theo ngôn ngữ hiển thị.</p>
+<h4 id="60-conclusion-16">5.2.3. Kiểm thử và đánh giá bổ sung</h4>
+<p>Có thể đưa một số ca trình duyệt hiện tại vào quy trình hồi quy có mã kiểm thử. Những ca ưu tiên gồm title ở route sai, lỗi đọc JSON, focus phục hồi sau đóng dialog và các cặp từ tiếng Việt có ranh giới chuẩn hóa. Khi bổ sung kiểm tra đ/d cần nêu trước quy tắc tương đương mong muốn và xác định từ khóa nào nên giữ khác biệt. Đồng thời, các route nội dung cần được kiểm tra với zoom, độ tương phản và trình đọc màn hình ở phạm vi có thể tái hiện.</p>
+</section>
+<section class="chapter">
+<h2 id="70-references-1">DANH MỤC TÀI LIỆU THAM KHẢO</h2>
+<ol class="references" role="list"><li id="ref-ba-dong-photo"><span class="ref-index">[1]</span> Baoothersks, “Biển Ba Động, Trà Vinh.jpg”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://commons.wikimedia.org/wiki/File:Bi%E1%BB%83n_Ba_%C4%90%E1%BB%99ng,_Tr%C3%A0_Vinh.jpg">https://commons.wikimedia.org/wiki/File:Bi%E1%BB%83n_Ba_%C4%90%E1%BB%99ng,_Tr%C3%A0_Vinh.jpg</a></li>
+<li id="ref-json"><span class="ref-index">[2]</span> T. Bray, “The JavaScript Object Notation (JSON) Data Interchange Format, RFC 8259”, 2017. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://www.rfc-editor.org/info/rfc8259/">https://www.rfc-editor.org/info/rfc8259/</a></li>
+<li id="ref-vinh-long"><span class="ref-index">[3]</span> Cổng thông tin điện tử tỉnh Vĩnh Long, “Địa danh, mục Biển Ba Động”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://vinhlong.gov.vn/du-khach-old/diadanh_test">https://vinhlong.gov.vn/du-khach-old/diadanh_test</a></li>
+<li id="ref-national-tourism"><span class="ref-index">[4]</span> Cục Du lịch Quốc gia Việt Nam, “Bãi biển Ba Động”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://vietnamtourism.vn/index.php/tourism/items/1948">https://vietnamtourism.vn/index.php/tourism/items/1948</a></li>
+<li id="ref-http"><span class="ref-index">[5]</span> R. Fielding, M. Nottingham và J. Reschke, “HTTP Semantics, RFC 9110”, 2022. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://www.rfc-editor.org/info/rfc9110/">https://www.rfc-editor.org/info/rfc9110/</a></li>
+<li id="ref-actions"><span class="ref-index">[6]</span> GitHub, “Understanding GitHub Actions”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://docs.github.com/en/actions/get-started/understand-github-actions">https://docs.github.com/en/actions/get-started/understand-github-actions</a></li>
+<li id="ref-pages"><span class="ref-index">[7]</span> GitHub, “What is GitHub Pages?”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages">https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages</a></li>
+<li id="ref-seo"><span class="ref-index">[8]</span> Google Search Central, “Understand the JavaScript SEO basics”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics">https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics</a></li>
+<li id="ref-responsive"><span class="ref-index">[9]</span> MDN contributors, “Responsive web design”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design">https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/CSS_layout/Responsive_Design</a></li>
+<li id="ref-di"><span class="ref-index">[10]</span> Microsoft, “ASP.NET Core Blazor dependency injection”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/dependency-injection?view=aspnetcore-10.0">https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/dependency-injection?view=aspnetcore-10.0</a></li>
+<li id="ref-wasm"><span class="ref-index">[11]</span> Microsoft, “ASP.NET Core Blazor hosting models”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-10.0">https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-10.0</a></li>
+<li id="ref-routing"><span class="ref-index">[12]</span> Microsoft, “ASP.NET Core Blazor routing”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-10.0">https://learn.microsoft.com/en-us/aspnet/core/blazor/fundamentals/routing?view=aspnetcore-10.0</a></li>
+<li id="ref-head"><span class="ref-index">[13]</span> Microsoft, “Control head content in ASP.NET Core Blazor apps”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/components/control-head-content?view=aspnetcore-10.0">https://learn.microsoft.com/en-us/aspnet/core/blazor/components/control-head-content?view=aspnetcore-10.0</a></li>
+<li id="ref-mtp"><span class="ref-index">[14]</span> Microsoft, “Microsoft.Testing.Platform (MTP) overview”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://learn.microsoft.com/en-us/dotnet/core/testing/microsoft-testing-platform-intro">https://learn.microsoft.com/en-us/dotnet/core/testing/microsoft-testing-platform-intro</a></li>
+<li id="ref-unicode"><span class="ref-index">[15]</span> Unicode Consortium, “Unicode Normalization Forms, UAX #15, revision 58”, 2026. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://www.unicode.org/reports/tr15/tr15-58.html">https://www.unicode.org/reports/tr15/tr15-58.html</a></li>
+<li id="ref-phu-quoc"><span class="ref-index">[16]</span> Viet Nam National Authority of Tourism, “Phu Quoc”. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://vietnam.travel/place-to-go/mekong-delta/phu-quoc/">https://vietnam.travel/place-to-go/mekong-delta/phu-quoc/</a></li>
+<li id="ref-wcag"><span class="ref-index">[17]</span> World Wide Web Consortium, “Web Content Accessibility Guidelines (WCAG) 2.2”, 2024. [Trực tuyến]. Truy cập 25/11/2026.<br><a href="https://www.w3.org/TR/WCAG22/">https://www.w3.org/TR/WCAG22/</a></li></ol>
+</section>
+<section class="chapter">
+<h2 id="80-appendices-1">PHỤ LỤC</h2>
+<h3 id="80-appendices-2">A. Cài đặt và chạy trên máy phát triển</h3>
+<p>Từ thư mục gốc, thực hiện lệnh bằng SDK tương thích với <code>global.json</code>. Project ứng dụng và project test ở hai đường dẫn riêng. Cấu hình test của dự án dùng Microsoft Testing Platform và tham số <code>--project</code>.</p>
+<pre>dotnet --version
+$app = &#x27;src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj&#x27;
+$tests = &#x27;tests/BaDong.CoastalEscape.Tests/BaDong.CoastalEscape.Tests.csproj&#x27;
+dotnet restore $app
+dotnet restore $tests
+dotnet build $app -c Release --no-restore
+dotnet test --project $tests -c Release --no-restore
+dotnet run --project $app -c Release --no-build</pre>
+<p>Mở địa chỉ mà tiến trình chạy in ra. <code>setup/README.md</code> mô tả chuẩn bị, chạy thử và publish. Khi chạy tại máy, ứng dụng dùng base phát triển. Khi so sánh với Pages cần giữ base path và quy tắc fallback trong workflow triển khai. Dữ liệu nằm trong <code>wwwroot/data</code>; thay đổi ở đó có thể được xem cùng diff source.</p>
+<h3 id="80-appendices-6">B. Cấu trúc JSON và ví dụ</h3>
+<p>Ví dụ sau chọn một số trường từ bản ghi địa điểm Biển Ba Động trong <code>destinations.json</code>. Dữ liệu thực có thêm nội dung, ảnh và thông tin nguồn. ID nêu khóa nội dung, slug nêu phần đường dẫn. Category dùng khi lọc.</p>
+<pre>{
+  &quot;id&quot;: &quot;ba-dong-beach&quot;,
+  &quot;slug&quot;: &quot;bien-ba-dong&quot;,
+  &quot;name&quot;: &quot;Biển Ba Động&quot;,
+  &quot;category&quot;: &quot;thien-nhien&quot;,
+  &quot;imageVerificationStatus&quot;: &quot;VERIFIED&quot;
+}</pre>
+<table id="table-7"><caption>Bảng 7. Hợp đồng trường dùng khi đối chiếu dữ liệu</caption>
+<colgroup>
+<col style="width:40.5%">
+<col style="width:20.5%">
+<col style="width:39%">
+</colgroup><thead>
+<tr><th scope="col">Trường</th><th scope="col">Kiểu</th><th scope="col">Ràng buộc nghiệp vụ</th></tr></thead><tbody>
+<tr><td>Destination.<wbr>id, Food.<wbr>id</td><td>Chuỗi</td><td>Duy nhất trong từng tập.</td></tr>
+<tr><td>Destination.<wbr>slug, Food.<wbr>slug</td><td>Chuỗi</td><td>Có giá trị, duy nhất trong tập và dùng để tạo đường dẫn.</td></tr>
+<tr><td>Itinerary.<wbr>stops</td><td>Mảng</td><td>Mỗi điểm dừng có nội dung; slug tùy chọn phải giải được nếu có.</td></tr>
+<tr><td>GalleryPhoto.<wbr>sourceUrl</td><td>Chuỗi</td><td>URL nguồn ảnh đã xác minh.</td></tr>
+<tr><td>ImageManifestEntry.<wbr>filename</td><td>Chuỗi</td><td>Khớp tên ảnh trên máy phát triển theo đúng chữ hoa/thường.</td></tr>
+<tr><td>SiteInfo.<wbr>sourceLinks</td><td>Mảng đối tượng</td><td>Mỗi nguồn có nhãn và URL.</td></tr>
+</tbody></table>
+<p>Từ điển đầy đủ trong <code>docs/SOFTWARE_DESIGN.md</code> nêu các trường hiển thị, trường tùy chọn, kích thước ảnh và ví dụ. Thay đổi tên file cần cập nhật đúng chỗ ở manifest, data và tham chiếu giao diện. Các trường chưa có minh chứng cần giữ trạng thái riêng để tránh được đọc như dữ liệu đã xác minh.</p>
+<h3 id="80-appendices-11">C. Ca kiểm thử và truy vết</h3>
+<h4 id="80-appendices-12">C.1. Ca kiểm tra sau triển khai</h4>
+<table id="table-8"><caption>Bảng 8. Route và title quan sát được trên bản công khai</caption>
+<colgroup>
+<col style="width:34%">
+<col style="width:14%">
+<col style="width:52%">
+</colgroup><thead>
+<tr><th scope="col">Route trong ứng dụng</th><th scope="col">HTTP đầu</th><th scope="col">Title sau kết xuất</th></tr></thead><tbody>
+<tr><td>/</td><td>200</td><td>BA ĐỘNG — Coastal Escape · Nơi biển chạm vào nhịp sống miền Tây</td></tr>
+<tr><td>/kham-pha/bien-ba-dong</td><td>404</td><td>Biển Ba Động · BA ĐỘNG — Coastal Escape</td></tr>
+<tr><td>/kham-pha/khong-ton-tai</td><td>404</td><td>Không tìm thấy địa điểm · BA ĐỘNG — Coastal Escape</td></tr>
+<tr><td>/am-thuc</td><td>404</td><td>Ẩm thực · BA ĐỘNG — Coastal Escape</td></tr>
+<tr><td>/am-thuc/cua-bien</td><td>404</td><td>Cua biển · Ẩm thực Ba Động</td></tr>
+<tr><td>/am-thuc/khong-ton-tai</td><td>404</td><td>Không tìm thấy món ăn · Ẩm thực Ba Động</td></tr>
+<tr><td>/khong-tim-thay</td><td>404</td><td>Không tìm thấy · BA ĐỘNG — Coastal Escape</td></tr>
+</tbody></table>
+<p>Chọn lối quay lại từ trang lỗi địa điểm, mở thẻ Biển Ba Động và tải lại trang chi tiết. Sau đó chọn lối quay lại từ lỗi món. So sánh URL cuối, một thẻ title, heading và tài nguyên tải được. Ghi 404 tài liệu của URL mở trực tiếp riêng với lỗi ở yêu cầu JSON, ảnh, CSS và môi trường thực thi.</p>
+<h4 id="80-appendices-15">C.2. Hai trường hợp lỗi tải có kiểm soát</h4>
+<p>Từ bản Release trên máy phát triển, dùng trình duyệt kiểm thử để giữ request <code>destinations.json</code> khi mở chi tiết địa điểm. Xác nhận title đang tải. Trả HTTP 503 rồi xác nhận title chưa có dữ liệu, heading lỗi và một main. Thực hiện tương tự với <code>foods.json</code> ở trang món. Các request 503 do test tạo để tái hiện trạng thái, và được ghi tách khỏi kiểm tra deployment.</p>
+<h4 id="80-appendices-17">C.3. Bảng chỉ mục 20 yêu cầu</h4>
+<table id="table-9"><caption>Bảng 9. Truy vết rút gọn theo nhóm và bằng chứng</caption>
+<colgroup>
+<col style="width:14%">
+<col style="width:37%">
+<col style="width:49%">
+</colgroup><thead>
+<tr><th scope="col">Mã</th><th scope="col">Yêu cầu</th><th scope="col">Bằng chứng hoặc trạng thái</th></tr></thead><tbody>
+<tr><td>F-01</td><td>Trang chủ và giới thiệu</td><td>Ảnh 01–03 và kiểm tra route lịch sử.</td></tr>
+<tr><td>F-02</td><td>Tìm kiếm và lọc</td><td>E-U02, ảnh 05–08. Phạm vi đ/d còn mở.</td></tr>
+<tr><td>F-03</td><td>Địa điểm và nguồn ảnh</td><td>D-T01, D-J01, ảnh 09.</td></tr>
+<tr><td>F-04</td><td>Sao chép URL</td><td>Mã nguồn có. Chưa kiểm clipboard.</td></tr>
+<tr><td>F-05</td><td>Ẩm thực và lọc</td><td>D-T03–05, E-U05, ảnh 10–11.</td></tr>
+<tr><td>F-06</td><td>Thư viện và lightbox</td><td>E-U03, D-J01, ảnh 12–13.</td></tr>
+<tr><td>F-07</td><td>Cẩm nang và FAQ</td><td>E-U04, D-J01, ảnh 14.</td></tr>
+<tr><td>F-08</td><td>Lịch trình và điểm dừng</td><td>E-U04, D-J01, ảnh 15.</td></tr>
+<tr><td>F-09</td><td>Vị trí và liên kết bản đồ</td><td>E-U05, href đã kiểm ở Phase C, ảnh 16.</td></tr>
+<tr><td>F-10</td><td>Slug sai và trang lỗi</td><td>D-T00–09, kiểm tra nhanh trên bản công khai, ảnh 17–18.</td></tr>
+<tr><td>F-11</td><td>Đặt chỗ và giao dịch</td><td>Ngoài phạm vi sản phẩm.</td></tr>
+<tr><td>N-01</td><td>JSON và hồ sơ ảnh</td><td>D-J01, chính sách VERIFIED và PENDING.</td></tr>
+<tr><td>N-02</td><td>Dịch vụ và bộ nhớ đệm</td><td>Test dịch vụ, hai ca 503 trên máy phát triển.</td></tr>
+<tr><td>N-03</td><td>Đáp ứng và trợ năng</td><td>Ma trận 28 lượt, ca bàn phím và ảnh; một phần.</td></tr>
+<tr><td>N-04</td><td>Triển khai tĩnh</td><td>CI, Pages và kiểm tra nhanh; còn HTTP 404 ban đầu.</td></tr>
+<tr><td>N-05</td><td>Đánh giá hiệu năng</td><td>Có kích thước gói triển khai. Chưa đo hiệu năng trải nghiệm.</td></tr>
+<tr><td>A-01</td><td>Kho mã nguồn, README, setup</td><td>Có cấu trúc và hướng dẫn. Thiếu liên hệ.</td></tr>
+<tr><td>A-02</td><td>Báo cáo và collaborator</td><td>Có W48. Collaborator giảng viên còn thiếu.</td></tr>
+<tr><td>A-03</td><td>Thiết kế và bằng chứng</td><td>Có chín sơ đồ và hồ sơ truy vết.</td></tr>
+<tr><td>A-04</td><td>Hồ sơ văn bản và bảo vệ</td><td>Có DOCX, PDF, HTML và slide nội bộ để duyệt. Hồ sơ nộp chính thức đang chờ xác nhận.</td></tr>
+</tbody></table>
+<p>Ma trận trong <code>docs/TRACEABILITY_MATRIX.md</code> có thêm route, mã nguồn và bằng chứng theo từng yêu cầu. Bảng chỉ mục giữ các mã D/E của báo cáo Phase D–F. Mục F-10 bổ sung kết quả kiểm tra nhanh trên bản công khai từ mốc phát hành.</p>
+<h3 id="80-appendices-20">D. Quy trình GitHub Actions và triển khai</h3>
+<p>Commit sửa title là <code>92c5fa62139e17ef8bc73bc5a288b3ea0c5c4391</code>. Commit hồ sơ học thuật và SHA phát hành là <code>463da372613648411ef9d6002c4d895cb03cbb4d</code>. Các link <a href="https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45546387181">CI</a> và <a href="https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45546387162">Deploy to GitHub Pages</a> mở lần chạy cụ thể. Kết quả truy cập dùng <a href="https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/">project site</a>.</p>
+<p>Để xem lại pipeline, mở workflow <code>ci.yml</code> và tìm bước restore, build, test và báo kích thước. Workflow <code>deploy-pages.yml</code> có bước kiểm tên repo, thay base và token, tải gói triển khai và triển khai. So sánh SHA của hai run với SHA công bố trước khi ghi kết quả. <code>docs/RELEASE_BASELINE.md</code> ghi thời gian success của deployment và kiểm tra trình duyệt sau công bố.</p>
+<h3 id="80-appendices-23">E. Giao diện chính bổ sung</h3>
+<p>Các ảnh trong mục này chụp trên máy phát triển cùng đợt với Chương 4. Mã và tên mỗi ảnh theo manifest trong kho mã nguồn.</p>
+<figure id="figure-17"><div class="figure-images"><img src="../../docs/evidence/screenshots/04-mobile-menu.png" alt="Menu di động ở vùng hiển thị 390 × 844" loading="lazy"></div><figcaption>Hình 17. Menu di động ở vùng hiển thị 390 × 844</figcaption></figure>
+<figure id="figure-18"><div class="figure-images"><img src="../../docs/evidence/screenshots/05-explore.png" alt="Danh sách Khám phá và công cụ sàng lọc địa điểm" loading="lazy"></div><figcaption>Hình 18. Danh sách Khám phá và công cụ sàng lọc địa điểm</figcaption></figure>
+<figure id="figure-19"><div class="figure-images"><img src="../../docs/evidence/screenshots/06-explore-search.png" alt="Kết quả từ khóa không dấu và trạng thái lọc Thiên nhiên, ảnh 1" loading="lazy"><img src="../../docs/evidence/screenshots/07-explore-filter.png" alt="Kết quả từ khóa không dấu và trạng thái lọc Thiên nhiên, ảnh 2" loading="lazy"></div><figcaption>Hình 19. Kết quả từ khóa không dấu và trạng thái lọc Thiên nhiên</figcaption></figure>
+<figure id="figure-20"><div class="figure-images"><img src="../../docs/evidence/screenshots/09-destination.png" alt="Chi tiết Biển Ba Động với lối mở bản đồ và ghi công ảnh" loading="lazy"></div><figcaption>Hình 20. Chi tiết Biển Ba Động với lối mở bản đồ và ghi công ảnh</figcaption></figure>
+<figure id="figure-21"><div class="figure-images"><img src="../../docs/evidence/screenshots/12-gallery.png" alt="Danh sách ảnh trước khi mở lightbox" loading="lazy"></div><figcaption>Hình 21. Danh sách ảnh trước khi mở lightbox</figcaption></figure>
+<figure id="figure-22"><div class="figure-images"><img src="../../docs/evidence/screenshots/16-location.png" alt="Thông tin vị trí và lối mở bản đồ" loading="lazy"></div><figcaption>Hình 22. Thông tin vị trí và lối mở bản đồ</figcaption></figure>
+<h3 id="80-appendices-31">F. Siêu dữ liệu và nguồn ảnh</h3>
+<p>Tệp <code>image-manifest.json</code> và sổ <code>docs/CONTENT_SOURCES.md</code> là nơi đối chiếu các đường dẫn và giấy phép. Ví dụ ảnh Biển Ba Động của Baoothersks có giấy phép CC BY 4.0 và các bản ảnh kích thước khác nhau <a class="citation" href="#ref-ba-dong-photo">[1]</a>. Ghi công trong hình sử dụng nội dung hiện có của giao diện. Khi đưa ảnh giao diện sang tài liệu, cần duy trì chỉ dẫn tới nguồn và không đổi diễn giải vị trí.</p>
+<table id="table-10"><caption>Bảng 10. Cách đọc trạng thái xác minh ảnh</caption>
+<colgroup>
+<col style="width:41%">
+<col style="width:59%">
+</colgroup><thead>
+<tr><th scope="col">Trạng thái</th><th scope="col">Diễn giải trong dự án</th></tr></thead><tbody>
+<tr><td>VERIFIED</td><td>Có căn cứ cho chủ thể và địa điểm khai báo.</td></tr>
+<tr><td>VERIFIED_REGION</td><td>Ảnh thuộc vùng liên quan. Ghi địa điểm cụ thể.</td></tr>
+<tr><td>VERIFIED_SUBJECT</td><td>Chủ thể phù hợp; vị trí khác hoặc không đủ để gọi là Ba Động.</td></tr>
+<tr><td>INTERNAL_PLACEHOLDER</td><td>Hình giữ chỗ do dự án quản lý.</td></tr>
+<tr><td>PENDING</td><td>Mục cần tìm hoặc xác minh ảnh phù hợp.</td></tr>
+</tbody></table>
+<p>Danh sách nguồn và biến thể giữ riêng với nhiệm vụ biên tập. Một ảnh vùng rộng hơn không dùng để thỏa yêu cầu ảnh chụp cảnh cụ thể nếu nguồn chưa chứng minh. Khi cập nhật hồ sơ, dùng nhãn trạng thái nhất quán giữa trang, siêu dữ liệu và tài liệu.</p>
+</section>
+</article>
+</main>
+<footer><a href="#top">Về đầu luận văn</a></footer>
+</body>
+</html>

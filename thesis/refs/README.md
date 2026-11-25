@@ -1,5 +1,3 @@
 # Thesis references
 
-Store reference-management data and copies or stable links for sources actually cited by the thesis here. Future bibliography entries must follow the required IEEE style and include only sources used or discussed in the thesis.
-
-Current status: structure only; the existing website source ledger remains in `docs/CONTENT_SOURCES.md` and has not yet been converted into a thesis bibliography.
+[Danh mục nguồn đã trích dẫn](REFERENCES.md), [BibTeX](references.bib) và [chỉ dẫn đến nguồn](sources/README.md) dùng chung dữ liệu với luận văn. Sổ nguồn website ở [CONTENT_SOURCES.md](../../docs/CONTENT_SOURCES.md).

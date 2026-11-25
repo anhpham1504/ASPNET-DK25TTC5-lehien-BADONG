@@ -45,6 +45,9 @@ The existing repository was renamed in place after explicit release approval; Gi
 - [Technical evidence and screenshots](docs/evidence/README.md)
 - [Known limitations](docs/KNOWN_LIMITATIONS.md)
 - [Thesis plan](thesis/THESIS_PLAN.md)
+- [Verified release and feature freeze](docs/RELEASE_BASELINE.md)
+- [Thesis review files](thesis/README.md) in [DOCX](thesis/doc/BA-DONG-Coastal-Escape.docx), [PDF](thesis/pdf/BA-DONG-Coastal-Escape.pdf), and [offline HTML](thesis/html/index.html)
+- [Defense presentation and demo](thesis/abs/README.md) and [submission checklist](thesis/SUBMISSION_CHECKLIST.md)
 - [Content sources](docs/CONTENT_SOURCES.md)
 - [Product context](PRODUCT.md)
 - [Visual direction](DESIGN.md)
@@ -73,4 +76,4 @@ Availability depends on the latest authorized GitHub Pages deployment. Local set
 
 The published gallery contains only locally stored photographs with a verifiable Wikimedia Commons file page and reuse license. The Ba Động hero and Duyên Hải wind-power image are verified to the named locations. Food images are labeled with their actual capture location; subject-reference photos are never presented as Ba Động photographs. Missing local scenes use an explicit `PENDING` graphic instead of unrelated stock imagery.
 
-SEO is client-rendered. The GitHub Pages deep-link fallback restores the route in the browser after an initial HTTP 404. See the known limitations and evidence above for the local title fix and the deployed baseline.
+SEO is client-rendered. The GitHub Pages deep-link fallback restores the route in the browser after an initial HTTP 404. The verified release records the deployed title fix and the remaining limitations.

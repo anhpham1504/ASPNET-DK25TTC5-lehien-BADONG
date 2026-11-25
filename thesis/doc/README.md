@@ -1,5 +1,5 @@
 # Editable thesis documents
 
-Place the authoritative editable thesis source here after the approved institutional template is available. The future document must implement the prescribed cover pages, review pages, acknowledgements, contents, lists, abstract, five-chapter body, references, and appendices.
+[BA-DONG-Coastal-Escape.docx](BA-DONG-Coastal-Escape.docx) là bản Word để duyệt, gồm phần đầu theo quy định, mở đầu, năm chương, tài liệu tham khảo và phụ lục. Bìa và trang nhận xét có placeholder chờ mẫu chính thức. Định dạng DOC hay DOCX cho bản nộp còn cần xác nhận.
 
-Current status: structure only; no DOC or DOCX artifact has been created.
+[Nguồn chỉnh sửa và cách dựng lại](../source/README.md).

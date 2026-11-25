@@ -21,7 +21,7 @@ Status values: `PASS`, `PARTIAL`, `MISSING`, `DEFERRED`, and `BLOCKED`.
 | `setup` guidance | PDF, suggested structure | MISSING | No `setup` directory existed. |
 | Automated tests | Engineering improvement | MISSING | `tests/README.md` stated that no automated test project existed. |
 
-## Current result after Phase D–F local verification
+## Final academic acceptance and submission status
 
 | Requirement | Status | Evidence |
 | --- | --- | --- |
@@ -29,7 +29,8 @@ Status values: `PASS`, `PARTIAL`, `MISSING`, `DEFERRED`, and `BLOCKED`.
 | Weekly `progress-report` directory | PASS | Index, reusable template, and an evidence-based report for ISO week 48 are present. |
 | Commit at least weekly | PARTIAL | Week 48 work is documented and committed with real timestamps, but the earlier gap cannot be repaired retroactively. |
 | Thesis repository structure | PASS | Required subdirectories are represented by tracked README files. |
-| Thesis body and formatting | DEFERRED | Explicitly reserved for a later authorized phase. |
+| Thesis body and formatting | PARTIAL | The [DOCX review](../thesis/doc/BA-DONG-Coastal-Escape.docx) includes the front matter, introduction, five chapters, references and appendices. The [PDF review](../thesis/pdf/BA-DONG-Coastal-Escape.pdf) was rendered for review. Official form and submission-format checks remain open. |
+| Main-content extent and review layout | PASS | [Review QA](../thesis/pdf/README.md) measures 39 A4 main-content pages out of 63 total. Layout, pagination, heading fields, figure/table lists and references were checked on the review export. |
 | Root author email and phone | DEFERRED | Placeholders only, as required by the task. |
 | `setup` guidance | PASS | Reproducible SDK, restore, build, run, test, and publish guidance is present. |
 | Automated tests | PASS | Test project and CI gate are present; the verified Release run passed 14 tests with no failures or skips, including exact-case image-manifest coverage and rendered image metadata. |
@@ -39,11 +40,18 @@ Status values: `PASS`, `PARTIAL`, `MISSING`, `DEFERRED`, and `BLOCKED`.
 | Student identity | PARTIAL | Name `Lê Hiền`, student ID `170125405`, and class `DK25TTC5` are verified from the task. Email and phone were not supplied; supervisor identity is unconfirmed. |
 | Software design documentation | PASS | [Design and data dictionary](SOFTWARE_DESIGN.md), [nine editable/rendered diagrams](diagrams/README.md) and [traceability](TRACEABILITY_MATRIX.md). |
 | Technical evidence for thesis | PASS | Local [verification and screenshots](evidence/README.md) and distinct baseline CI and deployment links are recorded. |
-| Thesis plan and source list | PASS | [38-page plan](../thesis/THESIS_PLAN.md) maps chapters to source and evidence. |
+| Thesis plan and source list | PASS | The [38-page target](../thesis/THESIS_PLAN.md) maps chapters to evidence. [Editable source](../thesis/source/README.md) and [bibliography](../thesis/refs/REFERENCES.md) accompany the review. |
 | Official covers and review pages | MISSING | Main/secondary cover and GVHD/TVHĐ review templates still need confirmation. |
-| Final thesis DOC/DOCX, PDF, HTML and slides | MISSING | Directory structure and plan are available. Submission artifacts remain pending. |
+| Thesis exports and slides | PARTIAL | DOCX, PDF, offline HTML, editable 15-slide PowerPoint, PDF slides, demo script and defense questions are available for local review. The final submission template and formats remain open. See the [review checklist](../thesis/REVIEW_CHECKLIST.md). |
+| Technical completion | PASS | The frozen release and technical evidence were verified. CI reports 14 passing tests for the product SHA. |
+| Thesis content | PASS | The validated final outline has an introduction, five chapters, references and appendices. The main text uses 39 of 63 pages. |
+| Presentation package | PASS | The 15-slide PowerPoint and its PDF open, with an editable deck and speaker notes. The demo script and defense questions are available for review. |
+| Documentation | PASS | The setup guide, software design, evidence, progress report, traceability, and document build instructions are present. |
+| Administrative compliance | PARTIAL | The student identity is confirmed. Official templates, supervisor and institution details, contact information, collaborator status and submission-format decisions remain open. |
+| Submission readiness | BLOCKED | The [submission checklist](../thesis/SUBMISSION_CHECKLIST.md) records NOT READY while mandatory administrative items are open. |
+| Personal information in the public repository | DEFERRED | The reviewed files retain confirmed identity fields for academic review. Approve the publication scope before pushing the package. |
 | Accepted editable format | DEFERRED | PDF says `.DOC`. Confirm whether the reviewer accepts `.DOCX`. |
-| Reference numbering | DEFERRED | PDF requires IEEE format and alphabetical ordering. Confirm the numbering convention for the final submission. |
+| Reference numbering | PARTIAL | The review uses IEEE-style numbered references sorted alphabetically by author or organization, then title. Confirm the numbering convention for the final submission. |
 
 ## Verified repository and GitHub state
 
@@ -53,10 +61,10 @@ Status values: `PASS`, `PARTIAL`, `MISSING`, `DEFERRED`, and `BLOCKED`.
 | Academic commit | `30bd3cb812784be12c161a9300673c6f713e67e0` |
 | Remote | `https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG.git` |
 | Visibility and access | Public repository; authenticated viewer has `ADMIN` permission |
-| GitHub Pages | [Production](https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/) serves the verified Phase C baseline. Initial direct deep link can return HTTP 404. |
+| GitHub Pages | [Production](https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/) serves the verified release at `463da37`. Initial direct deep links still return HTTP 404 in the observed cases. |
 | Branch protection | `main` is not protected; this is an engineering risk, not a PDF requirement |
 | Actions | Enabled; allowed-actions policy is `all` |
-| Release state | Remote `main` matched `955956b2298be11fd84937ea390d66d5bd2119bc`. [CI](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45542500443) and [Pages](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45542500074) succeeded for that SHA. The title fix was verified in the local working tree. |
+| Release state | [Feature-frozen release](RELEASE_BASELINE.md), SHA `463da372613648411ef9d6002c4d895cb03cbb4d`. CI and Pages succeeded for the same SHA. Production smoke verified the changed route titles. |
 
 ## Classification boundary
 
@@ -66,4 +74,4 @@ Status values: `PASS`, `PARTIAL`, `MISSING`, `DEFERRED`, and `BLOCKED`.
 
 ## Scope boundary
 
-The following are not completion claims: thesis content, thesis page count, Word/PDF formatting, slides, `src` rename, accepted instructor collaborator access, email, phone, or supervisor identity. Optional `soft` and `docker` directories are not created because the current project does not need them. Weekly cadence cannot be repaired retroactively and must be maintained honestly going forward. A renamed Pages URL is not considered deployed until its workflow and production checks complete successfully.
+The thesis and defense package is available for internal review at release 463da37. Official templates, final file formats, the academic title, `src/scr`, instructor collaborator access, email, phone and supervisor identity are open. Weekly commit cadence is evaluated from actual Git history. The [checklist](../thesis/REVIEW_CHECKLIST.md) records the approval checkpoint.

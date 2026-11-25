@@ -1,0 +1,10 @@
+flowchart TB
+    I["Duyệt địa điểm theo thứ tự JSON"] --> B{"Tất cả hoặc<br/>trùng danh mục?"}
+    B -->|Có| C{"Truy vấn chuẩn hóa rỗng<br/>hoặc chuỗi tìm chứa truy vấn?"}
+    B -->|Không| X["Loại mục"]
+    C -->|Có| K["Giữ mục"]
+    C -->|Không| X
+    K & X --> R{"Còn kết quả<br/>sau khi lọc?"}
+    R -->|Có| L["Thẻ địa điểm<br/>và số kết quả"]
+    R -->|Không| Z["Trạng thái rỗng<br/>và nút xóa bộ lọc"]
+    N["Chuỗi tìm gồm tên, mô tả ngắn,<br/>đoạn mô tả đầu và tags"] -.-> C
