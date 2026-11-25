@@ -22,8 +22,12 @@ jobs:
         run: dotnet workload install wasm-tools --skip-manifest-update
       - name: Restore
         run: dotnet restore src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj
+      - name: Restore tests
+        run: dotnet restore tests/BaDong.CoastalEscape.Tests/BaDong.CoastalEscape.Tests.csproj
       - name: Build release
         run: dotnet build src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release --no-restore
+      - name: Test release
+        run: dotnet test --project tests/BaDong.CoastalEscape.Tests/BaDong.CoastalEscape.Tests.csproj -c Release --no-restore
       - name: Verify WebAssembly build configuration
         shell: bash
         run: |

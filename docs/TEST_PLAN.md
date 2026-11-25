@@ -1,36 +1,56 @@
 # Test plan
 
+## Verification policy
+
+Only commands executed in the current review may be marked `PASS`. Historical notes are retained separately and are not treated as current evidence. Automated tests validate repository data and service behavior; browser behavior remains a manual verification area.
+
 ## Automated gate
 
-| Check | Command | Result |
+| Check | Command | Current result |
 | --- | --- | --- |
-| Restore | `dotnet restore src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj` | PASS |
-| Release build | `dotnet build src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release --no-restore` | PASS |
-| Tests | No test project exists yet; static UI is covered by the manual matrix below | SKIPPED |
+| Restore application | `dotnet restore src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj` | PASS - 25 November 2026 |
+| Restore tests | `dotnet restore tests/BaDong.CoastalEscape.Tests/BaDong.CoastalEscape.Tests.csproj` | PASS - 25 November 2026 |
+| Release build | `dotnet build src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release --no-restore` | PASS - 0 warnings, 0 errors |
+| Automated tests | `dotnet test --project tests/BaDong.CoastalEscape.Tests/BaDong.CoastalEscape.Tests.csproj -c Release --no-restore` | PASS - 14 passed, 0 failed, 0 skipped |
+
+## Automated coverage
+
+The test project covers:
+
+1. syntax validation for every JSON document in `wwwroot/data`;
+2. deserialization into the production content models;
+3. unique IDs across each content collection;
+4. unique route slugs for destinations and foods;
+5. existence of every referenced local image;
+6. required content fields used by the current UI;
+7. itinerary destination references resolving to real destination slugs;
+8. required provenance for `VERIFIED`, `VERIFIED_REGION`, and `VERIFIED_SUBJECT` images in the manifest;
+9. required image metadata exposed by verified destination, food, and gallery content;
+10. exact-case, bidirectional coverage between published image files and the image manifest for Linux CI;
+11. the `PENDING` destination placeholder policy;
+12. `ContentService` behavior for valid JSON, invalid JSON, and HTTP failure.
+
+The first test invocation placed the project path positionally and failed before test discovery because .NET 10 Microsoft Testing Platform requires `--project`. The command shown above is the corrected invocation that completed successfully.
 
 ## Manual/browser matrix
 
 1. Open `/`, `/kham-pha`, `/kham-pha/bien-ba-dong`, `/am-thuc`, `/thu-vien`, `/cam-nang`, `/lich-trinh`, and `/lien-he`.
 2. Search Explore with both `bien` and `biển`; confirm case/diacritic-insensitive matches and empty state.
 3. Use category chips and reset controls.
-4. Open gallery lightbox; test Left, Right, Escape, visible close button, and focusable trigger.
-5. Open mobile menu; test keyboard Escape, close-on-link, and body scroll lock.
+4. Open gallery lightbox; test Left, Right, Escape, visible close button, and focus restoration.
+5. Open mobile menu; test keyboard Escape, close-on-link, focus containment, and body scroll lock.
 6. Open FAQ and itinerary tabs with keyboard.
 7. Refresh a deep link under the GitHub Pages base path.
 8. Inspect console and network for runtime errors or failed JSON requests.
 9. Check 320/360/390/768/1024/1440px and 200% zoom for horizontal overflow.
 10. Enable reduced motion and confirm non-essential animation is suppressed.
 
-## Known verification limitation
+## Historical browser notes
 
-This repository has no attached production GitHub Pages URL yet, so production-host and Lighthouse scores remain pending after the first authorized deployment. The workflow is prepared but not run against a remote repository in this session.
+Earlier repository documentation reported successful checks for the content routes, Vietnamese diacritic-insensitive search, invalid-slug handling, lightbox and mobile-menu keyboard behavior, responsive widths, and reduced motion. Those observations were not rerun during Academic Compliance Phase 1 and therefore remain historical evidence rather than current `PASS` results.
 
-## Browser results
+## Remaining verification scope
 
-- PASS: home and every required content route rendered without console errors.
-- PASS: Vietnamese diacritic-insensitive search and category filtering.
-- PASS: friendly invalid-slug state.
-- PASS: lightbox previous/next/Escape and mobile-menu Escape/body-scroll release.
-- PASS: no horizontal overflow at 320, 360, 390, 768, 1024, or 1440 CSS pixels.
-- PASS: reduced-motion media query is present and was emulated successfully.
-- PENDING DEPLOYMENT: production deep-link refresh, Lighthouse scores, and remote workflow execution.
+- Run the manual/browser matrix in an isolated browser session when a UI verification phase is authorized.
+- Verify the deployed GitHub Pages deep-link behavior after an authorized deployment.
+- Record Lighthouse or other performance results only after running the named tool against a documented URL and configuration.

@@ -18,9 +18,9 @@ dotnet build src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release
 dotnet publish src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release -o ./publish
 ```
 
-GitHub Pages publishes only `publish/wwwroot`. The deploy workflow requires the repository name `ba-dong-coastal-escape`, rewrites the base path to `/ba-dong-coastal-escape/`, configures the `404.html` SPA deep-link redirect, resolves the absolute sitemap/robots URL from the repository owner, and adds `.nojekyll`.
+GitHub Pages currently publishes only `publish/wwwroot` from the repository `ba-dong-coastal-escape`. The deploy workflow rewrites the base path to `/ba-dong-coastal-escape/`, configures the `404.html` SPA deep-link redirect, resolves the absolute sitemap/robots URL from the repository owner, and adds `.nojekyll`.
 
-Before the first deployment, create or connect a GitHub repository named exactly `ba-dong-coastal-escape`, push `main`, then select **Settings → Pages → Source → GitHub Actions**. Do not deploy from a branch folder. The expected project-site URL is `https://<owner>.github.io/ba-dong-coastal-escape/`.
+The repository is planned to be renamed to `ASPNET-DK25TTC5-lehien-BADONG` after an explicit release approval. Until that controlled operation is performed, the current workflow and demo URL remain authoritative. See the [repository rename plan](docs/REPOSITORY_RENAME_PLAN.md) for impact, rollback, and acceptance criteria.
 
 ## Routes
 
@@ -32,11 +32,35 @@ Before the first deployment, create or connect a GitHub repository named exactly
 
 ## Documentation
 
+- [Academic compliance matrix](docs/ACADEMIC_COMPLIANCE.md)
+- [Repository rename plan](docs/REPOSITORY_RENAME_PLAN.md)
+- [Setup and local verification](setup/README.md)
+- [Weekly progress reports](progress-report/README.md)
+- [Thesis workspace](thesis/README.md)
 - [Design system](docs/DESIGN_SYSTEM.md)
 - [Test plan](docs/TEST_PLAN.md)
 - [Content sources](docs/CONTENT_SOURCES.md)
 - [Product context](PRODUCT.md)
 - [Visual direction](DESIGN.md)
+
+## Demo
+
+- [GitHub Pages project site](https://anhpham1504.github.io/ba-dong-coastal-escape/)
+
+Availability depends on the latest authorized GitHub Pages deployment. Local setup remains the reproducible verification path.
+
+## Thông tin đồ án
+
+| Thông tin | Nội dung |
+| --- | --- |
+| Tên đề tài | BA ĐỘNG — Coastal Escape |
+| Môn học | Chuyên đề ASP.NET |
+| Sinh viên thực hiện | Lê Hiền |
+| Mã sinh viên | 170125405 |
+| Mã lớp | DK25TTC5 |
+| Email | Chưa cung cấp |
+| Điện thoại | Chưa cung cấp |
+| Giảng viên hướng dẫn | Chưa xác nhận |
 
 ## Image integrity
 
