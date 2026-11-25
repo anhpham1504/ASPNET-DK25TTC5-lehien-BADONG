@@ -1,0 +1,15 @@
+flowchart TB
+    D["Developer · commit và push"] --> G["GitHub repository"]
+    subgraph CI["Workflow CI · push main hoặc pull_request"]
+      C["Checkout · SDK .NET 10 · wasm-tools"] --> R["Restore app và test"]
+      R --> B["Build Release và dotnet test"]
+      B --> S["Publish native relink và báo kích thước"]
+    end
+    subgraph Pages["Workflow Pages · push main hoặc workflow_dispatch"]
+      P["Checkout · SDK .NET 10 · wasm-tools"] --> Q["Configure Pages · kiểm tra tên repo"]
+      Q --> W["Restore · build · publish native relink"]
+      W --> A["Base href, SPA fallback, robots, sitemap · upload artifact"]
+      A --> E["Deploy job · GitHub Pages"]
+    end
+    G --> C & P
+    E --> U["Trình duyệt · nhận nội dung tĩnh"]

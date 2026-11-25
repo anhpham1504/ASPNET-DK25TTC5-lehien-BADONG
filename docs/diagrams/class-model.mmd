@@ -1,0 +1,58 @@
+classDiagram
+    direction LR
+    class ContentService {
+      +GetDestinationsAsync() Task
+      +GetFoodsAsync() Task
+      +GetGalleryAsync() Task
+      +GetItinerariesAsync() Task
+      +GetFaqAsync() Task
+      +GetSiteInfoAsync() Task
+    }
+    class HttpClient
+    class Destination {
+      +string Id
+      +string Slug
+      +string Name
+      +List~string~ Tags
+    }
+    class Food {
+      +string Id
+      +string Slug
+      +string ImageSourceUrl
+    }
+    class GalleryPhoto {
+      +string Id
+      +string Image
+      +string VerificationStatus
+    }
+    class Itinerary {
+      +string Id
+      +List~ItineraryStop~ Stops
+    }
+    class ItineraryStop {
+      +string TimeLabel
+      +string Slug
+    }
+    class FaqItem {
+      +string Id
+      +string Question
+      +List~string~ SourceUrls
+    }
+    class SiteInfo {
+      +string Name
+      +List~SourceLink~ SourceLinks
+    }
+    class SourceLink {
+      +string Label
+      +string Url
+    }
+    ContentService --> HttpClient
+    ContentService ..> Destination
+    ContentService ..> Food
+    ContentService ..> GalleryPhoto
+    ContentService ..> Itinerary
+    ContentService ..> FaqItem
+    ContentService ..> SiteInfo
+    Itinerary "1" *-- "0..*" ItineraryStop
+    SiteInfo "1" *-- "0..*" SourceLink
+    ItineraryStop ..> Destination : slug tùy chọn

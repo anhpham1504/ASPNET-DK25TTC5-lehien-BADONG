@@ -1,0 +1,37 @@
+---
+config:
+  sequence:
+    actorMargin: 32
+    width: 95
+    wrap: true
+    messageFontSize: 16
+    noteFontSize: 16
+    mirrorActors: false
+---
+sequenceDiagram
+    participant U as Người truy cập
+    participant R as Razor Page
+    participant C as ContentService
+    participant M as Cache
+    participant H as HttpClient
+    participant F as JSON tĩnh
+    U->>R: Mở route
+    R->>C: Tải nội dung
+    C->>M: Tra theo đường dẫn
+    alt Có cache đúng kiểu
+        M-->>C: Dữ liệu cache
+        C-->>R: Trả dữ liệu
+    else Chưa có cache đúng kiểu
+        C->>H: GetFromJsonAsync
+        H->>F: GET
+        F-->>H: HTTP và nội dung
+        alt HTTP và deserialize thành công
+            H-->>C: Model hoặc null
+            C->>M: Lưu model hoặc giá trị mặc định
+            C-->>R: Trả nội dung
+        else Lỗi được xử lý
+            H-->>C: Exception
+            C-->>R: Trả rỗng hoặc mặc định
+        end
+    end
+    R-->>U: Render nội dung hoặc trạng thái thay thế

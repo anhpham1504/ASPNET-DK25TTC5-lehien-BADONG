@@ -1,0 +1,12 @@
+flowchart TB
+    I["Đọc từ khóa và danh mục<br/>Duyệt địa điểm theo thứ tự JSON"] --> B{"all hoặc trùng category?"}
+    B -->|Không| X["Loại địa điểm"]
+    B -->|Có| E{"Chuẩn hóa truy vấn<br/>Kết quả rỗng hoặc chỉ có khoảng trắng?"}
+    E -->|Có| K["Giữ địa điểm"]
+    E -->|Không| C{"Chuẩn hóa name, mô tả ngắn,<br/>đoạn mô tả đầu và tags<br/>Có chứa truy vấn?"}
+    C -->|Có| K
+    C -->|Không| X
+    K & X --> R{"Sau khi duyệt có kết quả?"}
+    R -->|Có| L["Danh sách thẻ và số kết quả"]
+    R -->|Không| Z["Empty state và nút xóa bộ lọc"]
+    N["Chuẩn hóa: FormD → bỏ NonSpacingMark → FormC → chữ thường<br/>Contains so khớp OrdinalIgnoreCase"] -.-> C

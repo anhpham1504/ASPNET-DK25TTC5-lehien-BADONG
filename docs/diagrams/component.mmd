@@ -1,0 +1,10 @@
+flowchart TB
+    A["App · Router"] --> L["MainLayout<br/>menu dùng siteUi"]
+    L --> N["NavLink<br/>desktop, mobile, footer"]
+    A --> R["Razor Pages<br/>Home · Explore · DestinationDetail · Cuisine<br/>Gallery · Guide · Itineraries<br/>About · Contact · NotFound"]
+    R --> K["Thẻ nội dung và component chung<br/>DestinationCard · FoodCard<br/>Breadcrumbs · SourceNote · FaqAccordion"]
+    R -->|Trang đọc JSON| C["ContentService"]
+    R -->|Gallery| G["PhotoLightbox"]
+    J["app.js · siteUi"]
+    G --> J
+    R -->|DestinationDetail: sao chép URL| J

@@ -1,0 +1,19 @@
+# Sơ đồ dùng trong hồ sơ thiết kế
+
+Mỗi sơ đồ có nguồn Mermaid, SVG vector và PNG nền trắng xuất bằng Chrome ở hệ số 3×. Khi chèn vào Word, ưu tiên PNG nếu trình dựng Office gặp lỗi với SVG. Giữ tỷ lệ và kiểm tra nhãn ở kích cỡ in. Có thể dùng trang riêng hoặc A4 ngang cho sơ đồ lớp và mô hình dữ liệu để giữ nhãn dễ đọc. Các caption dưới đây là dự kiến cho Chương 3 của [đề cương](../../thesis/THESIS_PLAN.md).
+
+| Caption dự kiến | Tệp | Đối chiếu và phạm vi |
+| --- | --- | --- |
+| Hình 3.1. Trường hợp sử dụng của người truy cập | [MMD](use-case.mmd) · [SVG](rendered/use-case.svg) · [PNG](rendered/use-case.png) | [PRODUCT.md](../../PRODUCT.md), [Pages](../../src/BaDong.CoastalEscape/Pages); sơ đồ use case dạng mô hình chức năng Mermaid, không dùng ký pháp UML «include». |
+| Hình 3.2. Kiến trúc build, triển khai và runtime | [MMD](system-architecture.mmd) · [SVG](rendered/system-architecture.svg) · [PNG](rendered/system-architecture.png) | [Program.cs](../../src/BaDong.CoastalEscape/Program.cs), [ContentService.cs](../../src/BaDong.CoastalEscape/Services/ContentService.cs), [workflow Pages](../../.github/workflows/deploy-pages.yml); lớp runtime chạy trong browser. |
+| Hình 3.3. Các thành phần Razor và phụ thuộc | [MMD](component.mmd) · [SVG](rendered/component.svg) · [PNG](rendered/component.png) | [App.razor](../../src/BaDong.CoastalEscape/App.razor), [MainLayout](../../src/BaDong.CoastalEscape/Layout/MainLayout.razor), [Components](../../src/BaDong.CoastalEscape/Components), [app.js](../../src/BaDong.CoastalEscape/wwwroot/app.js); cạnh giữa nhóm biểu thị ít nhất một thành phần có phụ thuộc. |
+| Hình 3.4. Các model và dịch vụ nội dung | [MMD](class-model.mmd) · [SVG](rendered/class-model.svg) · [PNG](rendered/class-model.png) | [SiteModels.cs](../../src/BaDong.CoastalEscape/Models/SiteModels.cs), [ContentService.cs](../../src/BaDong.CoastalEscape/Services/ContentService.cs); chọn các thuộc tính tiêu biểu, chữ ký API chi tiết ở source. |
+| Hình 3.5. Quan hệ logic trong dữ liệu JSON | [MMD](json-data-model.mmd) · [SVG](rendered/json-data-model.svg) · [PNG](rendered/json-data-model.png) | [Tám tệp data](../../src/BaDong.CoastalEscape/wwwroot/data) và [test dữ liệu](../../tests/BaDong.CoastalEscape.Tests/RepositoryDataTests.cs); tham chiếu slug, file ảnh và route đặt ảnh. |
+| Hình 3.6. Trình tự tải nội dung và cache | [MMD](content-loading-sequence.mmd) · [SVG](rendered/content-loading-sequence.svg) · [PNG](rendered/content-loading-sequence.png) | [ContentService.cs](../../src/BaDong.CoastalEscape/Services/ContentService.cs); mô tả một lần gọi, gồm hit/miss và exception fallback. |
+| Hình 3.7. Hoạt động tìm kiếm và lọc địa điểm | [MMD](search-filter-activity.mmd) · [SVG](rendered/search-filter-activity.svg) · [PNG](rendered/search-filter-activity.png) | [Explore.razor](../../src/BaDong.CoastalEscape/Pages/Explore.razor); lọc nhóm trước, sau đó so khớp chuỗi con. |
+| Hình 3.8. Hai luồng GitHub Actions | [MMD](deployment.mmd) · [SVG](rendered/deployment.svg) · [PNG](rendered/deployment.png) | [CI](../../.github/workflows/ci.yml), [Pages](../../.github/workflows/deploy-pages.yml); hai workflow độc lập. |
+| Hình 3.9. Điều hướng và xử lý URL | [MMD](navigation.mmd) · [SVG](rendered/navigation.svg) · [PNG](rendered/navigation.png) | [Pages](../../src/BaDong.CoastalEscape/Pages), [MainLayout](../../src/BaDong.CoastalEscape/Layout/MainLayout.razor), [404.html](../../src/BaDong.CoastalEscape/wwwroot/404.html); tránh diễn giải fallback thành HTTP 200. |
+
+## Render lại
+
+Dùng [Mermaid CLI](https://github.com/mermaid-js/mermaid-cli) với trình duyệt Chromium cục bộ. Bộ hình được tạo bằng CLI 11.12.0, thiết lập theme `neutral`, font `Arial`, `htmlLabels: false`, nền trắng và PNG `-w 1600 -s 3`. Render SVG bằng `mmdc -i <file.mmd> -o <file.svg> -c <config.json> -b white`. Lặp lại cho PNG với các cờ kích thước nêu trên. Mermaid CLI là công cụ tạo hình riêng ngoài repo.

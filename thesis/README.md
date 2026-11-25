@@ -2,6 +2,8 @@
 
 This directory reserves the mandatory academic deliverable structure defined by `QUY_DINH_CHUNG_ASP.net.pdf`.
 
+The [thesis plan](THESIS_PLAN.md) allocates 38 pages of main content and maps the chapters to the [software design](../docs/SOFTWARE_DESIGN.md) and [verified evidence](../docs/evidence/README.md).
+
 | Directory | Intended content | Current status |
 | --- | --- | --- |
 | [`doc`](doc/README.md) | Editable thesis source, normally DOC/DOCX | Structure only |

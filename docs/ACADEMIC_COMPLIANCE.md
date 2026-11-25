@@ -21,9 +21,9 @@ Status values: `PASS`, `PARTIAL`, `MISSING`, `DEFERRED`, and `BLOCKED`.
 | `setup` guidance | PDF, suggested structure | MISSING | No `setup` directory existed. |
 | Automated tests | Engineering improvement | MISSING | `tests/README.md` stated that no automated test project existed. |
 
-## Current result after independent audit and approved repository rename
+## Current result after Phase D–F local verification
 
-| Requirement | Status after Phase 1 | Phase 1 evidence |
+| Requirement | Status | Evidence |
 | --- | --- | --- |
 | Maintained root README | PARTIAL | Academic documentation, setup, progress, thesis, test, demo, and rename-plan links are present. Verified student name, ID, and class are recorded; email, phone, and supervisor remain explicitly unavailable. |
 | Weekly `progress-report` directory | PASS | Index, reusable template, and an evidence-based report for ISO week 48 are present. |
@@ -37,6 +37,13 @@ Status values: `PASS`, `PARTIAL`, `MISSING`, `DEFERRED`, and `BLOCKED`.
 | Supervisor invited as collaborator | MISSING | Only the owner is a collaborator and no invitation is pending. The PDF email is recorded as an invitation target only; sending it is a remote permission change requiring approval. |
 | Source directory spelling | DEFERRED | `src` is intentionally retained. The PDF says `scr`, but changing a conventional source directory without instructor confirmation would add risk and is explicitly out of scope. |
 | Student identity | PARTIAL | Name `Lê Hiền`, student ID `170125405`, and class `DK25TTC5` are verified from the task. Email and phone were not supplied; supervisor identity is unconfirmed. |
+| Software design documentation | PASS | [Design and data dictionary](SOFTWARE_DESIGN.md), [nine editable/rendered diagrams](diagrams/README.md) and [traceability](TRACEABILITY_MATRIX.md). |
+| Technical evidence for thesis | PASS | Local [verification and screenshots](evidence/README.md) and distinct baseline CI and deployment links are recorded. |
+| Thesis plan and source list | PASS | [38-page plan](../thesis/THESIS_PLAN.md) maps chapters to source and evidence. |
+| Official covers and review pages | MISSING | Main/secondary cover and GVHD/TVHĐ review templates still need confirmation. |
+| Final thesis DOC/DOCX, PDF, HTML and slides | MISSING | Directory structure and plan are available. Submission artifacts remain pending. |
+| Accepted editable format | DEFERRED | PDF says `.DOC`. Confirm whether the reviewer accepts `.DOCX`. |
+| Reference numbering | DEFERRED | PDF requires IEEE format and alphabetical ordering. Confirm the numbering convention for the final submission. |
 
 ## Verified repository and GitHub state
 
@@ -46,10 +53,10 @@ Status values: `PASS`, `PARTIAL`, `MISSING`, `DEFERRED`, and `BLOCKED`.
 | Academic commit | `30bd3cb812784be12c161a9300673c6f713e67e0` |
 | Remote | `https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG.git` |
 | Visibility and access | Public repository; authenticated viewer has `ADMIN` permission |
-| GitHub Pages | Workflow deployment configured for `https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/`; remote run verification follows the containing release commit |
+| GitHub Pages | [Production](https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/) serves the verified Phase C baseline. Initial direct deep link can return HTTP 404. |
 | Branch protection | `main` is not protected; this is an engineering risk, not a PDF requirement |
 | Actions | Enabled; allowed-actions policy is `all` |
-| Release state | Repository rename and deployment-path update were explicitly approved; CI/Pages results must still be verified from the pushed release commit |
+| Release state | Remote `main` matched `955956b2298be11fd84937ea390d66d5bd2119bc`. [CI](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45542500443) and [Pages](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45542500074) succeeded for that SHA. The title fix was verified in the local working tree. |
 
 ## Classification boundary
 

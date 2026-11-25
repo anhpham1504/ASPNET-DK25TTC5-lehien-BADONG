@@ -1,0 +1,16 @@
+flowchart TB
+    H["/ · Home và MainLayout"]
+    H --> A["/gioi-thieu<br/>/thu-vien<br/>/cam-nang"]
+    H --> X["/kham-pha"]
+    H --> C["/am-thuc"]
+    H --> I["/lich-trinh"]
+    H --> L["/lien-he"]
+    X --> D["/kham-pha/{Slug}"]
+    I -->|stop có slug| D
+    C --> T["/am-thuc/{Slug}"]
+    D -->|slug thiếu trong dữ liệu| DE["Lỗi địa điểm · về Khám phá"]
+    T -->|slug thiếu trong dữ liệu| TE["Lỗi món ăn · về Ẩm thực"]
+    D & L --> M["Google Maps · liên kết ngoài"]
+    Q["Route không khớp"] --> N["NotFound · /khong-tim-thay"]
+    N --> H
+    P["Deep link Pages: HTTP 404 và SPA fallback"] --> R["App Router xử lý đường dẫn khôi phục"]

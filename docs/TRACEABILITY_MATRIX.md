@@ -1,0 +1,28 @@
+# Ma trận truy vết
+
+Yêu cầu chức năng (F) và phi chức năng (N) được rút từ [PRODUCT.md](../PRODUCT.md), [SRS.md](SRS.md) và source. Yêu cầu học thuật (A) lấy từ PDF môn học và phạm vi Phase D–F. Cột Evidence cũng ghi mục dự kiến trong [đề cương luận văn](../thesis/THESIS_PLAN.md). Các mã D/E trong bảng được định nghĩa ở [báo cáo kỹ thuật](evidence/academic-validation/2026-W48-phase-d-f.md). Ảnh số 01–18 theo [manifest](evidence/screenshots/MANIFEST.md).
+
+**VERIFIED** có bằng chứng tương ứng với phần được mô tả. **PARTIAL** có kiểm tra giới hạn hoặc kết quả còn thiếu. **NOT TESTED** chưa có kiểm tra tương ứng. **NOT APPLICABLE** nằm ngoài yêu cầu của sản phẩm. **DEFERRED** được giữ cho giai đoạn sau.
+
+| Requirement ID | Requirement | Route | Implementation | Test case | Evidence | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| F-01 | Trang chủ và giới thiệu | `/`, `/gioi-thieu` | [Home](../src/BaDong.CoastalEscape/Pages/Home.razor), [About](../src/BaDong.CoastalEscape/Pages/About.razor) | E-U01 và Phase C route matrix | Ảnh 01–03, baseline cho About; §4.2.1 | VERIFIED |
+| F-02 | Danh sách, tìm có/không dấu, lọc và reset | `/kham-pha` | [Explore](../src/BaDong.CoastalEscape/Pages/Explore.razor) | E-U02; `đ/d` chưa chuẩn hóa | Ảnh 05–08; §4.2.2 | PARTIAL |
+| F-03 | Chi tiết địa điểm và nguồn ảnh | `/kham-pha/{Slug}` | [DestinationDetail](../src/BaDong.CoastalEscape/Pages/DestinationDetail.razor) | D-T01, D-J01 | Ảnh 09; §4.2.2 | VERIFIED |
+| F-04 | Sao chép URL địa điểm | `/kham-pha/{Slug}` | [DestinationDetail](../src/BaDong.CoastalEscape/Pages/DestinationDetail.razor), [app.js](../src/BaDong.CoastalEscape/wwwroot/app.js) | Clipboard chưa chạy | Source; §4.2.2 | NOT TESTED |
+| F-05 | Danh sách, bộ lọc và chi tiết món | `/am-thuc`, `/am-thuc/{Slug}` | [Cuisine](../src/BaDong.CoastalEscape/Pages/Cuisine.razor) | D-T03–05, E-U05 | Ảnh 10–11; §4.2.3 | VERIFIED |
+| F-06 | Thư viện và lightbox với tải ảnh, chuyển ảnh, đóng và khôi phục focus | `/thu-vien` | [Gallery](../src/BaDong.CoastalEscape/Pages/Gallery.razor), [PhotoLightbox](../src/BaDong.CoastalEscape/Components/Gallery/PhotoLightbox.razor) | E-U03, D-J01 | Ảnh 12–13; §4.2.3 | VERIFIED |
+| F-07 | Cẩm nang và mở FAQ | `/cam-nang` | [Guide](../src/BaDong.CoastalEscape/Pages/Guide.razor), [FaqAccordion](../src/BaDong.CoastalEscape/Components/Common/FaqAccordion.razor) | E-U04, D-J01 | Ảnh 14; §4.2.4 | VERIFIED |
+| F-08 | Chọn lịch trình, tham chiếu điểm dừng | `/lich-trinh` | [Itineraries](../src/BaDong.CoastalEscape/Pages/Itineraries.razor) | E-U04, D-J01 | Ảnh 15; §4.2.4 | VERIFIED |
+| F-09 | Vị trí, bản đồ ngoài và nguồn | `/lien-he` | [Contact](../src/BaDong.CoastalEscape/Pages/Contact.razor) | E-U05, Phase C kiểm href Maps, D-J01 | Ảnh 16; §4.2.4 | VERIFIED |
+| F-10 | Sai slug/URL, lối quay lại và title | Hai route chi tiết, URL lạ, `/khong-tim-thay` | [DestinationDetail](../src/BaDong.CoastalEscape/Pages/DestinationDetail.razor), [Cuisine](../src/BaDong.CoastalEscape/Pages/Cuisine.razor), [App](../src/BaDong.CoastalEscape/App.razor), [NotFound](../src/BaDong.CoastalEscape/Pages/NotFound.razor) | D-T00, D-T02, D-T05–09 | Ảnh 17–18, bảng DOM local; §4.3.1 | VERIFIED |
+| F-11 | Đặt chỗ, xác thực, thanh toán, ghi dữ liệu cá nhân | — | Phạm vi sản phẩm tĩnh | — | [PRODUCT.md](../PRODUCT.md); §1.2 | NOT APPLICABLE |
+| N-01 | Cấu trúc JSON, ảnh và nguồn minh bạch | Các route nội dung | [Dữ liệu](../src/BaDong.CoastalEscape/wwwroot/data), [RepositoryDataTests](../tests/BaDong.CoastalEscape.Tests/RepositoryDataTests.cs) | D-J01 | 8 JSON hợp lệ; tình trạng PENDING trong [giới hạn](KNOWN_LIMITATIONS.md); §4.1.2 | VERIFIED |
+| N-02 | Dịch vụ tải dữ liệu có cache và fallback | Các route nội dung | [ContentService](../src/BaDong.CoastalEscape/Services/ContentService.cs), [ContentServiceTests](../tests/BaDong.CoastalEscape.Tests/ContentServiceTests.cs) | D-J01, D-T09 | Test service và hai ca HTTP 503 local; §4.1.2, §4.3.1 | VERIFIED |
+| N-03 | Responsive và accessibility cơ bản | Các route và dialog | [MainLayout](../src/BaDong.CoastalEscape/Layout/MainLayout.razor), [CSS](../src/BaDong.CoastalEscape/wwwroot/css/app.css), [app.js](../src/BaDong.CoastalEscape/wwwroot/app.js) | D-T01–08, E-U01/03/04, Phase C 48 lượt | Ảnh 01–04, 13–15; §4.3.2 | PARTIAL |
+| N-04 | Xuất và phục vụ site tĩnh | Base Pages, deep link, sitemap, robots | [CI](../.github/workflows/ci.yml), [Pages](../.github/workflows/deploy-pages.yml), [404](../src/BaDong.CoastalEscape/wwwroot/404.html) | CI/Pages baseline, HTTP production hiện tại | Run links và trạng thái HTTP; §4.4.1. Deep link HTTP 404 có fallback | PARTIAL |
+| N-05 | Hiệu năng có số đo tái lập | — | [CI](../.github/workflows/ci.yml) có bước báo kích thước artifact | Lighthouse/benchmark phiên này chưa chạy | §4.4.2 ghi phạm vi | NOT TESTED |
+| A-01 | Repo tên quy định, README và setup | — | [README](../README.md), [setup](../setup/README.md) | Kiểm tra remote và tài liệu | [Compliance](ACADEMIC_COMPLIANCE.md); Phụ lục A; thiếu email/điện thoại | PARTIAL |
+| A-02 | Collaborator và báo cáo/commit tuần | — | [W48](../progress-report/2026-W48.md), Git | Đối chiếu lịch sử và API chỉ đọc | [Compliance](ACADEMIC_COMPLIANCE.md); Phụ lục A | PARTIAL |
+| A-03 | Hồ sơ thiết kế, truy vết và bằng chứng | — | [Thiết kế](SOFTWARE_DESIGN.md), [sơ đồ](diagrams/README.md), [evidence](evidence/README.md) | Render và kiểm tra deliverable | Chương 3–4, Phụ lục B | VERIFIED |
+| A-04 | Luận văn, định dạng, tài liệu, slide | — | [Đề cương](../thesis/THESIS_PLAN.md), [thesis](../thesis/README.md) | Chờ triển khai và kiểm định bản nộp | Chương 1–5, PDF quy định môn học | DEFERRED |

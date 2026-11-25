@@ -1,0 +1,15 @@
+flowchart TB
+    subgraph Delivery["Build và triển khai"]
+      S["Mã nguồn và dữ liệu tĩnh"] --> A["GitHub Actions · .NET SDK"]
+      A --> P["GitHub Pages · artifact tĩnh"]
+    end
+    subgraph Client["Runtime trong trình duyệt"]
+      W["Blazor WebAssembly"] --> R["App · Router"]
+      R --> L["MainLayout và Razor Pages"]
+      L --> C["ContentService · cache trong bộ nhớ"]
+      C --> H["HttpClient · GetFromJsonAsync"]
+      L --> J["IJSRuntime · app.js"]
+    end
+    P -->|HTML, CSS, JS và WASM| W
+    H -->|GET JSON| P
+    P -->|JSON tĩnh| H

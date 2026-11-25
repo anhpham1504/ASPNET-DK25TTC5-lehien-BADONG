@@ -1,0 +1,13 @@
+flowchart TB
+    V["Người truy cập website"]
+    subgraph Site["BA ĐỘNG — Coastal Escape"]
+      A(["Tìm hiểu điểm đến<br/>Trang chủ, giới thiệu, vị trí, bản đồ"])
+      E(["Khám phá địa điểm<br/>Tìm kiếm, lọc, xem chi tiết<br/>Mở bản đồ và sao chép liên kết"])
+      C(["Khám phá ẩm thực<br/>Xem danh sách, lọc, xem chi tiết"])
+      G(["Khám phá thư viện<br/>Xem, lọc ảnh và mở lightbox"])
+      I(["Chuẩn bị chuyến đi<br/>Chọn lịch trình, đọc cẩm nang và FAQ"])
+      A ~~~ E
+      C ~~~ G
+      G ~~~ I
+    end
+    V --- A & E & C & G & I

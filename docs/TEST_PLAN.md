@@ -2,7 +2,7 @@
 
 ## Verification policy
 
-Only commands executed in the current review may be marked `PASS`. Historical notes are retained separately and are not treated as current evidence. Automated tests validate repository data and service behavior; browser behavior remains a manual verification area.
+Only commands executed in the current review may be marked `PASS`. Historical notes retain their baseline SHA. The [Phase D–F evidence report](evidence/academic-validation/2026-W48-phase-d-f.md) records local browser checks independently of automated data and service checks.
 
 ## Automated gate
 
@@ -47,10 +47,10 @@ The first test invocation placed the project path positionally and failed before
 
 ## Historical browser notes
 
-Earlier repository documentation reported successful checks for the content routes, Vietnamese diacritic-insensitive search, invalid-slug handling, lightbox and mobile-menu keyboard behavior, responsive widths, and reduced motion. Those observations were not rerun during Academic Compliance Phase 1 and therefore remain historical evidence rather than current `PASS` results.
+Phase C exercised 48 production route/viewport combinations against baseline `955956b`. Invalid destination rendered the error body with an empty document title. Phase D reproduced the defect in both environments, then ran 28 local route/viewport combinations for the changed title logic and error-state controls. Two controlled 503 cases exercised loading and empty-data titles. The [traceability matrix](TRACEABILITY_MATRIX.md) links individual cases to source and evidence.
 
 ## Remaining verification scope
 
-- Run the manual/browser matrix in an isolated browser session when a UI verification phase is authorized.
-- Verify the deployed GitHub Pages deep-link behavior after an authorized deployment.
+- Re-run affected title cases against production when a release of the local fix is authorized.
+- Extend accessibility coverage to contrast, 200% zoom and screen readers. See the [known limitations](KNOWN_LIMITATIONS.md).
 - Record Lighthouse or other performance results only after running the named tool against a documented URL and configuration.

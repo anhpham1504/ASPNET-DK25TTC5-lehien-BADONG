@@ -1,0 +1,16 @@
+flowchart TB
+    D["destinations.json<br/>id, slug, category"]
+    F["foods.json<br/>id, slug, category"]
+    G["gallery.json<br/>id, category"]
+    I["itineraries.json<br/>id, stops[]"]
+    Q["faq.json · id, sourceUrls[]<br/>site-info.json · object, sourceLinks[]"]
+    M["image-manifest.json<br/>filename, responsiveVariants[]"]
+    P["image-requirements.json<br/>targetPlacements[]"]
+    A["wwwroot/images<br/>JPG và SVG nội bộ"]
+    Q ~~~ I
+    I ~~~ F
+    I -->|stops.slug nếu có| D
+    I -->|stops.image| A
+    D & F & G --> A
+    M -->|kiểm kê file và biến thể| A
+    P -.->|route đích cần ảnh| D
