@@ -4,7 +4,7 @@
 <section class="page-hero"><div class="container-wide"><Breadcrumbs Items="breadcrumbs" /><p class="eyebrow">Khám phá</p><h1>Chọn một hướng đi.</h1><p>Tìm theo tên, mô tả hoặc nhóm trải nghiệm. Không có xếp hạng sao, chỉ có những gợi ý để bạn bắt đầu.</p></div></section>
 <section class="page-section surface-sand"><div class="container-wide">
     <div class="toolbar"><label class="search-box"><span class="visually-hidden">Tìm kiếm địa điểm</span><input @bind="searchTerm" @bind:event="oninput" type="search" placeholder="Tìm “hoàng hôn”, “biển”, “hàng dương”…" aria-label="Tìm kiếm địa điểm" /><span class="search-box__icon" aria-hidden="true">⌕</span></label><span class="result-count">@filteredDestinations.Count() kết quả</span></div>
-    <div class="filters" role="group" aria-label="Lọc theo danh mục"><button class="filter-chip @(activeCategory == "all" ? "is-active" : string.Empty)" @onclick="ResetCategory">Tất cả</button>@foreach (var category in categories) { <button class="filter-chip @(activeCategory == category.Key ? "is-active" : string.Empty)" @onclick="() => SetCategory(category.Key)">@category.Value</button> }</div>
+    <div class="filters" role="group" aria-label="Lọc theo danh mục"><button class="filter-chip @(activeCategory == "all" ? "is-active" : string.Empty)" aria-pressed="@(activeCategory == "all" ? "true" : "false")" @onclick="ResetCategory">Tất cả</button>@foreach (var category in categories) { <button class="filter-chip @(activeCategory == category.Key ? "is-active" : string.Empty)" aria-pressed="@(activeCategory == category.Key ? "true" : "false")" @onclick="() => SetCategory(category.Key)">@category.Value</button> }</div>
     <div style="height:28px"></div>
     @if (!filteredDestinations.Any())
     {
@@ -12,7 +12,7 @@
     }
     else
     {
-        <div class="card-grid">@foreach (var destination in filteredDestinations) { <DestinationCard Destination="destination" /> }</div>
+        <h2 class="visually-hidden">Danh sách địa điểm</h2><div class="card-grid">@foreach (var destination in filteredDestinations) { <DestinationCard Destination="destination" /> }</div>
     }
 </div></section>
 <section class="page-section surface-foam"><div class="container-wide"><div class="section-heading"><p class="eyebrow">Gợi ý nhỏ</p><h2>Đi bằng sự tò mò, không phải checklist.</h2><p>Mỗi thẻ có nguồn tham khảo và ngày cập nhật. Những chi tiết dễ thay đổi nên được kiểm tra lại trước chuyến đi.</p></div><NavLink class="button button--dark" href="cam-nang">Mở cẩm nang chuẩn bị</NavLink></div></section>

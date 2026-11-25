@@ -4,7 +4,7 @@
 <PageTitle>@(TitleLabel) · BA ĐỘNG — Coastal Escape</PageTitle>
 @if (destination is null && loaded)
 {
-    <section class="page-section surface-sand"><div class="container-wide empty-state"><p class="eyebrow">404 · Không tìm thấy</p><h1>Trang này đã trôi khỏi đường bờ.</h1><p>Slug không tồn tại hoặc nội dung chưa được thêm vào dữ liệu tĩnh.</p><NavLink class="button button--dark" href="kham-pha">Quay lại khám phá</NavLink></div></section>
+    <section class="page-section surface-sand error-page"><div class="container-wide empty-state"><p class="eyebrow">404 · Không tìm thấy</p><h1>Trang này đã trôi khỏi đường bờ.</h1><p>Slug không tồn tại hoặc nội dung chưa được thêm vào dữ liệu tĩnh.</p><NavLink class="button button--dark" href="kham-pha">Quay lại khám phá</NavLink></div></section>
 }
 else if (!loaded)
 {

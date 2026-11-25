@@ -40,3 +40,41 @@ main{min-height:60vh}.page-section{padding-block:clamp(72px,9vw,120px)}.page-sec
 .hero h1{max-width:960px;font-family:'Be Vietnam Pro',system-ui,sans-serif;font-size:clamp(3rem,6vw,5.25rem);font-weight:600;letter-spacing:-.04em;text-wrap:balance;word-break:normal;overflow-wrap:normal}
 .hero h1 em{font-style:normal}
 h1,h2,h3,.footer-title,.quote-band blockquote,.mobile-menu nav a{font-family:'Be Vietnam Pro',system-ui,sans-serif!important}
+
+/* Evidence-backed UI audit refinements. */
+:root{--sunset-text-light:#8a4f24;--sunset-text-dark:#f0b577;--control-border:#78858a}
+:focus-visible{outline:3px solid var(--white);outline-offset:3px;box-shadow:0 0 0 6px var(--ocean-700)}
+main h1[tabindex="-1"]:focus-visible{outline:0;box-shadow:-5px 0 0 var(--sunset-text-light)}
+.hero h1[tabindex="-1"]:focus-visible,.page-hero h1[tabindex="-1"]:focus-visible,.detail-hero h1[tabindex="-1"]:focus-visible{box-shadow:-5px 0 0 var(--sunset-text-dark)}
+.mobile-menu__eyebrow,.footer-kicker,.eyebrow{color:var(--sunset-text-light)}
+.page-hero .eyebrow,.detail-hero .eyebrow,.surface-ocean .eyebrow,.site-footer .footer-kicker,.lightbox .eyebrow{color:var(--sunset-text-dark)}
+.surface-ocean .section-heading .eyebrow{color:var(--sunset-text-dark)}
+.text-link{min-height:32px}
+.button--outline{border-color:var(--control-border)}
+.mobile-menu{max-height:calc(100dvh - 28px);overflow-y:auto;overscroll-behavior:contain}
+.feature-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.card-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}
+.card-grid:has(>:nth-child(4):last-child){grid-template-columns:repeat(4,minmax(0,1fr))}
+.feature-card__number{opacity:.78}
+.feature-card:nth-child(3) .feature-card__number,.feature-card:nth-child(3) p{opacity:.92}
+.hero__scroll{right:max(20px,calc((100vw - 1240px)/2))}
+.breadcrumbs a{display:inline-flex;align-items:center;min-height:28px}
+.breadcrumbs a:hover{color:var(--sunset-text-light)}
+.page-hero .breadcrumbs a:hover,.detail-hero .breadcrumbs a:hover{color:var(--sunset-text-dark)}
+.detail-hero .breadcrumbs{color:rgba(255,255,255,.72)}
+.search-box input{border-color:var(--control-border)}
+.search-box input::placeholder{color:var(--muted-600);opacity:1}
+.filter-chip{min-height:44px;border-color:var(--control-border)}
+.empty-state .eyebrow{color:var(--sunset-text-light)}
+.error-page{padding-top:clamp(128px,12vw,168px)}
+.source-note a{display:inline-flex;align-items:center;justify-content:center;min-width:24px;min-height:24px;margin-block:-4px}
+.surface-ocean .source-note a,.lightbox .source-note a{color:var(--sunset-text-dark)}
+.location-card__map::after{content:'MINH HỌA · BỜ BIỂN BA ĐỘNG';color:rgba(255,255,255,.9)}
+.site-footer__bottom{color:rgba(255,255,255,.55)}
+.site-footer__bottom a{display:inline-flex;align-items:center;min-height:24px}
+.site-shell:has(main>.error-page:first-child) .site-header,.site-shell:has(main>.loading-shell:first-child) .site-header{background:rgba(250,247,241,.96);color:var(--ocean-900);box-shadow:0 8px 26px rgba(9,45,54,.08);backdrop-filter:blur(12px)}
+.site-shell:has(main>.error-page:first-child) .site-header .header-cta,.site-shell:has(main>.error-page:first-child) .site-header .menu-toggle,.site-shell:has(main>.loading-shell:first-child) .site-header .header-cta,.site-shell:has(main>.loading-shell:first-child) .site-header .menu-toggle{border-color:var(--ocean-700)}
+@media(hover:none),(pointer:coarse){.gallery-item figcaption{opacity:1;transform:none}}
+@media(max-width:1180px){.card-grid:has(>:nth-child(4):last-child){grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.feature-grid,.card-grid,.card-grid:has(>:nth-child(4):last-child){grid-template-columns:1fr}}
+@media(max-width:900px) and (max-height:650px){.hero{min-height:100svh}.hero__content{padding-block:104px 24px}.hero__meta{gap:12px;margin-bottom:12px}.hero h1{margin:9px 0 13px;font-size:clamp(2.2rem,11vw,3.3rem);line-height:.96}.hero__content>p{margin-bottom:17px;font-size:.88rem;line-height:1.55}.hero .button-row{flex-wrap:nowrap;gap:8px}.hero .button{min-height:44px;padding-inline:11px;font-size:.72rem}}
