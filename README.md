@@ -18,9 +18,9 @@ dotnet build src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release
 dotnet publish src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release -o ./publish
 ```
 
-GitHub Pages currently publishes only `publish/wwwroot` from the repository `ba-dong-coastal-escape`. The deploy workflow rewrites the base path to `/ba-dong-coastal-escape/`, configures the `404.html` SPA deep-link redirect, resolves the absolute sitemap/robots URL from the repository owner, and adds `.nojekyll`.
+GitHub Pages publishes only `publish/wwwroot` from the repository `ASPNET-DK25TTC5-lehien-BADONG`. The deploy workflow rewrites the base path to `/ASPNET-DK25TTC5-lehien-BADONG/`, configures the `404.html` SPA deep-link redirect, resolves the absolute sitemap/robots URL from the repository owner, and adds `.nojekyll`.
 
-The repository is planned to be renamed to `ASPNET-DK25TTC5-lehien-BADONG` after an explicit release approval. Until that controlled operation is performed, the current workflow and demo URL remain authoritative. See the [repository rename plan](docs/REPOSITORY_RENAME_PLAN.md) for impact, rollback, and acceptance criteria.
+The existing repository was renamed in place after explicit release approval; Git history, the `main` branch, project names, and namespaces were preserved. See the [repository rename record](docs/REPOSITORY_RENAME_PLAN.md) for impact, rollback, and acceptance criteria.
 
 ## Routes
 
@@ -45,7 +45,7 @@ The repository is planned to be renamed to `ASPNET-DK25TTC5-lehien-BADONG` after
 
 ## Demo
 
-- [GitHub Pages project site](https://anhpham1504.github.io/ba-dong-coastal-escape/)
+- [GitHub Pages project site](https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/)
 
 Availability depends on the latest authorized GitHub Pages deployment. Local setup remains the reproducible verification path.
 
@@ -58,6 +58,7 @@ Availability depends on the latest authorized GitHub Pages deployment. Local set
 | Sinh viên thực hiện | Lê Hiền |
 | Mã sinh viên | 170125405 |
 | Mã lớp | DK25TTC5 |
+| Repository | ASPNET-DK25TTC5-lehien-BADONG |
 | Email | Chưa cung cấp |
 | Điện thoại | Chưa cung cấp |
 | Giảng viên hướng dẫn | Chưa xác nhận |

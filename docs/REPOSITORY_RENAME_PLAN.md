@@ -1,25 +1,27 @@
-# Repository rename plan
+# Repository rename record and release plan
 
-This document prepares, but does not authorize or execute, the controlled rename of the existing GitHub repository. Observations were verified on 25 November 2026.
+This document records the approved in-place rename and the remaining controlled release checks. Observations were verified on 25 November 2026.
 
 ## Current verified state
 
 | Item | Current value |
 | --- | --- |
 | GitHub owner | `anhpham1504` |
-| Repository | `ba-dong-coastal-escape` |
-| Remote | `https://github.com/anhpham1504/ba-dong-coastal-escape.git` |
+| Repository | `ASPNET-DK25TTC5-lehien-BADONG` |
+| Remote | `https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG.git` |
 | Visibility and permission | Public; authenticated viewer has `ADMIN` permission |
-| Default branch and HEAD | `main`; `46ba776893ba29445855080a5a6004c9e6ae0626` |
+| Default branch | `main` |
+| Preserved baseline | `46ba776893ba29445855080a5a6004c9e6ae0626` |
+| Academic commit | `30bd3cb812784be12c161a9300673c6f713e67e0` |
 | Pages method | GitHub Actions workflow |
-| Current Pages URL | `https://anhpham1504.github.io/ba-dong-coastal-escape/` |
+| Configured Pages URL | `https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/` |
 | Collaborators | Only `anhpham1504`; no pending invitations |
 | Branch protection | `main` is not protected |
 | Actions | Enabled; allowed-actions policy is `all` |
 
-The planned repository `anhpham1504/ASPNET-DK25TTC5-lehien-BADONG` was not found during the read-only audit. This is evidence under the verified owner, not a permanent reservation; availability must be checked again immediately before execution.
+The former repository name was `ba-dong-coastal-escape`. GitHub resolves its old API path to the renamed repository, but the local remote was explicitly updated instead of relying on that redirect.
 
-## Planned identity and deployment values
+## Approved identity and deployment values
 
 | Item | Planned value |
 | --- | --- |
@@ -28,7 +30,7 @@ The planned repository `anhpham1504/ASPNET-DK25TTC5-lehien-BADONG` was not found
 | Pages base path | `/ASPNET-DK25TTC5-lehien-BADONG/` |
 | Planned Pages URL | `https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/` |
 
-The planned URL is not claimed to be live before the authorized rename and successful deployment.
+The repository and remote values were verified after the rename. The Pages URL is not claimed as production-PASS until the post-push workflow and browser checks complete.
 
 ## Impact analysis
 
@@ -53,7 +55,7 @@ The sitemap and robots URL are deployment tokens and will follow the new `SITE_U
 
 Repository-wide search found no literal old repository reference in `PRODUCT.md`, application source, JSON, test code, JavaScript, sitemap source, robots source, or SPA fallback source. Blind replacement is therefore not appropriate.
 
-## Controlled execution sequence after approval
+## Controlled execution sequence
 
 1. Recheck working tree, secrets, target-name availability, GitHub authentication/permission, collaborators, Pages, Actions, branch, and HEAD.
 2. Run restore, Release build, tests, JSON validation, documentation-link validation, workflow review, and `git diff --check`.
@@ -67,7 +69,7 @@ Repository-wide search found no literal old repository reference in `PRODUCT.md`
 10. Verify HTTPS, homepage assets, WebAssembly/JSON requests, navigation, direct deep links, refresh behavior, invalid slugs, `404.html`, `robots.txt`, and `sitemap.xml` at the new URL.
 11. Invite the instructor account associated with `antonio86doan@gmail.com` only as a separately approved remote permission change and verify the resulting invitation/collaborator state.
 
-No step in this sequence has been executed by this preparation task.
+At the time of this document update, steps 1–6 were completed: preflight passed, the academic commit was created, the existing repository was renamed, `origin` was updated, and deployment references were changed locally. Push, CI/Pages monitoring, production checks, and collaborator verification remain subject to observed results after the containing release commit.
 
 ## Commit boundaries
 
@@ -101,6 +103,6 @@ Prefer a focused corrective commit or `git revert` of the faulty change. Do not 
 - Old repository names remain only where they are accurate historical evidence.
 - Instructor collaborator status is reported from GitHub after any separately approved invitation.
 
-## Approval checkpoint
+## Approval record
 
-One explicit confirmation is required before performing the combined remote release operation: create the reviewed local commits, rename the existing GitHub repository, update `origin`, push `main`, monitor CI/Pages, and verify production. Inviting the instructor changes repository access and must also be explicitly included in that approval. Until then, no commit, push, rename, invitation, merge, or deployment is authorized.
+The user explicitly confirmed the combined Phase C operation on 25 November 2026: create the reviewed commits, rename the existing repository, update `origin`, push `main`, monitor CI/Pages, verify production, and invite the instructor using the supplied email when GitHub can resolve it without guessing an account. That approval does not authorize unrelated repository settings, history rewrites, force-pushes, or architecture changes.

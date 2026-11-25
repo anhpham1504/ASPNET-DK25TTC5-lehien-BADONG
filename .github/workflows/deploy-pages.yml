@@ -36,8 +36,8 @@ jobs:
         run: |
           set -euo pipefail
           repository_name="${GITHUB_REPOSITORY#*/}"
-          test "$repository_name" = "ba-dong-coastal-escape" || {
-            echo "Expected repository name 'ba-dong-coastal-escape' but found '$repository_name'."
+          test "$repository_name" = "ASPNET-DK25TTC5-lehien-BADONG" || {
+            echo "Expected repository name 'ASPNET-DK25TTC5-lehien-BADONG' but found '$repository_name'."
             exit 1
           }
       - name: Restore
@@ -49,8 +49,8 @@ jobs:
       - name: Configure repository base path and SPA fallback
         shell: bash
         env:
-          SITE_BASE: /ba-dong-coastal-escape/
-          SITE_URL: https://${{ github.repository_owner }}.github.io/ba-dong-coastal-escape
+          SITE_BASE: /ASPNET-DK25TTC5-lehien-BADONG/
+          SITE_URL: https://${{ github.repository_owner }}.github.io/ASPNET-DK25TTC5-lehien-BADONG
         run: |
           set -euo pipefail
           grep -q '<base href="/" />' publish/wwwroot/index.html
