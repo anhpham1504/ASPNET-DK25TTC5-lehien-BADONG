@@ -69,6 +69,10 @@ window.siteUi = {
     if (!header) return;
     var onScroll = function () { header.classList.toggle('is-scrolled', window.scrollY > 24); };
     window.addEventListener('scroll', onScroll, { passive: true });
+    document.addEventListener('keydown', function (event) {
+      if (!(event.target instanceof HTMLElement) || !event.target.matches('.itinerary-tab[role="tab"]')) return;
+      if (['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) event.preventDefault();
+    });
     onScroll();
   },
   setBodyLock: function (locked) {
