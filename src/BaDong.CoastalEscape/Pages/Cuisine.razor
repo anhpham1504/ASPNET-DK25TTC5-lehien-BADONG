@@ -1,13 +1,13 @@
 @page "/am-thuc"
 @page "/am-thuc/{Slug}"
 @inject ContentService Content
+<PageTitle>@DocumentTitle</PageTitle>
 @if (!loaded)
 {
     <div class="loading-shell"><span class="loading-dot"></span>Đang dọn bàn…</div>
 }
 else if (!string.IsNullOrWhiteSpace(Slug))
 {
-    <HeadContent><title>@(food?.Name ?? "Không tìm thấy") · Ẩm thực Ba Động</title></HeadContent>
     @if (food is null)
     {
         <section class="page-section surface-sand"><div class="container-wide empty-state"><p class="eyebrow">404 · Không tìm thấy</p><h1>Món này chưa có trong thực đơn.</h1><NavLink class="button button--dark" href="am-thuc">Về trang ẩm thực</NavLink></div></section>
@@ -20,7 +20,7 @@ else if (!string.IsNullOrWhiteSpace(Slug))
 }
 else
 {
-    <HeadContent><title>Ẩm thực · BA ĐỘNG — Coastal Escape</title><meta name="description" content="Những gợi ý hương vị ven biển Trà Vinh, được trình bày trung thực và có nguồn." /></HeadContent>
+    <HeadContent><meta name="description" content="Những gợi ý hương vị ven biển Trà Vinh, được trình bày trung thực và có nguồn." /></HeadContent>
     <section class="page-hero"><div class="container-wide"><Breadcrumbs Items="breadcrumbs" /><p class="eyebrow">Ẩm thực</p><h1>Vị biển trên bàn ăn.</h1><p>Những gợi ý có thể bắt đầu một cuộc trò chuyện về mùa vụ, nguyên liệu và cách thưởng thức.</p></div></section>
     <section class="page-section surface-sand"><div class="container-wide"><div class="toolbar"><div class="filters" role="group" aria-label="Lọc món ăn"><button class="filter-chip @(activeCategory == "all" ? "is-active" : string.Empty)" @onclick="ResetCategory">Tất cả</button>@foreach (var category in categories) { <button class="filter-chip @(activeCategory == category.Key ? "is-active" : string.Empty)" @onclick="() => SetCategory(category.Key)">@category.Value</button> }</div><span class="result-count">@filteredFoods.Count() món</span></div><div class="card-grid">@foreach (var item in filteredFoods) { <FoodCard Food="item" /> }</div></div></section>
     <section class="page-section surface-foam"><div class="container-wide"><div class="section-heading"><p class="eyebrow">Một nguyên tắc nhỏ</p><h2>Không thêm những gì chưa được kiểm chứng.</h2><p>Không giá bán giả, không địa chỉ quán bịa, không nút đặt món. Chỉ những gợi ý có thể tiếp tục kiểm tra trước khi lên đường.</p></div></div></section>
@@ -32,6 +32,10 @@ else
     private IReadOnlyList<Food> foods = [];
     private Food? food;
     private string activeCategory = "all";
+    private string DocumentTitle => !loaded ? "Đang tải ẩm thực · BA ĐỘNG — Coastal Escape"
+        : foods.Count == 0 ? "Ẩm thực chưa có dữ liệu · BA ĐỘNG — Coastal Escape"
+        : string.IsNullOrWhiteSpace(Slug) ? "Ẩm thực · BA ĐỘNG — Coastal Escape"
+        : $"{food?.Name ?? "Không tìm thấy món ăn"} · Ẩm thực Ba Động";
     private string FoodSourceSet => food is null ? string.Empty : food.ImageWidth > food.ThumbnailWidth ? $"{food.Thumbnail} {food.ThumbnailWidth}w, {food.Image} {food.ImageWidth}w" : $"{food.Thumbnail} {food.ThumbnailWidth}w";
     private readonly Dictionary<string, string> categories = new() { ["dac-san"] = "Đặc sản", ["hai-san"] = "Hải sản", ["an-nhe"] = "Ăn nhẹ" };
     private IEnumerable<Food> filteredFoods => foods.Where(item => activeCategory == "all" || item.Category == activeCategory);
