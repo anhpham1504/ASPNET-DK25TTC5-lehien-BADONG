@@ -6,7 +6,7 @@ Ngày kiểm tra 26/11/2026. Bộ hồ sơ đối chiếu với bản phát hàn
 
 | Mục | Trạng thái | Bằng chứng hoặc điều kiện còn lại |
 | --- | --- | --- |
-| Nội dung và số trang | PASS | Word và PDF có 40 trang nội dung chính (yêu cầu 30–50) trên 66 trang. Mở đầu và Chương 1–5 lần lượt 3, 4, 7, 13, 11 và 2 trang. |
+| Nội dung và số trang | PASS | Word và PDF có 40 trang nội dung chính (yêu cầu 30–50) trên 65 trang. Mở đầu và Chương 1–5 lần lượt 3, 4, 7, 13, 11 và 2 trang. |
 | Định dạng luận văn | PASS | A4, Times New Roman 13 pt ở thân bài, cách dòng 1,5, cách đoạn 6 pt, lề trái 3 cm, các lề còn lại 2 cm. Số trang góc phải dưới. Heading theo cấp, đánh số chương và mục bằng số Ả Rập, mục lục và hai danh mục được cập nhật bằng Word. |
 | Hình, bảng và nguồn | PASS | 22 hình, 26 ảnh nhúng, 10 bảng, 17 nguồn được trích dẫn. Kiểm tra caption, thứ tự và liên kết URL giữa các bản. |
 | HTML ngoại tuyến | PASS | 26 ảnh dùng đường dẫn tương đối. Dùng được mục lục, phím Tab và CSS in. Bốn chiều rộng 320, 390, 768 và 1.440 px không tràn ngang. |

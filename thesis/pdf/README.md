@@ -4,7 +4,7 @@
 
 ## Kiểm tra bản đồng bộ ngày 26/11/2026
 
-Word 16 đã cập nhật mục lục, danh mục hình và bảng trước khi xuất. Bản PDF có **66 trang**, gồm **40 trang nội dung chính**. Phần chính chiếm trang PDF 15–54, tương ứng số in ở chân trang 11–50.
+Word 16 đã cập nhật mục lục, danh mục hình và bảng trước khi xuất. Bản PDF có **65 trang**, gồm **40 trang nội dung chính**. Phần chính chiếm trang PDF 14–53, tương ứng số in ở chân trang 10–49. Trang trắng từng nằm giữa danh mục hình và danh mục bảng đã được loại bỏ tại nguồn tạo tài liệu.
 
 | Phần | Số trang thực tế |
 | --- | ---: |

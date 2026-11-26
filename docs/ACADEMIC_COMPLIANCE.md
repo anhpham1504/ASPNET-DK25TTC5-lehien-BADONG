@@ -30,7 +30,7 @@ Status values: `PASS`, `PARTIAL`, `MISSING`, `DEFERRED`, and `BLOCKED`.
 | Commit at least weekly | PARTIAL | Week 48 work is documented and committed with real timestamps, but the earlier gap cannot be repaired retroactively. |
 | Thesis repository structure | PASS | Required subdirectories are represented by tracked README files. |
 | Thesis body and formatting | PARTIAL | The [DOCX review](../thesis/doc/BA-DONG-Coastal-Escape.docx) includes the front matter, introduction, five chapters, references and appendices. The [PDF review](../thesis/pdf/BA-DONG-Coastal-Escape.pdf) was rendered for review. Official form and submission-format checks remain open. |
-| Main-content extent and review layout | PASS | [Review QA](../thesis/pdf/README.md) measures 40 A4 main-content pages out of 66 total. Layout, pagination, heading fields, figure/table lists and references were checked on the synchronized export. |
+| Main-content extent and review layout | PASS | [Review QA](../thesis/pdf/README.md) measures 40 A4 main-content pages out of 65 total. Layout, pagination, all TOC/PAGEREF entries, figure/table lists and references were checked on the synchronized export. |
 | Root author email and phone | DEFERRED | Placeholders only, as required by the task. |
 | `setup` guidance | PASS | Reproducible SDK, restore, build, run, test, and publish guidance is present. |
 | Automated tests | PASS | Test project and CI gate are present; the verified Release run passed 14 tests with no failures or skips, including exact-case image-manifest coverage and rendered image metadata. |
@@ -44,7 +44,7 @@ Status values: `PASS`, `PARTIAL`, `MISSING`, `DEFERRED`, and `BLOCKED`.
 | Official covers and review pages | MISSING | Main/secondary cover and GVHD/TVHĐ review templates still need confirmation. |
 | Thesis exports and slides | PARTIAL | DOCX, PDF, offline HTML, editable 15-slide PowerPoint, PDF slides, demo script and defense questions are available for local review. The final submission template and formats remain open. See the [review checklist](../thesis/REVIEW_CHECKLIST.md). |
 | Technical completion | PASS | The final frozen release `1c04cb1` passed CI, native publish and 14 automated tests; Pages deployed the same SHA. |
-| Thesis content | PASS | The validated final outline has an introduction, five chapters, references and appendices. The main text uses 40 of 66 pages. |
+| Thesis content | PASS | The validated final outline has an introduction, five chapters, references and appendices. The main text uses 40 of 65 pages; the footer-only page between the figure and table lists has been removed. |
 | Presentation package | PASS | The 15-slide PowerPoint and its PDF open, with an editable deck and speaker notes. The demo script and defense questions are available for review. |
 | Documentation | PASS | The setup guide, software design, evidence, progress report, traceability, and document build instructions are present. |
 | Administrative compliance | PARTIAL | The student identity is confirmed. Official templates, supervisor and institution details, contact information, collaborator status and submission-format decisions remain open. |

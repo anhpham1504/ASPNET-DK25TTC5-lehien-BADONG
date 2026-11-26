@@ -16,15 +16,23 @@ try {
     $word.DisplayAlerts = 0
     $word.AutomationSecurity = 3
     $document = $word.Documents.Open($docx, $false, $false)
-    for ($pass = 0; $pass -lt 3; $pass++) {
+    for ($pass = 0; $pass -lt 5; $pass++) {
         $null = $document.Fields.Update()
-        $document.Repaginate()
         foreach ($toc in $document.TablesOfContents) { $toc.Update() }
         foreach ($figureList in $document.TablesOfFigures) { $figureList.Update() }
         $document.Repaginate()
     }
+    # Refresh cached page references only after pagination has converged. The
+    # saved DOCX must contain the same page numbers that Word exports to PDF.
+    foreach ($toc in $document.TablesOfContents) { $toc.UpdatePageNumbers() }
+    foreach ($figureList in $document.TablesOfFigures) { $figureList.UpdatePageNumbers() }
+    $document.Repaginate()
     $document.Save()
     $document.ExportAsFixedFormat($pdf, 17, $false, 0, 0, 1, 1, 0, $true, $false, 1, $true, $true, $false)
+    foreach ($toc in $document.TablesOfContents) { $toc.UpdatePageNumbers() }
+    foreach ($figureList in $document.TablesOfFigures) { $figureList.UpdatePageNumbers() }
+    $document.Repaginate()
+    $document.Save()
     "Pages=$($document.ComputeStatistics(2)); TOC=$($document.TablesOfContents.Count); CaptionLists=$($document.TablesOfFigures.Count)"
 }
 finally {

@@ -6,7 +6,7 @@ Bản phát hành `1c04cb15c700c5a78c4c89d3be63008af990fd5f` trên GitHub Pages.
 
 | Mục | Trạng thái duyệt |
 | --- | --- |
-| Nội dung và định dạng | Bản đồng bộ có 40 trang chính, 66 trang tổng. Word cập nhật mục lục và danh mục tự động trước khi xuất PDF. |
+| Nội dung và định dạng | Bản đồng bộ có 40 trang chính, 65 trang tổng. Word cập nhật mục lục, danh mục hình, danh mục bảng và PAGEREF trước khi xuất PDF. |
 | Hình, bảng và nguồn | 22 hình, 26 ảnh nhúng, 10 bảng, 17 nguồn. Bảng 7 rộng hơn ở cột tên trường. Hình 8 có nguồn Mermaid điều chỉnh cho A4. |
 | HTML | Mở ngoại tuyến, 26 ảnh tải được. Thử mục lục, bàn phím, CSS in và bốn kích thước vùng hiển thị. |
 | Hồ sơ bảo vệ | 15 slide có ghi chú, PDF 15 trang, kịch bản 14 thao tác và 38 câu hỏi. Có bước chuẩn bị và phương án tại máy. |

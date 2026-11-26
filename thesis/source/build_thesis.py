@@ -111,7 +111,7 @@ def configure_styles(doc):
         style.paragraph_format.keep_together = True
     doc.styles["Title"].font.size = Pt(22)
     doc.styles["Caption"].font.italic = True
-    for name in ("Front Heading", "Entry", "Table Cell", "Sample", "Illustration"):
+    for name in ("Front Heading", "Entry", "Table Cell", "Sample", "Illustration", "Field Container"):
         style = doc.styles.add_style(name, normal.type)
         style.base_style = normal
         style.paragraph_format.first_line_indent = Cm(0)
@@ -125,6 +125,14 @@ def configure_styles(doc):
     doc.styles["Entry"].paragraph_format.left_indent = Cm(0.85)
     doc.styles["Entry"].paragraph_format.first_line_indent = Cm(-0.85)
     doc.styles["Entry"].paragraph_format.keep_together = True
+    # Word leaves the end marker of TOC/LOF/LOT fields in the original
+    # paragraph. Keep that otherwise-empty paragraph small so it cannot become
+    # a footer-only page before the next front-matter heading.
+    field_container = doc.styles["Field Container"]
+    field_container.font.size = Pt(1)
+    field_container.paragraph_format.space_before = Pt(0)
+    field_container.paragraph_format.space_after = Pt(0)
+    field_container.paragraph_format.line_spacing = Pt(1)
     for name, indent in (("TOC 1", 0), ("TOC 2", 0.45), ("TOC 3", 0.9), ("Table of Figures", 0)):
         if name not in doc.styles:
             doc.styles.add_style(name, normal.type)
@@ -322,10 +330,10 @@ class ThesisBuilder:
                     if level == 1:
                         p.paragraph_format.page_break_before = True
             elif main == "!toc":
-                field(self.doc.add_paragraph(style="Table Cell"), 'TOC \\o "1-3" \\h \\z \\u')
+                field(self.doc.add_paragraph(style="Field Container"), 'TOC \\o "1-3" \\h \\z \\u')
             elif main in ("!lof", "!lot"):
                 seq = "Fig" if main == "!lof" else "Tbl"
-                field(self.doc.add_paragraph(style="Table Cell"), f'TOC \\h \\z \\c "{seq}"')
+                field(self.doc.add_paragraph(style="Field Container"), f'TOC \\h \\z \\c "{seq}"')
             elif main == "!refs":
                 self.write_bibliography()
             elif main.startswith("> "):
