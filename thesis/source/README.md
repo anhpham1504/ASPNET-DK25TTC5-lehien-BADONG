@@ -1,6 +1,6 @@
 # Nguồn tái tạo luận văn
 
-Các tệp Markdown đánh số chứa phần đầu, mở đầu, năm chương, tài liệu tham khảo và phụ lục. `references.json` lưu thư mục nguồn theo thứ tự từ điển. Kết quả kỹ thuật được đối chiếu tại [mốc đóng băng](../../docs/RELEASE_BASELINE.md). Ảnh và sơ đồ dùng trực tiếp từ [bằng chứng](../../docs/evidence/README.md) và [hồ sơ thiết kế](../../docs/diagrams/README.md).
+Các tệp Markdown đánh số chứa phần đầu, mở đầu, năm chương, tài liệu tham khảo và phụ lục. `references.json` lưu thư mục nguồn theo thứ tự từ điển. Kết quả kỹ thuật được đối chiếu tại [mốc đóng băng cuối](../../docs/RELEASE_BASELINE.md). Ảnh production dùng bộ gắn SHA `1c04cb1`; 18 ảnh cũ tiếp tục làm bằng chứng lịch sử. Sơ đồ dùng trực tiếp từ [hồ sơ thiết kế](../../docs/diagrams/README.md).
 
 ## Dựng lại ở Windows
 

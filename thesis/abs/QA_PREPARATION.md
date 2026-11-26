@@ -1,6 +1,6 @@
 # Câu hỏi chuẩn bị bảo vệ
 
-Trả lời theo bản phát hành [463da37](../../docs/RELEASE_BASELINE.md). Đối chiếu thêm [hồ sơ thiết kế](../../docs/SOFTWARE_DESIGN.md), [ma trận truy vết](../../docs/TRACEABILITY_MATRIX.md) và [bằng chứng kiểm thử](../../docs/evidence/academic-validation/2026-W48-phase-d-f.md).
+Trả lời theo bản phát hành cuối [1c04cb1](../../docs/RELEASE_BASELINE.md). Đối chiếu thêm [hồ sơ thiết kế](../../docs/SOFTWARE_DESIGN.md), [ma trận truy vết](../../docs/TRACEABILITY_MATRIX.md), [bằng chứng lịch sử](../../docs/evidence/academic-validation/2026-W48-phase-d-f.md) và [ảnh production](../../docs/evidence/screenshots/release-1c04cb1/MANIFEST.md).
 
 ## Bài toán và thiết kế
 
@@ -33,12 +33,12 @@ Trả lời theo bản phát hành [463da37](../../docs/RELEASE_BASELINE.md). Đ
 
 22. **14 kiểm thử tự động bao phủ gì?** Chúng kiểm tệp và cấu trúc JSON, ID và slug, đường dẫn ảnh, thông tin xác minh, tham chiếu lịch trình và hành vi ContentService trước phản hồi hợp lệ hoặc lỗi.
 23. **14 ca đạt có chứng minh toàn bộ website hết lỗi không?** Kết quả cho biết những hành vi được định nghĩa trong bộ kiểm đã đạt ở môi trường đã chạy. Giao diện, mạng và thao tác người dùng có những lượt kiểm riêng.
-24. **48 và 28 là số gì?** 48 là lượt của phiên bản cơ sở, gồm 12 URL × 4 chiều rộng. 28 là lượt hồi quy tiêu đề của bản sửa trên máy phát triển, gồm 7 URL × 4 chiều rộng.
+24. **48, 28 và 52 là số gì?** 48 là lượt của phiên bản cơ sở, gồm 12 URL × 4 chiều rộng. 28 là lượt hồi quy tiêu đề trên máy phát triển, gồm 7 URL × 4 chiều rộng. 52 là ma trận production mới trên SHA cuối, gồm 13 route × 4 viewport. Các con số thuộc các đợt khác nhau.
 25. **Hai lỗi HTTP 503 có thật trên production không?** Đây là hai phản hồi mô phỏng đối với destinations.json và foods.json để quan sát từ trạng thái đang tải sang chưa có dữ liệu.
-26. **Accessibility đã kiểm đến mức nào?** Có các lượt kiểm heading, main, lang, focus, menu, hộp thoại ảnh, FAQ, tab và reduced motion. Kiểm toán đầy đủ WCAG 2.2 AA, tương phản, phóng to 200% và trình đọc màn hình còn mở.
-27. **Ảnh chụp có viền focus là lỗi hình ảnh hay kết quả kiểm thử?** Ảnh lấy từ bản Release chạy tại máy phát triển và ghi lại DOM lúc kiểm thử. Trường hợp trang chủ tự focus tiêu đề ở bản công khai cũng được ghi trong giới hạn.
+26. **Accessibility đã kiểm đến mức nào?** Có các lượt kiểm heading, main, lang, focus, menu, hộp thoại ảnh, FAQ, filter, caption cảm ứng và tab/panel lịch trình. Firefox, WebKit, axe-core, kiểm toán WCAG 2.2 AA, tương phản, zoom 200% thực tế và trình đọc màn hình còn mở.
+27. **Hai bộ ảnh chụp khác nhau thế nào?** Bộ 18 ảnh ngày 25/11 là bằng chứng lịch sử của đợt local. Bộ 13 ảnh ngày 26/11 chụp production đúng SHA `1c04cb1`. Tên file và manifest giữ hai nguồn gốc riêng.
 28. **Đã kiểm tra clipboard chưa?** Chức năng có trong mã nguồn. Hồ sơ này chưa có bằng chứng thao tác chép và dán clipboard.
-29. **Số liệu dung lượng có thay cho đánh giá tốc độ không?** CI đo kích thước tệp Brotli và WASM trong gói. Thời gian khởi động và số byte tải thực tế phụ thuộc mạng, thiết bị, tài nguyên được chọn và bộ nhớ đệm.
+29. **Số liệu dung lượng có thay cho đánh giá tốc độ không?** Không. CI ghi 2.826.661 byte framework Brotli, 2.900.443 byte native WASM và 931.222 byte native WASM Brotli. Thời gian khởi động và số byte tải thực tế còn phụ thuộc mạng, thiết bị, tài nguyên được chọn và bộ nhớ đệm.
 
 ## Triển khai, giới hạn và phát triển
 
@@ -49,4 +49,5 @@ Trả lời theo bản phát hành [463da37](../../docs/RELEASE_BASELINE.md). Đ
 34. **SEO đã đạt đến đâu?** Có tiêu đề sau khi ứng dụng chạy, sitemap và robots theo đường dẫn đã triển khai. URL sâu, HTML ban đầu và canonical riêng theo route vẫn là giới hạn.
 35. **Cách triển khai lại website?** Dùng quy trình GitHub Pages đã cấu hình khi có quyền và phê duyệt. So SHA của CI và Pages, mở URL có base đúng rồi kiểm các đường dẫn quan trọng.
 36. **Nếu khảo sát SSR thì phải đổi gì?** Cần môi trường chạy ASP.NET Core phía máy chủ, xử lý route ở đó, kiểm cấu hình cung cấp phụ thuộc, nguồn nội dung, metadata và mã phản hồi. Giữ SSR như hướng khảo sát sau mốc đóng băng.
-37. **Hạn chế nào đáng ưu tiên?** URL sâu và bố cục đầu trang là vấn đề kỹ thuật. Năm ảnh chờ xác minh là vấn đề dữ liệu. Khả năng tiếp cận cần mở rộng kiểm tra trước khi kết luận về WCAG.
+37. **Hạn chế nào đáng ưu tiên?** HTTP 404 ban đầu của URL sâu là giới hạn hosting. Năm ảnh chờ xác minh là vấn đề dữ liệu. Khả năng tiếp cận cần mở rộng kiểm tra chéo trình duyệt, zoom, tương phản và screen reader trước khi kết luận về WCAG.
+38. **Tab lịch trình liên kết với panel ra sao?** Mỗi tab có `aria-controls` trỏ tới một panel tồn tại. Panel dùng `aria-labelledby` trỏ lại tab. Panel không chọn có `hidden`; chỉ tab hoạt động có `aria-selected=true` và `tabindex=0`. ArrowLeft, ArrowRight, Home và End đổi lựa chọn mà không chặn Tab hoặc làm cuộn trang.

@@ -68,7 +68,9 @@ def main():
     tables = sum(code.startswith("SEQ Tbl") for code in instructions)
     assert len(doc.tables) == tables
     for word, count in (("Hình", figures), ("Bảng", tables)):
-        assert set(re.findall(r"(?m)^" + word + r" (\d+)\.", front)) == set(map(str, range(1, count + 1)))
+        # pypdf may insert a space before the caption-number period when Word
+        # justifies a wrapped entry in the list of figures or tables.
+        assert set(re.findall(r"(?m)^" + word + r" (\d+)\s*\.", front)) == set(map(str, range(1, count + 1)))
     refs_text = "\n".join(page_text[starts[HEADINGS[6]] - 1:starts[HEADINGS[7]] - 1])
     refs_numbers = list(map(int, re.findall(r"(?m)^\s*\[(\d+)\]", refs_text)))
     assert refs_numbers == list(range(1, len(references) + 1))

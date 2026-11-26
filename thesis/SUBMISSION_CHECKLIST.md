@@ -1,20 +1,20 @@
 # Checklist nghiệm thu và nộp đồ án
 
-Ngày kiểm tra 25/11/2026. Bộ hồ sơ đối chiếu với bản phát hành `463da372613648411ef9d6002c4d895cb03cbb4d`. [Mốc phát hành](../docs/RELEASE_BASELINE.md) · [Ma trận tuân thủ](../docs/ACADEMIC_COMPLIANCE.md)
+Ngày kiểm tra 26/11/2026. Bộ hồ sơ đối chiếu với bản phát hành `1c04cb15c700c5a78c4c89d3be63008af990fd5f`. [Mốc phát hành](../docs/RELEASE_BASELINE.md) · [Ma trận tuân thủ](../docs/ACADEMIC_COMPLIANCE.md)
 
 ## Kết quả kiểm tra
 
 | Mục | Trạng thái | Bằng chứng hoặc điều kiện còn lại |
 | --- | --- | --- |
-| Nội dung và số trang | PASS | Word và PDF có 39 trang nội dung chính (yêu cầu 30–50) trên 63 trang. Mở đầu và Chương 1–5 lần lượt 3, 4, 7, 13, 10 và 2 trang. |
+| Nội dung và số trang | PASS | Word và PDF có 40 trang nội dung chính (yêu cầu 30–50) trên 66 trang. Mở đầu và Chương 1–5 lần lượt 3, 4, 7, 13, 11 và 2 trang. |
 | Định dạng luận văn | PASS | A4, Times New Roman 13 pt ở thân bài, cách dòng 1,5, cách đoạn 6 pt, lề trái 3 cm, các lề còn lại 2 cm. Số trang góc phải dưới. Heading theo cấp, đánh số chương và mục bằng số Ả Rập, mục lục và hai danh mục được cập nhật bằng Word. |
-| Hình, bảng và nguồn | PASS | 22 hình, 27 ảnh nhúng, 10 bảng, 17 nguồn được trích dẫn. Kiểm tra caption, thứ tự và liên kết URL giữa các bản. |
-| HTML ngoại tuyến | PASS | Kiểm trong bản clone ở đường dẫn khác. 27 ảnh tải được qua đường dẫn tương đối. Dùng được mục lục, phím Tab và CSS in. Bốn chiều rộng 320, 390, 768 và 1.440 px không tràn ngang. |
+| Hình, bảng và nguồn | PASS | 22 hình, 26 ảnh nhúng, 10 bảng, 17 nguồn được trích dẫn. Kiểm tra caption, thứ tự và liên kết URL giữa các bản. |
+| HTML ngoại tuyến | PASS | 26 ảnh dùng đường dẫn tương đối. Dùng được mục lục, phím Tab và CSS in. Bốn chiều rộng 320, 390, 768 và 1.440 px không tràn ngang. |
 | PowerPoint và PDF slide | PASS | 15 slide 16:9. Mỗi slide có ghi chú. PowerPoint desktop xuất được PDF 15 trang. |
-| Nội dung demo và câu hỏi | PASS | Có kịch bản 14 bước và 37 câu hỏi. Đã thử các thao tác chính trên Pages. [Kịch bản](abs/DEMO_SCRIPT.md) ghi lệnh và phương án dự phòng tại máy. |
-| Hướng dẫn cài đặt và hồ sơ thiết kế | PASS | Có [cài đặt](../setup/README.md), [thiết kế](../docs/SOFTWARE_DESIGN.md), [9 sơ đồ](../docs/diagrams/README.md), [20 yêu cầu truy vết](../docs/TRACEABILITY_MATRIX.md) và [18 ảnh bằng chứng](../docs/evidence/screenshots/MANIFEST.md). |
+| Nội dung demo và câu hỏi | PASS | Có kịch bản 14 bước và 38 câu hỏi. Đã thử các thao tác chính trên Pages. [Kịch bản](abs/DEMO_SCRIPT.md) ghi lệnh và phương án dự phòng tại máy. |
+| Hướng dẫn cài đặt và hồ sơ thiết kế | PASS | Có [cài đặt](../setup/README.md), [thiết kế](../docs/SOFTWARE_DESIGN.md), [9 sơ đồ](../docs/diagrams/README.md), [20 yêu cầu truy vết](../docs/TRACEABILITY_MATRIX.md), 18 ảnh lịch sử và [13 ảnh production](../docs/evidence/screenshots/release-1c04cb1/MANIFEST.md). |
 | Dựng lại tài liệu | PASS | Dựng lại Mermaid, DOCX, PDF, HTML, PPTX và PDF slide trong bản clone, cập nhật trường Word và chuẩn hóa metadata. [Hướng dẫn](source/README.md). |
-| Bản phát hành và kiểm thử | PASS | CI và Pages thành công cùng SHA. Log CI ghi 14 ca đạt, 0 lỗi, 0 bỏ qua. |
+| Bản phát hành và kiểm thử | PASS | CI 45738100708 và Pages 45738100919 thành công cùng SHA `1c04cb1`. CI ghi 14 ca đạt và native publish hoàn tất; production có 52 lượt route/viewport đạt. |
 | Thư mục và báo cáo tuần | PARTIAL | Cấu trúc hồ sơ và báo cáo W48 có sẵn. Lịch sử vẫn có khoảng trống trước W48. |
 | Siêu dữ liệu bản bàn giao | PASS | Author là Lê Hiền. Word và PowerPoint bỏ trường Last Modified By. PDF slide dùng tiêu đề BA ĐỘNG — Coastal Escape — Báo cáo bảo vệ và tác giả Lê Hiền. |
 | Công khai tệp | DEFERRED | Kho mã nguồn ở chế độ public. README tại SHA hiện hành đã có tên và MSSV. Hồ sơ mới lặp lại các trường này trên bìa và slide, nên cần duyệt phạm vi công khai trước khi push. Email và điện thoại vẫn để trường chờ. |
@@ -73,5 +73,5 @@ Danh sách 45 tệp trong phạm vi commit học thuật gồm cả thay đổi 
 | thesis/source/diagrams | mermaid.json, search-filter-activity.mmd, search-filter-activity.png |
 
 ~~~text
-docs(academic): finalize thesis and defense presentation package
+docs(academic): synchronize thesis and evidence with final UI release
 ~~~

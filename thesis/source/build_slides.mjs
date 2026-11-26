@@ -5,12 +5,12 @@ import { Presentation, PresentationFile } from "@oai/artifact-tool";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const output = process.argv[2] || path.join(root, "thesis", "abs", "BA-DONG-Coastal-Escape.pptx");
-const evidence = "docs/evidence/screenshots";
+const evidence = "docs/evidence/screenshots/release-1c04cb1";
 const production = "https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/";
-const release = "463da372613648411ef9d6002c4d895cb03cbb4d";
+const release = "1c04cb15c700c5a78c4c89d3be63008af990fd5f";
 const repo = "https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG";
-const ci = repo + "/actions/runs/45546387181";
-const pages = repo + "/actions/runs/45546387162";
+const ci = repo + "/actions/runs/45738100708";
+const pages = repo + "/actions/runs/45738100919";
 const serviceFile = "src/BaDong.CoastalEscape/Services/ContentService.cs";
 const color = { dark:"#103C46", ink:"#172B31", white:"#FFFFFF", sand:"#F9F5EB",
   muted:"#4B6266", pale:"#E3EEEB", line:"#C3D4D0", accent:"#A45B2D", warm:"#F0BB84" };
@@ -55,8 +55,9 @@ function row(s,label,detail,y,x=margin,w=1128,labelW=305) {
 }
 function rows(title,subtitle,content,seconds,narration,sources) {
   const s=page(title,subtitle);
-  const start=subtitle?213:197;
-  content.forEach(([label,detail],i)=>row(s,label,detail,start+i*(content.length===3?124:106)));
+  const compact=!subtitle && content.length===4;
+  const start=compact?180:(subtitle?213:197);
+  content.forEach(([label,detail],i)=>row(s,label,detail,start+i*(content.length===3?124:(compact?100:106))));
   note(s,seconds,narration,sources);
 }
 function block(s,heading,detail,x,y,w,h=132,fill=color.pale) {
@@ -130,8 +131,8 @@ rows("Công nghệ sử dụng","",[
   rule(s,76,401,1128);
   txt(s,"Đối chiếu ảnh",76,429,256,43,22,color.dark,true);
   txt(s,"Đường dẫn ảnh trong nội dung được đối chiếu với tệp ảnh và danh mục image-manifest.json.",357,429,847,79,20);
-  txt(s,"Các tập nội dung khác",76,546,257,81,22,color.dark,true);
-  txt(s,"4 món ăn, 7 ảnh thư viện, 5 câu hỏi và 1 đối tượng thông tin chung.",357,546,847,72,20,color.muted);
+  txt(s,"Các tập nội dung khác",76,520,257,160,22,color.dark,true);
+  txt(s,"4 món ăn, 7 ảnh thư viện, 5 câu hỏi và 1 đối tượng thông tin chung.",357,520,847,160,20,color.muted);
   note(s,35,"Slug của điểm dừng có thể rỗng. Nếu có giá trị, nó phải khớp slug của một địa điểm. Giải thích danh mục ảnh lưu đường dẫn, biến thể, tác giả, giấy phép và trạng thái. Kiểm thử đối chiếu tên tệp theo đúng chữ hoa thường. Năm địa điểm đang dùng ảnh giữ chỗ.",["src/BaDong.CoastalEscape/Models/SiteModels.cs","src/BaDong.CoastalEscape/wwwroot/data","docs/SOFTWARE_DESIGN.md"]);
 }
 {
@@ -147,33 +148,33 @@ rows("Công nghệ sử dụng","",[
   txt(s,"Tìm kiếm tiếng Việt",834,224,363,51,24,color.dark,true);
   txt(s,"Chuẩn hóa Unicode, bỏ dấu kết hợp và so khớp chuỗi con.",834,294,363,109,20);
   txt(s,"“hoàng hôn” và “hoang hon” cho cùng kết quả. Chữ đ và d vẫn được phân biệt.",834,432,363,154,20,color.muted);
-  txt(s,"Đoạn trích từ LoadAsync<T> tại bản phát hành 463da37",76,573,724,52,16,color.muted);
+  txt(s,"Đoạn trích từ LoadAsync<T> tại bản phát hành 1c04cb1",76,573,724,52,16,color.muted);
   note(s,45,"Đoạn mã trích trực tiếp từ LoadAsync<T>, xuống dòng điều kiện để dễ chiếu. Nếu chưa có mục đệm, phương thức gọi GetFromJsonAsync. Lỗi đã xử lý trả dữ liệu rỗng và không lưu nhánh lỗi. Tìm kiếm dùng FormD, bỏ NonSpacingMark, FormC và chữ thường.",[serviceFile,"src/BaDong.CoastalEscape/Pages/Explore.razor"]);
 }
 {
   const s=page("Giao diện chính","Từ trang chủ đến danh sách và chi tiết một điểm đến.");
-  await shot(s,"01-home-desktop.png","Trang chủ",76,218,617,386);
-  await shot(s,"05-explore.png","Khám phá",764,206,398,194);
-  await shot(s,"09-destination.png","Chi tiết Biển Ba Động",764,447,398,194);
-  txt(s,"Ảnh kiểm thử của bản Release tại máy phát triển",76,662,640,34,16,color.muted);
-  note(s,35,"Dẫn người nghe theo luồng tra cứu. Một số ảnh có viền focus ghi lại trạng thái lúc kiểm thử. Trình diễn trực tiếp dùng bản công khai tương ứng với mốc phát hành.",["docs/evidence/screenshots/MANIFEST.md, ảnh 01, 05 và 09"]);
+  await shot(s,"01-home-desktop-1c04cb1.png","Trang chủ",76,218,617,386);
+  await shot(s,"04-explore-1c04cb1.png","Khám phá",764,206,398,194);
+  await shot(s,"05-destination-detail-1c04cb1.png","Chi tiết Biển Ba Động",764,447,398,194);
+  txt(s,"Ảnh production gắn với SHA 1c04cb1",76,662,640,34,16,color.muted);
+  note(s,35,"Dẫn người nghe theo luồng tra cứu từ trang chủ tới danh sách và chi tiết. Ba ảnh được chụp trực tiếp từ production sau deployment cuối.",["docs/evidence/screenshots/release-1c04cb1/MANIFEST.md, ảnh 01, 04 và 05"]);
 }
 {
   const s=page("Ẩm thực, thư viện và lịch trình","Hai màn hình minh họa cách lọc món và xem thông tin nguồn ảnh.");
-  await shot(s,"10-cuisine.png","Ẩm thực và bộ lọc",76,212,549,343);
-  await shot(s,"13-gallery-lightbox.png","Thư viện và ghi công ảnh",655,212,549,343);
+  await shot(s,"06-cuisine-1c04cb1.png","Ẩm thực và bộ lọc",76,212,549,343);
+  await shot(s,"08-lightbox-1c04cb1.png","Thư viện và ghi công ảnh",655,212,549,343);
   txt(s,"Cẩm nang có câu hỏi thường gặp. Mục lịch trình có gợi ý một ngày và hai ngày.",76,620,1128,57,18,color.muted);
-  note(s,30,"Nêu các chức năng theo thứ tự từ tìm món, xem ảnh kèm ghi công, mở câu hỏi thường gặp đến chọn lịch trình tham khảo.",["docs/evidence/screenshots/MANIFEST.md, ảnh 10, 13, 14 và 15"]);
+  note(s,30,"Nêu các chức năng theo thứ tự từ tìm món, xem ảnh kèm ghi công, mở câu hỏi thường gặp đến chọn lịch trình tham khảo.",["docs/evidence/screenshots/release-1c04cb1/MANIFEST.md, ảnh 06, 08 và 09"]);
 }
 {
   const s=page("Màn hình hẹp và khả năng tiếp cận");
-  await shot(s,"02-home-tablet.png","768 × 900",76,175,318,416);
-  await shot(s,"03-home-mobile.png","390 × 844",417,175,220,416);
-  txt(s,"Các thao tác đã kiểm tra",688,205,515,53,25,color.dark,true);
-  txt(s,"Tab và Shift+Tab trong menu\nEscape đóng và trả focus\nPhím mũi tên chuyển ảnh",688,281,512,156,22);
-  rule(s,688,450,510);
-  txt(s,"Phạm vi đánh giá WCAG 2.2 AA còn mở.",688,475,510,85,19,color.muted);
-  note(s,35,"Hai ảnh tương ứng hai vùng hiển thị trong trình duyệt. Đã kiểm các thao tác bàn phím chọn lọc với menu, hộp thoại ảnh, FAQ và lịch trình. Kiểm toán đầy đủ, trình đọc màn hình, tương phản và phóng to 200% vẫn còn mở.",["docs/evidence/screenshots/MANIFEST.md, ảnh 02, 03 và 04","docs/KNOWN_LIMITATIONS.md"]);
+  await shot(s,"02-home-mobile-1c04cb1.png","Trang chủ 390 × 844",76,175,220,416);
+  await shot(s,"03-mobile-menu-1c04cb1.png","Menu 390 × 844",324,175,220,416);
+  txt(s,"Các thao tác đã kiểm tra",594,205,610,53,25,color.dark,true);
+  txt(s,"Tab và Shift+Tab trong menu\nEscape đóng và trả focus\nArrow, Home, End ở tab lịch trình",594,281,610,156,22);
+  rule(s,594,450,604);
+  txt(s,"Firefox, WebKit, axe-core, zoom 200% thực tế và screen reader còn mở.",594,475,604,102,18,color.muted);
+  note(s,35,"Hai ảnh production cho thấy trang chủ và menu trên màn hình hẹp. Đã kiểm menu, hộp thoại ảnh, FAQ, caption cảm ứng và quan hệ tab/panel lịch trình. Các hạng mục chưa chạy được ghi rõ trong giới hạn.",["docs/evidence/screenshots/release-1c04cb1/MANIFEST.md, ảnh 02 và 03","docs/KNOWN_LIMITATIONS.md"]);
 }
 {
   const s=page("Kết quả kiểm thử","Số ca, số lượt và số đường dẫn được báo cáo theo từng đợt.");
@@ -182,7 +183,7 @@ rows("Công nghệ sử dụng","",[
     ["48","Lượt phiên bản cơ sở","12 URL × 4 chiều rộng"],
     ["28","Lượt sửa tiêu đề","7 URL × 4 chiều rộng"],
     ["2","Ca HTTP 503","Mô phỏng khi tải JSON"],
-    ["7/7","Tiêu đề bản công khai","Sau khi Blazor khởi động"],
+    ["52","Lượt production cuối","13 route × 4 viewport"],
   ];
   tests.forEach(([count,label,details],i)=>{
     const x=76+i*228;
@@ -191,19 +192,19 @@ rows("Công nghệ sử dụng","",[
     txt(s,label,x,392,214,88,20,color.ink,true);
     txt(s,details,x,489,210,92,17,color.muted);
   });
-  note(s,45,"14 ca tự động kiểm tra dữ liệu và dịch vụ. 48 và 28 là lượt trình duyệt theo hai ma trận. Hai phản hồi 503 do bộ kiểm thử tạo trên bản local. Bảy tiêu đề thuộc lần kiểm tra sau triển khai. Mỗi kết quả có phạm vi riêng.",["docs/evidence/academic-validation/2026-W48-phase-d-f.md","docs/RELEASE_BASELINE.md",ci]);
+  note(s,45,"14 ca tự động kiểm tra dữ liệu và dịch vụ. 48 và 28 là hai ma trận lịch sử. Hai phản hồi 503 do bộ kiểm thử tạo trên bản local. Con số 52 thuộc ma trận production mới trên SHA cuối. Mỗi kết quả có phạm vi riêng.",["docs/evidence/academic-validation/2026-W48-phase-d-f.md","docs/RELEASE_BASELINE.md",ci]);
 }
 {
   const s=page("CI/CD và triển khai","Hai workflow nhận cùng commit và chạy độc lập.");
-  block(s,"main · 463da37","Commit phát hành",76,314,301,136);
+  block(s,"main · 1c04cb1","Merge commit phát hành",76,314,301,136);
   box(s,395,365,86,22,color.accent,"rightArrow");
   box(s,484,279,3,198,color.accent);
   box(s,487,279,49,18,color.accent,"rightArrow");
   box(s,487,459,49,18,color.accent,"rightArrow");
-  block(s,"CI · 45546387181","Restore, build Release và kiểm thử tự động.",551,216,653,136);
-  block(s,"Pages · 45546387162","Publish, thiết lập đường dẫn cơ sở và triển khai gói tĩnh.",551,396,653,136);
-  txt(s,"Cả hai lần chạy thành công. CI ghi nhận 14/14 ca kiểm thử đạt.",76,581,1128,63,20,color.muted);
-  note(s,40,"Mở trang kết quả CI và Pages để đối chiếu SHA. Hai workflow chạy độc lập. Job deploy của Pages sử dụng gói do job build của chính workflow đó tạo.",["Release SHA "+release,ci,pages,"docs/RELEASE_BASELINE.md"]);
+  block(s,"CI · 45738100708","Release build, 14 test, native relinking và wasm-opt.",551,216,653,136);
+  block(s,"Pages · 45738100919","Publish, thiết lập đường dẫn cơ sở và triển khai gói tĩnh.",551,396,653,136);
+  txt(s,"Cả hai lần chạy thành công trên cùng SHA. Deployment: 8074236451.",76,581,1128,63,20,color.muted);
+  note(s,40,"Mở trang kết quả CI và Pages để đối chiếu SHA. CI hoàn tất workload wasm-tools, native assets và wasm-opt. Job deploy của Pages sử dụng gói do job build của chính workflow đó tạo.",["Release SHA "+release,ci,pages,"docs/RELEASE_BASELINE.md"]);
 }
 {
   const s=page("Trình diễn và giới hạn");

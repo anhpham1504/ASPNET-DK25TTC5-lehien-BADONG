@@ -2,15 +2,15 @@
 
 ## Mốc đối chiếu
 
-Bản phát hành 463da372613648411ef9d6002c4d895cb03cbb4d trên GitHub Pages. Kết quả kỹ thuật dùng [mốc phát hành](../docs/RELEASE_BASELINE.md), [bằng chứng kiểm thử](../docs/evidence/academic-validation/2026-W48-phase-d-f.md) và [ma trận 20 yêu cầu](../docs/TRACEABILITY_MATRIX.md).
+Bản phát hành `1c04cb15c700c5a78c4c89d3be63008af990fd5f` trên GitHub Pages. Kết quả kỹ thuật dùng [mốc phát hành](../docs/RELEASE_BASELINE.md), [bằng chứng lịch sử](../docs/evidence/academic-validation/2026-W48-phase-d-f.md), [ảnh production](../docs/evidence/screenshots/release-1c04cb1/MANIFEST.md) và [ma trận 20 yêu cầu](../docs/TRACEABILITY_MATRIX.md).
 
 | Mục | Trạng thái duyệt |
 | --- | --- |
-| Nội dung và định dạng | Bản đã biên tập có 39 trang chính, 63 trang tổng. Word cập nhật mục lục và danh mục tự động trước khi xuất PDF. |
-| Hình, bảng và nguồn | 22 hình, 27 ảnh nhúng, 10 bảng, 17 nguồn. Bảng 7 rộng hơn ở cột tên trường. Hình 8 có nguồn Mermaid điều chỉnh cho A4. |
-| HTML | Mở ngoại tuyến, 27 ảnh tải được. Thử mục lục, bàn phím, CSS in và bốn kích thước vùng hiển thị. |
-| Hồ sơ bảo vệ | 15 slide có ghi chú, PDF 15 trang, kịch bản 14 thao tác và 37 câu hỏi. Có bước chuẩn bị và phương án tại máy. |
-| Kết quả kỹ thuật | CI đúng SHA ghi nhận 14 ca tự động đạt. Chương 4 phân biệt 48 lượt của phiên bản cơ sở, 28 lượt sửa tiêu đề, 2 phản hồi 503 mô phỏng và 7 đường dẫn kiểm tra sau triển khai. |
+| Nội dung và định dạng | Bản đồng bộ có 40 trang chính, 66 trang tổng. Word cập nhật mục lục và danh mục tự động trước khi xuất PDF. |
+| Hình, bảng và nguồn | 22 hình, 26 ảnh nhúng, 10 bảng, 17 nguồn. Bảng 7 rộng hơn ở cột tên trường. Hình 8 có nguồn Mermaid điều chỉnh cho A4. |
+| HTML | Mở ngoại tuyến, 26 ảnh tải được. Thử mục lục, bàn phím, CSS in và bốn kích thước vùng hiển thị. |
+| Hồ sơ bảo vệ | 15 slide có ghi chú, PDF 15 trang, kịch bản 14 thao tác và 38 câu hỏi. Có bước chuẩn bị và phương án tại máy. |
+| Kết quả kỹ thuật | CI đúng SHA ghi nhận 14 ca tự động đạt và native publish hoàn tất. Chương 4 phân biệt các đợt lịch sử với 52 lượt production cuối và targeted keyboard/touch regression. |
 | Siêu dữ liệu | Bản bàn giao ghi tác giả Lê Hiền và để trống người lưu cuối trong Word và PowerPoint. Thông tin công khai được rà soát riêng trong [checklist Phase L](SUBMISSION_CHECKLIST.md). |
 | Lịch sử tuần | W48 có báo cáo và commit thực. Khoảng trống trước W48 vẫn được ghi nhận trong ma trận. |
 
@@ -31,5 +31,5 @@ Mở [DOCX](doc/BA-DONG-Coastal-Escape.docx), [PDF](pdf/BA-DONG-Coastal-Escape.p
 Commit đề xuất sau khi hồ sơ được duyệt
 
 ~~~text
-docs(academic): finalize thesis and defense presentation package
+docs(academic): synchronize thesis and evidence with final UI release
 ~~~

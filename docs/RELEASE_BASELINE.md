@@ -1,36 +1,40 @@
-# Mốc phát hành và đóng băng chức năng
+# Mốc phát hành cuối và đóng băng chức năng
 
-Phát hành ngày 25/11/2026, lúc 11:24:19 theo giờ Việt Nam (04:24:19 UTC). Repository `anhpham1504/ASPNET-DK25TTC5-lehien-BADONG`, nhánh `main`.
+Phát hành cuối ngày **26/11/2026**. Repository `anhpham1504/ASPNET-DK25TTC5-lehien-BADONG`, nhánh `main`. Merge hoàn tất lúc 08:47 và deployment GitHub Pages hoàn tất lúc 08:48 theo giờ Việt Nam.
 
 | Mốc | Bằng chứng |
 | --- | --- |
-| SHA phát hành | [463da372613648411ef9d6002c4d895cb03cbb4d](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/commit/463da372613648411ef9d6002c4d895cb03cbb4d) |
-| Commit sửa title | [92c5fa62139e17ef8bc73bc5a288b3ea0c5c4391](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/commit/92c5fa62139e17ef8bc73bc5a288b3ea0c5c4391) |
-| CI | [45546387181, success](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45546387181), cùng SHA phát hành |
-| Deploy to GitHub Pages | [45546387162, success](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45546387162), deployment `8048326076` ghi success cho cùng SHA |
+| SHA sản phẩm cuối | [1c04cb15c700c5a78c4c89d3be63008af990fd5f](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/commit/1c04cb15c700c5a78c4c89d3be63008af990fd5f) |
+| Pull Request | [#2 — Improve responsive layouts and accessibility](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/pull/2), merge commit |
+| Commit UI | [806002829a3e1d68981b4457644e3b39f714c144](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/commit/806002829a3e1d68981b4457644e3b39f714c144) |
+| Commit accessibility tab | [399393e69b71411bb41700e6b41a3cb983e53a54](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/commit/399393e69b71411bb41700e6b41a3cb983e53a54) |
+| CI | [45738100708, success](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45738100708), đúng SHA sản phẩm cuối |
+| Deploy to GitHub Pages | [45738100919, success](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45738100919), deployment `8074236451`, đúng SHA sản phẩm cuối |
 | Production | [BA ĐỘNG — Coastal Escape](https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/) |
-| Local preflight và lượt xác minh lại | SDK `10.0.100`, restore app/test đạt, Release build 0 cảnh báo và 0 lỗi, 14 đạt, 0 lỗi, 0 bỏ qua |
-| Remote CI | Release build 0 cảnh báo và 0 lỗi, 14 đạt, 0 lỗi, 0 bỏ qua |
-| Kích thước artifact từ CI | Tổng các file Brotli trong thư mục framework 2.824.213 byte. Tệp runtime native WASM chưa nén 2.900.443 byte. Các số này là kích thước tệp từ workflow. |
+| Build và test | Release build 0 cảnh báo, 0 lỗi; 14 đạt, 0 lỗi, 0 bỏ qua |
+| Native publish CI | PASS: cài `wasm-tools`, native relinking, compiling native assets và `wasm-opt` hoàn tất |
+| Kích thước artifact CI | 43 framework resources; framework Brotli 2.826.661 byte; native runtime WASM 2.900.443 byte; native runtime WASM Brotli 931.222 byte |
 
-## Smoke test production
+## Xác minh production
 
-Chrome Headless 158, viewport 1440 × 900, ngày 25/11/2026. Mỗi ca quan sát đúng URL và một thẻ `head title` sau khi Blazor render, cùng heading trong `main`.
+Chrome Headless 158, ngày 26/11/2026. Ma trận mới kiểm tra 13 route ở bốn viewport 320 × 568, 390 × 844, 768 × 1024 và 1440 × 900, tổng cộng **52 lượt**. Tất cả lượt kết xuất đúng route, một title, heading chính, không tràn ngang, không ảnh hỏng và không có lỗi asset, JSON, JavaScript hoặc page exception.
 
-| Route dưới base của dự án | HTTP tài liệu ban đầu | Document title |
-| --- | ---: | --- |
-| `/` | 200 | BA ĐỘNG — Coastal Escape · Nơi biển chạm vào nhịp sống miền Tây |
-| `/kham-pha/bien-ba-dong` | 404 | Biển Ba Động · BA ĐỘNG — Coastal Escape |
-| `/kham-pha/khong-ton-tai` | 404 | Không tìm thấy địa điểm · BA ĐỘNG — Coastal Escape |
-| `/am-thuc` | 404 | Ẩm thực · BA ĐỘNG — Coastal Escape |
-| `/am-thuc/cua-bien` | 404 | Cua biển · Ẩm thực Ba Động |
-| `/am-thuc/khong-ton-tai` | 404 | Không tìm thấy món ăn · Ẩm thực Ba Động |
-| `/khong-tim-thay` | 404 | Không tìm thấy · BA ĐỘNG — Coastal Escape |
+Trong 48 lượt mở trực tiếp route sâu, GitHub Pages trả HTTP 404 cho tài liệu ban đầu rồi cơ chế SPA khôi phục đúng route. Bốn lượt trang chủ trả HTTP 200. Đây là giới hạn hosting đã biết, không phải lỗi điều hướng sau khi Blazor khởi động.
 
-Điều hướng từ lỗi địa điểm về Khám phá, mở Biển Ba Động, tải lại trang chi tiết và quay về danh sách ẩm thực đều đạt. Lượt hoàn tất ghi nhận CSS, JS, hình, WASM và JSON trả 200, không có lỗi request asset/JSON, page exception hay console error ngoài 404 tài liệu dự kiến. Lượt đầu có request framework bị Chromium hủy; lượt sau kiểm tra lại trên cùng bản phát hành và không tái hiện.
+Các nhóm tương tác bổ sung xác nhận:
 
-Lượt xác minh lại ngày 25/11/2026 ở 1440 × 900 kiểm tra đạt 7/7 title sau khi Blazor khởi động. Điều hướng từ slug địa điểm không tồn tại qua Khám phá đến Biển Ba Động hoạt động. Chromium ghi nhận một số yêu cầu bị hủy trong lượt điều hướng. Không ghi nhận phản hồi HTTP lỗi ở asset hoặc JSON, ngoại lệ JavaScript hoặc lỗi console ngoài HTTP 404 ban đầu của tài liệu deep link.
+- tìm `hoàng hôn` và `hoang hon`, bộ lọc `aria-pressed`, empty state và reset;
+- menu di động, focus, Escape, khóa cuộn và bố cục landscape;
+- lightbox, caption trên thiết bị cảm ứng, đổi ảnh, Escape và khôi phục focus;
+- FAQ, liên kết Google Maps, header ở loading, valid và error state;
+- tab lịch trình có `aria-controls`, `aria-labelledby`, `aria-selected`, panel ẩn, roving `tabindex` và điều hướng ArrowLeft, ArrowRight, Home, End, Tab, Shift+Tab mà không làm đổi vị trí cuộn trang.
+
+Mười ba ảnh production mới nằm trong [bộ bằng chứng gắn SHA](evidence/screenshots/release-1c04cb1/MANIFEST.md). Bộ 18 ảnh lịch sử ngày 25/11/2026 được giữ nguyên để bảo toàn nguồn gốc kiểm thử trước phát hành cuối.
+
+## Mốc lịch sử
+
+Mốc `463da372613648411ef9d6002c4d895cb03cbb4d` ngày 25/11/2026 là bản đóng băng trước đợt tinh chỉnh UI cuối. CI `45546387181`, Pages `45546387162` và deployment `8048326076` thuộc mốc lịch sử này. Không dùng các kết quả đó để chứng minh commit UI cuối.
 
 ## Phạm vi đóng băng
 
-Chức năng website được đóng băng tại SHA trên. Phase G–I cập nhật hồ sơ luận văn trong working tree. [Kết quả Phase D–F](evidence/academic-validation/2026-W48-phase-d-f.md) và [danh mục ảnh](evidence/screenshots/MANIFEST.md) giữ nguồn gốc local và lịch sử. Giới hạn HTTP 404 trước fallback, HTML loader chưa có title riêng, canonical theo route, ảnh PENDING và mức độ kiểm tra accessibility được ghi trong [Known limitations](KNOWN_LIMITATIONS.md).
+Chức năng website được đóng băng tại SHA `1c04cb15c700c5a78c4c89d3be63008af990fd5f`. Sau mốc này không phát triển thêm tính năng, redesign hoặc migration. Chỉ sửa lỗi nghiêm trọng hoặc yêu cầu trực tiếp của giảng viên. Commit học thuật sau phát hành chỉ cập nhật hồ sơ và phải phân biệt với SHA sản phẩm đã triển khai. Giới hạn HTTP 404 trước fallback, metadata HTML ban đầu, ảnh PENDING và phạm vi accessibility còn mở được ghi trong [Known limitations](KNOWN_LIMITATIONS.md).

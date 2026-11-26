@@ -111,7 +111,7 @@ Tách lọc nhóm và lọc từ khóa giúp người dùng giải thích đư�
 
 Menu di động và lightbox có cơ chế lưu vị trí focus ban đầu, điều phối focus khi mở, giới hạn vòng tab khi hộp thoại hoạt động và trả focus khi đóng. Khóa cuộn được áp dụng cho body trong thời gian hộp thoại mở. Khi kích hoạt Escape, ứng dụng điều phối việc đóng từ trạng thái UI. Lightbox còn phản hồi phím mũi tên để đổi ảnh. Mã Razor quyết định ảnh đang xem và việc mở/đóng; mã JavaScript áp dụng thao tác cần trạng thái DOM.
 
-Tương tác ở các nhóm nội dung khác dùng phần tử ngữ nghĩa và thuộc tính ARIA tương ứng. FAQ mở rộng nội dung khi người dùng kích hoạt nút. Lịch trình có trạng thái tab đang chọn để phân biệt trình tự được xem. Trang cung cấp chỉ dẫn focus cho điều hướng và CSS điều chỉnh animation khi người dùng yêu cầu giảm chuyển động. Những cơ chế cụ thể giúp kiểm tester xác định thuộc tính quan sát được, chẳng hạn trạng thái của tab thứ hai sau khi nhấn Enter.
+Tương tác ở các nhóm nội dung khác dùng phần tử ngữ nghĩa và thuộc tính ARIA tương ứng. FAQ mở rộng nội dung khi người dùng kích hoạt nút. Mỗi tab lịch trình có `aria-controls` trỏ tới một panel tồn tại; panel không chọn mang thuộc tính `hidden`, còn panel hoạt động có `aria-labelledby` trỏ lại tab. Roving `tabindex` giữ một tab trong thứ tự Tab. ArrowLeft, ArrowRight, Home và End đổi lựa chọn mà không làm cuộn trang; Tab và Shift+Tab vẫn hoạt động bình thường. Trang còn cung cấp chỉ dẫn focus cho điều hướng và CSS điều chỉnh animation khi người dùng yêu cầu giảm chuyển động.
 
 ### 3.5.2. Build, publish và đường dẫn triển khai
 

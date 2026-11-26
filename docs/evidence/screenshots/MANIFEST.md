@@ -1,5 +1,7 @@
 # Danh mục ảnh chụp ứng dụng
 
+## Bộ lịch sử ngày 25/11/2026
+
 Tất cả ảnh được chụp ngày **25/11/2026**, bằng Chrome Headless 158, Playwright CLI 0.1.25, trên **local Release** tại `http://127.0.0.1:5198/`. Trạng thái mã nguồn cho từng ảnh là working tree Phase D–F trên commit `955956b2298be11fd84937ea390d66d5bd2119bc`, đã gồm bản sửa title. Ảnh 08 và 14 là ảnh chụp vùng component, cột viewport vẫn ghi kích thước cửa sổ thực. Bản không dấu được lưu cho ca tìm kiếm, hai truy vấn có dấu và không dấu có cùng kết quả tại E-U02.
 
 | Tệp | Route | Viewport | Chức năng | Caption đề xuất |
@@ -24,3 +26,7 @@ Tất cả ảnh được chụp ngày **25/11/2026**, bằng Chrome Headless 15
 | [18-not-found.png](18-not-found.png) | `/khong-tim-thay` | 1440 × 900 | Trang không tìm thấy | Trang 404 thân thiện và điều hướng phục hồi |
 
 Title trong browser được xác minh qua DOM trong [báo cáo kỹ thuật](../academic-validation/2026-W48-phase-d-f.md). Ảnh nội dung trang hỗ trợ minh họa trạng thái hiển thị trong thân trang.
+
+## Bộ production của bản phát hành cuối
+
+Bộ 18 ảnh trên được giữ nguyên như bằng chứng lịch sử. Bản phát hành cuối `1c04cb15c700c5a78c4c89d3be63008af990fd5f` có [13 ảnh production và manifest riêng](release-1c04cb1/MANIFEST.md), chụp ngày 26/11/2026. Khi trích dẫn kết quả UI cuối, dùng tên file có hậu tố `1c04cb1`; khi mô tả kiểm thử Phase D–F, tiếp tục dùng ảnh 01–18 lịch sử.

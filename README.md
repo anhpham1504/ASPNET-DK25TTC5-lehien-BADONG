@@ -58,6 +58,8 @@ The existing repository was renamed in place after explicit release approval; Gi
 
 Availability depends on the latest authorized GitHub Pages deployment. Local setup remains the reproducible verification path.
 
+The final feature-frozen product release is [`1c04cb15c700c5a78c4c89d3be63008af990fd5f`](docs/RELEASE_BASELINE.md). CI and GitHub Pages completed successfully for that SHA on 26 November 2026. The 18 historical screenshots remain unchanged; a separate [13-image production evidence set](docs/evidence/screenshots/release-1c04cb1/MANIFEST.md) records the final UI.
+
 ## Thông tin đồ án
 
 | Thông tin | Nội dung |
@@ -76,4 +78,4 @@ Availability depends on the latest authorized GitHub Pages deployment. Local set
 
 The published gallery contains only locally stored photographs with a verifiable Wikimedia Commons file page and reuse license. The Ba Động hero and Duyên Hải wind-power image are verified to the named locations. Food images are labeled with their actual capture location; subject-reference photos are never presented as Ba Động photographs. Missing local scenes use an explicit `PENDING` graphic instead of unrelated stock imagery.
 
-SEO is client-rendered. The GitHub Pages deep-link fallback restores the route in the browser after an initial HTTP 404. The verified release records the deployed title fix and the remaining limitations.
+SEO is client-rendered. The GitHub Pages deep-link fallback restores the route in the browser after an initial HTTP 404. The verified final release records the deployed responsive/accessibility corrections and the remaining limitations. Product development is now frozen; only critical defects or direct instructor requests should reopen implementation work.

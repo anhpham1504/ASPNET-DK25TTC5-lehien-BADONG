@@ -7,6 +7,9 @@ from xml.etree import ElementTree as ET
 from zipfile import ZipFile
 
 from pypdf import PdfReader, PdfWriter
+from pypdf.errors import PdfReadError
+from pypdf.generic import NameObject
+from pypdf.xmp import XmpInformation
 
 
 THESIS = Path(__file__).resolve().parent.parent
@@ -57,7 +60,15 @@ def normalize_office(path, title):
 def normalize_pdf(path, title):
     reader = PdfReader(path)
     current = reader.metadata or {}
-    xmp = reader.xmp_metadata
+    try:
+        xmp = reader.xmp_metadata
+    except PdfReadError:
+        # PowerPoint can emit an XMP packet with an undeclared namespace.
+        # Treat it as missing and replace it with a standards-compliant packet.
+        xmp = None
+        invalid_xmp = True
+    else:
+        invalid_xmp = False
     values = {"/Title": title, "/Author": AUTHOR, "/Subject": SUBJECT}
     if (all(current.get(key) == value for key, value in values.items()) and xmp
             and xmp.dc_title.get("x-default") == title and xmp.dc_creator == [AUTHOR]
@@ -65,11 +76,18 @@ def normalize_pdf(path, title):
         return
     writer = PdfWriter(clone_from=reader)
     writer.add_metadata(values)
-    xmp = writer.xmp_metadata
-    if xmp:
-        xmp.dc_title = {"x-default": title}
-        xmp.dc_creator = [AUTHOR]
-        xmp.dc_description = {"x-default": SUBJECT}
+    if invalid_xmp:
+        writer.root_object.pop(NameObject("/Metadata"), None)
+    try:
+        normalized_xmp = writer.xmp_metadata
+    except PdfReadError:
+        normalized_xmp = None
+    if normalized_xmp is None:
+        normalized_xmp = XmpInformation.create()
+    normalized_xmp.dc_title = {"x-default": title}
+    normalized_xmp.dc_creator = [AUTHOR]
+    normalized_xmp.dc_description = {"x-default": SUBJECT}
+    writer.xmp_metadata = normalized_xmp
     result = BytesIO()
     writer.write(result)
     save(path, result.getvalue())

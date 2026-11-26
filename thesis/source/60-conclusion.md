@@ -12,7 +12,7 @@ Kết quả của đề tài gồm một cách tổ chức cẩm nang tĩnh có 
 
 Một số ảnh vẫn cần hồ sơ phù hợp với địa điểm. Website hiển thị ảnh giữ chỗ và trạng thái trong thời gian chưa có tư liệu. Router có thể khôi phục đường dẫn sâu sau khi máy chủ trả 404. Bản động của title cập nhật khi Razor hoạt động, còn HTML ban đầu chưa có title riêng. Các yếu tố này làm giảm khả năng diễn giải nội dung nếu trình duyệt hoặc tác nhân không chạy đủ ứng dụng.
 
-Kiểm tra trình duyệt được chọn theo thay đổi và các tác vụ chính. Kết quả về focus, bố cục và tương tác có giá trị đối với môi trường đã đo. Cần thêm các bài kiểm tương phản, zoom và công nghệ hỗ trợ. Dữ liệu hiện tại phù hợp với mục đích tham khảo, còn việc đánh giá độ đầy đủ thông tin của người đi thực tế đòi hỏi khảo sát riêng và kiểm soát cách thu thập dữ liệu.
+Kiểm tra trình duyệt được chọn theo thay đổi và các tác vụ chính. Kết quả về focus, bố cục, touch và tương tác có giá trị đối với Chrome Headless 158 cùng các viewport đã đo. Cần thêm Firefox, WebKit, axe-core, zoom 200% thực tế, tương phản và công nghệ hỗ trợ. Dữ liệu hiện tại phù hợp với mục đích tham khảo, còn việc đánh giá độ đầy đủ thông tin của người đi thực tế đòi hỏi khảo sát riêng và kiểm soát cách thu thập dữ liệu.
 
 ## 5.2. Hướng phát triển
 
