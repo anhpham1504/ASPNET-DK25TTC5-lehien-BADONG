@@ -293,6 +293,7 @@ h1, h2, h3, .footer-title, .quote-band blockquote, .mobile-menu nav a {
 @media (max-width: 820px) {
     .container-wide { width: min(100% - 32px, 740px); }
     .site-header__inner { min-height: 72px; }
+    .editorial-split { grid-template-columns: 1fr; }
     .hero { min-height: 84svh; }
     .hero__content { padding-block: 132px 68px; }
     .hero h1 { font-size: clamp(3rem, 12vw, 5.7rem); }
