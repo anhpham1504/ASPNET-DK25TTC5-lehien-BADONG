@@ -10,13 +10,15 @@ Mã nguồn chưa cung cấp prerendering, SSR hoặc canonical riêng cho từn
 
 Bản phát hành cuối đã kiểm heading, landmark `main`, `lang=vi`, focus nhìn thấy, menu và lightbox bằng bàn phím, FAQ, filter `aria-pressed` và quan hệ tab/panel lịch trình. Panel không chọn vẫn tồn tại trong DOM nhưng có `hidden`, chỉ panel đang hoạt động xuất hiện trong accessibility tree. ArrowLeft, ArrowRight, Home và End giữ nguyên vị trí cuộn; Tab và Shift+Tab không bị chặn.
 
+Hotfix `c992fda` bổ sung phép kiểm có mục tiêu cho nút Chia sẻ liên kết. Màu kết xuất đạt 11,91:1 ở normal/copied và 8,31:1 ở hover; focus ring, Enter, Space, touch và clipboard đều đạt trên Chrome Headless 158. Kết quả này chỉ áp dụng cho nút đã sửa, không thay cho kiểm toán tương phản toàn site hoặc audit WCAG đầy đủ.
+
 Các kiểm tra landscape, caption cảm ứng và font fallback khi stylesheet Google Fonts trả 503 cũng đạt. Các mục sau chưa chạy vì môi trường không có công cụ tương ứng hoặc không thể tạo phép đo đáng tin cậy mà không cài thêm dependency:
 
 - Firefox: **NOT RUN**;
 - WebKit: **NOT RUN**;
 - axe-core: **NOT RUN**;
 - browser zoom 200% thực tế: **NOT RUN**;
-- screen reader, kiểm toán tương phản và audit WCAG 2.2 AA đầy đủ: **NOT RUN**.
+- screen reader, kiểm toán tương phản toàn site và audit WCAG 2.2 AA đầy đủ: **NOT RUN**.
 
 Các ma trận production hiện dùng Chrome Headless 158 và giả lập viewport/touch; chúng không thay thế kiểm thử trên phần cứng di động thật hoặc công nghệ hỗ trợ.
 

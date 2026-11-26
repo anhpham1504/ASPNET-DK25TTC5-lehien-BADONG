@@ -6,11 +6,12 @@ import { Presentation, PresentationFile } from "@oai/artifact-tool";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const output = process.argv[2] || path.join(root, "thesis", "abs", "BA-DONG-Coastal-Escape.pptx");
 const evidence = "docs/evidence/screenshots/release-1c04cb1";
+const hotfixEvidence = "docs/evidence/screenshots/hotfix-c992fda";
 const production = "https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/";
-const release = "1c04cb15c700c5a78c4c89d3be63008af990fd5f";
+const release = "c992fda52dd0cb888b2bde5700e14f3628b38d3e";
 const repo = "https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG";
-const ci = repo + "/actions/runs/45738100708";
-const pages = repo + "/actions/runs/45738100919";
+const ci = repo + "/actions/runs/45745648779";
+const pages = repo + "/actions/runs/45745648732";
 const serviceFile = "src/BaDong.CoastalEscape/Services/ContentService.cs";
 const color = { dark:"#103C46", ink:"#172B31", white:"#FFFFFF", sand:"#F9F5EB",
   muted:"#4B6266", pale:"#E3EEEB", line:"#C3D4D0", accent:"#A45B2D", warm:"#F0BB84" };
@@ -43,9 +44,9 @@ async function photo(s,file,alt,left,top,width,height,fit="contain") {
   const blob=await fs.readFile(path.join(root,file));
   s.images.add({blob,contentType:file.endsWith(".jpg")?"image/jpeg":"image/png",alt,fit,position:{left,top,width,height}});
 }
-async function shot(s,file,caption,x,y,w,h) {
+async function shot(s,file,caption,x,y,w,h,folder=evidence) {
   box(s,x,y,w,h,color.pale);
-  await photo(s,evidence+"/"+file,caption,x+2,y+2,w-4,h-4);
+  await photo(s,folder+"/"+file,caption,x+2,y+2,w-4,h-4);
   txt(s,caption,x,y+h+12,w,40,17,color.dark,true);
 }
 function row(s,label,detail,y,x=margin,w=1128,labelW=305) {
@@ -148,16 +149,16 @@ rows("Công nghệ sử dụng","",[
   txt(s,"Tìm kiếm tiếng Việt",834,224,363,51,24,color.dark,true);
   txt(s,"Chuẩn hóa Unicode, bỏ dấu kết hợp và so khớp chuỗi con.",834,294,363,109,20);
   txt(s,"“hoàng hôn” và “hoang hon” cho cùng kết quả. Chữ đ và d vẫn được phân biệt.",834,432,363,154,20,color.muted);
-  txt(s,"Đoạn trích từ LoadAsync<T> tại bản phát hành 1c04cb1",76,573,724,52,16,color.muted);
+  txt(s,"Đoạn trích từ LoadAsync<T> tại bản phát hành c992fda",76,573,724,52,16,color.muted);
   note(s,45,"Đoạn mã trích trực tiếp từ LoadAsync<T>, xuống dòng điều kiện để dễ chiếu. Nếu chưa có mục đệm, phương thức gọi GetFromJsonAsync. Lỗi đã xử lý trả dữ liệu rỗng và không lưu nhánh lỗi. Tìm kiếm dùng FormD, bỏ NonSpacingMark, FormC và chữ thường.",[serviceFile,"src/BaDong.CoastalEscape/Pages/Explore.razor"]);
 }
 {
   const s=page("Giao diện chính","Từ trang chủ đến danh sách và chi tiết một điểm đến.");
   await shot(s,"01-home-desktop-1c04cb1.png","Trang chủ",76,218,617,386);
   await shot(s,"04-explore-1c04cb1.png","Khám phá",764,206,398,194);
-  await shot(s,"05-destination-detail-1c04cb1.png","Chi tiết Biển Ba Động",764,447,398,194);
-  txt(s,"Ảnh production gắn với SHA 1c04cb1",76,662,640,34,16,color.muted);
-  note(s,35,"Dẫn người nghe theo luồng tra cứu từ trang chủ tới danh sách và chi tiết. Ba ảnh được chụp trực tiếp từ production sau deployment cuối.",["docs/evidence/screenshots/release-1c04cb1/MANIFEST.md, ảnh 01, 04 và 05"]);
+  await shot(s,"01-destination-detail-c992fda.png","Chi tiết Biển Ba Động",764,447,398,194,hotfixEvidence);
+  txt(s,"Trang chủ và Khám phá: 1c04cb1 · Chi tiết: c992fda",76,662,760,34,16,color.muted);
+  note(s,35,"Dẫn người nghe theo luồng tra cứu từ trang chủ tới danh sách và chi tiết. Ảnh chi tiết đã được chụp lại sau hotfix tương phản nút chia sẻ.",["docs/evidence/screenshots/release-1c04cb1/MANIFEST.md, ảnh 01 và 04","docs/evidence/screenshots/hotfix-c992fda/MANIFEST.md, ảnh 01"]);
 }
 {
   const s=page("Ẩm thực, thư viện và lịch trình","Hai màn hình minh họa cách lọc món và xem thông tin nguồn ảnh.");
@@ -183,7 +184,7 @@ rows("Công nghệ sử dụng","",[
     ["48","Lượt phiên bản cơ sở","12 URL × 4 chiều rộng"],
     ["28","Lượt sửa tiêu đề","7 URL × 4 chiều rộng"],
     ["2","Ca HTTP 503","Mô phỏng khi tải JSON"],
-    ["52","Lượt production cuối","13 route × 4 viewport"],
+    ["52","Lượt production 1c04cb1","13 route × 4 viewport"],
   ];
   tests.forEach(([count,label,details],i)=>{
     const x=76+i*228;
@@ -192,18 +193,18 @@ rows("Công nghệ sử dụng","",[
     txt(s,label,x,392,214,88,20,color.ink,true);
     txt(s,details,x,489,210,92,17,color.muted);
   });
-  note(s,45,"14 ca tự động kiểm tra dữ liệu và dịch vụ. 48 và 28 là hai ma trận lịch sử. Hai phản hồi 503 do bộ kiểm thử tạo trên bản local. Con số 52 thuộc ma trận production mới trên SHA cuối. Mỗi kết quả có phạm vi riêng.",["docs/evidence/academic-validation/2026-W48-phase-d-f.md","docs/RELEASE_BASELINE.md",ci]);
+  note(s,45,"14 ca tự động kiểm tra dữ liệu và dịch vụ. 48 và 28 là hai ma trận lịch sử. Hai phản hồi 503 do bộ kiểm thử tạo trên bản local. Con số 52 thuộc bản 1c04cb1; hotfix cuối chỉ chạy lại nhóm nút chia sẻ. Mỗi kết quả có phạm vi riêng.",["docs/evidence/academic-validation/2026-W48-phase-d-f.md","docs/RELEASE_BASELINE.md",ci]);
 }
 {
   const s=page("CI/CD và triển khai","Hai workflow nhận cùng commit và chạy độc lập.");
-  block(s,"main · 1c04cb1","Merge commit phát hành",76,314,301,136);
+  block(s,"main · c992fda","Merge commit hotfix cuối",76,314,301,136);
   box(s,395,365,86,22,color.accent,"rightArrow");
   box(s,484,279,3,198,color.accent);
   box(s,487,279,49,18,color.accent,"rightArrow");
   box(s,487,459,49,18,color.accent,"rightArrow");
-  block(s,"CI · 45738100708","Release build, 14 test, native relinking và wasm-opt.",551,216,653,136);
-  block(s,"Pages · 45738100919","Publish, thiết lập đường dẫn cơ sở và triển khai gói tĩnh.",551,396,653,136);
-  txt(s,"Cả hai lần chạy thành công trên cùng SHA. Deployment: 8074236451.",76,581,1128,63,20,color.muted);
+  block(s,"CI · 45745648779","Release build, 14 test, native relinking và wasm-opt.",551,216,653,136);
+  block(s,"Pages · 45745648732","Publish, thiết lập đường dẫn cơ sở và triển khai gói tĩnh.",551,396,653,136);
+  txt(s,"Cả hai lần chạy thành công trên cùng SHA. Deployment: 8075210041.",76,581,1128,63,20,color.muted);
   note(s,40,"Mở trang kết quả CI và Pages để đối chiếu SHA. CI hoàn tất workload wasm-tools, native assets và wasm-opt. Job deploy của Pages sử dụng gói do job build của chính workflow đó tạo.",["Release SHA "+release,ci,pages,"docs/RELEASE_BASELINE.md"]);
 }
 {

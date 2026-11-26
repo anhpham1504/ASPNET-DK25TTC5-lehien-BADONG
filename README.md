@@ -58,7 +58,7 @@ The existing repository was renamed in place after explicit release approval; Gi
 
 Availability depends on the latest authorized GitHub Pages deployment. Local setup remains the reproducible verification path.
 
-The final feature-frozen product release is [`1c04cb15c700c5a78c4c89d3be63008af990fd5f`](docs/RELEASE_BASELINE.md). CI and GitHub Pages completed successfully for that SHA on 26 November 2026. The 18 historical screenshots remain unchanged; a separate [13-image production evidence set](docs/evidence/screenshots/release-1c04cb1/MANIFEST.md) records the final UI.
+The final feature-frozen product release is [`c992fda52dd0cb888b2bde5700e14f3628b38d3e`](docs/RELEASE_BASELINE.md). CI and GitHub Pages completed successfully for that SHA on 26 November 2026. The 18 historical screenshots and [13-image `1c04cb1` set](docs/evidence/screenshots/release-1c04cb1/MANIFEST.md) remain unchanged; a [targeted hotfix image](docs/evidence/screenshots/hotfix-c992fda/MANIFEST.md) records the corrected share button.
 
 ## Thông tin đồ án
 

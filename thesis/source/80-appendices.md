@@ -66,8 +66,8 @@ Từ bản Release trên máy phát triển, dùng trình duyệt kiểm thử �
 | Mã | Yêu cầu | Bằng chứng hoặc trạng thái |
 | F-01 | Trang chủ và giới thiệu | Ảnh 01–03 và kiểm tra route lịch sử. |
 | F-02 | Tìm kiếm và lọc | E-U02, ảnh 05–08. Phạm vi đ/d còn mở. |
-| F-03 | Địa điểm và nguồn ảnh | D-T01, D-J01, ảnh 09. |
-| F-04 | Sao chép URL | Mã nguồn có. Chưa kiểm clipboard. |
+| F-03 | Địa điểm và nguồn ảnh | D-T01, D-J01, ảnh 09 và ảnh hotfix. |
+| F-04 | Sao chép URL | Enter, Space, touch và clipboard đạt trên production `c992fda`. |
 | F-05 | Ẩm thực và lọc | D-T03–05, E-U05, ảnh 10–11. |
 | F-06 | Thư viện và lightbox | E-U03, D-J01, ảnh 12–13. |
 | F-07 | Cẩm nang và FAQ | E-U04, D-J01, ảnh 14. |
@@ -77,8 +77,8 @@ Từ bản Release trên máy phát triển, dùng trình duyệt kiểm thử �
 | F-11 | Đặt chỗ và giao dịch | Ngoài phạm vi sản phẩm. |
 | N-01 | JSON và hồ sơ ảnh | D-J01, chính sách VERIFIED và PENDING. |
 | N-02 | Dịch vụ và bộ nhớ đệm | Test dịch vụ, hai ca 503 trên máy phát triển. |
-| N-03 | Đáp ứng và trợ năng | 52 lượt production cuối, ca bàn phím, touch, landscape và ảnh; một phần. |
-| N-04 | Triển khai tĩnh | CI 45738100708, Pages 45738100919; còn HTTP 404 ban đầu. |
+| N-03 | Đáp ứng và trợ năng | 52 lượt trên `1c04cb1`; ca hotfix bàn phím, touch và tương phản nút chia sẻ; một phần. |
+| N-04 | Triển khai tĩnh | CI 45745648779, Pages 45745648732; còn HTTP 404 ban đầu. |
 | N-05 | Đánh giá hiệu năng | Có kích thước gói triển khai. Chưa đo hiệu năng trải nghiệm. |
 | A-01 | Kho mã nguồn, README, setup | Có cấu trúc và hướng dẫn. Thiếu liên hệ. |
 | A-02 | Báo cáo và collaborator | Có W48. Collaborator giảng viên còn thiếu. |
@@ -89,7 +89,7 @@ Ma trận trong `docs/TRACEABILITY_MATRIX.md` có thêm route, mã nguồn và b
 
 ## D. Quy trình GitHub Actions và triển khai
 
-Commit UI là `806002829a3e1d68981b4457644e3b39f714c144`; commit hoàn thiện accessibility tab là `399393e69b71411bb41700e6b41a3cb983e53a54`. SHA sản phẩm cuối là merge commit `1c04cb15c700c5a78c4c89d3be63008af990fd5f`. Các link [CI](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45738100708) và [Deploy to GitHub Pages](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45738100919) mở lần chạy cụ thể. Kết quả truy cập dùng [project site](https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/).
+Commit UI là `806002829a3e1d68981b4457644e3b39f714c144`; commit hoàn thiện accessibility tab là `399393e69b71411bb41700e6b41a3cb983e53a54`; commit hotfix tương phản là `534f0d2ae31e23af76f3f88660bfac176edbbd46`. SHA sản phẩm cuối là merge commit `c992fda52dd0cb888b2bde5700e14f3628b38d3e`. Các link [CI](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45745648779) và [Deploy to GitHub Pages](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45745648732) mở lần chạy cụ thể. Kết quả truy cập dùng [project site](https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/).
 
 Để xem lại pipeline, mở workflow `ci.yml` và tìm bước restore, build, test và báo kích thước. Workflow `deploy-pages.yml` có bước kiểm tên repo, thay base và token, tải gói triển khai và triển khai. So sánh SHA của hai run với SHA công bố trước khi ghi kết quả. `docs/RELEASE_BASELINE.md` ghi thời gian success của deployment và kiểm tra trình duyệt sau công bố.
 
@@ -103,7 +103,7 @@ Các ảnh trong mục này chụp trên máy phát triển cùng đợt với C
 
 !figure|docs/evidence/screenshots/06-explore-search.png;docs/evidence/screenshots/07-explore-filter.png|Kết quả từ khóa không dấu và trạng thái lọc Thiên nhiên
 
-!figure|docs/evidence/screenshots/release-1c04cb1/05-destination-detail-1c04cb1.png|Chi tiết Biển Ba Động với lối mở bản đồ và ghi công ảnh trên production
+!figure|docs/evidence/screenshots/hotfix-c992fda/01-destination-detail-c992fda.png|Chi tiết Biển Ba Động sau hotfix tương phản nút Chia sẻ liên kết
 
 !figure|docs/evidence/screenshots/release-1c04cb1/07-gallery-1c04cb1.png|Danh sách ảnh trên thiết bị cảm ứng với caption hiển thị
 

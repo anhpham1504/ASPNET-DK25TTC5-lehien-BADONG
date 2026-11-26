@@ -4,13 +4,13 @@
 
 ### 4.1.1. Phạm vi theo mốc phiên bản
 
-Phiên bản cơ sở trước khi sửa tiêu đề là `955956b`. Mốc `463da37` ngày 25/11/2026 giữ kết quả của đợt title và hồ sơ học thuật ban đầu. Đợt tinh chỉnh UI sau đó đi qua PR #2, gồm commit giao diện `8060028`, commit hoàn thiện quan hệ tab/panel `399393e` và merge commit sản phẩm cuối `1c04cb1`. Các kết quả CI và production cuối trong chương này chỉ dùng run gắn với merge commit đó.
+Phiên bản cơ sở trước khi sửa tiêu đề là `955956b`. Mốc `463da37` ngày 25/11/2026 giữ kết quả của đợt title và hồ sơ học thuật ban đầu. Đợt tinh chỉnh UI đi qua PR #2, gồm commit giao diện `8060028`, commit hoàn thiện quan hệ tab/panel `399393e` và merge commit `1c04cb1`. Hotfix tương phản nút chia sẻ dùng commit `534f0d2` và merge commit sản phẩm cuối `c992fda`. Kết quả trong chương này luôn ghi rõ SHA của từng đợt.
 
-Bộ 18 ảnh ngày 25/11/2026 tiếp tục là bằng chứng lịch sử của bản Release trên máy phát triển. Sau deployment cuối, em tạo thêm 13 ảnh production gắn hậu tố `1c04cb1`. Hai bộ không thay thế lẫn nhau. Các kết luận production dựa trên phản hồi HTTP, trạng thái DOM, yêu cầu tài nguyên và ảnh chụp mới; ảnh lịch sử chỉ được giữ ở những phần mô tả đúng đợt kiểm tra trước đó.
+Bộ 18 ảnh ngày 25/11/2026 tiếp tục là bằng chứng lịch sử của bản Release trên máy phát triển. Bản `1c04cb1` có thêm 13 ảnh production. Hotfix `c992fda` có một ảnh mới cho đúng trang chi tiết bị ảnh hưởng. Ba nhóm không thay thế lẫn nhau và đều giữ SHA cùng phạm vi kiểm tra.
 
 ### 4.1.2. Kiểm tra dữ liệu và dịch vụ
 
-Hai project restore thành công với SDK 10.0.100 trong kiểm tra trước phát hành. Bản app Release có 0 cảnh báo và 0 lỗi. Kết quả 14 test được xác minh trong máy phát triển và CI `45738100708` đúng SHA `1c04cb1`. CI còn cài workload `wasm-tools`, relink môi trường thực thi, biên dịch native assets và chạy `wasm-opt`. Kiểm tra JSON đọc tám tệp hợp lệ. Các test bao gồm model, file ảnh, siêu dữ liệu trạng thái, tham chiếu điểm dừng và hành vi tải HTTP.
+Hai project restore thành công với SDK 10.0.100 trong kiểm tra trước phát hành. Bản app Release có 0 cảnh báo và 0 lỗi. Kết quả 14 test được xác minh trong máy phát triển và CI `45745648779` đúng SHA cuối `c992fda`. CI còn cài workload `wasm-tools`, relink môi trường thực thi, biên dịch native assets và chạy `wasm-opt`. Kiểm tra JSON đọc tám tệp hợp lệ. Các test bao gồm model, file ảnh, siêu dữ liệu trạng thái, tham chiếu điểm dừng và hành vi tải HTTP.
 
 !table|Kết quả xác minh kỹ thuật theo môi trường|0.38,0.31,0.31
 | Phép kiểm | Kết quả trên máy phát triển | Kết quả CI đúng SHA |
@@ -41,7 +41,7 @@ Người đọc mở Khám phá để thấy các thẻ địa điểm và các 
 
 Kiểm tra hỗ trợ bỏ dấu vẫn có giới hạn. Kết quả cho hai truy vấn đã nêu khớp, còn thuật toán không ánh xạ riêng đ/d. Một test dùng từ có đ và một test dùng dấu kết hợp sẽ đánh giá hai khía cạnh khác nhau. Mục truy vết của tìm kiếm vì vậy ở trạng thái một phần. Ảnh danh sách, kết quả tìm kiếm, danh mục đã chọn và chi tiết địa điểm nằm ở Phụ lục E.
 
-Chi tiết địa điểm giữ lối mở bản đồ và nguồn ảnh. Khi đi từ thẻ trong danh sách, slug được giữ trong URL và title. Trong kiểm tra bản công khai, đường dẫn từ trang lỗi về danh sách cho phép mở lại Biển Ba Động và tải lại trang chi tiết. Giao diện có chức năng sao chép liên kết, nhưng việc đọc lại giá trị thật từ clipboard chưa có ca xác minh trong đợt này.
+Chi tiết địa điểm giữ lối mở bản đồ và nguồn ảnh. Khi đi từ thẻ trong danh sách, slug được giữ trong URL và title. Trong kiểm tra bản công khai, đường dẫn từ trang lỗi về danh sách cho phép mở lại Biển Ba Động và tải lại trang chi tiết. Hotfix cuối đặt nền nút Chia sẻ liên kết thành trong suốt. Enter, Space và touch đều đưa đúng URL vào clipboard; màu kết xuất đạt 11,91:1 ở normal/copied và 8,31:1 ở hover.
 
 ### 4.2.3. Ẩm thực và thư viện
 
@@ -75,7 +75,7 @@ Kiểm tra trên máy phát triển gồm bảy đường dẫn ở bốn chiề
 
 ### 4.3.2. Khả năng tiếp cận và đáp ứng
 
-Các lượt production cuối ghi nhận heading, `main`, ngôn ngữ vi và không tràn ngang ở 52 ca route/viewport. Phạm vi bàn phím gồm mở và đóng menu mobile, cuộn nội bộ ở landscape, đổi ảnh và đóng lightbox, mở FAQ và điều khiển tab lịch trình. Mỗi `aria-controls` của tab trỏ tới một panel tồn tại. Panel không chọn có `hidden`; panel hoạt động có `aria-labelledby`; `aria-selected` và roving `tabindex` đổi đồng bộ. ArrowLeft, ArrowRight, Home và End không làm đổi vị trí cuộn trang. Tab đi vào panel hoạt động, còn Shift+Tab quay lại tab đang chọn.
+Các lượt production trên bản `1c04cb1` ghi nhận heading, `main`, ngôn ngữ vi và không tràn ngang ở 52 ca route/viewport. Phạm vi bàn phím gồm mở và đóng menu mobile, cuộn nội bộ ở landscape, đổi ảnh và đóng lightbox, mở FAQ và điều khiển tab lịch trình. Mỗi `aria-controls` của tab trỏ tới một panel tồn tại. Panel không chọn có `hidden`; panel hoạt động có `aria-labelledby`; `aria-selected` và roving `tabindex` đổi đồng bộ. ArrowLeft, ArrowRight, Home và End không làm đổi vị trí cuộn trang. Hotfix `c992fda` chỉ chạy lại nhóm nút chia sẻ ở desktop và mobile, không chạy lại toàn bộ 52 ca.
 
 !table|Phạm vi kiểm tra giao diện và khả năng tiếp cận|0.39,0.61
 | Phần đã kiểm | Phạm vi và kết quả |
@@ -83,7 +83,7 @@ Các lượt production cuối ghi nhận heading, `main`, ngôn ngữ vi và kh
 | Vùng hiển thị | 320 × 568, 390 × 844, 768 × 1024 và 1440 × 900. Không quan sát tràn ngang. |
 | Bàn phím và focus | Menu, ảnh, FAQ, lịch trình, dialog và quay lại từ lỗi đạt trong các nhóm tương tác đã chạy. |
 | Giảm chuyển động | Quan sát media query và thời lượng animation hero khi giả lập. |
-| Firefox, WebKit, axe-core, tương phản, trình đọc màn hình, zoom 200% thực tế | Chưa chạy; không được suy diễn từ kiểm tra Chromium. |
+| Firefox, WebKit, axe-core, tương phản toàn site, trình đọc màn hình, zoom 200% thực tế | Chưa chạy; không được suy diễn từ kiểm tra có mục tiêu của nút chia sẻ. |
 
 Mức đánh giá là một phần so với mục tiêu khả năng tiếp cận. Máy kiểm dùng trình duyệt desktop giả lập bề rộng, do đó không đại diện cho toàn bộ phần cứng và công nghệ hỗ trợ. Chương 5 đề xuất bổ sung tổ hợp test có thể tái lập, trong đó ghi công cụ, môi trường và tình huống đo cụ thể. Không quy đổi trực tiếp số ca đạt thành mức tuân thủ WCAG.
 
@@ -91,14 +91,15 @@ Mức đánh giá là một phần so với mục tiêu khả năng tiếp cận
 
 ### 4.4.1. Kết quả CI và Pages đúng phiên bản
 
-Mốc phát hành đầy đủ là `1c04cb15c700c5a78c4c89d3be63008af990fd5f`. [CI 45738100708](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45738100708) và [Pages 45738100919](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45738100919) đều thành công cho SHA này. Deployment `8074236451` hoàn tất ngày 26/11/2026. Việc xác nhận SHA của workflow độc lập với kiểm tra đường dẫn công khai. Runner xác nhận quy trình dựng và native publish; trình duyệt xác nhận artifact đã triển khai kết xuất đúng các ca đã chọn.
+Mốc phát hành đầy đủ là `c992fda52dd0cb888b2bde5700e14f3628b38d3e`. [CI 45745648779](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45745648779) và [Pages 45745648732](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45745648732) đều thành công cho SHA này. Deployment `8075210041` hoàn tất ngày 26/11/2026. Runner xác nhận quy trình dựng và native publish; trình duyệt xác nhận CSS cùng trạng thái nút chia sẻ trên artifact đã triển khai.
 
 !table|Tóm tắt kiểm tra trình duyệt theo môi trường|0.30,0.36,0.34
 | Môi trường | Đối tượng kiểm | Kết quả |
 | Phiên bản cơ sở | 48 lượt trình duyệt, 12 URL × 4 chiều rộng | Đợt hồi quy trước thay đổi tiêu đề. Khi tái hiện lỗi, slug địa điểm sai có heading nhưng tiêu đề thẻ trình duyệt rỗng. |
 | Bản sửa trên máy phát triển | 28 lượt, 7 URL × 4 chiều rộng. Hai ca HTTP 503 mô phỏng được kiểm riêng. | Tiêu đề và các phần tử DOM đạt trong 28 lượt. Hai ca 503 hiển thị trạng thái chưa có dữ liệu. |
 | Candidate UI trước sửa tab cuối | 126 tổ hợp local và 126 tổ hợp production | Bằng chứng lịch sử của candidate; không dùng để chứng minh merge SHA cuối. |
-| Bản công khai cuối | 52 lượt, 13 route × 4 viewport, cùng các nhóm tương tác | 52 lượt chức năng đạt. Bốn trang chủ HTTP 200; 48 direct deep link HTTP 404 rồi khôi phục đúng route. |
+| Bản `1c04cb1` trước hotfix | 52 lượt, 13 route × 4 viewport, cùng các nhóm tương tác | 52 lượt chức năng đạt. Bốn trang chủ HTTP 200; 48 direct deep link HTTP 404 rồi khôi phục đúng route. |
+| Hotfix cuối `c992fda` | Nút chia sẻ ở desktop và mobile | Normal, hover, focus, copied, touch, Enter, Space, clipboard, PageTitle và console đạt. Không chạy lại ma trận 52 lượt. |
 
 Lượt kiểm tra nhanh trên bản công khai dùng Chrome Headless 158. Tại mỗi URL, phép kiểm đợi title và heading đúng sau môi trường thực thi, xác nhận thẻ title duy nhất và theo dõi yêu cầu tài nguyên. CSS, JavaScript, WebAssembly, JSON và ảnh có phản hồi thành công ở lượt hoàn tất. Không ghi nhận lỗi JavaScript, lỗi yêu cầu asset/JSON hoặc lỗi console ngoài 404 của tài liệu được dự kiến. Chromium có hủy một số yêu cầu khi điều hướng. Các lượt ghi nhận được trình bày riêng trong hồ sơ phát hành. Phạm vi đánh giá giới hạn ở các đường dẫn và tài nguyên quan sát trong từng lượt.
 
@@ -106,7 +107,7 @@ Một URL ở lớp ứng dụng có thể hoạt động với người đọc 
 
 ### 4.4.2. Số liệu gói triển khai và giới hạn hiệu năng
 
-CI của mốc phát hành báo 43 framework resources. Tổng dung lượng Brotli của thư mục framework là 2.826.661 byte. Tệp native runtime WASM chưa nén có kích thước 2.900.443 byte và bản Brotli của tệp này là 931.222 byte. Các đại lượng mô tả artifact theo phương pháp của workflow, không phải số byte thực tải của một phiên truy cập và không dùng để cộng thành tổng.
+CI của mốc phát hành báo 43 framework resources. Tổng dung lượng Brotli của thư mục framework là 2.826.655 byte. Tệp native runtime WASM chưa nén có kích thước 2.900.443 byte và bản Brotli của tệp này là 931.222 byte. Các đại lượng mô tả artifact theo phương pháp của workflow, không phải số byte thực tải của một phiên truy cập và không dùng để cộng thành tổng.
 
 Đợt phát hành chưa đo Lighthouse, Web Vitals hoặc thời gian khởi động chuẩn hóa. Không có kết quả để so sánh tốc độ theo device hoặc mức mạng. Các kiểm tra tải asset và JSON nhằm xác nhận đường dẫn đang phục vụ được. Phép đo hiệu năng, nếu bổ sung, cần chọn trình duyệt, vùng hiển thị, mức mô phỏng mạng, trạng thái bộ nhớ đệm và số lần lặp, sau đó lưu kết quả cùng SHA.
 
@@ -114,4 +115,4 @@ CI của mốc phát hành báo 43 framework resources. Tổng dung lượng Bro
 
 Khi đánh giá mỗi URL, em ghi cả mã HTTP ban đầu, tiêu đề và trang cuối cùng. Nhờ vậy có thể kiểm tra bản sửa tiêu đề mà vẫn nhìn thấy giới hạn triển khai tĩnh. Ảnh giao diện minh họa trạng thái đã quan sát trong lần chạy tương ứng.
 
-Giới hạn chính là HTTP ban đầu của URL sâu, năm địa điểm dùng ảnh giữ chỗ và phạm vi kiểm tra khả năng tiếp cận còn hẹp. Đợt tinh chỉnh cuối đã xử lý chỉ dẫn cuộn, khoảng cách trên màn hình thấp, menu landscape, caption cảm ứng và quan hệ tab/panel. Firefox, WebKit, axe-core, zoom 200% thực tế, trình đọc màn hình và kiểm toán tương phản vẫn chưa có kết quả.
+Giới hạn chính là HTTP ban đầu của URL sâu, năm địa điểm dùng ảnh giữ chỗ và phạm vi kiểm tra khả năng tiếp cận còn hẹp. Đợt tinh chỉnh UI đã xử lý chỉ dẫn cuộn, khoảng cách trên màn hình thấp, menu landscape, caption cảm ứng và quan hệ tab/panel. Hotfix đã đo tương phản của nút chia sẻ, nhưng Firefox, WebKit, axe-core, zoom 200% thực tế, trình đọc màn hình và kiểm toán tương phản toàn site vẫn chưa có kết quả.

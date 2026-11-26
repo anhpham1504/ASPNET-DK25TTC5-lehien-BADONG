@@ -1,6 +1,6 @@
 # Thesis workspace
 
-Hồ sơ đang chờ duyệt học thuật. Các bản luận văn và slide mô tả [bản phát hành cuối 1c04cb1](../docs/RELEASE_BASELINE.md).
+Hồ sơ đang chờ duyệt học thuật. Các bản luận văn và slide mô tả [bản phát hành cuối c992fda](../docs/RELEASE_BASELINE.md).
 
 Đọc [checklist nghiệm thu](REVIEW_CHECKLIST.md) để xem mục đã kiểm, thông tin còn thiếu và quyết định cần giảng viên xác nhận. [Đề cương](THESIS_PLAN.md), [thiết kế phần mềm](../docs/SOFTWARE_DESIGN.md) và [bằng chứng](../docs/evidence/README.md) làm căn cứ cho nội dung. Có thể dựng lại tài liệu từ [nguồn chỉnh sửa](source/README.md).
 

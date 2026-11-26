@@ -1,6 +1,6 @@
 # Checklist nghiệm thu và nộp đồ án
 
-Ngày kiểm tra 26/11/2026. Bộ hồ sơ đối chiếu với bản phát hành `1c04cb15c700c5a78c4c89d3be63008af990fd5f`. [Mốc phát hành](../docs/RELEASE_BASELINE.md) · [Ma trận tuân thủ](../docs/ACADEMIC_COMPLIANCE.md)
+Ngày kiểm tra 26/11/2026. Bộ hồ sơ đối chiếu với bản phát hành `c992fda52dd0cb888b2bde5700e14f3628b38d3e`. [Mốc phát hành](../docs/RELEASE_BASELINE.md) · [Ma trận tuân thủ](../docs/ACADEMIC_COMPLIANCE.md)
 
 ## Kết quả kiểm tra
 
@@ -12,9 +12,9 @@ Ngày kiểm tra 26/11/2026. Bộ hồ sơ đối chiếu với bản phát hàn
 | HTML ngoại tuyến | PASS | 26 ảnh dùng đường dẫn tương đối. Dùng được mục lục, phím Tab và CSS in. Bốn chiều rộng 320, 390, 768 và 1.440 px không tràn ngang. |
 | PowerPoint và PDF slide | PASS | 15 slide 16:9. Mỗi slide có ghi chú. PowerPoint desktop xuất được PDF 15 trang. |
 | Nội dung demo và câu hỏi | PASS | Có kịch bản 14 bước và 38 câu hỏi. Đã thử các thao tác chính trên Pages. [Kịch bản](abs/DEMO_SCRIPT.md) ghi lệnh và phương án dự phòng tại máy. |
-| Hướng dẫn cài đặt và hồ sơ thiết kế | PASS | Có [cài đặt](../setup/README.md), [thiết kế](../docs/SOFTWARE_DESIGN.md), [9 sơ đồ](../docs/diagrams/README.md), [20 yêu cầu truy vết](../docs/TRACEABILITY_MATRIX.md), 18 ảnh lịch sử và [13 ảnh production](../docs/evidence/screenshots/release-1c04cb1/MANIFEST.md). |
+| Hướng dẫn cài đặt và hồ sơ thiết kế | PASS | Có [cài đặt](../setup/README.md), [thiết kế](../docs/SOFTWARE_DESIGN.md), [9 sơ đồ](../docs/diagrams/README.md), [20 yêu cầu truy vết](../docs/TRACEABILITY_MATRIX.md), 18 ảnh lịch sử, [13 ảnh `1c04cb1`](../docs/evidence/screenshots/release-1c04cb1/MANIFEST.md) và [1 ảnh hotfix](../docs/evidence/screenshots/hotfix-c992fda/MANIFEST.md). |
 | Dựng lại tài liệu | PASS | Dựng lại Mermaid, DOCX, PDF, HTML, PPTX và PDF slide trong bản clone, cập nhật trường Word và chuẩn hóa metadata. [Hướng dẫn](source/README.md). |
-| Bản phát hành và kiểm thử | PASS | CI 45738100708 và Pages 45738100919 thành công cùng SHA `1c04cb1`. CI ghi 14 ca đạt và native publish hoàn tất; production có 52 lượt route/viewport đạt. |
+| Bản phát hành và kiểm thử | PASS | CI 45745648779 và Pages 45745648732 thành công cùng SHA `c992fda`. CI ghi 14 ca đạt và native publish hoàn tất; 52 lượt route/viewport thuộc `1c04cb1`, còn hotfix có kiểm tra nút chia sẻ riêng. |
 | Thư mục và báo cáo tuần | PARTIAL | Cấu trúc hồ sơ và báo cáo W48 có sẵn. Lịch sử vẫn có khoảng trống trước W48. |
 | Siêu dữ liệu bản bàn giao | PASS | Author là Lê Hiền. Word và PowerPoint bỏ trường Last Modified By. PDF slide dùng tiêu đề BA ĐỘNG — Coastal Escape — Báo cáo bảo vệ và tác giả Lê Hiền. |
 | Công khai tệp | DEFERRED | Kho mã nguồn ở chế độ public. README tại SHA hiện hành đã có tên và MSSV. Hồ sơ mới lặp lại các trường này trên bìa và slide, nên cần duyệt phạm vi công khai trước khi push. Email và điện thoại vẫn để trường chờ. |
