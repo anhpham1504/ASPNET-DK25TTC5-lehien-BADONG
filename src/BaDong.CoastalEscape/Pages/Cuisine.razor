@@ -10,7 +10,7 @@ else if (!string.IsNullOrWhiteSpace(Slug))
 {
     @if (food is null)
     {
-        <section class="page-section surface-sand"><div class="container-wide empty-state"><p class="eyebrow">404 · Không tìm thấy</p><h1>Món này chưa có trong thực đơn.</h1><NavLink class="button button--dark" href="am-thuc">Về trang ẩm thực</NavLink></div></section>
+        <section class="page-section surface-sand error-page"><div class="container-wide empty-state"><p class="eyebrow">404 · Không tìm thấy</p><h1>Món này chưa có trong thực đơn.</h1><NavLink class="button button--dark" href="am-thuc">Về trang ẩm thực</NavLink></div></section>
     }
     else
     {
@@ -22,7 +22,7 @@ else
 {
     <HeadContent><meta name="description" content="Những gợi ý hương vị ven biển Trà Vinh, được trình bày trung thực và có nguồn." /></HeadContent>
     <section class="page-hero"><div class="container-wide"><Breadcrumbs Items="breadcrumbs" /><p class="eyebrow">Ẩm thực</p><h1>Vị biển trên bàn ăn.</h1><p>Những gợi ý có thể bắt đầu một cuộc trò chuyện về mùa vụ, nguyên liệu và cách thưởng thức.</p></div></section>
-    <section class="page-section surface-sand"><div class="container-wide"><div class="toolbar"><div class="filters" role="group" aria-label="Lọc món ăn"><button class="filter-chip @(activeCategory == "all" ? "is-active" : string.Empty)" @onclick="ResetCategory">Tất cả</button>@foreach (var category in categories) { <button class="filter-chip @(activeCategory == category.Key ? "is-active" : string.Empty)" @onclick="() => SetCategory(category.Key)">@category.Value</button> }</div><span class="result-count">@filteredFoods.Count() món</span></div><div class="card-grid">@foreach (var item in filteredFoods) { <FoodCard Food="item" /> }</div></div></section>
+    <section class="page-section surface-sand"><div class="container-wide"><div class="toolbar"><div class="filters" role="group" aria-label="Lọc món ăn"><button class="filter-chip @(activeCategory == "all" ? "is-active" : string.Empty)" aria-pressed="@(activeCategory == "all" ? "true" : "false")" @onclick="ResetCategory">Tất cả</button>@foreach (var category in categories) { <button class="filter-chip @(activeCategory == category.Key ? "is-active" : string.Empty)" aria-pressed="@(activeCategory == category.Key ? "true" : "false")" @onclick="() => SetCategory(category.Key)">@category.Value</button> }</div><span class="result-count">@filteredFoods.Count() món</span></div>@if (!filteredFoods.Any()) { <div class="empty-state"><h2>Chưa có món ăn để hiển thị.</h2><p>Dữ liệu có thể đang trống hoặc chưa tải được. Hãy thử lại sau.</p></div> } else { <h2 class="visually-hidden">Danh sách món ăn</h2><div class="card-grid">@foreach (var item in filteredFoods) { <FoodCard Food="item" /> }</div> }</div></section>
     <section class="page-section surface-foam"><div class="container-wide"><div class="section-heading"><p class="eyebrow">Một nguyên tắc nhỏ</p><h2>Không thêm những gì chưa được kiểm chứng.</h2><p>Không giá bán giả, không địa chỉ quán bịa, không nút đặt món. Chỉ những gợi ý có thể tiếp tục kiểm tra trước khi lên đường.</p></div></div></section>
 }
 

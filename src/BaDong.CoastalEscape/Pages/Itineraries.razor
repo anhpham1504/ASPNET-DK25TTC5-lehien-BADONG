@@ -1,15 +1,29 @@
 @page "/lich-trinh"
 @inject ContentService Content
+@inject IJSRuntime JS
 <HeadContent><title>Lịch trình · BA ĐỘNG — Coastal Escape</title><meta name="description" content="Lịch trình tham khảo một ngày và hai ngày một đêm ở Ba Động." /></HeadContent>
 <section class="page-hero"><div class="container-wide"><Breadcrumbs Items="breadcrumbs" /><p class="eyebrow">Lịch trình</p><h1>Để một ngày trôi chậm.</h1><p>Hai nhịp đi tham khảo, không phải cam kết thời gian di chuyển hay đặt dịch vụ.</p></div></section>
-<section class="page-section surface-sand"><div class="container-wide"><div class="itinerary-tabs" role="tablist" aria-label="Chọn lịch trình">@foreach (var item in itineraries) { <button role="tab" aria-selected="@(selectedId == item.Id ? "true" : "false")" class="itinerary-tab @(selectedId == item.Id ? "is-active" : string.Empty)" @onclick="() => Select(item.Id)">@item.DurationLabel</button> }</div>@if (selected is not null) { <div class="section-heading"><p class="eyebrow">@selected.DurationLabel</p><h2>@selected.Title</h2><p>@selected.Summary</p></div><div class="timeline">@foreach (var stop in selected.Stops) { <article class="timeline-stop"><div class="timeline-stop__dot" aria-hidden="true"></div><div><p class="timeline-stop__time">@stop.TimeLabel</p><h3>@stop.Title</h3><p>@stop.Description</p>@if (!string.IsNullOrWhiteSpace(stop.Slug)) { <NavLink class="text-link" href="@($"kham-pha/{stop.Slug}")" style="margin-top:12px">Xem địa điểm</NavLink> }</div><img src="@stop.Image" alt="@stop.ImageAlt" loading="lazy" decoding="async" width="900" height="600" /></article> }</div> }</div></section>
+<section class="page-section surface-sand"><div class="container-wide"><div class="itinerary-tabs" role="tablist" aria-label="Chọn lịch trình">@foreach (var item in itineraries) { <button id="itinerary-tab-@item.Id" role="tab" aria-selected="@(selectedId == item.Id ? "true" : "false")" aria-controls="itinerary-panel-@item.Id" tabindex="@(selectedId == item.Id ? "0" : "-1")" class="itinerary-tab @(selectedId == item.Id ? "is-active" : string.Empty)" @onclick="() => Select(item.Id)" @onkeydown="args => HandleTabKeydown(args, item.Id)">@item.DurationLabel</button> }</div>@if (itineraries.Count > 0) { @foreach (var item in itineraries) { <div id="itinerary-panel-@item.Id" role="tabpanel" aria-labelledby="itinerary-tab-@item.Id" hidden="@(selectedId != item.Id)"><div class="section-heading"><p class="eyebrow">@item.DurationLabel</p><h2>@item.Title</h2><p>@item.Summary</p></div><div class="timeline">@foreach (var stop in item.Stops) { <article class="timeline-stop"><div class="timeline-stop__dot" aria-hidden="true"></div><div><p class="timeline-stop__time">@stop.TimeLabel</p><h3>@stop.Title</h3><p>@stop.Description</p>@if (!string.IsNullOrWhiteSpace(stop.Slug)) { <NavLink class="text-link" href="@($"kham-pha/{stop.Slug}")" style="margin-top:12px">Xem địa điểm</NavLink> }</div><img src="@stop.Image" alt="@stop.ImageAlt" loading="lazy" decoding="async" width="900" height="600" /></article> }</div></div> } } else { <div class="empty-state"><h2>Chưa có lịch trình để hiển thị.</h2><p>Dữ liệu có thể đang trống hoặc chưa tải được. Hãy thử lại sau.</p></div> }</div></section>
 <section class="page-section surface-foam"><div class="container-wide"><div class="section-heading"><p class="eyebrow">Lưu ý</p><h2>Lịch trình này để bạn điều chỉnh.</h2><p>Khoảng cách, giờ mở cửa, thời tiết và điều kiện đường đi không được giả định. Hãy kiểm tra nguồn chính thống và hỏi người địa phương trước khi khởi hành.</p></div><NavLink class="button button--dark" href="lien-he">Xem nguồn & vị trí</NavLink></div></section>
 
 @code {
     private readonly IReadOnlyList<Breadcrumbs.BreadcrumbItem> breadcrumbs = [new("Lịch trình")];
     private IReadOnlyList<Itinerary> itineraries = [];
-    private Itinerary? selected;
     private string selectedId = string.Empty;
-    protected override async Task OnInitializedAsync() { itineraries = await Content.GetItinerariesAsync(); selected = itineraries.FirstOrDefault(); selectedId = selected?.Id ?? string.Empty; }
-    private void Select(string id) { selectedId = id; selected = itineraries.FirstOrDefault(item => item.Id == id); }
+    protected override async Task OnInitializedAsync() { itineraries = await Content.GetItinerariesAsync(); selectedId = itineraries.FirstOrDefault()?.Id ?? string.Empty; }
+    private void Select(string id) { if (itineraries.Any(item => item.Id == id)) selectedId = id; }
+    private async Task HandleTabKeydown(KeyboardEventArgs args, string currentId)
+    {
+        if (itineraries.Count == 0 || args.Key is not ("ArrowLeft" or "ArrowRight" or "Home" or "End")) return;
+        var currentIndex = Math.Max(0, itineraries.ToList().FindIndex(item => item.Id == currentId));
+        var nextIndex = args.Key switch
+        {
+            "Home" => 0,
+            "End" => itineraries.Count - 1,
+            "ArrowLeft" => (currentIndex - 1 + itineraries.Count) % itineraries.Count,
+            _ => (currentIndex + 1) % itineraries.Count
+        };
+        Select(itineraries[nextIndex].Id);
+        await JS.InvokeVoidAsync("siteUi.focus", $"itinerary-tab-{itineraries[nextIndex].Id}");
+    }
 }
