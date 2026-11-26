@@ -23,24 +23,21 @@
                 <span></span><span></span>
             </button>
         </div>
-        @if (menuOpen)
-        {
-            <div class="mobile-menu-backdrop" data-dialog-allow="mobile-menu" @onclick="CloseMenu"></div>
-            <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" tabindex="-1" @onclick:stopPropagation @onkeydown="HandleWindowKeydown">
-                <button class="mobile-menu__close" type="button" aria-label="Đóng menu" @onclick="CloseMenu">×</button>
-                <div id="mobile-menu-title" class="mobile-menu__eyebrow">THE COASTAL EDIT</div>
-                <nav aria-label="Điều hướng di động">
-                    <NavLink href="" Match="NavLinkMatch.All" @onclick="CloseMenu">Trang chủ</NavLink>
-                    <NavLink href="gioi-thieu" @onclick="CloseMenu">Giới thiệu</NavLink>
-                    <NavLink href="kham-pha" @onclick="CloseMenu">Khám phá</NavLink>
-                    <NavLink href="am-thuc" @onclick="CloseMenu">Ẩm thực</NavLink>
-                    <NavLink href="thu-vien" @onclick="CloseMenu">Thư viện</NavLink>
-                    <NavLink href="cam-nang" @onclick="CloseMenu">Cẩm nang</NavLink>
-                    <NavLink href="lich-trinh" @onclick="CloseMenu">Lên lịch trình <span aria-hidden="true">↗</span></NavLink>
-                </nav>
-                <p class="mobile-menu__note">Một điểm đến số để bắt đầu chuyến đi thật chậm.</p>
-            </div>
-        }
+        <div class="mobile-menu-backdrop" data-dialog-allow="mobile-menu" hidden="@(!menuOpen)" @onclick="CloseMenu"></div>
+        <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title" tabindex="-1" hidden="@(!menuOpen)" @onclick:stopPropagation @onkeydown="HandleWindowKeydown">
+            <button class="mobile-menu__close" type="button" aria-label="Đóng menu" @onclick="CloseMenu">×</button>
+            <div id="mobile-menu-title" class="mobile-menu__eyebrow">THE COASTAL EDIT</div>
+            <nav aria-label="Điều hướng di động">
+                <NavLink href="" Match="NavLinkMatch.All" @onclick="CloseMenu">Trang chủ</NavLink>
+                <NavLink href="gioi-thieu" @onclick="CloseMenu">Giới thiệu</NavLink>
+                <NavLink href="kham-pha" @onclick="CloseMenu">Khám phá</NavLink>
+                <NavLink href="am-thuc" @onclick="CloseMenu">Ẩm thực</NavLink>
+                <NavLink href="thu-vien" @onclick="CloseMenu">Thư viện</NavLink>
+                <NavLink href="cam-nang" @onclick="CloseMenu">Cẩm nang</NavLink>
+                <NavLink href="lich-trinh" @onclick="CloseMenu">Lên lịch trình <span aria-hidden="true">↗</span></NavLink>
+            </nav>
+            <p class="mobile-menu__note">Một điểm đến số để bắt đầu chuyến đi thật chậm.</p>
+        </div>
     </header>
     <main id="main-content" tabindex="-1">@Body</main>
     <footer class="site-footer">
