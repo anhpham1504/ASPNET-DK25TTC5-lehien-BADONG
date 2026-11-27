@@ -58,7 +58,7 @@ The existing repository was renamed in place after explicit release approval; Gi
 
 Availability depends on the latest authorized GitHub Pages deployment. Local setup remains the reproducible verification path.
 
-The final feature-frozen product release is [`c992fda52dd0cb888b2bde5700e14f3628b38d3e`](docs/RELEASE_BASELINE.md). CI and GitHub Pages completed successfully for that SHA on 26 November 2026. The 18 historical screenshots and [13-image `1c04cb1` set](docs/evidence/screenshots/release-1c04cb1/MANIFEST.md) remain unchanged; a [targeted hotfix image](docs/evidence/screenshots/hotfix-c992fda/MANIFEST.md) records the corrected share button.
+The final feature-frozen product release is [`ec0d53f180570e59c084a9ce7f74aa89d5ee3abe`](docs/RELEASE_BASELINE.md). CI and GitHub Pages completed successfully on 26 November 2026. The [28-image final production set](docs/evidence/screenshots/release-ec0d53f/MANIFEST.md) records the released Premium Coastal Editorial UI. The 18 historical screenshots, [13-image `1c04cb1` set](docs/evidence/screenshots/release-1c04cb1/MANIFEST.md), and [targeted `c992fda` hotfix image](docs/evidence/screenshots/hotfix-c992fda/MANIFEST.md) remain unchanged.
 
 ## Thông tin đồ án
 

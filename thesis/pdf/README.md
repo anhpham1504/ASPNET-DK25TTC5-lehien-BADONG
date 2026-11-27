@@ -4,15 +4,15 @@
 
 ## Kiểm tra bản đồng bộ ngày 26/11/2026
 
-Word 16 đã cập nhật mục lục, danh mục hình và bảng trước khi xuất. Bản PDF có **65 trang**, gồm **40 trang nội dung chính**. Phần chính chiếm trang PDF 14–53, tương ứng số in ở chân trang 10–49. Trang trắng từng nằm giữa danh mục hình và danh mục bảng đã được loại bỏ tại nguồn tạo tài liệu.
+Word 16 đã cập nhật mục lục, danh mục hình và bảng trước khi xuất. Bản PDF candidate có **68 trang**, gồm **43 trang nội dung chính**. Phần chính chiếm trang PDF 14–56, tương ứng số in ở chân trang 10–52. Trang trắng từng nằm giữa danh mục hình và danh mục bảng đã được loại bỏ tại nguồn tạo tài liệu.
 
 | Phần | Số trang thực tế |
 | --- | ---: |
 | Mở đầu | 3 |
 | Chương 1. Tổng quan | 4 |
 | Chương 2. Nghiên cứu lý thuyết | 7 |
-| Chương 3. Hiện thực hóa nghiên cứu | 13 |
-| Chương 4. Kết quả nghiên cứu | 11 |
+| Chương 3. Hiện thực hóa nghiên cứu | 14 |
+| Chương 4. Kết quả nghiên cứu | 13 |
 | Chương 5. Kết luận và hướng phát triển | 2 |
 
 Có 22 caption hình, 26 ảnh nhúng, 10 bảng và 17 tài liệu tham khảo. Bộ hình gồm sơ đồ, ảnh lịch sử còn phù hợp và ảnh production gắn SHA cuối. Bảng 7 hiển thị trọn tên trường ImageManifestEntry.filename. URL của 17 nguồn xuất hiện trong bản in và là liên kết trong PDF. Đã kiểm tra A4, Times New Roman 13 pt ở thân bài, giãn dòng 1,5, khoảng cách đoạn 6 pt, lề, số trang góc phải dưới, mục lục, danh mục hình/bảng và số tham chiếu bằng [script kiểm tra](../source/verify_review.py). Word 16 là trình xuất PDF. Các trang được raster hóa để rà soát bố cục, tiêu đề đầu trang, bảng, ảnh và dấu tiếng Việt. [Điều kiện còn mở](../REVIEW_CHECKLIST.md).

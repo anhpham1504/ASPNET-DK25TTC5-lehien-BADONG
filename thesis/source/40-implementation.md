@@ -50,6 +50,14 @@ Các liên kết liên quan được định tuyến tương đối tới base �
 
 Dòng trích trên đặt trước các nhánh giao diện trong `DestinationDetail.razor`. Cấu trúc này đủ để mỗi nhánh có title và không cần JavaScript ghi `document.title`. Thẻ mô tả vẫn ở nhánh có nội dung. Tài liệu `index.html` ban đầu là màn hình khởi động, chưa có title riêng. Phần kiểm chứng dùng mốc đã kết xuất của Razor để đánh giá thay đổi.
 
+### 3.2.4. Hệ thống thiết kế và thẻ biên tập
+
+Giao diện cuối dùng định hướng Premium Coastal Editorial. Nền giấy ngà, màu xanh biển đậm, mảng seafoam và màu nhấn hoàng hôn được đặt bằng token ngữ nghĩa để cùng một vai trò có màu nhất quán ở các trang. Be Vietnam Pro là font chính; chuỗi fallback dùng font sans-serif hệ thống khi stylesheet font tải chậm hoặc không khả dụng. Hệ phân cấp chữ kết hợp heading cỡ lớn, nhãn chữ hoa ngắn và thân bài dễ đọc. Focus indicator, giảm chuyển động và quản lý focus của menu/lightbox được xem như một phần của hợp đồng tương tác, không phải trang trí bổ sung.
+
+Năm địa điểm chưa có ảnh đủ căn cứ tiếp tục mang trạng thái `PENDING`. Thay vì phóng một SVG giữ chỗ lên toàn bộ vùng ảnh, `DestinationCard` dùng editorial card với hình học trừu tượng, nhãn trạng thái và nội dung văn bản. Cách này duy trì nhịp bố cục nhưng không tạo ra một bức ảnh hoặc tuyên bố sai về địa điểm. Trạng thái xác minh vẫn đến từ dữ liệu; thành phần giao diện chỉ quyết định cách trình bày trung thực.
+
+Các khối nội dung chuyển từ nhiều cột sang một cột theo breakpoint. Trong candidate redesign, rule desktop của `.editorial-split` từng thắng rule responsive tại vùng gần 820 pixel, làm bố cục giữ hai cột quá lâu. Kiểm tra computed layout phát hiện sai lệch; commit `92691a8` sửa thứ tự cascade để 320, 390 và 768 pixel dùng một cột, còn 1440 pixel dùng hai cột. Bản sửa không thay đổi route, dữ liệu hoặc kiến trúc.
+
 ## 3.3. Mô hình và quy tắc dữ liệu
 
 ### 3.3.1. Các lớp nội dung

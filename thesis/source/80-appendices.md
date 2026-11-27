@@ -42,7 +42,7 @@ Từ điển đầy đủ trong `docs/SOFTWARE_DESIGN.md` nêu các trường hi
 
 ### C.1. Ca kiểm tra sau triển khai
 
-Ma trận cuối chạy 13 route ở bốn viewport, tổng cộng 52 lượt. Bảng dưới giữ các route đại diện có title khác nhau. Mỗi lượt kiểm title, heading, tràn ngang, ảnh và request tài nguyên. Bốn lượt trang chủ nhận HTTP 200; 48 lượt mở trực tiếp route sâu nhận HTTP 404 rồi được SPA khôi phục đúng route.
+Ma trận production cuối chạy 12 route ở bốn viewport, tổng cộng 48 lượt. Bảng dưới giữ các route đại diện có title khác nhau. Mỗi lượt đợi ứng dụng tải xong rồi kiểm title, heading, tràn ngang, ảnh và request tài nguyên. HTTP của tài liệu deep link ban đầu được ghi riêng với kết quả route sau khi SPA khôi phục. Sitemap có 19/19 URL kết xuất đúng sau app load; kết quả này không đồng nghĩa 19 HTTP 200 ban đầu.
 
 !table|Route và title quan sát được trên bản công khai|0.34,0.14,0.52
 | Route trong ứng dụng | HTTP đầu | Title sau kết xuất |
@@ -67,7 +67,7 @@ Từ bản Release trên máy phát triển, dùng trình duyệt kiểm thử �
 | F-01 | Trang chủ và giới thiệu | Ảnh 01–03 và kiểm tra route lịch sử. |
 | F-02 | Tìm kiếm và lọc | E-U02, ảnh 05–08. Phạm vi đ/d còn mở. |
 | F-03 | Địa điểm và nguồn ảnh | D-T01, D-J01, ảnh 09 và ảnh hotfix. |
-| F-04 | Sao chép URL | Enter, Space, touch và clipboard đạt trên production `c992fda`. |
+| F-04 | Sao chép URL | Enter, Space, touch và clipboard đạt ở hotfix `c992fda` và hồi quy production cuối. |
 | F-05 | Ẩm thực và lọc | D-T03–05, E-U05, ảnh 10–11. |
 | F-06 | Thư viện và lightbox | E-U03, D-J01, ảnh 12–13. |
 | F-07 | Cẩm nang và FAQ | E-U04, D-J01, ảnh 14. |
@@ -77,9 +77,9 @@ Từ bản Release trên máy phát triển, dùng trình duyệt kiểm thử �
 | F-11 | Đặt chỗ và giao dịch | Ngoài phạm vi sản phẩm. |
 | N-01 | JSON và hồ sơ ảnh | D-J01, chính sách VERIFIED và PENDING. |
 | N-02 | Dịch vụ và bộ nhớ đệm | Test dịch vụ, hai ca 503 trên máy phát triển. |
-| N-03 | Đáp ứng và trợ năng | 52 lượt trên `1c04cb1`; ca hotfix bàn phím, touch và tương phản nút chia sẻ; một phần. |
-| N-04 | Triển khai tĩnh | CI 45745648779, Pages 45745648732; còn HTTP 404 ban đầu. |
-| N-05 | Đánh giá hiệu năng | Có kích thước gói triển khai. Chưa đo hiệu năng trải nghiệm. |
+| N-03 | Đáp ứng và trợ năng | 48 lượt trên `ec0d53f`; menu, lightbox, FAQ, tab, focus và touch đạt; audit đầy đủ còn mở. |
+| N-04 | Triển khai tĩnh | CI 45775505092, Pages 45775504992; còn HTTP 404 ban đầu. |
+| N-05 | Đánh giá hiệu năng | Có kích thước artifact và phép so sánh local 5 lượt; chưa có Lighthouse production. |
 | A-01 | Kho mã nguồn, README, setup | Có cấu trúc và hướng dẫn. Thiếu liên hệ. |
 | A-02 | Báo cáo và collaborator | Có W48. Collaborator giảng viên còn thiếu. |
 | A-03 | Thiết kế và bằng chứng | Có chín sơ đồ và hồ sơ truy vết. |
@@ -89,7 +89,7 @@ Ma trận trong `docs/TRACEABILITY_MATRIX.md` có thêm route, mã nguồn và b
 
 ## D. Quy trình GitHub Actions và triển khai
 
-Commit UI là `806002829a3e1d68981b4457644e3b39f714c144`; commit hoàn thiện accessibility tab là `399393e69b71411bb41700e6b41a3cb983e53a54`; commit hotfix tương phản là `534f0d2ae31e23af76f3f88660bfac176edbbd46`. SHA sản phẩm cuối là merge commit `c992fda52dd0cb888b2bde5700e14f3628b38d3e`. Các link [CI](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45745648779) và [Deploy to GitHub Pages](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45745648732) mở lần chạy cụ thể. Kết quả truy cập dùng [project site](https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/).
+Các commit `8060028`, `399393e`, `534f0d2` và merge `c992fda` là lịch sử của các đợt UI trước. Thiết kế cuối dùng candidate `c79a5eb`, bản sửa cascade `92691a862e72ad0fedddef78a2e58a45b30e92cb` và merge production `ec0d53f180570e59c084a9ce7f74aa89d5ee3abe`. Các link [CI 45775505092](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45775505092) và [Deploy to GitHub Pages 45775504992](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45775504992) mở lần chạy cụ thể. Kết quả truy cập dùng [project site](https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/).
 
 Để xem lại pipeline, mở workflow `ci.yml` và tìm bước restore, build, test và báo kích thước. Workflow `deploy-pages.yml` có bước kiểm tên repo, thay base và token, tải gói triển khai và triển khai. So sánh SHA của hai run với SHA công bố trước khi ghi kết quả. `docs/RELEASE_BASELINE.md` ghi thời gian success của deployment và kiểm tra trình duyệt sau công bố.
 
@@ -97,17 +97,17 @@ Commit UI là `806002829a3e1d68981b4457644e3b39f714c144`; commit hoàn thiện a
 
 Các ảnh trong mục này chụp trên máy phát triển cùng đợt với Chương 4. Mã và tên mỗi ảnh theo manifest trong kho mã nguồn.
 
-!figure|docs/evidence/screenshots/release-1c04cb1/03-mobile-menu-1c04cb1.png|Menu di động production ở vùng hiển thị 390 × 844|10.5
+!figure|docs/evidence/screenshots/release-ec0d53f/interactions/mobile-menu.png|Menu di động production cuối ở vùng hiển thị 390 × 844|10.5
 
-!figure|docs/evidence/screenshots/release-1c04cb1/04-explore-1c04cb1.png|Danh sách Khám phá và công cụ sàng lọc địa điểm trên production
+!figure|docs/evidence/screenshots/release-ec0d53f/interactions/pending-cards.png|Editorial card của các địa điểm PENDING trên production cuối
 
 !figure|docs/evidence/screenshots/06-explore-search.png;docs/evidence/screenshots/07-explore-filter.png|Kết quả từ khóa không dấu và trạng thái lọc Thiên nhiên
 
-!figure|docs/evidence/screenshots/hotfix-c992fda/01-destination-detail-c992fda.png|Chi tiết Biển Ba Động sau hotfix tương phản nút Chia sẻ liên kết
+!figure|docs/evidence/screenshots/release-ec0d53f/desktop/destination-1440x900.png|Chi tiết Biển Ba Động trên production cuối
 
-!figure|docs/evidence/screenshots/release-1c04cb1/07-gallery-1c04cb1.png|Danh sách ảnh trên thiết bị cảm ứng với caption hiển thị
+!figure|docs/evidence/screenshots/release-ec0d53f/mobile/gallery-390x844.png|Danh sách ảnh production cuối trên thiết bị cảm ứng với caption hiển thị
 
-!figure|docs/evidence/screenshots/release-1c04cb1/10-location-1c04cb1.png|Thông tin vị trí và lối mở bản đồ trên production|6.7
+!figure|docs/evidence/screenshots/release-ec0d53f/desktop/location-1440x900.png|Thông tin vị trí và lối mở bản đồ trên production cuối|6.7
 
 ## F. Siêu dữ liệu và nguồn ảnh
 

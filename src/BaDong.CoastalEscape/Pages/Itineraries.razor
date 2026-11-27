@@ -1,17 +1,262 @@
 @page "/lich-trinh"
 @inject ContentService Content
 @inject IJSRuntime JS
-<HeadContent><title>Lịch trình · BA ĐỘNG — Coastal Escape</title><meta name="description" content="Lịch trình tham khảo một ngày và hai ngày một đêm ở Ba Động." /></HeadContent>
-<section class="page-hero"><div class="container-wide"><Breadcrumbs Items="breadcrumbs" /><p class="eyebrow">Lịch trình</p><h1>Để một ngày trôi chậm.</h1><p>Hai nhịp đi tham khảo, không phải cam kết thời gian di chuyển hay đặt dịch vụ.</p></div></section>
-<section class="page-section surface-sand"><div class="container-wide"><div class="itinerary-tabs" role="tablist" aria-label="Chọn lịch trình">@foreach (var item in itineraries) { <button id="itinerary-tab-@item.Id" role="tab" aria-selected="@(selectedId == item.Id ? "true" : "false")" aria-controls="itinerary-panel-@item.Id" tabindex="@(selectedId == item.Id ? "0" : "-1")" class="itinerary-tab @(selectedId == item.Id ? "is-active" : string.Empty)" @onclick="() => Select(item.Id)" @onkeydown="args => HandleTabKeydown(args, item.Id)">@item.DurationLabel</button> }</div>@if (itineraries.Count > 0) { @foreach (var item in itineraries) { <div id="itinerary-panel-@item.Id" role="tabpanel" aria-labelledby="itinerary-tab-@item.Id" hidden="@(selectedId != item.Id)"><div class="section-heading"><p class="eyebrow">@item.DurationLabel</p><h2>@item.Title</h2><p>@item.Summary</p></div><div class="timeline">@foreach (var stop in item.Stops) { <article class="timeline-stop"><div class="timeline-stop__dot" aria-hidden="true"></div><div><p class="timeline-stop__time">@stop.TimeLabel</p><h3>@stop.Title</h3><p>@stop.Description</p>@if (!string.IsNullOrWhiteSpace(stop.Slug)) { <NavLink class="text-link" href="@($"kham-pha/{stop.Slug}")" style="margin-top:12px">Xem địa điểm</NavLink> }</div><img src="@stop.Image" alt="@stop.ImageAlt" loading="lazy" decoding="async" width="900" height="600" /></article> }</div></div> } } else { <div class="empty-state"><h2>Chưa có lịch trình để hiển thị.</h2><p>Dữ liệu có thể đang trống hoặc chưa tải được. Hãy thử lại sau.</p></div> }</div></section>
-<section class="page-section surface-foam"><div class="container-wide"><div class="section-heading"><p class="eyebrow">Lưu ý</p><h2>Lịch trình này để bạn điều chỉnh.</h2><p>Khoảng cách, giờ mở cửa, thời tiết và điều kiện đường đi không được giả định. Hãy kiểm tra nguồn chính thống và hỏi người địa phương trước khi khởi hành.</p></div><NavLink class="button button--dark" href="lien-he">Xem nguồn & vị trí</NavLink></div></section>
+@inject NavigationManager Navigation
+
+<HeadContent>
+    <title>Lịch trình · BA ĐỘNG — Coastal Escape</title>
+    <meta name="description" content="Khám phá các lộ trình đi chậm 1 ngày, 2 ngày 1 đêm và 3 ngày 2 đêm tại bờ biển Ba Động, Trà Vinh." />
+</HeadContent>
+
+<!-- HERO SECTION: ITINERARY ATMOSPHERE -->
+<section class="page-hero">
+    <div class="container-wide">
+        <Breadcrumbs Items="breadcrumbs" />
+        <p class="eyebrow">Lộ trình thực địa · Đi chậm cùng Ba Động</p>
+        <h1>Những nhịp đi không cần vội vã.</h1>
+        <p>Không phải tour du lịch công nghiệp hay lịch trình ép kín thời gian. Dưới đây là 3 lộ trình gợi ý giúp bạn thảnh thơi cảm nhận nhịp sống duyên hải, tự do thay đổi theo con nước thủy triều và cảm xúc riêng.</p>
+
+        <!-- FIELD DOSSIER BADGES -->
+        <div class="itinerary-hero-dossier" aria-label="Đặc điểm lộ trình trải nghiệm">
+            <div class="about-dossier-pill">
+                <span class="about-dossier-pill__icon" aria-hidden="true">🧭</span>
+                <div>
+                    <span class="about-dossier-pill__label">Lựa chọn linh hoạt</span>
+                    <span class="about-dossier-pill__value">1 ngày · 2N1Đ · 3N2Đ</span>
+                </div>
+            </div>
+            <div class="about-dossier-pill">
+                <span class="about-dossier-pill__icon" aria-hidden="true">🛵</span>
+                <div>
+                    <span class="about-dossier-pill__label">Cung đường tiếp cận</span>
+                    <span class="about-dossier-pill__value">Tỉnh lộ 914 trải nhựa phẳng</span>
+                </div>
+            </div>
+            <div class="about-dossier-pill">
+                <span class="about-dossier-pill__icon" aria-hidden="true">⏱️</span>
+                <div>
+                    <span class="about-dossier-pill__label">Nhịp độ hành trình</span>
+                    <span class="about-dossier-pill__value">Thong thả · Nhiều khoảng lặng</span>
+                </div>
+            </div>
+            <div class="about-dossier-pill">
+                <span class="about-dossier-pill__icon" aria-hidden="true">☀️</span>
+                <div>
+                    <span class="about-dossier-pill__label">Mùa đi lý tưởng</span>
+                    <span class="about-dossier-pill__value">Tháng 11 – Tháng 4 hàng năm</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MAIN ITINERARY SECTION -->
+<section class="page-section surface-sand">
+    <div class="container-wide">
+        <!-- TAB SELECTOR -->
+        <div class="itinerary-tabs" role="tablist" aria-label="Chọn lộ trình thời gian">
+            @foreach (var item in itineraries)
+            {
+                var isActive = selectedId == item.Id;
+                <button id="itinerary-tab-@item.Id"
+                        role="tab"
+                        aria-selected="@(isActive ? "true" : "false")"
+                        aria-controls="itinerary-panel-@item.Id"
+                        tabindex="@(isActive ? "0" : "-1")"
+                        class="itinerary-tab @(isActive ? "is-active" : string.Empty)"
+                        @onclick="() => Select(item.Id)"
+                        @onkeydown="args => HandleTabKeydown(args, item.Id)">
+                    <span class="itinerary-tab__icon" aria-hidden="true">@GetTabIcon(item.Id)</span>
+                    <span>@item.DurationLabel</span>
+                </button>
+            }
+        </div>
+
+        @if (selectedItinerary != null)
+        {
+            <div id="itinerary-panel-@selectedItinerary.Id"
+                 role="tabpanel"
+                 aria-labelledby="itinerary-tab-@selectedItinerary.Id">
+
+                <!-- OVERVIEW DASHBOARD CARD -->
+                <div class="itinerary-overview-card">
+                    <div class="itinerary-overview__info">
+                        <p class="eyebrow" style="margin-bottom: 6px;">@selectedItinerary.DurationLabel</p>
+                        <h2>@selectedItinerary.Title</h2>
+                        <p>@selectedItinerary.Summary</p>
+                    </div>
+
+                    <div class="itinerary-overview__stats" aria-label="Thông số tóm tắt lộ trình">
+                        <div class="itinerary-stat-pill">
+                            <span class="itinerary-stat-pill__label">Chặng dừng</span>
+                            <span class="itinerary-stat-pill__val">@selectedItinerary.Stops.Count điểm đến</span>
+                        </div>
+                        <div class="itinerary-stat-pill">
+                            <span class="itinerary-stat-pill__label">Phương tiện</span>
+                            <span class="itinerary-stat-pill__val">Xe máy / Ô tô</span>
+                        </div>
+                        <div class="itinerary-stat-pill">
+                            <span class="itinerary-stat-pill__label">Tính chất</span>
+                            <span class="itinerary-stat-pill__val">@GetPaceLabel(selectedItinerary.Id)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TIMELINE STOPS STREAM -->
+                <div class="timeline" aria-label="Các chặng dừng của lịch trình @selectedItinerary.Title">
+                    @for (var i = 0; i < selectedItinerary.Stops.Count; i++)
+                    {
+                        var stop = selectedItinerary.Stops[i];
+                        var stopNumber = (i + 1).ToString("D2");
+                        var category = GetStopCategory(stop.Title, stop.Slug);
+                        var tip = GetStopTip(stop.Title, stop.Slug);
+
+                        <article class="timeline-stop">
+                            <div class="timeline-stop__indicator">
+                                <div class="timeline-stop__dot" aria-hidden="true">
+                                    <span>@stopNumber</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-card">
+                                <div class="timeline-card__body">
+                                    <div class="timeline-card__meta">
+                                        <span class="timeline-card__time">@stop.TimeLabel</span>
+                                        <span class="timeline-card__category">@category</span>
+                                    </div>
+
+                                    <h3>@stop.Title</h3>
+                                    <p>@stop.Description</p>
+
+                                    @if (!string.IsNullOrWhiteSpace(tip))
+                                    {
+                                        <div class="timeline-card__tip">
+                                            <strong>MẸO TRẢI NGHIỆM:</strong>
+                                            <span>@tip</span>
+                                        </div>
+                                    }
+
+                                    @if (!string.IsNullOrWhiteSpace(stop.Slug))
+                                    {
+                                        <div class="timeline-card__action">
+                                            <NavLink class="text-link" href="@($"kham-pha/{stop.Slug}")">
+                                                Xem chi tiết điểm đến <span aria-hidden="true">→</span>
+                                            </NavLink>
+                                        </div>
+                                    }
+                                </div>
+
+                                <figure class="timeline-card__figure">
+                                    <img src="@stop.Image"
+                                         alt="@stop.ImageAlt"
+                                         loading="lazy"
+                                         decoding="async"
+                                         width="600"
+                                         height="400" />
+                                </figure>
+                            </div>
+                        </article>
+
+                        @if (i < selectedItinerary.Stops.Count - 1)
+                        {
+                            <div class="timeline-transit" aria-hidden="true">
+                                <span>@GetTransitNotice(i)</span>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="empty-state">
+                <h2>Chưa có lịch trình để hiển thị.</h2>
+                <p>Dữ liệu có thể đang trống hoặc chưa tải được. Hãy thử lại sau.</p>
+            </div>
+        }
+    </div>
+</section>
+
+<!-- SECTION 2: CHUẨN BỊ THỰC ĐỊA (PRE-TRIP CHECKLIST) -->
+<section class="page-section surface-foam">
+    <div class="container-wide">
+        <div class="section-heading">
+            <p class="eyebrow">Cẩm nang thực tế</p>
+            <h2>Chuẩn bị gì trước khi xuất phát?</h2>
+            <p>Những lưu ý nhỏ nhưng thiết yếu giúp chuyến đi về miền duyên hải Duyên Hải suôn sẻ, an tâm và trọn vẹn.</p>
+        </div>
+
+        <div class="itinerary-prep-grid">
+            <article class="itinerary-prep-card">
+                <span class="itinerary-prep-card__icon" aria-hidden="true">⛽</span>
+                <h3>Nhiên liệu & Phương tiện</h3>
+                <p>Nên đổ đầy bình xăng tại trung tâm thị xã Duyên Hải trước khi rẽ vào Tỉnh lộ 914. Đường ven biển rất đẹp nhưng các cây xăng lớn phân bố thưa hơn.</p>
+            </article>
+
+            <article class="itinerary-prep-card">
+                <span class="itinerary-prep-card__icon" aria-hidden="true">💵</span>
+                <h3>Tiền mặt dự phòng</h3>
+                <p>Các quán hải sản dân dã ven đê và ngư dân bán hải sản tại bến thuyền thường ưu tiên tiền mặt. Cây ATM ngân hàng gần nhất cách bãi biển khoảng 10 km.</p>
+            </article>
+
+            <article class="itinerary-prep-card">
+                <span class="itinerary-prep-card__icon" aria-hidden="true">🌊</span>
+                <h3>Theo dõi con nước</h3>
+                <p>Bãi cát Ba Động phẳng mịn nhất khi thủy triều rút xa. Bạn hãy hỏi thăm người dân hoặc chủ quán địa phương về giờ con nước lớn/ròng trong ngày.</p>
+            </article>
+
+            <article class="itinerary-prep-card">
+                <span class="itinerary-prep-card__icon" aria-hidden="true">🧴</span>
+                <h3>Bảo vệ trước nắng gió</h3>
+                <p>Gió biển duyên hải mang hơi muối đậm đà. Chuẩn bị áo khoác mỏng, nón rộng vành có quai và kem chống nắng an toàn sinh học (Reef-safe).</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: LIÊN HỆ & CẨM NANG CHI TIẾT -->
+<section class="page-section surface-ocean">
+    <div class="container-wide">
+        <div class="section-heading">
+            <p class="eyebrow">Đồng hành cùng hành trình</p>
+            <h2>Lịch trình này để bạn tự do điều chỉnh.</h2>
+            <p>Thời tiết, con nước và nhịp sinh hoạt vùng duyên hải luôn vận động. Đừng ngại thay đổi thứ tự các điểm dừng để lắng nghe nhịp thở của biển cả và sự đón tiếp nồng hậu của người dân Trà Vinh.</p>
+        </div>
+
+        <div class="button-row" style="margin-top: 32px;">
+            <NavLink class="button button--primary" href="cam-nang">
+                Xem toàn bộ cẩm nang di chuyển & chuẩn bị
+            </NavLink>
+            <NavLink class="button button--ghost" href="am-thuc">
+                Khám phá ẩm thực Ba Động
+            </NavLink>
+            <NavLink class="button button--ghost" href="lien-he">
+                Kiểm tra tọa độ & bản đồ vị trí
+            </NavLink>
+        </div>
+    </div>
+</section>
 
 @code {
     private readonly IReadOnlyList<Breadcrumbs.BreadcrumbItem> breadcrumbs = [new("Lịch trình")];
     private IReadOnlyList<Itinerary> itineraries = [];
     private string selectedId = string.Empty;
-    protected override async Task OnInitializedAsync() { itineraries = await Content.GetItinerariesAsync(); selectedId = itineraries.FirstOrDefault()?.Id ?? string.Empty; }
-    private void Select(string id) { if (itineraries.Any(item => item.Id == id)) selectedId = id; }
+    private Itinerary? selectedItinerary => itineraries.FirstOrDefault(i => i.Id == selectedId) ?? itineraries.FirstOrDefault();
+
+    protected override async Task OnInitializedAsync()
+    {
+        itineraries = await Content.GetItinerariesAsync();
+        selectedId = itineraries.FirstOrDefault()?.Id ?? string.Empty;
+    }
+
+    private void Select(string id)
+    {
+        if (itineraries.Any(item => item.Id == id))
+        {
+            selectedId = id;
+        }
+    }
+
     private async Task HandleTabKeydown(KeyboardEventArgs args, string currentId)
     {
         if (itineraries.Count == 0 || args.Key is not ("ArrowLeft" or "ArrowRight" or "Home" or "End")) return;
@@ -26,4 +271,53 @@
         Select(itineraries[nextIndex].Id);
         await JS.InvokeVoidAsync("siteUi.focus", $"itinerary-tab-{itineraries[nextIndex].Id}");
     }
+
+    private static string GetTabIcon(string id) => id switch
+    {
+        "one-day" => "☀️",
+        "two-days" => "🌙",
+        "three-days" => "✨",
+        _ => "🧭"
+    };
+
+    private static string GetPaceLabel(string id) => id switch
+    {
+        "one-day" => "Thong thả · Đi về trong ngày",
+        "two-days" => "Nhịp chậm · Trọn vẹn hoàng hôn & bình minh",
+        "three-days" => "Khám phá sâu · Di sản & Đời sống duyên hải",
+        _ => "Linh hoạt tự do"
+    };
+
+    private static string GetStopCategory(string title, string slug)
+    {
+        if (slug.Contains("bien-ba-dong") || title.Contains("Biển")) return "🏖️ BỜ BIỂN TỰ NHIÊN";
+        if (slug.Contains("dien-gio") || title.Contains("Điện gió")) return "🌬️ NĂNG LƯỢNG SẠCH";
+        if (slug.Contains("chua-hang") || title.Contains("Chùa")) return "🏛️ VĂN HÓA KHMER";
+        if (slug.Contains("cang-ca") || title.Contains("Cảng cá")) return "⛵ ĐỜI SỐNG LÀNG CHÀI";
+        if (title.Contains("cơm") || title.Contains("Bún") || title.Contains("Bánh") || title.Contains("Ăn")) return "🦀 ẨM THỰC BẢN ĐỊA";
+        return "📍 ĐIỂM DỪNG THỰC ĐỊA";
+    }
+
+    private static string GetStopTip(string title, string slug)
+    {
+        if (slug.Contains("bien-ba-dong") || title.Contains("Biển"))
+            return "Nên đi dạo chân trần trên cát khi triều rút; không khí sớm mai dưới rặng phi lao rất trong lành và dịu mát.";
+        if (slug.Contains("dien-gio") || title.Contains("Điện gió"))
+            return "Thời điểm ngắm cánh đồng điện gió đẹp nhất là lúc 16:30 - 17:30 khi ráng chiều hoàng hôn buông xuống mặt biển.";
+        if (slug.Contains("chua-hang") || title.Contains("Chùa"))
+            return "Nên giữ yên lặng, mặc trang phục kín đáo qua gối và xin phép trước khi chụp ảnh trong khuôn viên chánh điện.";
+        if (slug.Contains("cang-ca") || title.Contains("Cảng cá"))
+            return "Bến cảng rộn ràng nhất lúc 5:30 - 7:00 sáng khi ghe thuyền cập bến sau chuyến đánh bắt đêm ngoài khơi.";
+        if (title.Contains("cơm") || title.Contains("Bún") || title.Contains("Bánh") || title.Contains("Ăn"))
+            return "Hỏi thăm các cô chú chủ quán về mẻ hải sản mới về trong ngày để được phục vụ món cá khoai, cua biển tươi ngon nhất.";
+        return "Hãy di chuyển chậm và ưu tiên hỏi thăm kinh nghiệm từ người dân địa phương.";
+    }
+
+    private static string GetTransitNotice(int index) => index switch
+    {
+        0 => "🚗 Di chuyển ~8 km (khoảng 15 phút) đến điểm dừng tiếp theo",
+        1 => "🚗 Di chuyển ~12 km (khoảng 20 phút) dọc theo Tỉnh lộ 914",
+        2 => "🚗 Di chuyển ~15 km (khoảng 25 phút) khám phá vùng duyên hải",
+        _ => "🚗 Di chuyển thong thả theo biển chỉ dẫn địa phương"
+    };
 }

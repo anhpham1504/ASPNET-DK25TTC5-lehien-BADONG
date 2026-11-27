@@ -2,15 +2,15 @@
 
 ## Mốc đối chiếu
 
-Bản phát hành `c992fda52dd0cb888b2bde5700e14f3628b38d3e` trên GitHub Pages. Kết quả kỹ thuật dùng [mốc phát hành](../docs/RELEASE_BASELINE.md), [bằng chứng lịch sử](../docs/evidence/academic-validation/2026-W48-phase-d-f.md), [ảnh `1c04cb1`](../docs/evidence/screenshots/release-1c04cb1/MANIFEST.md), [ảnh hotfix](../docs/evidence/screenshots/hotfix-c992fda/MANIFEST.md) và [ma trận 20 yêu cầu](../docs/TRACEABILITY_MATRIX.md).
+Bản phát hành `ec0d53f180570e59c084a9ce7f74aa89d5ee3abe` trên GitHub Pages. Kết quả kỹ thuật dùng [mốc phát hành](../docs/RELEASE_BASELINE.md), [28 ảnh production](../docs/evidence/screenshots/release-ec0d53f/MANIFEST.md), bằng chứng lịch sử và [ma trận 20 yêu cầu](../docs/TRACEABILITY_MATRIX.md).
 
 | Mục | Trạng thái duyệt |
 | --- | --- |
-| Nội dung và định dạng | Bản đồng bộ có 40 trang chính, 65 trang tổng. Word cập nhật mục lục, danh mục hình, danh mục bảng và PAGEREF trước khi xuất PDF. |
+| Nội dung và định dạng | Bản candidate đồng bộ có 43 trang chính, 68 trang tổng. Word đã cập nhật mục lục, danh mục hình, danh mục bảng và PAGEREF trước khi xuất PDF. |
 | Hình, bảng và nguồn | 22 hình, 26 ảnh nhúng, 10 bảng, 17 nguồn. Bảng 7 rộng hơn ở cột tên trường. Hình 8 có nguồn Mermaid điều chỉnh cho A4. |
 | HTML | Mở ngoại tuyến, 26 ảnh tải được. Thử mục lục, bàn phím, CSS in và bốn kích thước vùng hiển thị. |
 | Hồ sơ bảo vệ | 15 slide có ghi chú, PDF 15 trang, kịch bản 14 thao tác và 38 câu hỏi. Có bước chuẩn bị và phương án tại máy. |
-| Kết quả kỹ thuật | CI đúng SHA ghi nhận 14 ca tự động đạt và native publish hoàn tất. Chương 4 phân biệt ma trận 52 lượt của `1c04cb1` với targeted share-button regression của `c992fda`. |
+| Kết quả kỹ thuật | CI candidate ghi nhận 14 ca tự động đạt và native publish hoàn tất. Chương 4 phân biệt kết quả lịch sử với ma trận final 48/48 của `ec0d53f`, 19/19 sitemap URL và các giới hạn còn mở. |
 | Siêu dữ liệu | Bản bàn giao ghi tác giả Lê Hiền và để trống người lưu cuối trong Word và PowerPoint. Thông tin công khai được rà soát riêng trong [checklist Phase L](SUBMISSION_CHECKLIST.md). |
 | Lịch sử tuần | W48 có báo cáo và commit thực. Khoảng trống trước W48 vẫn được ghi nhận trong ma trận. |
 

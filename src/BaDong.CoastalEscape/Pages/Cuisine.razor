@@ -41,7 +41,7 @@ else
     private IEnumerable<Food> filteredFoods => foods.Where(item => activeCategory == "all" || item.Category == activeCategory);
     private readonly IReadOnlyList<Breadcrumbs.BreadcrumbItem> breadcrumbs = [new("Ẩm thực")];
     private IReadOnlyList<Breadcrumbs.BreadcrumbItem> detailBreadcrumbs => [new("Ẩm thực", "am-thuc"), new(food?.Name ?? "Chi tiết")];
-    protected override async Task OnParametersSetAsync() { loaded = false; foods = await Content.GetFoodsAsync(); food = string.IsNullOrWhiteSpace(Slug) ? null : foods.FirstOrDefault(item => item.Slug.Equals(Slug, StringComparison.OrdinalIgnoreCase)); loaded = true; }
+    protected override async Task OnParametersSetAsync() { if (foods.Count == 0) loaded = false; foods = await Content.GetFoodsAsync(); food = string.IsNullOrWhiteSpace(Slug) ? null : foods.FirstOrDefault(item => item.Slug.Equals(Slug, StringComparison.OrdinalIgnoreCase)); loaded = true; }
     private void SetCategory(string category) => activeCategory = category;
     private void ResetCategory() => activeCategory = "all";
     private static string CategoryLabel(string category) => category switch { "hai-san" => "Hải sản", "dac-san" => "Đặc sản", "an-nhe" => "Ăn nhẹ", _ => category };

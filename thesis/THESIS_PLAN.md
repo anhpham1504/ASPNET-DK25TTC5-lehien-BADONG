@@ -41,7 +41,7 @@ A4, Times New Roman Unicode 13 pt, giãn dòng 1,5, trước/sau đoạn 6 pt. L
 
 ## Hình, bảng và bằng chứng dự kiến
 
-Hình 3.1–3.9 lấy từ [danh mục sơ đồ](../docs/diagrams/README.md). Hình Chương 4 chọn từ [18 ảnh](../docs/evidence/screenshots/MANIFEST.md). Ghép ảnh responsive 01–03 thành một hình nếu giữ được chữ đọc rõ. Dùng ảnh 04 cho menu, 05–09 cho khám phá, 10–13 cho ẩm thực/thư viện, 14–16 cho FAQ/lịch trình/vị trí, 17–18 cho lỗi. Có thể đưa các hình tương tự vào phụ lục để giữ ngân sách 8 trang của Chương 4.
+Hình 3.1–3.9 lấy từ [danh mục sơ đồ](../docs/diagrams/README.md). Hình Chương 4 chọn có mục đích từ [28 ảnh production `ec0d53f`](../docs/evidence/screenshots/release-ec0d53f/MANIFEST.md), ưu tiên trang chủ desktop/mobile, Khám phá, Ẩm thực, lightbox, FAQ và tab lịch trình. Ảnh lịch sử chỉ dùng khi minh họa đúng đợt kiểm thử hoặc trạng thái không có trong bộ cuối. Có thể đưa hình bổ sung vào phụ lục để giữ ngân sách 8 trang của Chương 4.
 
 | Bảng dự kiến | Nguồn đối chiếu |
 | --- | --- |

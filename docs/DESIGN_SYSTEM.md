@@ -1,6 +1,6 @@
 # Design system
 
-The shipped visual direction is **Coastal Editorial**: warm ivory paper, deep ocean blue, seafoam panels, and a restrained sunset accent. The system is documented in [DESIGN.md](../DESIGN.md) and implemented in `src/BaDong.CoastalEscape/wwwroot/css/app.css`.
+The shipped visual direction is **Premium Coastal Editorial**: warm ivory paper, deep ocean blue, seafoam panels, and a restrained sunset accent. The system is documented in [DESIGN.md](../DESIGN.md) and implemented in `src/BaDong.CoastalEscape/wwwroot/css/app.css`. Release `ec0d53f` is the frozen reference for this document.
 
 ## Tokens
 
@@ -16,11 +16,13 @@ The shipped visual direction is **Coastal Editorial**: warm ivory paper, deep oc
 
 ## Components
 
-`MainLayout` owns the responsive header, mobile drawer, skip link, and footer. `DestinationCard` and `FoodCard` are data-driven links. `PhotoLightbox` supports Escape/Left/Right. `FaqAccordion` exposes `aria-expanded`. `ContentService` loads and caches static JSON with empty fallbacks. Be Vietnam Pro is used throughout after browser QA showed the optional serif candidate rendered Vietnamese diacritics inconsistently.
+`MainLayout` owns the responsive header, mobile drawer, skip link, and footer. `DestinationCard` and `FoodCard` are data-driven links. Destinations whose imagery is still `PENDING` use an editorial card rather than a large pseudo-photograph: the visual treatment identifies the record without inventing a location image. `PhotoLightbox` supports Escape/Left/Right. `FaqAccordion` exposes `aria-expanded`. `ContentService` loads and caches static JSON with empty fallbacks.
+
+Be Vietnam Pro is the primary typeface, with local system sans-serif fallbacks when the remote font is delayed or unavailable. The hierarchy uses display-scale headings, compact uppercase labels and readable body text. Semantic color tokens carry meaning across surfaces instead of page-specific literal colors. Visible focus styles, reduced-motion rules and focus management for overlays are part of the shipped interaction contract.
 
 ## Responsive contract
 
-The layout is checked at 320, 390, 768, 1024, and 1440px. Grids collapse from three to two to one column. Gallery uses CSS columns, while lightbox becomes a stacked, scrollable panel on mobile.
+The final production matrix covers four recorded viewports, including 320 × 568, 390 × 844, 768 × 1024 and 1440 × 900. Grids collapse from three to two to one column. Gallery uses CSS columns, while lightbox becomes a stacked, scrollable panel on mobile. During candidate review, a CSS cascade at the 820 px breakpoint caused the editorial split to remain in two columns; `92691a8` restored the intended single-column layout below the desktop breakpoint without changing the design system.
 
 ## Image system
 

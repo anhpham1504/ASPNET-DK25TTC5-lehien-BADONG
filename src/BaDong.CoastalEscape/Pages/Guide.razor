@@ -1,8 +1,282 @@
 @page "/cam-nang"
 @inject ContentService Content
-<HeadContent><title>Cẩm nang · BA ĐỘNG — Coastal Escape</title><meta name="description" content="Cẩm nang chuẩn bị chuyến đi Ba Động: thời tiết, đồ dùng, ứng xử và gia đình." /></HeadContent>
-<section class="page-hero"><div class="container-wide"><Breadcrumbs Items="breadcrumbs" /><p class="eyebrow">Cẩm nang</p><h1>Đi nhẹ, chuẩn bị kỹ.</h1><p>Một vài điều thực tế để chuyến đi ven biển thoải mái hơn — và tử tế hơn với nơi chốn.</p></div></section>
-<section class="page-section surface-sand"><div class="container-wide toc-layout"><nav class="toc" aria-label="Mục lục cẩm nang"><a href="#thoi-diem">Thời điểm</a><a href="#chuan-bi">Chuẩn bị</a><a href="#cong-dong">Cộng đồng</a><a href="#gia-dinh">Đi cùng gia đình</a><a href="#faq">FAQ</a></nav><article class="guide-article"><section id="thoi-diem"><h2>Thời điểm & nhịp thời tiết</h2><p>Hãy kiểm tra dự báo và điều kiện địa phương gần ngày đi. Gió, mưa và thủy triều có thể làm thay đổi trải nghiệm ven biển; nội dung trên trang này không phải thông báo an toàn theo thời gian thực.</p><div class="note-panel"><strong>Gợi ý:</strong> Buổi sáng sớm hoặc cuối chiều thường dễ chịu hơn cho việc đi bộ, nhưng thời gian cụ thể cần được kiểm tra lại.</div></section><section id="chuan-bi"><h2>Chuẩn bị một túi đồ gọn</h2><ul><li>Nước uống cá nhân, mũ, kem chống nắng và áo khoác mỏng.</li><li>Túi đựng rác nhỏ để mang rác của mình rời khỏi bờ.</li><li>Giày có độ bám tốt nếu đi gần nền cát ướt hoặc lối cây.</li><li>Thuốc cá nhân và thông tin liên hệ khẩn cấp do bạn tự chuẩn bị.</li></ul></section><section id="cong-dong"><h2>Đi qua cộng đồng với sự tôn trọng</h2><p>Xin phép trước khi chụp ảnh con người. Không tự ý bước vào sân, bến, khu vực sản xuất hoặc vùng có biển cảnh báo. Một câu hỏi lịch sự thường mở ra một câu chuyện hay hơn một bức ảnh vội.</p></section><section id="gia-dinh"><h2>Nếu đi cùng gia đình</h2><p>Chọn điểm dừng có bóng râm, chia nhỏ quãng đi bộ và luôn quan sát trẻ ở khu vực gần nước. Đừng xem một bãi biển đẹp là dấu hiệu an toàn để bơi.</p></section><section id="faq"><h2>FAQ</h2><FaqAccordion Items="faq" /></section><SourceNote Urls="sourceUrls" /></article></div></section>
+
+<HeadContent>
+    <title>Cẩm nang du hành Ba Động · BA ĐỘNG — Coastal Escape</title>
+    <meta name="description" content="Cẩm nang chuẩn bị chuyến đi biển Ba Động: thời điểm vàng, hành trang thiết yếu, lộ trình di chuyển và văn hóa bản địa." />
+</HeadContent>
+
+<section class="page-hero">
+    <div class="container-wide">
+        <Breadcrumbs Items="breadcrumbs" />
+        <p class="eyebrow">Cẩm nang du hành</p>
+        <h1>Đi nhẹ, chuẩn bị kỹ, chạm sâu.</h1>
+        <p>Những gợi ý kinh nghiệm thực tế để chuyến đi ven biển thoải mái, an toàn và tử tế hơn với thiên nhiên bản địa.</p>
+        <div class="guide-stat-grid">
+            <div class="guide-stat-card">
+                <div class="guide-stat-card__icon" aria-hidden="true">🌤️</div>
+                <div class="guide-stat-card__label">Khí hậu biển</div>
+                <div class="guide-stat-card__value">Nắng ấm quanh năm · Gió lộng</div>
+            </div>
+            <div class="guide-stat-card">
+                <div class="guide-stat-card__icon" aria-hidden="true">📍</div>
+                <div class="guide-stat-card__label">Vị trí địa lý</div>
+                <div class="guide-stat-card__value">Trường Long Hòa · Duyên Hải</div>
+            </div>
+            <div class="guide-stat-card">
+                <div class="guide-stat-card__icon" aria-hidden="true">⏱️</div>
+                <div class="guide-stat-card__label">Thời lượng lý tưởng</div>
+                <div class="guide-stat-card__value">2 ngày 1 đêm hoặc 3 ngày 2 đêm</div>
+            </div>
+            <div class="guide-stat-card">
+                <div class="guide-stat-card__icon" aria-hidden="true">🛵</div>
+                <div class="guide-stat-card__label">Phương tiện</div>
+                <div class="guide-stat-card__value">Thuận tiện xe máy & ô tô</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="page-section surface-sand">
+    <div class="container-wide toc-layout">
+        <nav class="toc" aria-label="Mục lục cẩm nang">
+            <div class="toc__title">Mục lục cẩm nang</div>
+            <a href="#thoi-diem"><span>🌤️</span> Thời điểm & Mùa biển</a>
+            <a href="#chuan-bi"><span>🎒</span> Hành trang thiết yếu</a>
+            <a href="#di-chuyen"><span>🚗</span> Lộ trình di chuyển</a>
+            <a href="#van-hoa"><span>🛕</span> Văn hóa & Ứng xử</a>
+            <a href="#gia-dinh"><span>👨‍👩‍👧‍👦</span> Đi cùng gia đình</a>
+            <a href="#faq"><span>❓</span> Hỏi đáp thường gặp</a>
+        </nav>
+
+        <article class="guide-article">
+            <!-- SECTION 1: THỜI ĐIỂM -->
+            <section id="thoi-diem">
+                <p class="eyebrow">Thời gian lý tưởng</p>
+                <h2>Thời điểm & nhịp thời tiết ven biển</h2>
+                <p>Khí hậu vùng duyên hải Trà Vinh mang tính chất nhiệt đới gió mùa biển, nắng ấm quanh năm với hai mùa rõ rệt. Mỗi thời điểm trong năm mang lại một sắc thái và trải nghiệm rất riêng.</p>
+
+                <div class="guide-seasons">
+                    <div class="guide-season-card guide-season-card--prime">
+                        <span class="guide-season-card__badge">Thời điểm vàng · Đẹp nhất</span>
+                        <h4>Mùa khô & Nắng êm</h4>
+                        <p>Kéo dài từ <strong>Tháng 11 đến Tháng 4 năm sau</strong>. Trời cao trong xanh, biển lặng sóng êm, đường ven biển thoáng đãng khô ráo.</p>
+                        <ul>
+                            <li>Rất thích hợp dạo bờ biển cát mịn và tắm nắng sớm.</li>
+                            <li>Ngắm trọn vẹn cảnh bình minh và hoàng hôn trên cánh đồng điện gió.</li>
+                            <li>Thời tiết hanh khô, thuận lợi cho việc chụp ảnh và cắm trại trong ngày.</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-season-card">
+                        <span class="guide-season-card__badge">Mùa sản vật biển</span>
+                        <h4>Mùa mưa phù sa</h4>
+                        <p>Từ <strong>Tháng 5 đến Tháng 10</strong>. Thường xuất hiện những cơn mưa rào nhanh vào đầu giờ chiều rồi tạnh hẳn, bầu không khí mát mẻ dễ chịu.</p>
+                        <ul>
+                            <li>Mùa hải sản dồi dào và tươi ngon nhất trong năm (cua gạch, cá khoai, tôm sú).</li>
+                            <li>Rừng ngập mặn đâm chồi xanh mướt, nhịp sống bến cá nhộn nhịp.</li>
+                            <li>Nên kiểm tra dự báo thời tiết trước chuyến đi để chủ động lịch trình.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3>Những khung giờ vàng trong ngày</h3>
+                <div class="guide-golden-hours">
+                    <div class="guide-golden-card">
+                        <span class="guide-golden-card__time">05:00 — 06:30</span>
+                        <span class="guide-golden-card__title">Đón bình minh</span>
+                        <p class="guide-golden-card__desc">Ánh sáng dịu nhẹ trên mặt nước, ngắm ngư dân đón chuyến tàu sớm về bờ.</p>
+                    </div>
+                    <div class="guide-golden-card">
+                        <span class="guide-golden-card__time">08:00 — 15:30</span>
+                        <span class="guide-golden-card__title">Tránh nắng & Văn hóa</span>
+                        <p class="guide-golden-card__desc">Thời điểm viếng Chùa Hang rợp bóng cổ thụ hoặc thưởng thức ẩm thực đặc sản.</p>
+                    </div>
+                    <div class="guide-golden-card">
+                        <span class="guide-golden-card__time">16:30 — 18:00</span>
+                        <span class="guide-golden-card__title">Hoàng hôn điện gió</span>
+                        <p class="guide-golden-card__desc">Sắc trời ngả cam vàng rực rỡ sau những cánh quạt tua-bin khổng lồ ngoài khơi.</p>
+                    </div>
+                </div>
+
+                <div class="note-panel">
+                    <strong>Gợi ý an toàn:</strong> Dự báo thời tiết địa phương và biên độ thủy triều có thể thay đổi theo từng ngày. Luôn quan sát biển báo tại chỗ và ưu tiên hướng dẫn của người dân bản địa khi ra mép nước.
+                </div>
+            </section>
+
+            <!-- SECTION 2: HÀNH TRANG -->
+            <section id="chuan-bi" style="margin-top: 60px;">
+                <p class="eyebrow">Chuẩn bị chu đáo</p>
+                <h2>Hành trang thiết yếu cho một chuyến đi gọn nhẹ</h2>
+                <p>Một hành trình biển trọn vẹn bắt đầu từ việc chuẩn bị vừa đủ đồ dùng thiết yếu, ưu tiên sự thoải mái và tinh thần bảo vệ môi trường biển.</p>
+
+                <div class="guide-packing-grid">
+                    <div class="guide-packing-card">
+                        <div class="guide-packing-card__header">
+                            <span class="guide-packing-card__icon" aria-hidden="true">🧢</span>
+                            <h4 class="guide-packing-card__title">Bảo vệ nắng gió</h4>
+                        </div>
+                        <ul>
+                            <li>Mũ rộng vành có quai cài tránh gió biển cuốn bay.</li>
+                            <li>Kính râm chống tia UV400 bảo vệ mắt khi đi trên cát sáng màu.</li>
+                            <li>Kem chống nắng an toàn sinh học (Reef-safe sunscreen).</li>
+                            <li>Áo khoác gió mỏng nhẹ cản hơi muối và nắng gắt.</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-packing-card">
+                        <div class="guide-packing-card__header">
+                            <span class="guide-packing-card__icon" aria-hidden="true">👟</span>
+                            <h4 class="guide-packing-card__title">Trang phục linh hoạt</h4>
+                        </div>
+                        <ul>
+                            <li>Trang phục vải đũi, lanh hoặc cotton thoáng mát, thấm hút mồ hôi.</li>
+                            <li>Giày thể thao êm chân hoặc sandal quai hậu bám tốt trên cát ướt.</li>
+                            <li>Quần dài hoặc váy dài qua gối lịch sự khi ghé thăm chùa Khmer.</li>
+                            <li>Khăn choàng mỏng đa năng che nắng hoặc giữ ấm khi chiều buông.</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-packing-card">
+                        <div class="guide-packing-card__header">
+                            <span class="guide-packing-card__icon" aria-hidden="true">🩹</span>
+                            <h4 class="guide-packing-card__title">Y tế & Sức khỏe</h4>
+                        </div>
+                        <ul>
+                            <li>Xịt hoặc kem chống muỗi, côn trùng khi đi gần rừng ngập mặn.</li>
+                            <li>Thuốc chống dị ứng hải sản cá nhân nếu có cơ địa nhạy cảm.</li>
+                            <li>Thuốc say xe, đau bụng nhẹ và băng dán cá nhân tiện lợi.</li>
+                            <li>Chai xịt khoáng cấp ẩm và viên bù điện giải khi vận động ngoài trời.</li>
+                        </ul>
+                    </div>
+
+                    <div class="guide-packing-card">
+                        <div class="guide-packing-card__header">
+                            <span class="guide-packing-card__icon" aria-hidden="true">🌱</span>
+                            <h4 class="guide-packing-card__title">Hành trang xanh</h4>
+                        </div>
+                        <ul>
+                            <li>Bình nước giữ nhiệt cá nhân để hạn chế tối đa chai nhựa một lần.</li>
+                            <li>Túi vải gom rác cá nhân để mang toàn bộ rác thải rời khỏi bờ biển.</li>
+                            <li>Túi zip chống nước bảo vệ điện thoại, máy ảnh khi lội nước bãi bồi.</li>
+                            <li>Thùng xốp giữ nhiệt và túi đá khô nếu có dự định mua hải sản tươi về.</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: DI CHUYỂN -->
+            <section id="di-chuyen" style="margin-top: 60px;">
+                <p class="eyebrow">Đường về duyên hải</p>
+                <h2>Lộ trình & Tuyến đường di chuyển</h2>
+                <p>Bãi biển Ba Động nằm cách trung tâm TP. Trà Vinh khoảng 55 km và cách TP. Hồ Chí Minh khoảng 185 km. Toàn bộ các tuyến đường chính hiện nay đã được trải nhựa êm ái, hai bên rợp bóng cây xanh và hàng dương mát rượi.</p>
+
+                <div class="guide-route-timeline">
+                    <div class="guide-route-step">
+                        <div class="guide-route-step__num">01</div>
+                        <div class="guide-route-step__content">
+                            <h4>Chặng 1: TP. Hồ Chí Minh / Cần Thơ → TP. Trà Vinh</h4>
+                            <div class="guide-route-step__meta">
+                                <span>Khoảng cách: ~130 km</span>
+                                <span>Thời gian: ~2.5 - 3 giờ</span>
+                            </div>
+                            <p>Từ TP.HCM di chuyển theo Cao tốc TP.HCM - Trung Lương hoặc QL1A qua cầu Rạch Miễu, tiếp tục men theo QL60 qua cầu Hàm Luông và cầu Cổ Chiên để tiến thẳng vào địa phận thành phố Trà Vinh.</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-route-step">
+                        <div class="guide-route-step__num">02</div>
+                        <div class="guide-route-step__content">
+                            <h4>Chặng 2: TP. Trà Vinh → Thị xã Duyên Hải</h4>
+                            <div class="guide-route-step__meta">
+                                <span>Khoảng cách: ~45 km</span>
+                                <span>Thời gian: ~1 giờ</span>
+                            </div>
+                            <p>Từ trung tâm thành phố, xuôi theo Quốc lộ 53 hoặc Đường tỉnh 914 qua địa phận huyện Cầu Ngang (có thể dừng chân mua đặc sản Bánh tét Trà Cuôn) để đến trung tâm thị xã Duyên Hải sầm uất.</p>
+                        </div>
+                    </div>
+
+                    <div class="guide-route-step">
+                        <div class="guide-route-step__num">03</div>
+                        <div class="guide-route-step__content">
+                            <h4>Chặng 3: TX. Duyên Hải → Bờ biển Ba Động</h4>
+                            <div class="guide-route-step__meta">
+                                <span>Khoảng cách: ~10 km</span>
+                                <span>Thời gian: ~15 phút</span>
+                            </div>
+                            <p>Từ Duyên Hải, men theo tuyến đường ven biển uốn lượn rợp bóng phi lao dẫn ra xã Trường Long Hòa. Tại đây, biển Ba Động mở ra bao la với hàng tua-bin điện gió sừng sững ngoài chân trời.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="note-panel">
+                    <strong>Lưu ý di chuyển:</strong> Các đoạn đường qua thị trấn thường có giới hạn tốc độ và biển báo khu dân cư. Cần chú ý quan sát khi đi qua các cây cầu nông thôn và các khúc quanh bến đò, nhường đường cho phương tiện thu hoạch nông - thủy sản địa phương.
+                </div>
+            </section>
+
+            <!-- SECTION 4: VĂN HÓA & ỨNG XỬ -->
+            <section id="van-hoa" style="margin-top: 60px;">
+                <p class="eyebrow">Ứng xử có trách nhiệm</p>
+                <h2>Văn hóa bản địa & Điểm chạm tinh tế</h2>
+                <p>Xứ duyên hải Trà Vinh là vùng đất hội tụ nét đẹp văn hóa gắn bó lâu đời giữa ba dân tộc Kinh, Khmer và Hoa. Sự cởi mở, chân thành và tôn trọng lẫn nhau sẽ giúp bạn đón nhận những trải nghiệm giàu cảm xúc nhất.</p>
+
+                <div class="guide-etiquette-grid">
+                    <div class="guide-etiquette-card">
+                        <h4><span>🛕</span> Tôn nghiêm nơi tự viện Khmer</h4>
+                        <p>Khi ghé thăm Chùa Hang (Wat Kompong Chrây) hay các ngôi chùa Nam tông, hãy bỏ giày dép trước khi bước vào chánh điện, giữ sự tĩnh lặng, không chạm tay vào tượng Phật cổ và xin phép tôn kính trước khi chụp ảnh chư tăng hoặc đồng bào hành lễ.</p>
+                    </div>
+
+                    <div class="guide-etiquette-card">
+                        <h4><span>⛵</span> Tôn trọng nhịp sống làng chài</h4>
+                        <p>Bến cảng và bãi bồi ven biển là không gian lao động sinh kế nhọc nhằn của bà con ngư dân. Không tự ý dẫm đạp lên lưới đánh cá hay hải sản đang phân loại trên cầu cảng. Một lời chào thân thiện luôn mở đầu cho những cuộc trò chuyện ấm áp.</p>
+                    </div>
+
+                    <div class="guide-etiquette-card">
+                        <h4><span>🌊</span> Giữ gìn hệ sinh thái bãi bờ</h4>
+                        <p>Bãi biển Ba Động giữ được nét mộc mạc nguyên sơ nhờ sự chở che của rừng ngập mặn và hàng phi lao chắn gió. Tuyệt đối không xả rác nhựa, không bẻ cành thông non và luôn thu gom toàn bộ đồ dùng cá nhân trước khi rời đi.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 5: GIA ĐÌNH -->
+            <section id="gia-dinh" style="margin-top: 60px;">
+                <p class="eyebrow">Trải nghiệm gắn kết</p>
+                <h2>Nếu bạn đi cùng gia đình & trẻ nhỏ</h2>
+                <p>Biển Ba Động có đặc thù là bãi cát phù sa pha sỏi mịn, bãi lài thoai thoải và không có sóng dữ cuồn cuộn, rất thích hợp cho những chuyến nghỉ dưỡng gia đình thảnh thơi.</p>
+
+                <div class="note-panel" style="background: rgba(212, 142, 60, 0.08); border-left-color: var(--amber-glow);">
+                    <h4 style="margin: 0 0 10px; color: var(--ocean-dark);">Lời khuyên an toàn cho cả nhà</h4>
+                    <ul style="margin: 0; padding-left: 20px;">
+                        <li><strong>Quan sát trẻ nhỏ:</strong> Dù sóng nhỏ, nền cát có thể có những hố bùn phù sa tự nhiên khi thủy triều rút. Luôn có người lớn theo sát trẻ em ở khu vực gần mép nước.</li>
+                        <li><strong>Tránh nắng gắt:</strong> Dưới các rặng phi lao luôn có bóng râm mát rượi, là nơi lý tưởng để trải thảm nghỉ trưa và hóng gió biển cho người lớn tuổi.</li>
+                        <li><strong>Thức ăn nhẹ & nước uống:</strong> Chuẩn bị sẵn bình giữ nhiệt nước ấm, hoa quả tươi và bánh ngọt để các thành viên nạp năng lượng kịp thời.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- SECTION 6: FAQ -->
+            <section id="faq" style="margin-top: 60px;">
+                <p class="eyebrow">Giải đáp thắc mắc</p>
+                <h2>Câu hỏi thường gặp (FAQ)</h2>
+                <p>Những giải đáp ngắn gọn và thiết thực nhất từ cộng đồng du lịch và thông tin địa phương chính thống.</p>
+                <FaqAccordion Items="faq" />
+            </section>
+
+            <!-- CALL TO ACTION -->
+            <section style="margin-top: 60px; padding: 36px; border-radius: var(--radius-lg); background: var(--surface); border: 1px solid var(--line); text-align: center;">
+                <p class="eyebrow">Sẵn sàng khởi hành?</p>
+                <h3 style="margin: 0 0 12px; font-size: 1.5rem; color: var(--ocean-dark);">Khám phá thêm các điểm đến & lịch trình gợi ý</h3>
+                <p style="margin: 0 0 24px; color: var(--ink-soft); max-width: 600px; margin-left: auto; margin-right: auto;">Tìm hiểu 9 điểm đến thực tế hoặc tham khảo các lịch trình 1 ngày, 2 ngày và 3 ngày đã được thiết kế sẵn sàng.</p>
+                <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+                    <NavLink class="button button--primary" href="lich-trinh">Xem lịch trình chi tiết</NavLink>
+                    <NavLink class="button button--dark" href="kham-pha">Khám phá 9 địa danh</NavLink>
+                </div>
+            </section>
+
+            <SourceNote Urls="sourceUrls" />
+        </article>
+    </div>
+</section>
 
 @code {
     private readonly IReadOnlyList<Breadcrumbs.BreadcrumbItem> breadcrumbs = [new("Cẩm nang")];

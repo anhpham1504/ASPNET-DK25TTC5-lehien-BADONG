@@ -2,6 +2,8 @@
 
 BA ĐỘNG — Coastal Escape là cẩm nang du lịch học thuật cho người muốn tìm hiểu biển Ba Động và lên lịch trình tham khảo. Phạm vi, ràng buộc và tiêu chí trải nghiệm được lấy từ [PRODUCT.md](../PRODUCT.md) và [SRS.md](SRS.md). Danh mục chức năng được đối chiếu với các trang Razor và bằng chứng tại [ma trận truy vết](TRACEABILITY_MATRIX.md).
 
+Bản thiết kế tham chiếu là release `ec0d53f`. Giao diện dùng hệ thống Premium Coastal Editorial, Be Vietnam Pro với fallback system sans-serif, semantic color tokens, reduced motion và focus rõ. Khi ảnh địa điểm chưa đạt điều kiện nguồn, `DestinationCard` dùng editorial card có nhãn `PENDING` thay cho một placeholder ảnh lớn; lựa chọn này duy trì nhịp bố cục mà không tạo bằng chứng hình ảnh sai.
+
 ## 1. Trường hợp sử dụng và điều hướng
 
 Người truy cập mở trang chủ hoặc giới thiệu, xem và lọc địa điểm, tìm kiếm, mở chi tiết và sao chép liên kết, duyệt món ăn và thư viện, chọn lịch trình, đọc cẩm nang/FAQ và mở bản đồ. Phần mềm là ứng dụng tĩnh chạy trong trình duyệt. Nội dung được bảo trì bằng JSON trong Git. Các chức năng tài khoản, gửi biểu mẫu, đặt chỗ, thanh toán và lưu trữ phía máy chủ nằm ngoài phạm vi.
@@ -60,3 +62,5 @@ Quan hệ là tham chiếu logic giữa các tệp tĩnh. `ItineraryStop.slug` l
 [CI](../.github/workflows/ci.yml) và [Deploy Pages](../.github/workflows/deploy-pages.yml) chạy độc lập. CI chạy khi push `main` hoặc pull request, gồm restore app/test, Release build, automated test và publish để kiểm tra native relinking. Pages chạy khi push `main` hoặc kích hoạt tay, gồm build/publish, thay base path cùng các token 404/robots/sitemap, upload artifact và deploy qua job phụ thuộc build. Hai workflow dùng .NET 10 và workload `wasm-tools`. Test là bước của CI, giữa hai workflow hiện chưa có dependency.
 
 [Danh mục sơ đồ](diagrams/README.md) có SVG/PNG dùng cho Word. [Bằng chứng kỹ thuật](evidence/README.md) và [giới hạn](KNOWN_LIMITATIONS.md) tách kết quả local, production và các mục còn mở.
+
+Candidate redesign từng có hồi quy cascade tại breakpoint 820 px: rule desktop của `.editorial-split` thắng rule responsive và giữ hai cột ở vùng hẹp. Commit `92691a8` đặt lại quan hệ breakpoint, cho một cột ở 320, 390, 768 và hai cột ở desktop. Đây là sửa lỗi CSS phạm vi hẹp; không thay đổi mô hình dữ liệu, route hay kiến trúc.

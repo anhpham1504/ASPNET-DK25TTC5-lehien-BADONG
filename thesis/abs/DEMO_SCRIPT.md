@@ -1,6 +1,6 @@
 # Kịch bản trình diễn BA ĐỘNG Coastal Escape
 
-Trình bày 15 slide trong khoảng 12 phút 50 giây, gồm phần trình diễn 4 phút 40 giây ở slide 14. Có thể điều chỉnh theo thời lượng giảng viên yêu cầu. Mở sẵn [website](https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/), kho mã nguồn, [CI 45745648779](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45745648779), [Pages 45745648732](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45745648732) và terminal. Chọn đúng bản phát hành [c992fda](../../docs/RELEASE_BASELINE.md).
+Trình bày 15 slide trong khoảng 12 phút 50 giây, gồm phần trình diễn 4 phút 40 giây ở slide 14. Có thể điều chỉnh theo thời lượng giảng viên yêu cầu. Mở sẵn [website](https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/), kho mã nguồn, [CI 45775505092](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45775505092), [Pages 45775504992](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45775504992) và terminal. Chọn đúng bản phát hành [ec0d53f](../../docs/RELEASE_BASELINE.md).
 
 | Mốc | Thao tác | Kết quả mong đợi và câu dẫn |
 | --- | --- | --- |
@@ -17,9 +17,9 @@ Trình bày 15 slide trong khoảng 12 phút 50 giây, gồm phần trình diễ
 | 02:56–03:17 | Đổi vùng hiển thị xuống 390 px, mở menu rồi nhấn Escape. | Menu đóng và focus trở về nút mở. “Đây là kích thước giả lập trong trình duyệt.” |
 | 03:17–03:44 | Mở Program.cs, ContentService.cs, Explore.razor và một tệp JSON đã đặt sẵn tab. | “Chương trình đăng ký dịch vụ một lần. Mỗi lần chọn bộ lọc chỉ xử lý dữ liệu trong trình duyệt.” |
 | 03:44–04:13 | Chạy lệnh test đã chuẩn bị dưới đây. | “Đọc tổng số ca và kết quả mà terminal in.” Nếu lệnh chưa xong, dùng số liệu CI cùng SHA và nêu rõ đó là bằng chứng đã lưu. |
-| 04:13–04:40 | Mở kết quả CI và Pages, trỏ vào SHA `c992fda` và trạng thái. | “Hai workflow có trách nhiệm riêng và đã thành công trên cùng merge commit. CI hoàn tất native relinking và wasm-opt. URL sâu trực tiếp có thể trả 404 trước khi ứng dụng chuyển đúng trang.” |
+| 04:13–04:40 | Mở kết quả CI và Pages, trỏ vào candidate `92691a8`, merge SHA `ec0d53f` và trạng thái. | “CI xác minh candidate; Pages triển khai merge commit. CI hoàn tất native relinking và wasm-opt. URL sâu trực tiếp có thể trả 404 trước khi ứng dụng chuyển đúng trang.” |
 
-Các bước trình diễn dựa trên [bằng chứng kỹ thuật](../../docs/evidence/academic-validation/2026-W48-phase-d-f.md) và [bằng chứng hotfix](../../docs/evidence/screenshots/hotfix-c992fda/MANIFEST.md). Clipboard đã được đọc lại trong lượt kiểm desktop và mobile của nút chia sẻ.
+Các bước trình diễn dựa trên [mốc phát hành](../../docs/RELEASE_BASELINE.md) và [28 ảnh production cuối](../../docs/evidence/screenshots/release-ec0d53f/MANIFEST.md). Clipboard và focus restoration nằm trong nhóm tương tác đã kiểm của release cuối.
 
 ## Phương án dự phòng tại máy
 
@@ -38,4 +38,4 @@ dotnet run --project $app -c Release --no-build --no-launch-profile --urls http:
 
 Mở [bản local ở cổng 5198](http://127.0.0.1:5198/). Có thể chạy lệnh test trong terminal thứ hai sau khi đã khôi phục gói. Bản local minh họa giao diện và tương tác. Giới hạn HTTP 404 của GitHub Pages được giải thích bằng [bằng chứng của bản công khai](../../docs/RELEASE_BASELINE.md).
 
-Khi local cũng không chạy được, mở PDF slide, [bộ ảnh `1c04cb1`](../../docs/evidence/screenshots/release-1c04cb1/MANIFEST.md) và [ảnh hotfix `c992fda`](../../docs/evidence/screenshots/hotfix-c992fda/MANIFEST.md). Dùng bảng kết quả trong luận văn để giải thích test và ghi rõ môi trường của số liệu. Bộ 18 ảnh lịch sử vẫn dùng khi trình bày các ca Phase D–F.
+Khi local cũng không chạy được, mở PDF slide, [bộ 28 ảnh `ec0d53f`](../../docs/evidence/screenshots/release-ec0d53f/MANIFEST.md) và bản HTML luận văn offline. Dùng bảng kết quả trong luận văn để giải thích test và ghi rõ môi trường của số liệu. Các bộ ảnh cũ chỉ dùng khi trình bày lịch sử hồi quy.

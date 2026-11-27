@@ -1,6 +1,6 @@
 # Câu hỏi chuẩn bị bảo vệ
 
-Trả lời theo bản phát hành cuối [c992fda](../../docs/RELEASE_BASELINE.md). Đối chiếu thêm [hồ sơ thiết kế](../../docs/SOFTWARE_DESIGN.md), [ma trận truy vết](../../docs/TRACEABILITY_MATRIX.md), [bằng chứng lịch sử](../../docs/evidence/academic-validation/2026-W48-phase-d-f.md), [ảnh `1c04cb1`](../../docs/evidence/screenshots/release-1c04cb1/MANIFEST.md) và [ảnh hotfix](../../docs/evidence/screenshots/hotfix-c992fda/MANIFEST.md).
+Trả lời theo bản phát hành cuối [ec0d53f](../../docs/RELEASE_BASELINE.md). Đối chiếu thêm [hồ sơ thiết kế](../../docs/SOFTWARE_DESIGN.md), [ma trận truy vết](../../docs/TRACEABILITY_MATRIX.md), [bằng chứng lịch sử](../../docs/evidence/academic-validation/2026-W48-phase-d-f.md) và [28 ảnh production cuối](../../docs/evidence/screenshots/release-ec0d53f/MANIFEST.md).
 
 ## Bài toán và thiết kế
 
@@ -25,7 +25,7 @@ Trả lời theo bản phát hành cuối [c992fda](../../docs/RELEASE_BASELINE.
 16. **Dấu tiếng Việt có trường hợp nào chưa hỗ trợ?** “Hoàng hôn” và “hoang hon” cùng tìm được Góc ngắm hoàng hôn. Đ và d là ký tự riêng nên vẫn phân biệt.
 17. **Bộ lọc và từ khóa kết hợp ra sao?** Explore.razor xét danh mục trước. Khi có từ khóa, nó tìm trong tên, mô tả ngắn, đoạn mô tả đầu và tags. Thứ tự tệp JSON được giữ.
 18. **Lịch trình tham chiếu địa điểm ra sao?** Điểm dừng có thể chứa slug của một địa điểm. Giá trị có nội dung phải phân giải được. Một điểm dừng có slug rỗng có thể hiện mô tả mà không tạo liên kết.
-19. **Vì sao một số ảnh dùng ảnh giữ chỗ?** Năm địa điểm chưa có ảnh đủ căn cứ nguồn hoặc vị trí. Trạng thái PENDING làm rõ rằng ảnh cần được xác minh thêm.
+19. **Vì sao năm địa điểm dùng editorial card thay cho ảnh lớn?** Chưa có ảnh đủ căn cứ nguồn hoặc vị trí. Trạng thái PENDING vẫn được giữ trong dữ liệu; editorial card tạo nhịp thị giác bằng hình học và chữ mà không giả làm ảnh địa điểm.
 20. **Mọi ảnh có phải chụp tại Ba Động?** Ảnh VERIFIED_REGION thuộc vùng liên quan. VERIFIED_SUBJECT xác minh chủ thể ở phạm vi phù hợp. Vị trí, tác giả và giấy phép thể hiện trong từng hồ sơ.
 21. **Nguồn du lịch được quản lý thế nào?** Dữ liệu có liên kết và mốc cập nhật tùy loại. Sổ nguồn của kho mã nguồn lưu thông tin đối chiếu. Người đọc cần truy cập nguồn khi điều kiện tham quan thay đổi.
 
@@ -33,12 +33,12 @@ Trả lời theo bản phát hành cuối [c992fda](../../docs/RELEASE_BASELINE.
 
 22. **14 kiểm thử tự động bao phủ gì?** Chúng kiểm tệp và cấu trúc JSON, ID và slug, đường dẫn ảnh, thông tin xác minh, tham chiếu lịch trình và hành vi ContentService trước phản hồi hợp lệ hoặc lỗi.
 23. **14 ca đạt có chứng minh toàn bộ website hết lỗi không?** Kết quả cho biết những hành vi được định nghĩa trong bộ kiểm đã đạt ở môi trường đã chạy. Giao diện, mạng và thao tác người dùng có những lượt kiểm riêng.
-24. **48, 28 và 52 là số gì?** 48 là lượt của phiên bản cơ sở, gồm 12 URL × 4 chiều rộng. 28 là lượt hồi quy tiêu đề trên máy phát triển, gồm 7 URL × 4 chiều rộng. 52 là ma trận production trên `1c04cb1`, gồm 13 route × 4 viewport. Hotfix `c992fda` chỉ chạy lại nhóm nút chia sẻ.
+24. **14 test khác 48 lượt browser verification và 19 URL sitemap thế nào?** 14 là test tự động cho dữ liệu và dịch vụ. 48 là 12 route × 4 viewport trên production `ec0d53f`. 19 là số URL sitemap kết xuất đúng sau khi ứng dụng tải, không phải 19 phản hồi HTTP 200. Các con số lịch sử 28 và 52 vẫn thuộc những đợt trước.
 25. **Hai lỗi HTTP 503 có thật trên production không?** Đây là hai phản hồi mô phỏng đối với destinations.json và foods.json để quan sát từ trạng thái đang tải sang chưa có dữ liệu.
 26. **Accessibility đã kiểm đến mức nào?** Có các lượt kiểm heading, main, lang, focus, menu, hộp thoại ảnh, FAQ, filter, caption cảm ứng và tab/panel lịch trình. Nút chia sẻ có phép đo tương phản riêng. Firefox, WebKit, axe-core, kiểm toán WCAG 2.2 AA, tương phản toàn site, zoom 200% thực tế và trình đọc màn hình còn mở.
-27. **Các bộ ảnh chụp khác nhau thế nào?** Bộ 18 ảnh ngày 25/11 là bằng chứng lịch sử của đợt local. Bộ 13 ảnh ngày 26/11 chụp production đúng SHA `1c04cb1`. Một ảnh mới chụp lại trang chi tiết trên hotfix `c992fda`. Tên file và manifest giữ ba nguồn gốc riêng.
+27. **Các bộ ảnh chụp khác nhau thế nào?** Bộ 18 ảnh local, 13 ảnh `1c04cb1` và một ảnh `c992fda` là bằng chứng lịch sử. Bộ 28 ảnh `ec0d53f` gồm 10 desktop, 10 mobile và 8 tương tác, dùng cho giao diện production cuối. Mỗi bộ có manifest và SHA riêng.
 28. **Đã kiểm tra clipboard chưa?** Có. Enter, Space và thao tác chạm trên trang chi tiết đều đưa đúng URL hiện tại vào clipboard trong Chrome Headless 158. Kết quả không suy rộng sang mọi trình duyệt hoặc chính sách cấp quyền.
-29. **Số liệu dung lượng có thay cho đánh giá tốc độ không?** Không. CI ghi 2.826.655 byte framework Brotli, 2.900.443 byte native WASM và 931.222 byte native WASM Brotli. Thời gian khởi động và số byte tải thực tế còn phụ thuộc mạng, thiết bị, tài nguyên được chọn và bộ nhớ đệm.
+29. **Số liệu dung lượng có thay cho đánh giá tốc độ không?** Không. CI cuối ghi 43 framework resources, 2.826.634 byte framework Brotli, 2.900.443 byte native WASM và 931.222 byte native WASM Brotli. Bảng Before/After chỉ là median 5 lượt local Release ở Chrome 1440 × 900; không có Lighthouse production.
 
 ## Triển khai, giới hạn và phát triển
 
@@ -51,3 +51,6 @@ Trả lời theo bản phát hành cuối [c992fda](../../docs/RELEASE_BASELINE.
 36. **Nếu khảo sát SSR thì phải đổi gì?** Cần môi trường chạy ASP.NET Core phía máy chủ, xử lý route ở đó, kiểm cấu hình cung cấp phụ thuộc, nguồn nội dung, metadata và mã phản hồi. Giữ SSR như hướng khảo sát sau mốc đóng băng.
 37. **Hạn chế nào đáng ưu tiên?** HTTP 404 ban đầu của URL sâu là giới hạn hosting. Năm ảnh chờ xác minh là vấn đề dữ liệu. Khả năng tiếp cận cần mở rộng kiểm tra chéo trình duyệt, zoom, tương phản toàn site và screen reader trước khi kết luận về WCAG.
 38. **Tab lịch trình liên kết với panel ra sao?** Mỗi tab có `aria-controls` trỏ tới một panel tồn tại. Panel dùng `aria-labelledby` trỏ lại tab. Panel không chọn có `hidden`; chỉ tab hoạt động có `aria-selected=true` và `tabindex=0`. ArrowLeft, ArrowRight, Home và End đổi lựa chọn mà không chặn Tab hoặc làm cuộn trang.
+39. **Vì sao dùng Be Vietnam Pro?** Font hỗ trợ tiếng Việt tốt và phù hợp hệ phân cấp sans-serif của thiết kế. CSS vẫn có fallback font hệ thống để nội dung đọc được khi Google Fonts chậm hoặc không khả dụng.
+40. **Hồi quy CSS ở breakpoint 820 px là gì?** Rule desktop của `.editorial-split` từng thắng rule responsive, làm vùng gần tablet giữ hai cột. Kiểm tra computed layout phát hiện lỗi; commit `92691a8` khôi phục một cột ở 320, 390 và 768 px, hai cột ở desktop.
+41. **Native relinking khác AOT thế nào?** Workflow dùng `wasm-tools` để relink runtime và biên dịch native assets, rồi chạy `wasm-opt`. Hồ sơ không tuyên bố ứng dụng đã bật full AOT; hai khái niệm không được dùng thay nhau.

@@ -36,7 +36,7 @@ else
 
     protected override async Task OnParametersSetAsync()
     {
-        loaded = false;
+        if (allDestinations.Count == 0) loaded = false;
         allDestinations = await Content.GetDestinationsAsync();
         destination = allDestinations.FirstOrDefault(item => string.Equals(item.Slug, Slug, StringComparison.OrdinalIgnoreCase));
         related = destination is null ? [] : allDestinations.Where(item => item.Id != destination.Id && item.Tags.Intersect(destination.Tags, StringComparer.OrdinalIgnoreCase).Any()).Take(3).ToList();

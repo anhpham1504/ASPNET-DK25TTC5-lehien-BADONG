@@ -13,7 +13,7 @@ Only commands executed in the current review may be marked `PASS`. Historical no
 | Release build | `dotnet build src/BaDong.CoastalEscape/BaDong.CoastalEscape.csproj -c Release --no-restore` | PASS - 0 warnings, 0 errors |
 | Automated tests | `dotnet test --project tests/BaDong.CoastalEscape.Tests/BaDong.CoastalEscape.Tests.csproj -c Release --no-restore` | PASS - 14 passed, 0 failed, 0 skipped |
 
-The final product SHA `c992fda52dd0cb888b2bde5700e14f3628b38d3e` passed the same Release build and 14-test gate in [CI run 45745648779](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45745648779). The workflow also completed `wasm-tools` installation, native relinking, native asset compilation and `wasm-opt`.
+The final candidate `92691a862e72ad0fedddef78a2e58a45b30e92cb` passed the same Release build and 14-test gate in [CI run 45775505092](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45775505092). The workflow also completed `wasm-tools` installation, native relinking, native asset compilation and `wasm-opt`. GitHub Pages then deployed merge SHA `ec0d53f180570e59c084a9ce7f74aa89d5ee3abe` in [run 45775504992](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45775504992).
 
 ## Automated coverage
 
@@ -53,7 +53,7 @@ Phase C exercised 48 production route/viewport combinations against baseline `95
 
 The UI release-candidate review later compared 126 local and 126 production combinations before the final itinerary correction. Those historical runs are not reported as if they ran on the final SHA.
 
-## Production regression — 26 November 2026
+## Historical production regression — 26 November 2026
 
 Chrome Headless 158 ran a fresh 13-route × 4-viewport matrix against deployed SHA `1c04cb1`, for 52 cases. All cases reached the intended UI route with one title, the expected main heading, no horizontal overflow, no broken images, and no failed CSS, script, image, JSON or WebAssembly request. Forty-eight direct deep-link documents initially returned GitHub Pages HTTP 404 and then recovered through the expected SPA fallback; the four homepage cases returned HTTP 200.
 
@@ -63,8 +63,20 @@ The final hotfix SHA `c992fda` received targeted desktop and mobile checks for t
 
 The 13-image release set remains indexed in the [release evidence manifest](evidence/screenshots/release-1c04cb1/MANIFEST.md). The affected destination screenshot after the hotfix is indexed in the [`c992fda` manifest](evidence/screenshots/hotfix-c992fda/MANIFEST.md).
 
+## Final production verification — ec0d53f
+
+Chrome Headless 158 verified 12 routes at four viewports, totaling **48/48 combinations**, after Pages deployed `ec0d53f`. The checks waited for Blazor to finish rendering, then confirmed the intended route, one title, the expected main heading, no horizontal overflow, no broken image and no failed CSS, script, WebAssembly, JSON or image request in scope. No console or page error was recorded. Expected HTTP 404 responses for initial SPA deep-link documents remain classified separately.
+
+The sitemap audit covered **19/19 URLs** after application load. Interaction groups passed for mobile menu, FAQ, search with Vietnamese accents, category filter and reset, empty state, itinerary tabs, lightbox, clipboard and focus restoration. Five destinations remained `PENDING`; the final cards presented an editorial record without implying an unverified photograph. The [28-image manifest](evidence/screenshots/release-ec0d53f/MANIFEST.md) indexes 10 desktop, 10 mobile and 8 interaction screenshots.
+
+The responsive regression around `.editorial-split` was reproduced on the candidate and corrected by `92691a8`. Targeted checks showed one column at 320, 390 and 768 px, and the intended two-column desktop composition at 1440 px.
+
+## Historical performance comparison
+
+Median values from five local Release runs in Chrome at 1440 × 900, after warm-up and with Before/After runs interleaved, were LCP 988/1,028 ms, CLS 0.00083/0.00106, FCP 236/276 ms and load event 625/654 ms. These measurements are not production Web Vitals and do not support a claim that the redesign improved speed.
+
 ## Remaining verification scope
 
 - Run Firefox and WebKit when their Playwright binaries are available.
 - Run axe-core, real browser zoom 200%, screen-reader and full-site contrast audits. See the [known limitations](KNOWN_LIMITATIONS.md).
-- Record Lighthouse or other performance results only after running the named tool against a documented URL and configuration.
+- Record Lighthouse, TBT, INP or other performance results only after running the named tool against a documented URL and configuration.

@@ -5,13 +5,12 @@ import { Presentation, PresentationFile } from "@oai/artifact-tool";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..", "..");
 const output = process.argv[2] || path.join(root, "thesis", "abs", "BA-DONG-Coastal-Escape.pptx");
-const evidence = "docs/evidence/screenshots/release-1c04cb1";
-const hotfixEvidence = "docs/evidence/screenshots/hotfix-c992fda";
+const evidence = "docs/evidence/screenshots/release-ec0d53f";
 const production = "https://anhpham1504.github.io/ASPNET-DK25TTC5-lehien-BADONG/";
-const release = "c992fda52dd0cb888b2bde5700e14f3628b38d3e";
+const release = "ec0d53f180570e59c084a9ce7f74aa89d5ee3abe";
 const repo = "https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG";
-const ci = repo + "/actions/runs/45745648779";
-const pages = repo + "/actions/runs/45745648732";
+const ci = repo + "/actions/runs/45775505092";
+const pages = repo + "/actions/runs/45775504992";
 const serviceFile = "src/BaDong.CoastalEscape/Services/ContentService.cs";
 const color = { dark:"#103C46", ink:"#172B31", white:"#FFFFFF", sand:"#F9F5EB",
   muted:"#4B6266", pale:"#E3EEEB", line:"#C3D4D0", accent:"#A45B2D", warm:"#F0BB84" };
@@ -149,42 +148,42 @@ rows("Công nghệ sử dụng","",[
   txt(s,"Tìm kiếm tiếng Việt",834,224,363,51,24,color.dark,true);
   txt(s,"Chuẩn hóa Unicode, bỏ dấu kết hợp và so khớp chuỗi con.",834,294,363,109,20);
   txt(s,"“hoàng hôn” và “hoang hon” cho cùng kết quả. Chữ đ và d vẫn được phân biệt.",834,432,363,154,20,color.muted);
-  txt(s,"Đoạn trích từ LoadAsync<T> tại bản phát hành c992fda",76,573,724,52,16,color.muted);
+  txt(s,"Đoạn trích từ LoadAsync<T> tại bản phát hành ec0d53f",76,573,724,52,16,color.muted);
   note(s,45,"Đoạn mã trích trực tiếp từ LoadAsync<T>, xuống dòng điều kiện để dễ chiếu. Nếu chưa có mục đệm, phương thức gọi GetFromJsonAsync. Lỗi đã xử lý trả dữ liệu rỗng và không lưu nhánh lỗi. Tìm kiếm dùng FormD, bỏ NonSpacingMark, FormC và chữ thường.",[serviceFile,"src/BaDong.CoastalEscape/Pages/Explore.razor"]);
 }
 {
   const s=page("Giao diện chính","Từ trang chủ đến danh sách và chi tiết một điểm đến.");
-  await shot(s,"01-home-desktop-1c04cb1.png","Trang chủ",76,218,617,386);
-  await shot(s,"04-explore-1c04cb1.png","Khám phá",764,206,398,194);
-  await shot(s,"01-destination-detail-c992fda.png","Chi tiết Biển Ba Động",764,447,398,194,hotfixEvidence);
-  txt(s,"Trang chủ và Khám phá: 1c04cb1 · Chi tiết: c992fda",76,662,760,34,16,color.muted);
-  note(s,35,"Dẫn người nghe theo luồng tra cứu từ trang chủ tới danh sách và chi tiết. Ảnh chi tiết đã được chụp lại sau hotfix tương phản nút chia sẻ.",["docs/evidence/screenshots/release-1c04cb1/MANIFEST.md, ảnh 01 và 04","docs/evidence/screenshots/hotfix-c992fda/MANIFEST.md, ảnh 01"]);
+  await shot(s,"desktop/home-1440x900.png","Trang chủ",76,218,617,386);
+  await shot(s,"desktop/explore-1440x900.png","Khám phá",764,206,398,194);
+  await shot(s,"desktop/destination-1440x900.png","Chi tiết Biển Ba Động",764,447,398,194);
+  txt(s,"Ảnh production cuối · ec0d53f · 26/11/2026",76,662,760,34,16,color.muted);
+  note(s,35,"Dẫn người nghe theo luồng tra cứu từ trang chủ tới danh sách và chi tiết. Ba ảnh đều thuộc bộ production cuối ec0d53f.",["docs/evidence/screenshots/release-ec0d53f/MANIFEST.md"]);
 }
 {
   const s=page("Ẩm thực, thư viện và lịch trình","Hai màn hình minh họa cách lọc món và xem thông tin nguồn ảnh.");
-  await shot(s,"06-cuisine-1c04cb1.png","Ẩm thực và bộ lọc",76,212,549,343);
-  await shot(s,"08-lightbox-1c04cb1.png","Thư viện và ghi công ảnh",655,212,549,343);
+  await shot(s,"desktop/cuisine-1440x900.png","Ẩm thực và bộ lọc",76,212,549,343);
+  await shot(s,"interactions/lightbox.png","Thư viện và ghi công ảnh",655,212,549,343);
   txt(s,"Cẩm nang có câu hỏi thường gặp. Mục lịch trình có gợi ý một ngày và hai ngày.",76,620,1128,57,18,color.muted);
-  note(s,30,"Nêu các chức năng theo thứ tự từ tìm món, xem ảnh kèm ghi công, mở câu hỏi thường gặp đến chọn lịch trình tham khảo.",["docs/evidence/screenshots/release-1c04cb1/MANIFEST.md, ảnh 06, 08 và 09"]);
+  note(s,30,"Nêu các chức năng theo thứ tự từ tìm món, xem ảnh kèm ghi công, mở câu hỏi thường gặp đến chọn lịch trình tham khảo.",["docs/evidence/screenshots/release-ec0d53f/MANIFEST.md"]);
 }
 {
   const s=page("Màn hình hẹp và khả năng tiếp cận");
-  await shot(s,"02-home-mobile-1c04cb1.png","Trang chủ 390 × 844",76,175,220,416);
-  await shot(s,"03-mobile-menu-1c04cb1.png","Menu 390 × 844",324,175,220,416);
+  await shot(s,"mobile/home-390x844.png","Trang chủ 390 × 844",76,175,220,416);
+  await shot(s,"interactions/mobile-menu.png","Menu 390 × 844",324,175,220,416);
   txt(s,"Các thao tác đã kiểm tra",594,205,610,53,25,color.dark,true);
   txt(s,"Tab và Shift+Tab trong menu\nEscape đóng và trả focus\nArrow, Home, End ở tab lịch trình",594,281,610,156,22);
   rule(s,594,450,604);
   txt(s,"Firefox, WebKit, axe-core, zoom 200% thực tế và screen reader còn mở.",594,475,604,102,18,color.muted);
-  note(s,35,"Hai ảnh production cho thấy trang chủ và menu trên màn hình hẹp. Đã kiểm menu, hộp thoại ảnh, FAQ, caption cảm ứng và quan hệ tab/panel lịch trình. Các hạng mục chưa chạy được ghi rõ trong giới hạn.",["docs/evidence/screenshots/release-1c04cb1/MANIFEST.md, ảnh 02 và 03","docs/KNOWN_LIMITATIONS.md"]);
+  note(s,35,"Hai ảnh production cuối cho thấy trang chủ và menu trên màn hình hẹp. Đã kiểm menu, hộp thoại ảnh, FAQ, caption cảm ứng và quan hệ tab/panel lịch trình. Các hạng mục chưa chạy được ghi rõ trong giới hạn.",["docs/evidence/screenshots/release-ec0d53f/MANIFEST.md","docs/KNOWN_LIMITATIONS.md"]);
 }
 {
   const s=page("Kết quả kiểm thử","Số ca, số lượt và số đường dẫn được báo cáo theo từng đợt.");
   const tests=[
     ["14/14","Kiểm thử tự động","Dữ liệu và dịch vụ"],
-    ["48","Lượt phiên bản cơ sở","12 URL × 4 chiều rộng"],
-    ["28","Lượt sửa tiêu đề","7 URL × 4 chiều rộng"],
-    ["2","Ca HTTP 503","Mô phỏng khi tải JSON"],
-    ["52","Lượt production 1c04cb1","13 route × 4 viewport"],
+    ["48/48","Production cuối","12 route × 4 viewport"],
+    ["19/19","URL sitemap","Sau khi ứng dụng tải"],
+    ["28","Ảnh production","10 desktop · 10 mobile · 8 tương tác"],
+    ["5","Địa điểm PENDING","Không dùng ảnh chưa xác minh"],
   ];
   tests.forEach(([count,label,details],i)=>{
     const x=76+i*228;
@@ -193,19 +192,19 @@ rows("Công nghệ sử dụng","",[
     txt(s,label,x,392,214,88,20,color.ink,true);
     txt(s,details,x,489,210,92,17,color.muted);
   });
-  note(s,45,"14 ca tự động kiểm tra dữ liệu và dịch vụ. 48 và 28 là hai ma trận lịch sử. Hai phản hồi 503 do bộ kiểm thử tạo trên bản local. Con số 52 thuộc bản 1c04cb1; hotfix cuối chỉ chạy lại nhóm nút chia sẻ. Mỗi kết quả có phạm vi riêng.",["docs/evidence/academic-validation/2026-W48-phase-d-f.md","docs/RELEASE_BASELINE.md",ci]);
+  note(s,45,"14 ca tự động kiểm tra dữ liệu và dịch vụ. Ma trận production cuối gồm 48 tổ hợp. Mười chín URL sitemap được kiểm sau khi ứng dụng tải; không được diễn giải là 19 HTTP 200. Hai mươi tám ảnh ghi lại giao diện cuối, còn năm địa điểm giữ trạng thái PENDING.",["docs/RELEASE_BASELINE.md","docs/evidence/screenshots/release-ec0d53f/MANIFEST.md",ci]);
 }
 {
   const s=page("CI/CD và triển khai","Hai workflow nhận cùng commit và chạy độc lập.");
-  block(s,"main · c992fda","Merge commit hotfix cuối",76,314,301,136);
+  block(s,"main · ec0d53f","Merge commit production cuối",76,314,301,136);
   box(s,395,365,86,22,color.accent,"rightArrow");
   box(s,484,279,3,198,color.accent);
   box(s,487,279,49,18,color.accent,"rightArrow");
   box(s,487,459,49,18,color.accent,"rightArrow");
-  block(s,"CI · 45745648779","Release build, 14 test, native relinking và wasm-opt.",551,216,653,136);
-  block(s,"Pages · 45745648732","Publish, thiết lập đường dẫn cơ sở và triển khai gói tĩnh.",551,396,653,136);
-  txt(s,"Cả hai lần chạy thành công trên cùng SHA. Deployment: 8075210041.",76,581,1128,63,20,color.muted);
-  note(s,40,"Mở trang kết quả CI và Pages để đối chiếu SHA. CI hoàn tất workload wasm-tools, native assets và wasm-opt. Job deploy của Pages sử dụng gói do job build của chính workflow đó tạo.",["Release SHA "+release,ci,pages,"docs/RELEASE_BASELINE.md"]);
+  block(s,"CI · 45775505092","Candidate: Release build, 14 test, native relinking và wasm-opt.",551,216,653,136);
+  block(s,"Pages · 45775504992","Merge SHA: publish, base path và triển khai gói tĩnh.",551,396,653,136);
+  txt(s,"Pages triển khai ec0d53f; browser verification đạt 48/48 tổ hợp.",76,581,1128,63,20,color.muted);
+  note(s,40,"Mở trang kết quả CI và Pages để đối chiếu candidate và merge SHA. CI hoàn tất workload wasm-tools, native assets và wasm-opt. Browser verification sau deployment xác nhận artifact production.",["Release SHA "+release,ci,pages,"docs/RELEASE_BASELINE.md"]);
 }
 {
   const s=page("Trình diễn và giới hạn");

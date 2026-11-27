@@ -27,6 +27,6 @@ Tất cả ảnh được chụp ngày **25/11/2026**, bằng Chrome Headless 15
 
 Title trong browser được xác minh qua DOM trong [báo cáo kỹ thuật](../academic-validation/2026-W48-phase-d-f.md). Ảnh nội dung trang hỗ trợ minh họa trạng thái hiển thị trong thân trang.
 
-## Bộ production của bản phát hành cuối
+## Các bộ production theo mốc phát hành
 
-Bộ 18 ảnh trên được giữ nguyên như bằng chứng lịch sử. Bản `1c04cb15c700c5a78c4c89d3be63008af990fd5f` có [13 ảnh production và manifest riêng](release-1c04cb1/MANIFEST.md), chụp ngày 26/11/2026. Hotfix cuối `c992fda52dd0cb888b2bde5700e14f3628b38d3e` có [một ảnh chi tiết địa điểm riêng](hotfix-c992fda/MANIFEST.md). Không thay thế hoặc đổi tên các ảnh cũ.
+Bộ 18 ảnh trên được giữ nguyên như bằng chứng lịch sử. Bản `1c04cb15c700c5a78c4c89d3be63008af990fd5f` có [13 ảnh production và manifest riêng](release-1c04cb1/MANIFEST.md). Hotfix `c992fda52dd0cb888b2bde5700e14f3628b38d3e` có [một ảnh chi tiết địa điểm riêng](hotfix-c992fda/MANIFEST.md). Thiết kế cuối `ec0d53f180570e59c084a9ce7f74aa89d5ee3abe` có [28 ảnh production](release-ec0d53f/MANIFEST.md). Không thay thế hoặc đổi tên các ảnh cũ.

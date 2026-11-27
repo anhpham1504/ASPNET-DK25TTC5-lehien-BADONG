@@ -52,7 +52,7 @@
             <div class="card-grid" aria-busy="@(contentLoading ? "true" : "false")">
                 @if (contentLoading)
                 {
-                    @for (var index = 0; index < 3; index++)
+                    @for (var index = 0; index < 6; index++)
                     {
                         <div class="destination-card home-card-placeholder" aria-hidden="true">
                             <div class="destination-card__image"></div>
@@ -62,10 +62,10 @@
                 }
                 else
                 {
-                    @foreach (var destination in destinations.Take(3)) { <DestinationCard Destination="destination" /> }
+                    @foreach (var destination in destinations.Take(6)) { <DestinationCard Destination="destination" /> }
                 }
             </div>
-            <div style="margin-top:28px"><NavLink class="text-link" href="kham-pha">Xem toàn bộ điểm đến</NavLink></div>
+            <div style="margin-top:28px"><NavLink class="text-link" href="kham-pha">Xem toàn bộ 9 điểm đến</NavLink></div>
         </div>
     </section>
 
@@ -80,7 +80,7 @@
             <div class="card-grid" aria-busy="@(contentLoading ? "true" : "false")">
                 @if (contentLoading)
                 {
-                    @for (var index = 0; index < 4; index++)
+                    @for (var index = 0; index < 6; index++)
                     {
                         <div class="food-card home-card-placeholder" aria-hidden="true">
                             <div class="food-card__image"></div>
@@ -90,9 +90,10 @@
                 }
                 else
                 {
-                    @foreach (var food in foods.Take(4)) { <FoodCard Food="food" /> }
+                    @foreach (var food in foods.Take(6)) { <FoodCard Food="food" /> }
                 }
             </div>
+            <div style="margin-top:28px"><NavLink class="text-link" href="am-thuc">Khám phá toàn bộ 9 món đặc sản</NavLink></div>
         </div>
     </section>
 

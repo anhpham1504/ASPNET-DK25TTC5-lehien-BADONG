@@ -4,13 +4,13 @@
 
 ### 4.1.1. Phạm vi theo mốc phiên bản
 
-Phiên bản cơ sở trước khi sửa tiêu đề là `955956b`. Mốc `463da37` ngày 25/11/2026 giữ kết quả của đợt title và hồ sơ học thuật ban đầu. Đợt tinh chỉnh UI đi qua PR #2, gồm commit giao diện `8060028`, commit hoàn thiện quan hệ tab/panel `399393e` và merge commit `1c04cb1`. Hotfix tương phản nút chia sẻ dùng commit `534f0d2` và merge commit sản phẩm cuối `c992fda`. Kết quả trong chương này luôn ghi rõ SHA của từng đợt.
+Phiên bản cơ sở trước khi sửa tiêu đề là `955956b`. Mốc `463da37` ngày 25/11/2026 giữ kết quả của đợt title và hồ sơ học thuật ban đầu. Đợt tinh chỉnh UI đi qua PR #2 và merge commit `1c04cb1`; hotfix tương phản nút chia sẻ dùng merge commit `c992fda`. Thiết kế Premium Coastal Editorial dùng candidate `c79a5eb`, sửa cascade responsive bằng `92691a8` và được merge thành production chính thức `ec0d53f`. Kết quả trong chương này luôn ghi rõ SHA của từng đợt.
 
-Bộ 18 ảnh ngày 25/11/2026 tiếp tục là bằng chứng lịch sử của bản Release trên máy phát triển. Bản `1c04cb1` có thêm 13 ảnh production. Hotfix `c992fda` có một ảnh mới cho đúng trang chi tiết bị ảnh hưởng. Ba nhóm không thay thế lẫn nhau và đều giữ SHA cùng phạm vi kiểm tra.
+Bộ 18 ảnh ngày 25/11/2026, 13 ảnh `1c04cb1` và ảnh hotfix `c992fda` tiếp tục là bằng chứng lịch sử. Bản `ec0d53f` có 28 ảnh production, gồm 10 desktop, 10 mobile và 8 trạng thái tương tác. Các nhóm không thay thế lẫn nhau và đều giữ SHA cùng phạm vi kiểm tra.
 
 ### 4.1.2. Kiểm tra dữ liệu và dịch vụ
 
-Hai project restore thành công với SDK 10.0.100 trong kiểm tra trước phát hành. Bản app Release có 0 cảnh báo và 0 lỗi. Kết quả 14 test được xác minh trong máy phát triển và CI `45745648779` đúng SHA cuối `c992fda`. CI còn cài workload `wasm-tools`, relink môi trường thực thi, biên dịch native assets và chạy `wasm-opt`. Kiểm tra JSON đọc tám tệp hợp lệ. Các test bao gồm model, file ảnh, siêu dữ liệu trạng thái, tham chiếu điểm dừng và hành vi tải HTTP.
+Hai project restore thành công với SDK 10.0.100 trong kiểm tra trước phát hành. Bản app Release có 0 cảnh báo và 0 lỗi. Candidate cuối `92691a8` vượt qua 14 test trong CI `45775505092`; workflow còn cài workload `wasm-tools`, relink môi trường thực thi, biên dịch native assets và chạy `wasm-opt`. Pages `45775504992` triển khai merge SHA `ec0d53f`. Kiểm tra JSON đọc tám tệp hợp lệ. Các test bao gồm model, file ảnh, siêu dữ liệu trạng thái, tham chiếu điểm dừng và hành vi tải HTTP.
 
 !table|Kết quả xác minh kỹ thuật theo môi trường|0.38,0.31,0.31
 | Phép kiểm | Kết quả trên máy phát triển | Kết quả CI đúng SHA |
@@ -27,9 +27,9 @@ Tài liệu kiểm thử giúp nhận diện ranh giới mà test bao phủ. Ví
 
 Ở desktop, vùng chính của trang chủ đặt ảnh và thông điệp nhận diện cùng các lối đi nổi bật. Người đọc có thể chuyển mục bằng điều hướng phía trên. Trong các ảnh tablet và mobile, kích thước cột và cách đưa menu thay đổi để sử dụng được chiều rộng hẹp. Hai chế độ vẫn giữ mục tiêu nhận diện trang và đi tiếp sang nội dung chính. Ảnh chủ đạo dùng tài nguyên đã xác minh của Biển Ba Động [@ba-dong-photo]. Hình minh họa bố cục trên thiết bị giả lập, không đại diện cho số liệu khả dụng của tập người dùng.
 
-!figure|docs/evidence/screenshots/release-1c04cb1/01-home-desktop-1c04cb1.png|Trang chủ production ở vùng hiển thị 1440 × 900
+!figure|docs/evidence/screenshots/release-ec0d53f/desktop/home-1440x900.png|Trang chủ production cuối ở vùng hiển thị 1440 × 900
 
-!figure|docs/evidence/screenshots/release-1c04cb1/02-home-mobile-1c04cb1.png|Trang chủ production ở vùng hiển thị 390 × 844|10.5
+!figure|docs/evidence/screenshots/release-ec0d53f/mobile/home-390x844.png|Trang chủ production cuối ở vùng hiển thị 390 × 844|10.5
 
 Menu mobile được kiểm bằng thao tác phím. Trong đợt trên máy phát triển, Enter mở menu, nhìn thấy focus vào nút đóng, và Tab cùng Shift+Tab chuyển vòng trong dialog. Escape đóng menu và trở về nút ban đầu. Body khóa cuộn khi hộp thoại mở. Khi giả lập giảm chuyển động, thời lượng animation hero quan sát còn 0,01 ms. Ảnh menu ở Phụ lục E giúp đối chiếu bố cục, còn kết quả focus dựa trên kiểm tra DOM và thao tác, vì một ảnh tĩnh không chứng minh thứ tự tác vụ.
 
@@ -37,7 +37,7 @@ Menu mobile được kiểm bằng thao tác phím. Trong đợt trên máy phá
 
 Người đọc mở Khám phá để thấy các thẻ địa điểm và các điều khiển. Khi nhập hoàng hôn và hoang hon, kiểm tra ghi nhận cùng một thẻ `goc-ngam-hoang-hon`. Khi lọc Thiên nhiên, tập kết quả thu hẹp và vẫn còn mục. Khi dùng một chuỗi không khớp, vùng kết quả rỗng đưa ra cách xóa bộ lọc. Sau khi xóa, bảy thẻ xuất hiện. Phép kiểm giữ ba giai đoạn tách nhau: xác nhận lọc đúng, nhận thấy trạng thái rỗng, rồi xác nhận có thể khôi phục danh sách.
 
-!figure|docs/evidence/screenshots/release-1c04cb1/04-explore-1c04cb1.png|Danh mục Khám phá trên production sau đợt tinh chỉnh UI
+!figure|docs/evidence/screenshots/release-ec0d53f/desktop/explore-1440x900.png|Danh mục Khám phá trên production cuối
 
 Kiểm tra hỗ trợ bỏ dấu vẫn có giới hạn. Kết quả cho hai truy vấn đã nêu khớp, còn thuật toán không ánh xạ riêng đ/d. Một test dùng từ có đ và một test dùng dấu kết hợp sẽ đánh giá hai khía cạnh khác nhau. Mục truy vết của tìm kiếm vì vậy ở trạng thái một phần. Ảnh danh sách, kết quả tìm kiếm, danh mục đã chọn và chi tiết địa điểm nằm ở Phụ lục E.
 
@@ -47,17 +47,17 @@ Chi tiết địa điểm giữ lối mở bản đồ và nguồn ảnh. Khi đ
 
 Mục Ẩm thực có bốn món ở trạng thái ban đầu. Ở trên máy phát triển, bộ lọc Hải sản giảm từ bốn xuống một món, và nút Tất cả khôi phục bốn mục. Chi tiết Cua biển có tên món trong title và nhãn xuất xứ trong phần ảnh. Nội dung không dùng ảnh tham chiếu làm bằng chứng về món được bán tại Ba Động. Hai trạng thái danh sách và chi tiết được chụp riêng để có thể xem lại ngữ cảnh.
 
-!figure|docs/evidence/screenshots/release-1c04cb1/06-cuisine-1c04cb1.png;docs/evidence/screenshots/11-food-detail.png|Danh sách ẩm thực trên production và chi tiết món trong bộ lịch sử
+!figure|docs/evidence/screenshots/release-ec0d53f/desktop/cuisine-1440x900.png;docs/evidence/screenshots/11-food-detail.png|Danh sách ẩm thực production cuối và chi tiết món trong bộ lịch sử
 
 Thư viện cho phép mở ảnh lớn và đọc chú thích. Ở ca kiểm tra bàn phím trên máy phát triển, Enter từ thẻ mở hộp thoại. Mũi tên phải đổi ảnh và mũi tên trái khôi phục ảnh ban đầu. Escape đóng và trả focus về thẻ. Điều này xác nhận thao tác đã kiểm và lối trở về tương tác sau khi xem ảnh. Nguồn và giấy phép vẫn xuất hiện trong vùng caption của hộp thoại.
 
-!figure|docs/evidence/screenshots/release-1c04cb1/08-lightbox-1c04cb1.png|Hộp thoại ảnh production trên màn hình thấp với mô tả và thông tin nguồn|10.5
+!figure|docs/evidence/screenshots/release-ec0d53f/interactions/lightbox.png|Hộp thoại ảnh production cuối trên mobile với mô tả và thông tin nguồn|10.5
 
 ### 4.2.4. Cẩm nang, lịch trình và vị trí
 
 Cẩm nang để người đọc mở câu hỏi thường gặp và xem câu trả lời trong trang. Lượt trên máy phát triển kích hoạt FAQ bằng Enter và đọc đáp án hiển thị. Với lịch trình, lựa chọn tab thứ hai đưa bố cục sang gợi ý hai ngày và thuộc tính `aria-selected` trở thành true. Tham chiếu slug từ điểm dừng được luồng test dữ liệu kiểm tra. Kết hợp hai lớp kiểm tra giúp xác nhận cả thao tác chọn và tiền đề của đường dẫn.
 
-!figure|docs/evidence/screenshots/14-guide-faq.png;docs/evidence/screenshots/release-1c04cb1/09-itinerary-tabs-1c04cb1.png|FAQ trong bộ lịch sử và tab lịch trình production đã hoàn thiện quan hệ ARIA
+!figure|docs/evidence/screenshots/release-ec0d53f/interactions/faq-open.png;docs/evidence/screenshots/release-ec0d53f/interactions/itinerary-two-days.png|FAQ và tab lịch trình hai ngày trên production cuối
 
 Mục Vị trí đặt thông tin hành chính và liên kết Google Maps cùng phần dẫn nguồn. URL bản đồ đi ra dịch vụ ngoài và được đối chiếu ở mốc kiểm tra đường dẫn. Lịch trình không ước lượng giờ di chuyển theo lưu lượng thực tế. Người dùng có thể dùng lối mở bản đồ như điểm bắt đầu và tự kiểm tra lại đường đi khi lên kế hoạch. Ảnh trang Vị trí ở Phụ lục E.
 
@@ -75,11 +75,11 @@ Kiểm tra trên máy phát triển gồm bảy đường dẫn ở bốn chiề
 
 ### 4.3.2. Khả năng tiếp cận và đáp ứng
 
-Các lượt production trên bản `1c04cb1` ghi nhận heading, `main`, ngôn ngữ vi và không tràn ngang ở 52 ca route/viewport. Phạm vi bàn phím gồm mở và đóng menu mobile, cuộn nội bộ ở landscape, đổi ảnh và đóng lightbox, mở FAQ và điều khiển tab lịch trình. Mỗi `aria-controls` của tab trỏ tới một panel tồn tại. Panel không chọn có `hidden`; panel hoạt động có `aria-labelledby`; `aria-selected` và roving `tabindex` đổi đồng bộ. ArrowLeft, ArrowRight, Home và End không làm đổi vị trí cuộn trang. Hotfix `c992fda` chỉ chạy lại nhóm nút chia sẻ ở desktop và mobile, không chạy lại toàn bộ 52 ca.
+Ma trận production cuối trên `ec0d53f` ghi nhận heading, `main`, ngôn ngữ vi và không tràn ngang ở 48 tổ hợp route/viewport. Phạm vi tương tác gồm mở/đóng menu mobile, tìm kiếm, filter và reset, empty state, lightbox, FAQ, clipboard, focus restoration và tab lịch trình. Mỗi `aria-controls` của tab trỏ tới một panel tồn tại. Panel không chọn có `hidden`; panel hoạt động có `aria-labelledby`; `aria-selected` và roving `tabindex` đổi đồng bộ. ArrowLeft, ArrowRight, Home và End không làm đổi vị trí cuộn trang. Firefox, WebKit, axe-core, zoom 200% thực tế và screen reader vẫn chưa chạy.
 
 !table|Phạm vi kiểm tra giao diện và khả năng tiếp cận|0.39,0.61
 | Phần đã kiểm | Phạm vi và kết quả |
-| Tiêu đề, heading và landmark | Đạt ở 52 lượt production cuối. |
+| Tiêu đề, heading và landmark | Đạt ở 48/48 tổ hợp production `ec0d53f`. |
 | Vùng hiển thị | 320 × 568, 390 × 844, 768 × 1024 và 1440 × 900. Không quan sát tràn ngang. |
 | Bàn phím và focus | Menu, ảnh, FAQ, lịch trình, dialog và quay lại từ lỗi đạt trong các nhóm tương tác đã chạy. |
 | Giảm chuyển động | Quan sát media query và thời lượng animation hero khi giả lập. |
@@ -91,7 +91,7 @@ Mức đánh giá là một phần so với mục tiêu khả năng tiếp cận
 
 ### 4.4.1. Kết quả CI và Pages đúng phiên bản
 
-Mốc phát hành đầy đủ là `c992fda52dd0cb888b2bde5700e14f3628b38d3e`. [CI 45745648779](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45745648779) và [Pages 45745648732](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45745648732) đều thành công cho SHA này. Deployment `8075210041` hoàn tất ngày 26/11/2026. Runner xác nhận quy trình dựng và native publish; trình duyệt xác nhận CSS cùng trạng thái nút chia sẻ trên artifact đã triển khai.
+Mốc phát hành đầy đủ là `ec0d53f180570e59c084a9ce7f74aa89d5ee3abe`. [CI 45775505092](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45775505092) thành công cho candidate `92691a8`; [Pages 45775504992](https://github.com/anhpham1504/ASPNET-DK25TTC5-lehien-BADONG/actions/runs/45775504992) triển khai merge SHA cuối. Runner xác nhận Release build, 14 test và native publish; trình duyệt xác nhận artifact production ở 48/48 tổ hợp.
 
 !table|Tóm tắt kiểm tra trình duyệt theo môi trường|0.30,0.36,0.34
 | Môi trường | Đối tượng kiểm | Kết quả |
@@ -100,6 +100,7 @@ Mốc phát hành đầy đủ là `c992fda52dd0cb888b2bde5700e14f3628b38d3e`. [
 | Candidate UI trước sửa tab cuối | 126 tổ hợp local và 126 tổ hợp production | Bằng chứng lịch sử của candidate; không dùng để chứng minh merge SHA cuối. |
 | Bản `1c04cb1` trước hotfix | 52 lượt, 13 route × 4 viewport, cùng các nhóm tương tác | 52 lượt chức năng đạt. Bốn trang chủ HTTP 200; 48 direct deep link HTTP 404 rồi khôi phục đúng route. |
 | Hotfix cuối `c992fda` | Nút chia sẻ ở desktop và mobile | Normal, hover, focus, copied, touch, Enter, Space, clipboard, PageTitle và console đạt. Không chạy lại ma trận 52 lượt. |
+| Production cuối `ec0d53f` | 48 lượt, 12 route × 4 viewport; 19 URL sitemap sau app load | Không tràn ngang, ảnh/asset/JSON không hỏng trong phạm vi; interaction groups đạt; deep-link HTTP 404 ban đầu còn tồn tại. |
 
 Lượt kiểm tra nhanh trên bản công khai dùng Chrome Headless 158. Tại mỗi URL, phép kiểm đợi title và heading đúng sau môi trường thực thi, xác nhận thẻ title duy nhất và theo dõi yêu cầu tài nguyên. CSS, JavaScript, WebAssembly, JSON và ảnh có phản hồi thành công ở lượt hoàn tất. Không ghi nhận lỗi JavaScript, lỗi yêu cầu asset/JSON hoặc lỗi console ngoài 404 của tài liệu được dự kiến. Chromium có hủy một số yêu cầu khi điều hướng. Các lượt ghi nhận được trình bày riêng trong hồ sơ phát hành. Phạm vi đánh giá giới hạn ở các đường dẫn và tài nguyên quan sát trong từng lượt.
 
@@ -107,9 +108,9 @@ Một URL ở lớp ứng dụng có thể hoạt động với người đọc 
 
 ### 4.4.2. Số liệu gói triển khai và giới hạn hiệu năng
 
-CI của mốc phát hành báo 43 framework resources. Tổng dung lượng Brotli của thư mục framework là 2.826.655 byte. Tệp native runtime WASM chưa nén có kích thước 2.900.443 byte và bản Brotli của tệp này là 931.222 byte. Các đại lượng mô tả artifact theo phương pháp của workflow, không phải số byte thực tải của một phiên truy cập và không dùng để cộng thành tổng.
+CI của mốc phát hành báo 43 framework resources. Tổng dung lượng Brotli của thư mục framework là 2.826.634 byte. Tệp native runtime WASM chưa nén có kích thước 2.900.443 byte và bản Brotli của tệp này là 931.222 byte. Các đại lượng mô tả artifact theo phương pháp của workflow, không phải số byte thực tải của một phiên truy cập và không dùng để cộng thành tổng.
 
-Đợt phát hành chưa đo Lighthouse, Web Vitals hoặc thời gian khởi động chuẩn hóa. Không có kết quả để so sánh tốc độ theo device hoặc mức mạng. Các kiểm tra tải asset và JSON nhằm xác nhận đường dẫn đang phục vụ được. Phép đo hiệu năng, nếu bổ sung, cần chọn trình duyệt, vùng hiển thị, mức mô phỏng mạng, trạng thái bộ nhớ đệm và số lần lặp, sau đó lưu kết quả cùng SHA.
+Một phép so sánh lịch sử dùng median 5 lượt local Release, Chrome 1440 × 900, có warm-up và chạy xen kẽ Before/After. Before/After lần lượt là LCP 988/1.028 ms, CLS 0,00083/0,00106, FCP 236/276 ms và load event 625/654 ms. Đây không phải phép đo production cuối và chênh lệch nhỏ theo hướng tăng không được gọi là cải thiện. Đợt phát hành không có Lighthouse, TBT hoặc INP.
 
 ## 4.5. Đánh giá kết quả
 

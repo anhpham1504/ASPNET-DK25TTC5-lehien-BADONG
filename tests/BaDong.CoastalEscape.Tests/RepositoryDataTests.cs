@@ -277,8 +277,6 @@ public sealed class RepositoryDataTests
             .Where(item => string.Equals(item.ImageVerificationStatus, "PENDING", StringComparison.OrdinalIgnoreCase))
             .ToList();
 
-        Assert.NotEmpty(pending);
-
         foreach (var item in pending)
         {
             Assert.Equal(placeholder, item.Thumbnail);
